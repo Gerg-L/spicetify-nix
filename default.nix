@@ -31,7 +31,7 @@ let
   spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
   spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
 
-  themes = pkgs.callPackage ./themes.nix {};
+  themes = import ./themes-src.nix;
 
   # Dribblish is a theme which needs a couple extra settings
   isDribblish = theme == "Dribbblish";
