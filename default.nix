@@ -2,6 +2,9 @@
   pkgs ? import <nixpkgs> {},
   theme ? "SpicetifyDefault",
   colorScheme ? "",
+  thirdParyThemes ? {},
+  thirdParyExtensions ? {},
+  thirdParyCustomApps ? {},
   enabledExtensions ? [],
   enabledCustomApps ? [],
   spotifyLaunchFlags ? "",
@@ -25,9 +28,15 @@
 
 let
   inherit (pkgs.lib.lists) foldr;
-  pipeConcat = foldr (a: b: a + "|" + b) "";
-  boolToString = x: if x then "1" else "0";
+  inherit (pkgs.lib.attrsets) mapAttrsToList;
 
+  # Helper functions
+  pipeConcat = foldr (a: b: a + "|" + b) "";
+  lineBreakConcat = foldr (a: b: a + "\n" + b) "";
+  boolToString = x: if x then "1" else "0";
+  makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
+
+  # Setup spicetify
   spicetifyPkg = pkgs.callPackage ./spicetify.nix {};
   spicetify = "SPICETIFY_CONFIG=. ${spicetifyPkg}/spicetify";
 
@@ -35,7 +44,13 @@ let
 
   # Dribblish is a theme which needs a couple extra settings
   isDribblish = theme == "Dribbblish";
-  extraCommands = if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions" else "";
+  
+  extraCommands = (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
+    + (lineBreakConcat (makeLnCommands "Themes" thirdParyThemes))
+    + (lineBreakConcat (makeLnCommands "Extensions" thirdParyExtensions))
+    + (lineBreakConcat (makeLnCommands "CustomApps" thirdParyCustomApps));
+
+  customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
   
   injectCss = boolToString (isDribblish || injectCss);
   replaceColors = boolToString (isDribblish || replaceColors);
@@ -49,8 +64,9 @@ pkgs.spotify.overrideAttrs (oldAttrs: rec {
     touch $out/prefs
     mkdir Themes
     mkdir Extensions
+    mkdir CustomApps
 
-    find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;  
+    find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
     ${extraCommands}
     
     ${spicetify} config \
@@ -94,5 +110,8 @@ pkgs.spotify.overrideAttrs (oldAttrs: rec {
       lyric_force_no_sync ${boolToString lyricForceNoSync }
 
     ${spicetify} backup apply
+
+    cd $out/share/spotify
+    ${customAppsFixupCommands}
   '';
 })
