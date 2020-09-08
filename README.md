@@ -3,7 +3,6 @@
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
 
 Currently only supports changing the theme to a theme from [spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes).
-Also supports enabling the bundled extensions and custom apps.
 
 Usage:
 ```
@@ -15,5 +14,7 @@ pkgs.callPackage (import (fetchTarball https://github.com/pietdevries94/spicetif
   enabledExtensions = ["newRelease.js"];
 }
 ```
+
+For all available options, check default.nix
 
 Both theme and colorScheme are optional.

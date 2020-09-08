@@ -4,9 +4,23 @@
   colorScheme ? "",
   enabledExtensions ? [],
   enabledCustomApps ? [],
+  spotifyLaunchFlags ? "",
   injectCss ? false,
   replaceColors ? false,
   overwriteAssets ? false,
+  disableSentry ? true,
+  disableUiLogging ? true,
+  removeRtlRule ? true,
+  exposeApis ? true,
+  disableUpgradeCheck ? true,
+  fastUserSwitching ? false,
+  visualizationHighFramerate ? false,
+  radio ? false,
+  songPage ? false,
+  experimentalFeatures ? false,
+  home ? false,
+  lyricAlwaysShow ? false,
+  lyricForceNoSync ? false
 }:
 
 let
@@ -33,7 +47,11 @@ in
 pkgs.spotify.overrideAttrs (oldAttrs: rec {
   postInstall=''
     touch $out/prefs
-    ln -s ${themes} Themes
+    mkdir Themes
+    mkdir Extensions
+
+    find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;  
+    ${extraCommands}
     
     ${spicetify} config \
       spotify_path "$out/share/spotify" \
@@ -52,11 +70,28 @@ pkgs.spotify.overrideAttrs (oldAttrs: rec {
           ''custom_apps "${customAppsString}" \'' 
         else 
           ''\'' }
+      ${if
+          spotifyLaunchFlags != ""
+        then 
+          ''spotify_launch_flags "${spotifyLaunchFlags}" \'' 
+        else 
+          ''\'' }
       inject_css ${injectCss} \
       replace_colors ${replaceColors} \
-      overwrite_assets ${overwriteAssets}
-
-    ${extraCommands}
+      overwrite_assets ${overwriteAssets} \
+      disable_sentry ${boolToString disableSentry } \
+      disable_ui_logging ${boolToString disableUiLogging } \
+      remove_rtl_rule ${boolToString removeRtlRule } \
+      expose_apis ${boolToString exposeApis } \
+      disable_upgrade_check ${boolToString disableUpgradeCheck } \
+      fastUser_switching ${boolToString fastUserSwitching } \
+      visualization_high_framerate ${boolToString visualizationHighFramerate } \
+      radio ${boolToString radio } \
+      song_page ${boolToString songPage } \
+      experimental_features ${boolToString experimentalFeatures } \
+      home ${boolToString home } \
+      lyric_always_show ${boolToString lyricAlwaysShow } \
+      lyric_force_no_sync ${boolToString lyricForceNoSync }
 
     ${spicetify} backup apply
   '';
