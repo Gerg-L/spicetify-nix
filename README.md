@@ -60,6 +60,7 @@ pkgs.callPackage (import "${spicetify}/package.nix") {
 
 To add third-party themes, extensions or custom apps use `thirdParyThemes`, `thirdParyExtensions` or `thirdParyCustomApps`. These expect a set, where the key is the name of the new theme/extension and the value the path. Don't forget to enable it seperatly.
 
-For all available options, check default.nix.
+For all available options, check module.nix or package.nix and the spicetify repo. Everything is optional and will revert to the defaults from spicetify.
 
-Both theme and colorScheme are optional.
+## macOS
+This package has no macOS support, because Spotify in nixpkgs has no macOS support.
