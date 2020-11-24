@@ -52,9 +52,9 @@ let
 
   customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
   
-  injectCss = boolToString (isDribblish || injectCss);
-  replaceColors = boolToString (isDribblish || replaceColors);
-  overwriteAssets = boolToString (isDribblish || overwriteAssets);
+  injectCssOrDribblish = boolToString (isDribblish || injectCss);
+  replaceColorsOrDribblish = boolToString (isDribblish || replaceColors);
+  overwriteAssetsOrDribblish = boolToString (isDribblish || overwriteAssets);
 
   extensionString = pipeConcat ((if isDribblish then [ "dribbblish.js" ] else []) ++ enabledExtensions);
   customAppsString = pipeConcat enabledCustomApps;
@@ -92,9 +92,9 @@ pkgs.spotify.overrideAttrs (oldAttrs: rec {
           ''spotify_launch_flags "${spotifyLaunchFlags}" \'' 
         else 
           ''\'' }
-      inject_css ${injectCss} \
-      replace_colors ${replaceColors} \
-      overwrite_assets ${overwriteAssets} \
+      inject_css ${injectCssOrDribblish} \
+      replace_colors ${replaceColorsOrDribblish} \
+      overwrite_assets ${overwriteAssetsOrDribblish} \
       disable_sentry ${boolToString disableSentry } \
       disable_ui_logging ${boolToString disableUiLogging } \
       remove_rtl_rule ${boolToString removeRtlRule } \
