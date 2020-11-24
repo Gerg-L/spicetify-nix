@@ -73,7 +73,12 @@ pkgs.spotify.overrideAttrs (oldAttrs: rec {
       spotify_path "$out/share/spotify" \
       prefs_path "$out/prefs" \
       current_theme ${theme} \
-      color_scheme ${colorScheme} \
+      ${if 
+          colorScheme != ""
+        then 
+          ''color_scheme "${colorScheme}" \'' 
+        else 
+          ''\'' }
       ${if 
           extensionString != ""
         then 
