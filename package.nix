@@ -59,7 +59,7 @@ let
   extensionString = pipeConcat ((if isDribblish then [ "dribbblish.js" ] else []) ++ enabledExtensions);
   customAppsString = pipeConcat enabledCustomApps;
 in
-pkgs.spotify.overrideAttrs (oldAttrs: rec {
+pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
   postInstall=''
     touch $out/prefs
     mkdir Themes
