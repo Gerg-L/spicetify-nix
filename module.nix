@@ -129,7 +129,7 @@ in
         boolToString = x: if x then "1" else "0";
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
         # Setup spicetify and themes
-        spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/spicetify";
+        spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
         themes = cfg.themesSrc;
 
         # Dribblish is a theme which needs a couple extra settings
