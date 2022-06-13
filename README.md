@@ -1,5 +1,11 @@
 # Spicetify-Nix
 
+# Warning: currently nonfunctional, WIP
+The project I forked this from invoked spicetify-cli in order to change
+configuration values. I'm going to have to switch to an ini generator
+instead, because spicetify auto-generates the config ini if it's not there
+(and seems to always use the default configuration values).
+
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
 
 [spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are included and available, including Dribblish.
