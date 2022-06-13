@@ -15,8 +15,8 @@
     {
       homeManagerModule = import ./module.nix {
         inherit self;
-        inherit config;
-        inherit lib;
+        config = nixpkgs.config;
+        lib = nixpkgs.lib;
         pkgs = flake-utils.lib.eachDefaultSystem (system:
           import nixpkgs { inherit system; }
         );
