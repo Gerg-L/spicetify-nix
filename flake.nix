@@ -12,14 +12,12 @@
   };
 
   outputs = { self, flake-utils, nixpkgs, spicetify-themes, ... }@inputs:
+    let
+      pkgs = flake-utils.lib.eachDefaultSystem (system:
+        import nixpkgs { inherit system; }
+      );
+    in
     {
-      homeManagerModule = import ./module.nix {
-        inherit self;
-        lib = nixpkgs.lib;
-        pkgs = flake-utils.lib.eachDefaultSystem (system:
-          import nixpkgs { inherit system; }
-        );
-        inherit spicetify-themes;
-      };
+      homeManagerModule = import ./module.nix;
     };
 }
