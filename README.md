@@ -4,8 +4,17 @@ Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli)
 
 [spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are included and available, including Dribblish.
 
-Usage as a home-manager module:
+To use, add this flake to your home-manager configuration flake inputs, like so:
 ```nix
+spicetify-nix = {
+  url = "github:the-argus/spicetify-nix";
+  inputs.nixpkgs.follows = "nixpkgs";
+};
+```
+
+An example of a file which configures spicetify when imported:
+```nix
+{ pkgs, spicetify-nix }:
 let
   av = pkgs.fetchFromGitHub {
     owner = "amanharwara";
@@ -13,13 +22,10 @@ let
     rev = "d7f7962724b567a8409ef2898602f2c57abddf5a";
     sha256 = "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass";
   };
-
-  # fetchFromGitHub should work too
-  spicetify = fetchTarball https://github.com/pietdevries94/spicetify-nix/archive/master.tar.gz;
 in
 # The module is meant to be imported by the user
 home-manager.users.piet = {
-  imports = [ (import "${spicetify}/module.nix") ];
+  imports = [ (import "${spicetify-nix}/module.nix") ];
 
   programs.spicetify = {
     enable = true;
@@ -30,30 +36,6 @@ home-manager.users.piet = {
     thirdParyExtensions = {
       "autoVolume.js" = "${av}/autoVolume.js";
     };
-  };
-}
-```
-
-Usage as a package:
-```nix
-let
-  av = pkgs.fetchFromGitHub {
-    owner = "amanharwara";
-    repo = "spicetify-autoVolume";
-    rev = "d7f7962724b567a8409ef2898602f2c57abddf5a";
-    sha256 = "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass";
-  };
-
-  spicetify = fetchTarball https://github.com/pietdevries94/spicetify-nix/archive/master.tar.gz;
-in
-pkgs.callPackage (import "${spicetify}/package.nix") {
-  inherit pkgs;
-  theme = "Dribbblish";
-  colorScheme = "horizon";
-  enabledCustomApps = ["reddit"];
-  enabledExtensions = ["newRelease.js" "autoVolume.js"];
-  thirdParyExtensions = {
-    "autoVolume.js" = "${av}/autoVolume.js";
   };
 }
 ```
