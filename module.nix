@@ -16,9 +16,7 @@ in
       default = builtins.fetchGit {
         url = "https://github.com/morpheusthewhite/spicetify-themes";
         rev = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
-        sha256 = "05c93cckamdiqy9d8yqbl4laf44cj6x6702ldpxc50nqwm6r38mz";
-        # fetchSubmodules = false;
-        # leaveDotGit = false;
+        submodules = true;
       };
       description = "A package which contains, at its root, a Themes directory,
         which should be copied into the spicetify themes directory.";
