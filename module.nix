@@ -158,8 +158,8 @@ in
             mkdir CustomApps
             
             # unfortunately requires root permissions
-            ${pkgs.sudo}/bin/sudo ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
-            ${pkgs.sudo}/bin/sudo ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify/Apps
+            ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
+            ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify/Apps
 
             find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
             ${extraCommands}
