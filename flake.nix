@@ -3,15 +3,22 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    flake-utils.url = github:numtide/flake-utils;
 
     spicetify-themes = {
-        url = "github:morpheusthewhite/spicetify-themes";
-        flake = false;
+      url = "github:morpheusthewhite/spicetify-themes";
+      flake = false;
     };
   };
 
-  outputs = { self, nixpkgs, spicetify-themes, ... }@inputs:
+  outputs = { self, flake-utils, nixpkgs, spicetify-themes, ... }@inputs:
     {
-      homeManagerModule = import ./module.nix self;
+      homeManagerModule = import ./module.nix {
+        inherit self;
+        pkgs = flake-utils.lib.eachDefaultSystem (system:
+          import nixpkgs { inherit system; }
+        );
+        inherit spicetify-themes;
+      };
     };
 }
