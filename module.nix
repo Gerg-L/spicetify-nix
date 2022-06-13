@@ -161,7 +161,7 @@ in
             ${extraCommands}
     
             ${spicetify} config \
-              spotify_path "$out/share/spotify" \
+              spotify_path "$out/bin/spotify" \
               prefs_path "$out/prefs" \
               current_theme ${theme} \
               ${if 
