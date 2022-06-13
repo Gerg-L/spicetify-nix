@@ -136,7 +136,7 @@ in
 
         extensionString = pipeConcat ((if isDribblish then [ "dribbblish.js" ] else [ ]) ++ enabledExtensions);
         customAppsString = pipeConcat enabledCustomApps;
-        
+
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
           postInstall = ''
@@ -204,17 +204,6 @@ in
         spiced-spotify-unwrapped
         pkgs.spicetify-cli
       ];
-
-    # install themes into configuration directory
-    home.file = {
-      ".config/spicetify/Themes" = {
-        source = spicetify-themes;
-        recursive = true;
-      };
-    };
-
-    # create postInstall script which will set up spotify according to prefs
-
   };
 }
 
