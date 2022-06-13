@@ -133,7 +133,7 @@ in
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
         # Setup spicetify and themes
         spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/spicetify";
-        themes = themesSrc;
+        themes = cfg.themesSrc;
 
         # Dribblish is a theme which needs a couple extra settings
         isDribblish = theme == "Dribbblish";
