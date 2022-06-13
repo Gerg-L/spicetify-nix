@@ -5,17 +5,13 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
     spicetify-themes = {
-      url = "github:morpheusthewhite/spicetify-themes";
-      flake = false;
+        url = "github:morpheusthewhite/spicetify-themes";
+        flake = false;
     };
   };
 
   outputs = { self, nixpkgs, spicetify-themes, ... }@inputs:
     {
-      homeManagerModule = import ./module.nix {
-        inherit self;
-        inherit nixpkgs;
-        inherit spicetify-themes;
-      };
+      homeManagerModule = import ./module.nix self;
     };
 }
