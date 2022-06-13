@@ -118,7 +118,7 @@ in
 
   config = mkIf cfg.enable {
     # install necessary packages for this user
-    home.packages =
+    home.packages = with cfg;
       let
         inherit (pkgs.lib.lists) foldr;
         inherit (pkgs.lib.attrsets) mapAttrsToList;
