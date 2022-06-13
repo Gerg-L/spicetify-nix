@@ -1,4 +1,4 @@
-{ lib, pkgs, config, spicetify-themes, ... }:
+{ lib, pkgs, config, ... }:
 with lib;
 let
   cfg = config.programs.spicetify;
@@ -10,6 +10,21 @@ in
       type = types.str;
       default = "SpicetifyDefault";
     };
+
+    themesSrc = mkOption {
+      type = types.package;
+      default = builtins.fetchGit {
+        url = "https://github.com/morpheusthewhite/spicetify-themes";
+        rev = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
+        sha256 = "05c93cckamdiqy9d8yqbl4laf44cj6x6702ldpxc50nqwm6r38mz";
+        fetchSubmodules = false;
+        deepClone = false;
+        leaveDotGit = false;
+      };
+      description = "A package which contains, at its root, a Themes directory,
+        which should be copied into the spicetify themes directory.";
+    };
+
     colorScheme = mkOption {
       type = types.str;
       default = "";
@@ -118,7 +133,7 @@ in
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
         # Setup spicetify and themes
         spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/spicetify";
-        themes = spicetify-themes;
+        themes = themesSrc;
 
         # Dribblish is a theme which needs a couple extra settings
         isDribblish = theme == "Dribbblish";

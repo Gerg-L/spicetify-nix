@@ -4,13 +4,13 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    spicetify-themes = {
-      url = "github:morpheusthewhite/spicetify-themes";
-      flake = false;
-    };
+    # spicetify-themes = {
+    #   url = "github:morpheusthewhite/spicetify-themes";
+    #   flake = false;
+    # };
   };
 
-  outputs = { self, nixpkgs, spicetify-themes, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     {
       homeManagerModule = import ./module.nix;
     };
