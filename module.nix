@@ -117,6 +117,71 @@ in
   };
 
   config = mkIf cfg.enable {
+    xdg.configFile.".spicetify/config-xpui.ini".text =
+      let
+
+        # turn certain values on by default if we know the theme needs it
+        isDribblish = cfg.theme == "Dribblish";
+        isTurntable = cfg.theme == "Turntable";
+        injectCSSReal = boolToString (isDribblish || cfg.injectCss);
+        replaceColorsReal = boolToString (isDribblish || cfg.replaceColors);
+        overwriteAssetsReal = boolToString (isDribblish || cfg.overwriteAssets);
+
+
+        pipeConcat = foldr (a: b: a + "|" + b) "";
+        extensionString = pipeConcat (
+          (if isDribblish then [ "dribbblish.js" ] else [ ])
+          ++ (if isTurntable then [ "turntable.js" ] else [ ])
+          ++ enabledExtensions
+        );
+        customAppsString = pipeConcat cfg.enabledCustomApps;
+
+        customToINI = lib.generators.toINI {
+          # specifies how to format a key/value pair
+          mkKeyValue = lib.generators.mkKeyValueDefault
+            {
+              # specifies the generated string for a subset of nix values
+              mkValueString = v:
+                if v == true then 1
+                else if v == false then 0
+                else if isString v then ''"${v}"''
+                # and delegats all other values to the default generator
+                else lib.generators.mkValueStringDefault { } v;
+            } ":";
+        };
+      in
+      customToINI {
+        AdditionalOptions = {
+          home = cfg.home;
+          experimental_features = cfg.experimentalFeatures;
+          extensions = extensionString;
+          custom_apps = customAppsString;
+          sidebar_config = 1; # i dont know what this does
+        };
+        Patch = { };
+        Setting = {
+          spotify_path = "${pkgs.spotify-unwrapped}" /share/spotify;
+          prefs_path = "${config.home.homeDirectory}" /.config/spotify/prefs;
+          current_theme = cfg.theme;
+          color_scheme = cfg.colorScheme;
+          spotify_launch_flags = cfg.spotifyLaunchFlags;
+          check_spicetify_upgrade = 0;
+          inject_css = injectCSSReal;
+          replace_colors = replaceColorsReal;
+          overwrite_assets = overwriteAssetsReal;
+        };
+        Preprocesses = {
+          disable_upgrade_check = cfg.disableUpgradeCheck;
+          disable_sentry = cfg.disableSentry;
+          disable_ui_logging = cfg.disableUiLogging;
+          remove_rtl_rule = cfg.removeRtlRule;
+          expose_apis = cfg.exposeApis;
+        };
+        Backup = {
+          version = pkgs.spotify-unwrapped.version;
+          "with" = "Dev";
+        };
+      };
     # install necessary packages for this user
     home.packages = with cfg;
       let
@@ -124,30 +189,24 @@ in
         inherit (pkgs.lib.attrsets) mapAttrsToList;
 
         # Helper functions
-        pipeConcat = foldr (a: b: a + "|" + b) "";
         lineBreakConcat = foldr (a: b: a + "\n" + b) "";
         boolToString = x: if x then "1" else "0";
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
-        # Setup spicetify and themes
-        spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
-        themes = cfg.themesSrc;
 
         # Dribblish is a theme which needs a couple extra settings
         isDribblish = theme == "Dribbblish";
+        isTurntable = theme == "Turntable";
 
-        extraCommands = (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
+        spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
+
+        extraCommands =
+          (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
+          + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
           + (lineBreakConcat (makeLnCommands "Themes" thirdParyThemes))
           + (lineBreakConcat (makeLnCommands "Extensions" thirdParyExtensions))
           + (lineBreakConcat (makeLnCommands "CustomApps" thirdParyCustomApps));
 
         customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
-
-        injectCssOrDribblish = boolToString (isDribblish || injectCss);
-        replaceColorsOrDribblish = boolToString (isDribblish || replaceColors);
-        overwriteAssetsOrDribblish = boolToString (isDribblish || overwriteAssets);
-
-        extensionString = pipeConcat ((if isDribblish then [ "dribbblish.js" ] else [ ]) ++ enabledExtensions);
-        customAppsString = pipeConcat enabledCustomApps;
 
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
@@ -157,58 +216,13 @@ in
             mkdir Extensions
             mkdir CustomApps
             
-            # unfortunately requires root permissions
+            # idk if this is neccessary, this whole script should be r/w right?
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify/Apps
 
-            find ${themes} -maxdepth 1 -type d -exec ln -s {} Themes \;
-            ${extraCommands}
+            find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+            ${cfg.extraCommands}
     
-            ${spicetify} config \
-              spotify_path "$out/bin/spotify" \
-              prefs_path "$out/prefs" \
-              current_theme ${theme} \
-              ${if 
-                  colorScheme != ""
-                then 
-                  ''color_scheme "${colorScheme}" \'' 
-                else 
-                  ''\'' }
-              ${if 
-                  extensionString != ""
-                then 
-                  ''extensions "${extensionString}" \'' 
-                else 
-                  ''\'' }
-              ${if
-                  customAppsString != ""
-                then 
-                  ''custom_apps "${customAppsString}" \'' 
-                else 
-                  ''\'' }
-              ${if
-                  spotifyLaunchFlags != ""
-                then 
-                  ''spotify_launch_flags "${spotifyLaunchFlags}" \'' 
-                else 
-                  ''\'' }
-              inject_css ${injectCssOrDribblish} \
-              replace_colors ${replaceColorsOrDribblish} \
-              overwrite_assets ${overwriteAssetsOrDribblish} \
-              disable_sentry ${boolToString disableSentry } \
-              disable_ui_logging ${boolToString disableUiLogging } \
-              remove_rtl_rule ${boolToString removeRtlRule } \
-              expose_apis ${boolToString exposeApis } \
-              disable_upgrade_check ${boolToString disableUpgradeCheck } \
-              fastUser_switching ${boolToString fastUserSwitching } \
-              visualization_high_framerate ${boolToString visualizationHighFramerate } \
-              radio ${boolToString radio } \
-              song_page ${boolToString songPage } \
-              experimental_features ${boolToString experimentalFeatures } \
-              home ${boolToString home } \
-              lyric_always_show ${boolToString lyricAlwaysShow } \
-              lyric_force_no_sync ${boolToString lyricForceNoSync }
-
             ${spicetify} backup apply
 
             cd $out/share/spotify
