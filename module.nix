@@ -150,7 +150,7 @@ in
         extensionString = pipeConcat (
           (if isDribblish then [ "dribbblish.js" ] else [ ])
           ++ (if isTurntable then [ "turntable.js" ] else [ ])
-          ++ enabledExtensions
+          ++ cfg.enabledExtensions
         );
         customAppsString = pipeConcat cfg.enabledCustomApps;
 
