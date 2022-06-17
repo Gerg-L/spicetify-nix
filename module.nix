@@ -168,7 +168,7 @@ in
             } ":";
         };
         
-        config-xpui = builtins.toFile "config-xpui.ini" customToINI {
+        config-xpui = builtins.toFile "config-xpui.ini" (customToINI {
           AdditionalOptions = {
             home = cfg.home;
             experimental_features = cfg.experimentalFeatures;
@@ -199,7 +199,7 @@ in
             version = cfg.spotifyPackage.version;
             "with" = "Dev";
           };
-        };
+        });
 
         # INI created, now create the postInstall that runs spicetify
 
