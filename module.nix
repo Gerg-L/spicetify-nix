@@ -202,9 +202,10 @@ in
         });
         
         # turn the ini file into a bunch of append commands
+        rem = lib.lists.remove;
         config-xpui-split = lib.strings.splitString "\n" config-xpui;
-        config-xpui-commands-split = lib.lists.remove "\n"
-            (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split);
+        config-xpui-commands-split = rem " " (rem "" (rem "\n"
+            (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split)));
         config-xpui-commands = builtins.concatStringsSep "\n"  config-xpui-commands-split;
 
         # INI created, now create the postInstall that runs spicetify
