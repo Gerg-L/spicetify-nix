@@ -34,6 +34,12 @@ in
         which should be copied into the spicetify themes directory.";
     };
 
+    extraCommands = mkOption {
+        type = types.lines;
+        default = "";
+        description = "Extra commands to be run during the setup of spicetify.";
+    };
+
     colorScheme = mkOption {
       type = types.str;
       default = "";
@@ -234,6 +240,7 @@ in
 
             find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
             ${cfg.extraCommands}
+            ${extraCommands}
     
             ${spicetify} backup apply
 
