@@ -12,15 +12,15 @@ in
     };
 
     spotifyPackage = mkOption {
-        type = types.package;
-        default = pkgs.spotify-unwrapped;
-        description = "The nix package containing Spotify Desktop.";
+      type = types.package;
+      default = pkgs.spotify-unwrapped;
+      description = "The nix package containing Spotify Desktop.";
     };
 
     spicetifyPackage = mkOption {
-        type = types.package;
-        default = pkgs.spicetify-cli;
-        description = "The nix package containing spicetify-cli.";
+      type = types.package;
+      default = pkgs.spicetify-cli;
+      description = "The nix package containing spicetify-cli.";
     };
 
     themesSrc = mkOption {
@@ -35,9 +35,9 @@ in
     };
 
     extraCommands = mkOption {
-        type = types.lines;
-        default = "";
-        description = "Extra commands to be run during the setup of spicetify.";
+      type = types.lines;
+      default = "";
+      description = "Extra commands to be run during the setup of spicetify.";
     };
 
     colorScheme = mkOption {
@@ -135,9 +135,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile."spicetify/config-xpui.ini".text =
+    # install necessary packages for this user
+    home.packages = with cfg;
       let
-
         # turn certain values on by default if we know the theme needs it
         isDribblish = cfg.theme == "Dribblish";
         isTurntable = cfg.theme == "Turntable";
@@ -167,42 +167,42 @@ in
                 else lib.generators.mkValueStringDefault { } v;
             } ":";
         };
-      in
-      customToINI {
-        AdditionalOptions = {
-          home = cfg.home;
-          experimental_features = cfg.experimentalFeatures;
-          extensions = extensionString;
-          custom_apps = customAppsString;
-          sidebar_config = 1; # i dont know what this does
+        
+        config-xpui = customToINI {
+          AdditionalOptions = {
+            home = cfg.home;
+            experimental_features = cfg.experimentalFeatures;
+            extensions = extensionString;
+            custom_apps = customAppsString;
+            sidebar_config = 1; # i dont know what this does
+          };
+          Patch = { };
+          Setting = {
+            spotify_path = "${cfg.spotifyPackage}/share/spotify";
+            prefs_path = "${config.home.homeDirectory}/.config/spotify/prefs";
+            current_theme = cfg.theme;
+            color_scheme = cfg.colorScheme;
+            spotify_launch_flags = cfg.spotifyLaunchFlags;
+            check_spicetify_upgrade = 0;
+            inject_css = injectCSSReal;
+            replace_colors = replaceColorsReal;
+            overwrite_assets = overwriteAssetsReal;
+          };
+          Preprocesses = {
+            disable_upgrade_check = cfg.disableUpgradeCheck;
+            disable_sentry = cfg.disableSentry;
+            disable_ui_logging = cfg.disableUiLogging;
+            remove_rtl_rule = cfg.removeRtlRule;
+            expose_apis = cfg.exposeApis;
+          };
+          Backup = {
+            version = cfg.spotifyPackage.version;
+            "with" = "Dev";
+          };
         };
-        Patch = { };
-        Setting = {
-          spotify_path = "${cfg.spotifyPackage}/share/spotify";
-          prefs_path = "${config.home.homeDirectory}/.config/spotify/prefs";
-          current_theme = cfg.theme;
-          color_scheme = cfg.colorScheme;
-          spotify_launch_flags = cfg.spotifyLaunchFlags;
-          check_spicetify_upgrade = 0;
-          inject_css = injectCSSReal;
-          replace_colors = replaceColorsReal;
-          overwrite_assets = overwriteAssetsReal;
-        };
-        Preprocesses = {
-          disable_upgrade_check = cfg.disableUpgradeCheck;
-          disable_sentry = cfg.disableSentry;
-          disable_ui_logging = cfg.disableUiLogging;
-          remove_rtl_rule = cfg.removeRtlRule;
-          expose_apis = cfg.exposeApis;
-        };
-        Backup = {
-          version = cfg.spotifyPackage.version;
-          "with" = "Dev";
-        };
-      };
-    # install necessary packages for this user
-    home.packages = with cfg;
-      let
+
+        # INI created, now create the postInstall that runs spicetify
+
         inherit (pkgs.lib.lists) foldr;
         inherit (pkgs.lib.attrsets) mapAttrsToList;
 
@@ -233,6 +233,7 @@ in
             mkdir Themes
             mkdir Extensions
             mkdir CustomApps
+            echo ${config-xpui} > config-xpui.ini
             
             # idk if this is neccessary, this whole script should be r/w right?
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
