@@ -229,7 +229,10 @@ in
             mkdir Themes
             mkdir Extensions
             mkdir CustomApps
-            echo "${config-xpui}" > config-xpui.ini
+
+            # make config ini from nix string
+            CONFIG_XPUI="${lib.string.escape [ "\n" ] config-xpui}" 
+            echo $CONFIG_XPUI > config-xpui.ini
             
             # idk if this is neccessary, this whole script should be r/w right?
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
