@@ -233,7 +233,7 @@ in
             mkdir Extensions
             mkdir CustomApps
 
-            rm config-xpui.ini
+            rm -f config-xpui.ini
             # make config ini from nix string
             ${config-xpui-commands}
             
