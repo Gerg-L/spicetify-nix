@@ -178,7 +178,7 @@ in
         };
         Patch = { };
         Setting = {
-          spotify_path = "${cfg.spotifyPackage}" /share/spotify;
+          spotify_path = "${cfg.spotifyPackage}/share/spotify";
           prefs_path = "${config.home.homeDirectory}/.config/spotify/prefs";
           current_theme = cfg.theme;
           color_scheme = cfg.colorScheme;
