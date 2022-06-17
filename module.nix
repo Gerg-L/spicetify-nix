@@ -204,8 +204,8 @@ in
         # turn the ini file into a bunch of append commands
         rem = lib.lists.remove;
         config-xpui-split = lib.strings.splitString "\n" config-xpui;
-        config-xpui-commands-split = (rem "\n"
-            (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split));
+        config-xpui-commands-split =
+            (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split);
         
         # print state of config-xpui-commands-split
         tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
