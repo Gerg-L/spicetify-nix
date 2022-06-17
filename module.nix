@@ -208,6 +208,8 @@ in
             (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split)));
         config-xpui-commands = builtins.concatStringsSep "\n"  config-xpui-commands-split;
 
+        tracedXPUI = builtins.trace config-xpui-commands config-xpui-commands;
+
         # INI created, now create the postInstall that runs spicetify
 
         inherit (pkgs.lib.lists) foldr;
