@@ -201,6 +201,9 @@ in
           };
         });
 
+        config-xpui-commands = lib.strings.concatStringsSep "\n"
+            map (str: "echo \"${str}\" >> config-xpui.ini") (lib.strings.splitString "\n" config-xpui);
+
         # INI created, now create the postInstall that runs spicetify
 
         inherit (pkgs.lib.lists) foldr;
@@ -230,9 +233,9 @@ in
             mkdir Extensions
             mkdir CustomApps
 
+            rm config-xpui.ini
             # make config ini from nix string
-            CONFIG_XPUI="${lib.strings.escape [ "\n" ] config-xpui}" 
-            echo $CONFIG_XPUI > config-xpui.ini
+            ${config-xpui-commands}
             
             # idk if this is neccessary, this whole script should be r/w right?
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
