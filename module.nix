@@ -168,7 +168,7 @@ in
             } ":";
         };
         
-        config-xpui = customToINI {
+        config-xpui = builtins.toFile "config-xpui.ini" customToINI {
           AdditionalOptions = {
             home = cfg.home;
             experimental_features = cfg.experimentalFeatures;
@@ -229,7 +229,7 @@ in
             mkdir Themes
             mkdir Extensions
             mkdir CustomApps
-            echo ${config-xpui} > config-xpui.ini
+            cp ${config-xpui} .
             
             # idk if this is neccessary, this whole script should be r/w right?
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
