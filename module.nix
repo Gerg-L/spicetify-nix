@@ -135,7 +135,7 @@ in
   };
 
   config = mkIf cfg.enable {
-    xdg.configFile.".spicetify/config-xpui.ini".text =
+    xdg.configFile."spicetify/config-xpui.ini".text =
       let
 
         # turn certain values on by default if we know the theme needs it
@@ -160,8 +160,8 @@ in
             {
               # specifies the generated string for a subset of nix values
               mkValueString = v:
-                if v == true then 1
-                else if v == false then 0
+                if v == true then "1"
+                else if v == false then "0"
                 else if isString v then ''"${v}"''
                 # and delegats all other values to the default generator
                 else lib.generators.mkValueStringDefault { } v;
