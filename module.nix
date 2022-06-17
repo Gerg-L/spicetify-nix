@@ -211,10 +211,6 @@ in
         boolToString = x: if x then "1" else "0";
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
 
-        # Dribblish is a theme which needs a couple extra settings
-        isDribblish = theme == "Dribbblish";
-        isTurntable = theme == "Turntable";
-
         spicetify = "SPICETIFY_CONFIG=. ${cfg.spicetifyPackage}/bin/spicetify-cli";
 
         extraCommands =
