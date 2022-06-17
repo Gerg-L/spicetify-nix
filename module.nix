@@ -11,10 +11,22 @@ in
       default = "SpicetifyDefault";
     };
 
+    spotifyPackage = mkOption {
+        type = types.package;
+        default = pkgs.spotify-unwrapped;
+        description = "The nix package containing Spotify Desktop.";
+    };
+
+    spicetifyPackage = mkOption {
+        type = types.package;
+        default = pkgs.spicetify-cli;
+        description = "The nix package containing spicetify-cli.";
+    };
+
     themesSrc = mkOption {
       type = types.package;
       default = builtins.fetchGit {
-        url = "https://github.com/morpheusthewhite/spicetify-themes";
+        url = "https://github.com/spicetify/spicetify-themes";
         rev = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
         submodules = true;
       };
@@ -160,7 +172,7 @@ in
         };
         Patch = { };
         Setting = {
-          spotify_path = "${pkgs.spotify-unwrapped}" /share/spotify;
+          spotify_path = "${cfg.spotifyPackage}" /share/spotify;
           prefs_path = "${config.home.homeDirectory}" /.config/spotify/prefs;
           current_theme = cfg.theme;
           color_scheme = cfg.colorScheme;
@@ -178,7 +190,7 @@ in
           expose_apis = cfg.exposeApis;
         };
         Backup = {
-          version = pkgs.spotify-unwrapped.version;
+          version = cfg.spotifyPackage.version;
           "with" = "Dev";
         };
       };
@@ -197,7 +209,7 @@ in
         isDribblish = theme == "Dribbblish";
         isTurntable = theme == "Turntable";
 
-        spicetify = "SPICETIFY_CONFIG=. ${pkgs.spicetify-cli}/bin/spicetify-cli";
+        spicetify = "SPICETIFY_CONFIG=. ${cfg.spicetifyPackage}/bin/spicetify-cli";
 
         extraCommands =
           (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
@@ -209,7 +221,7 @@ in
         customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
 
         # custom spotify package with spicetify integrated in
-        spiced-spotify-unwrapped = pkgs.spotify-unwrapped.overrideAttrs (oldAttrs: rec {
+        spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
           postInstall = ''
             touch $out/prefs
             mkdir Themes
@@ -232,7 +244,7 @@ in
       in
       [
         spiced-spotify-unwrapped
-        pkgs.spicetify-cli
+        cfg.spicetifyPackage
       ];
   };
 }
