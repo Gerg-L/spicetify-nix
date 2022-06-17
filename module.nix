@@ -200,9 +200,11 @@ in
             "with" = "Dev";
           };
         });
-
-        config-xpui-commands = lib.strings.concatStringsSep "\n"
-            (map (str: "echo \"${str}\" >> config-xpui.ini") (lib.strings.splitString "\n" config-xpui));
+        
+        # turn the ini file into a bunch of append commands
+        config-xpui-split = (lib.strings.splitString "\n" config-xpui);
+        config-xpui-commands = builtins.concatStringsSep "\n"
+            (map (str: "echo \"${str}\" >> config-xpui.ini") (builtins.trace config-xpui-split config-xpui-split));
 
         # INI created, now create the postInstall that runs spicetify
 
