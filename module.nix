@@ -231,7 +231,7 @@ in
             mkdir CustomApps
 
             # make config ini from nix string
-            CONFIG_XPUI="${lib.string.escape [ "\n" ] config-xpui}" 
+            CONFIG_XPUI="${lib.strings.escape [ "\n" ] config-xpui}" 
             echo $CONFIG_XPUI > config-xpui.ini
             
             # idk if this is neccessary, this whole script should be r/w right?
