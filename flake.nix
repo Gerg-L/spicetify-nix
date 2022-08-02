@@ -3,11 +3,6 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-
-    # spicetify-themes = {
-    #   url = "github:morpheusthewhite/spicetify-themes";
-    #   flake = false;
-    # };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

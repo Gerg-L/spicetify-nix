@@ -236,7 +236,8 @@ in
 
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
-          postInstall = ''
+          postInstall = let
+          script =''
             touch $out/prefs
             mkdir Themes
             mkdir Extensions
@@ -250,7 +251,8 @@ in
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
             ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify/Apps
 
-            find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+            cp -r ${cfg.themesSrc}/* Themes
+
             ${cfg.extraCommands}
             ${extraCommands}
     
@@ -259,6 +261,9 @@ in
             cd $out/share/spotify
             ${customAppsFixupCommands}
           '';
+          in
+            builtins.trace script script;
+            # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
         });
       in
       [
