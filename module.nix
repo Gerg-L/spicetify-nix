@@ -251,12 +251,13 @@ in
                 # # make config ini from nix string
                 # pushd $SPICETIFY_CONFIG
                 # # replace the spotify path with the current derivation's path
-                # sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 #
                 # cp -r ${cfg.themesSrc}/* Themes
                 ${config-xpui-commands}
+                sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
 
                 ${cfg.extraCommands}
+                ${extraCommands}
 
                 ${spicetify} backup apply
                 popd
@@ -265,7 +266,6 @@ in
                 ${customAppsFixupCommands}
               '';
 
-                # ${extraCommands}
             in
             builtins.trace script script;
           # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
