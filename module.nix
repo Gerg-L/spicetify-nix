@@ -171,7 +171,7 @@ in
                 # else if isString v then ''"${v}"''
                 # and delegats all other values to the default generator
                 else lib.generators.mkValueStringDefault { } v;
-            } ":";
+            } "=";
         };
 
         config-xpui = (customToINI {
