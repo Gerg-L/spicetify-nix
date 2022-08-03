@@ -254,6 +254,10 @@ in
                 
                 # replace the spotify path with the current derivation's path
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+
+                ls
+                echo "\n\n"
+                cat config-xpui.ini
                 
                 ${spicetify} backup apply
 
