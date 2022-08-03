@@ -244,13 +244,13 @@ in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
           postInstall =
             let
+            # ${config-xpui-commands}
               script = ''
                 # SPICETIFY_CONFIG=$out/spicetify
                 # mkdir -p $SPICETIFY_CONFIG
                 #
                 # # make config ini from nix string
                 # pushd $SPICETIFY_CONFIG
-                # ${config-xpui-commands}
                 # # replace the spotify path with the current derivation's path
                 # sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 #
