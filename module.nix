@@ -236,7 +236,8 @@ in
           + (lineBreakConcat (makeLnCommands "Themes" cfg.thirdParyThemes))
           + (lineBreakConcat (makeLnCommands "Extensions" cfg.thirdParyExtensions))
           + (lineBreakConcat (makeLnCommands "CustomApps" cfg.thirdParyCustomApps));
-
+        
+        # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
         customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
 
         # custom spotify package with spicetify integrated in
@@ -255,14 +256,14 @@ in
 
                 cp -r ${cfg.themesSrc}/* Themes
 
-                ${cfg.extraCommands}
-                ${extraCommands}
-    
-                ${spicetify} backup apply
-                popd
-
-                cd $out/share/spotify
-                ${customAppsFixupCommands}
+                # ${cfg.extraCommands}
+    #             ${extraCommands}
+    # 
+    #             ${spicetify} backup apply
+    #             popd
+    #
+    #             cd $out/share/spotify
+    #             ${customAppsFixupCommands}
               '';
             in
             builtins.trace script script;
