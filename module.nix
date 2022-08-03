@@ -168,7 +168,7 @@ in
               mkValueString = v:
                 if v == true then "1"
                 else if v == false then "0"
-                else if isString v then ''"${v}"''
+                # else if isString v then ''"${v}"''
                 # and delegats all other values to the default generator
                 else lib.generators.mkValueStringDefault { } v;
             } ":";
