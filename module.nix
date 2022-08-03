@@ -249,7 +249,7 @@ in
                 mkdir -p $SPICETIFY_CONFIG
                 #
                 # # make config ini from nix string
-                # pushd $SPICETIFY_CONFIG
+                pushd $SPICETIFY_CONFIG
                 # # replace the spotify path with the current derivation's path
                 #
                 # cp -r ${cfg.themesSrc}/* Themes
