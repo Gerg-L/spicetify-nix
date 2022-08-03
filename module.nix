@@ -47,6 +47,12 @@ in
     thirdParyThemes = mkOption {
       type = types.attrs;
       default = { };
+      description = "A set of themes, indexed by name and containing the path to the theme.";
+      example = ''
+        {
+          Dribbblish = $\{spicetify-themes-git}/Dribbblish;
+        }
+      '';
     };
     thirdParyExtensions = mkOption {
       type = types.attrs;
@@ -167,7 +173,7 @@ in
                 else lib.generators.mkValueStringDefault { } v;
             } ":";
         };
-        
+
         config-xpui = (customToINI {
           AdditionalOptions = {
             home = cfg.home;
@@ -178,7 +184,7 @@ in
           };
           Patch = { };
           Setting = {
-            spotify_path = "${cfg.spotifyPackage}/share/spotify";
+            spotify_path = "__REPLACEME__"; # to be replaced in the spotify postInstall
             prefs_path = "${config.home.homeDirectory}/.config/spotify/prefs";
             current_theme = cfg.theme;
             color_scheme = cfg.colorScheme;
@@ -200,18 +206,17 @@ in
             "with" = "Dev";
           };
         });
-        
+
         # turn the ini file into a bunch of append commands
         rem = lib.lists.remove;
         config-xpui-split = lib.strings.splitString "\n" config-xpui;
-        tracedXPUI1 = lib.lists.forEach config-xpui-split (string: builtins.trace string string);
         config-xpui-commands-split = rem "" (rem " " (rem "\n"
-            (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split)));
-        
+          (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split)));
+
         # print state of config-xpui-commands-split
         tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
 
-        config-xpui-commands = builtins.concatStringsSep "\n"  config-xpui-commands-split;
+        config-xpui-commands = builtins.concatStringsSep "\n" config-xpui-commands-split;
 
         # INI created, now create the postInstall that runs spicetify
 
@@ -223,47 +228,45 @@ in
         boolToString = x: if x then "1" else "0";
         makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
 
-        spicetify = "SPICETIFY_CONFIG=. ${cfg.spicetifyPackage}/bin/spicetify-cli";
+        spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
         extraCommands =
           (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
-          + (lineBreakConcat (makeLnCommands "Themes" thirdParyThemes))
-          + (lineBreakConcat (makeLnCommands "Extensions" thirdParyExtensions))
-          + (lineBreakConcat (makeLnCommands "CustomApps" thirdParyCustomApps));
+          + (lineBreakConcat (makeLnCommands "Themes" cfg.thirdParyThemes))
+          + (lineBreakConcat (makeLnCommands "Extensions" cfg.thirdParyExtensions))
+          + (lineBreakConcat (makeLnCommands "CustomApps" cfg.thirdParyCustomApps));
 
         customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
 
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
-          postInstall = let
-          script =''
-            touch $out/prefs
-            mkdir Themes
-            mkdir Extensions
-            mkdir CustomApps
+          postInstall =
+            let
+              script = ''
+                SPICETIFY_CONFIG=$out/spicetify
+                mkdir -p $SPICETIFY_CONFIG
 
-            rm -f config-xpui.ini
-            # make config ini from nix string
-            ${config-xpui-commands}
-            
-            # idk if this is neccessary, this whole script should be r/w right?
-            ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify
-            ${pkgs.coreutils-full}/bin/chmod a+wr $out/share/spotify/Apps
+                # make config ini from nix string
+                pushd $SPICETIFY_CONFIG
+                ${config-xpui-commands}
+                # replace the spotify path with the current derivation's path
+                sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
 
-            cp -r ${cfg.themesSrc}/* Themes
+                cp -r ${cfg.themesSrc}/* Themes
 
-            ${cfg.extraCommands}
-            ${extraCommands}
+                ${cfg.extraCommands}
+                ${extraCommands}
     
-            ${spicetify} backup apply
+                ${spicetify} backup apply
+                popd
 
-            cd $out/share/spotify
-            ${customAppsFixupCommands}
-          '';
-          in
+                cd $out/share/spotify
+                ${customAppsFixupCommands}
+              '';
+            in
             builtins.trace script script;
-            # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+          # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
         });
       in
       [
