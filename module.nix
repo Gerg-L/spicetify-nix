@@ -211,7 +211,7 @@ in
         rem = lib.lists.remove;
         config-xpui-split = lib.strings.splitString "\n" config-xpui;
         config-xpui-commands-split = rem "" (rem " " (rem "\n"
-          (map (str: "echo \"${str}\" >> config-xpui.ini") config-xpui-split)));
+          (map (str: "echo \"${lib.strings.escape ["\""] str}\" >> config-xpui.ini") config-xpui-split)));
 
         # print state of config-xpui-commands-split
         tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
