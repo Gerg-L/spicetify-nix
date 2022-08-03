@@ -246,8 +246,8 @@ in
             let
             # ${config-xpui-commands}
               script = ''
-                # SPICETIFY_CONFIG=$out/spicetify
-                # mkdir -p $SPICETIFY_CONFIG
+                SPICETIFY_CONFIG=$out/spicetify
+                mkdir -p $SPICETIFY_CONFIG
                 #
                 # # make config ini from nix string
                 # pushd $SPICETIFY_CONFIG
@@ -257,7 +257,6 @@ in
                 # cp -r ${cfg.themesSrc}/* Themes
 
                 ${cfg.extraCommands}
-                ${extraCommands}
 
                 ${spicetify} backup apply
                 popd
@@ -265,6 +264,8 @@ in
                 cd $out/share/spotify
                 ${customAppsFixupCommands}
               '';
+
+                # ${extraCommands}
             in
             builtins.trace script script;
           # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
