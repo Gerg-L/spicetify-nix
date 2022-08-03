@@ -247,19 +247,20 @@ in
               script = ''
                 SPICETIFY_CONFIG=$out/spicetify
                 mkdir -p $SPICETIFY_CONFIG
-                #
-                # # make config ini from nix string
                 pushd $SPICETIFY_CONFIG
-                # # replace the spotify path with the current derivation's path
-                #
-                # cp -r ${cfg.themesSrc}/* Themes
+                
+                # echo the config-xpui into the file (jank as hell lol)
                 ${config-xpui-commands}
+                
+                # replace the spotify path with the current derivation's path
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+                
+                ${spicetify} backup apply
 
                 ${cfg.extraCommands}
                 ${extraCommands}
 
-                ${spicetify} backup apply
+                cp -r ${cfg.themesSrc}/* Themes
                 popd
 
                 cd $out/share/spotify
