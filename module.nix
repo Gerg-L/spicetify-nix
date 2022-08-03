@@ -245,25 +245,25 @@ in
           postInstall =
             let
               script = ''
-                SPICETIFY_CONFIG=$out/spicetify
-                mkdir -p $SPICETIFY_CONFIG
+                # SPICETIFY_CONFIG=$out/spicetify
+                # mkdir -p $SPICETIFY_CONFIG
+                #
+                # # make config ini from nix string
+                # pushd $SPICETIFY_CONFIG
+                # ${config-xpui-commands}
+                # # replace the spotify path with the current derivation's path
+                # sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+                #
+                # cp -r ${cfg.themesSrc}/* Themes
 
-                # make config ini from nix string
-                pushd $SPICETIFY_CONFIG
-                ${config-xpui-commands}
-                # replace the spotify path with the current derivation's path
-                sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+                ${cfg.extraCommands}
+                ${extraCommands}
 
-                cp -r ${cfg.themesSrc}/* Themes
+                ${spicetify} backup apply
+                popd
 
-                # ${cfg.extraCommands}
-    #             ${extraCommands}
-    # 
-    #             ${spicetify} backup apply
-    #             popd
-    #
-    #             cd $out/share/spotify
-    #             ${customAppsFixupCommands}
+                cd $out/share/spotify
+                ${customAppsFixupCommands}
               '';
             in
             builtins.trace script script;
