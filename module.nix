@@ -244,7 +244,6 @@ in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
           postInstall =
             let
-            # ${config-xpui-commands}
               script = ''
                 SPICETIFY_CONFIG=$out/spicetify
                 mkdir -p $SPICETIFY_CONFIG
@@ -255,6 +254,7 @@ in
                 # sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 #
                 # cp -r ${cfg.themesSrc}/* Themes
+                ${config-xpui-commands}
 
                 ${cfg.extraCommands}
 
