@@ -251,17 +251,12 @@ in
                 ls
                 echo " " && echo " "
                 cat config-xpui.ini
+                ${cfg.extraCommands}
+                ${extraCommands}
+                cp -r ${cfg.themesSrc}/* Themes
                 
                 ${spicetify} backup apply
                 
-                ls $HOME || echo "$HOME does not exist."
-                echo " " && echo " "
-                ls $HOME/.config/spicetify || echo "$HOME/.config/spicetify does not exist."
-
-                ${cfg.extraCommands}
-                ${extraCommands}
-
-                cp -r ${cfg.themesSrc}/* Themes
                 popd
 
                 pushd $out/share/spotify
