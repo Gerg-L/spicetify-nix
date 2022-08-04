@@ -249,7 +249,7 @@ in
                 sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
                 # cp -r ${cfg.themesSrc} Themes
-                find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes
+                find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
                 ${cfg.extraCommands}
                 ${extraCommands}
                 
