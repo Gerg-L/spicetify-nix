@@ -224,8 +224,8 @@ in
           (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
           + (lineBreakConcat (makeCpCommands "Themes" cfg.thirdParyThemes))
-          + (lineBreakConcat ([ "mkdir -p Extensions" ] ++ (makeCpCommands "Extensions" cfg.thirdParyExtensions)))
-          + (lineBreakConcat ([ "mkdir -p CustomApps" ] ++ (makeCpCommands "CustomApps" cfg.thirdParyCustomApps)));
+          + (lineBreakConcat ((makeCpCommands "Extensions" cfg.thirdParyExtensions)))
+          + (lineBreakConcat ((makeCpCommands "CustomApps" cfg.thirdParyCustomApps)));
 
         # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
         customAppsFixupCommands = lineBreakConcat (makeCpCommands "Apps" thirdParyCustomApps);
