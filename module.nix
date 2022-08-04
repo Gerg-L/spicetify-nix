@@ -145,16 +145,16 @@ in
     home.packages = with cfg;
       let
         # turn certain values on by default if we know the theme needs it
-        isDribblish = cfg.theme == "Dribblish";
+        isDribbblish = cfg.theme == "Dribbblish";
         isTurntable = cfg.theme == "Turntable";
-        injectCSSReal = boolToString (isDribblish || cfg.injectCss);
-        replaceColorsReal = boolToString (isDribblish || cfg.replaceColors);
-        overwriteAssetsReal = boolToString (isDribblish || cfg.overwriteAssets);
+        injectCSSReal = boolToString (isDribbblish || cfg.injectCss);
+        replaceColorsReal = boolToString (isDribbblish || cfg.replaceColors);
+        overwriteAssetsReal = boolToString (isDribbblish || cfg.overwriteAssets);
 
 
         pipeConcat = foldr (a: b: a + "|" + b) "";
         extensionString = pipeConcat (
-          (if isDribblish then [ "dribbblish.js" ] else [ ])
+          (if isDribbblish then [ "dribbblish.js" ] else [ ])
           ++ (if isTurntable then [ "turntable.js" ] else [ ])
           ++ cfg.enabledExtensions
         );
@@ -207,19 +207,9 @@ in
           };
         });
 
-        # turn the ini file into a bunch of append commands
-        # rem = lib.lists.remove;
-        # config-xpui-split = lib.strings.splitString "\n" config-xpui;
-        # config-xpui-commands-split = rem "" (rem " " (rem "\n"
-        #   (map (str: "echo \"${lib.strings.escape ["\""] str}\" >> config-xpui.ini") config-xpui-split)));
-        #
-        # # print state of config-xpui-commands-split
-        # tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
-
         config-xpui-file = builtins.toFile "config-xpui.ini" config-xpui;
 
         # INI created, now create the postInstall that runs spicetify
-
         inherit (pkgs.lib.lists) foldr;
         inherit (pkgs.lib.attrsets) mapAttrsToList;
 
@@ -231,7 +221,7 @@ in
         spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
         extraCommands =
-          (if isDribblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
+          (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
           + (lineBreakConcat (makeLnCommands "Themes" cfg.thirdParyThemes))
           + (lineBreakConcat (makeLnCommands "Extensions" cfg.thirdParyExtensions))
@@ -249,11 +239,14 @@ in
                 mkdir -p $SPICETIFY_CONFIG
                 pushd $SPICETIFY_CONFIG
                 
+                # create config and prefs
                 cp ${config-xpui-file} config-xpui.ini
                 ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
+                touch $out/share/spotify/prefs
                 
                 # replace the spotify path with the current derivation's path
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+                sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
                 ls
                 echo " " && echo " "
@@ -267,8 +260,9 @@ in
                 cp -r ${cfg.themesSrc}/* Themes
                 popd
 
-                cd $out/share/spotify
+                pushd $out/share/spotify
                 ${customAppsFixupCommands}
+                popd
               '';
 
             in
