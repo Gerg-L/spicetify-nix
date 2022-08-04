@@ -248,7 +248,7 @@ in
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
-                cp -r ${cfg.themesSrc}/* Themes
+                cp -r ${cfg.themesSrc} Themes
                 ${cfg.extraCommands}
                 ${extraCommands}
                 
