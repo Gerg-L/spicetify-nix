@@ -27,7 +27,7 @@ in
       type = types.package;
       default = builtins.fetchGit {
         url = "https://github.com/spicetify/spicetify-themes";
-        rev = "dd7a7e13e0dc7a717cc06bba9ea04ed29d70a30e";
+        rev = "5d3d42f913467f413be9b0159f5df5023adf89af";
         submodules = true;
       };
       description = "A package which contains, at its root, a Themes directory,
