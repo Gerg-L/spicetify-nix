@@ -250,12 +250,13 @@ in
 
                 ls
                 echo " " && echo " "
-                ls $HOME
-                echo " " && echo " "
-                ls $HOME/.config/spicetify
                 cat config-xpui.ini
                 
                 ${spicetify} backup apply
+                
+                ls $HOME || echo "$HOME does not exist."
+                echo " " && echo " "
+                ls $HOME/.config/spicetify || echo "$HOME/.config/spicetify does not exist."
 
                 ${cfg.extraCommands}
                 ${extraCommands}
