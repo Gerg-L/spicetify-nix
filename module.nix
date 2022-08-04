@@ -174,7 +174,7 @@ in
             } "=";
         };
 
-        config-xpui = (customToINI {
+        config-xpui = builtins.toFile "config-xpui.ini" (customToINI {
           AdditionalOptions = {
             home = cfg.home;
             experimental_features = cfg.experimentalFeatures;
@@ -207,8 +207,6 @@ in
           };
         });
 
-        config-xpui-file = builtins.toFile "config-xpui.ini" config-xpui;
-
         # INI created, now create the postInstall that runs spicetify
         inherit (pkgs.lib.lists) foldr;
         inherit (pkgs.lib.attrsets) mapAttrsToList;
@@ -220,60 +218,52 @@ in
 
         spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
-        extraCommands =
-          (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
-          + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
-          + (lineBreakConcat (makeCpCommands "Themes" cfg.thirdPartyThemes))
-          + (lineBreakConcat ((makeCpCommands "Extensions" cfg.thirdPartyExtensions)))
-          + (lineBreakConcat ((makeCpCommands "CustomApps" cfg.thirdPartyCustomApps)));
-
-        # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
-        customAppsFixupCommands = lineBreakConcat (makeCpCommands "Apps" thirdPartyCustomApps);
-
         # custom spotify package with spicetify integrated in
-        spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
-          postInstall =
-            let
-              script = ''
-                export SPICETIFY_CONFIG=$out/spicetify
-                mkdir -p $SPICETIFY_CONFIG
-                pushd $SPICETIFY_CONFIG
+        spiced-spotify = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
+          postInstall = ''
+            export SPICETIFY_CONFIG=$out/spicetify
+            mkdir -p $SPICETIFY_CONFIG
+            pushd $SPICETIFY_CONFIG
                 
-                # create config and prefs
-                cp ${config-xpui-file} config-xpui.ini
-                ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
-                touch $out/share/spotify/prefs
+            # create config and prefs
+            cp ${config-xpui} config-xpui.ini
+            ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
+            touch $out/share/spotify/prefs
                 
-                # replace the spotify path with the current derivation's path
-                sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
-                sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
+            # replace the spotify path with the current derivation's path
+            sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+            sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
-                cp -r ${cfg.themesSrc} Themes
-                ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
+            cp -r ${cfg.themesSrc} Themes
+            ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
 
-                # the following command will link themes, but we want to copy so we can have w/r
-                # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
-                ${cfg.extraCommands}
-                ${extraCommands}
+            # the following command will link themes, but we want to copy so we can have w/r
+            # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+            ${cfg.extraCommands}
+            ${if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else ""}
+            ${if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else ""}
+            # copy themes into Themes folder
+            ${lineBreakConcat (makeCpCommands "Themes" cfg.thirdPartyThemes)}
+            # copy extensions into Extensions folder
+            ${lineBreakConcat (makeCpCommands "Extensions" cfg.thirdPartyExtensions)}
+            # copy custom apps into CustomApps folder
+            ${lineBreakConcat (makeCpCommands "CustomApps" cfg.thirdPartyCustomApps)}
+
+            # fix config to point to home directory (not necessary I don't think, but whatever)
+            sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" config-xpui.ini
                 
-                ${spicetify} backup apply
+            popd
 
-                # fix config to point to home directory
-                sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" config-xpui.ini
-                
-                popd
-
-                pushd $out/share/spotify
-                ${customAppsFixupCommands}
-                popd
-              '';
-            in
-            builtins.trace script script;
-          # ;
+            pushd $out/share/spotify
+            ${lineBreakConcat (makeCpCommands "Apps" thirdPartyCustomApps)}
+            popd
+            
+            ${spicetify} backup apply
+          '';
         });
       in
       [
-        spiced-spotify-unwrapped
+        spiced-spotify
         cfg.spicetifyPackage
       ];
   };
