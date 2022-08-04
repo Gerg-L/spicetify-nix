@@ -208,15 +208,15 @@ in
         });
 
         # turn the ini file into a bunch of append commands
-        rem = lib.lists.remove;
-        config-xpui-split = lib.strings.splitString "\n" config-xpui;
-        config-xpui-commands-split = rem "" (rem " " (rem "\n"
-          (map (str: "echo \"${lib.strings.escape ["\""] str}\" >> config-xpui.ini") config-xpui-split)));
+        # rem = lib.lists.remove;
+        # config-xpui-split = lib.strings.splitString "\n" config-xpui;
+        # config-xpui-commands-split = rem "" (rem " " (rem "\n"
+        #   (map (str: "echo \"${lib.strings.escape ["\""] str}\" >> config-xpui.ini") config-xpui-split)));
+        #
+        # # print state of config-xpui-commands-split
+        # tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
 
-        # print state of config-xpui-commands-split
-        tracedXPUI = lib.lists.forEach config-xpui-commands-split (string: builtins.trace string string);
-
-        config-xpui-commands = builtins.concatStringsSep "\n" config-xpui-commands-split;
+        config-xpui-file = builtins.toFile "config-xpui.ini" config-xpui;
 
         # INI created, now create the postInstall that runs spicetify
 
@@ -249,14 +249,14 @@ in
                 mkdir -p $SPICETIFY_CONFIG
                 pushd $SPICETIFY_CONFIG
                 
-                # echo the config-xpui into the file (jank as hell lol)
-                ${config-xpui-commands}
+                cp ${config-xpui-file} .
+                ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
                 
                 # replace the spotify path with the current derivation's path
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
 
                 ls
-                echo "\n\n"
+                echo " " && echo " "
                 cat config-xpui.ini
                 
                 ${spicetify} backup apply
