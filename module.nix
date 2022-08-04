@@ -235,7 +235,7 @@ in
           postInstall =
             let
               script = ''
-                SPICETIFY_CONFIG=$out/spicetify
+                export SPICETIFY_CONFIG=$out/spicetify
                 mkdir -p $SPICETIFY_CONFIG
                 pushd $SPICETIFY_CONFIG
                 
@@ -250,6 +250,9 @@ in
 
                 ls
                 echo " " && echo " "
+                ls $HOME
+                echo " " && echo " "
+                ls $HOME/.config/spicetify
                 cat config-xpui.ini
                 
                 ${spicetify} backup apply
