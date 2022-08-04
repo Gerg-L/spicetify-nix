@@ -185,7 +185,7 @@ in
           Patch = { };
           Setting = {
             spotify_path = "__REPLACEME__"; # to be replaced in the spotify postInstall
-            prefs_path = "${config.home.homeDirectory}/.config/spotify/prefs";
+            prefs_path = "__REPLACEME2__";
             current_theme = cfg.theme;
             color_scheme = cfg.colorScheme;
             spotify_launch_flags = cfg.spotifyLaunchFlags;
