@@ -249,7 +249,7 @@ in
                 mkdir -p $SPICETIFY_CONFIG
                 pushd $SPICETIFY_CONFIG
                 
-                cp ${config-xpui-file} .
+                cp ${config-xpui-file} config-xpui.ini
                 ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
                 
                 # replace the spotify path with the current derivation's path
