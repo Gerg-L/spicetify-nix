@@ -8,7 +8,7 @@ in
     enable = mkEnableOption "A modded Spotify";
     theme = mkOption {
       type = types.str;
-      default = "SpicetifyDefault";
+      default = "";
     };
 
     spotifyPackage = mkOption {
