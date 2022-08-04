@@ -257,6 +257,9 @@ in
                 ${extraCommands}
                 
                 ${spicetify} backup apply
+
+                # fix config to point to home directory
+                sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" config-xpui.ini
                 
                 popd
 
