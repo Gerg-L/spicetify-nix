@@ -44,7 +44,7 @@ in
       type = types.str;
       default = "";
     };
-    thirdParyThemes = mkOption {
+    thirdPartyThemes = mkOption {
       type = types.attrs;
       default = { };
       description = "A set of themes, indexed by name and containing the path to the theme.";
@@ -54,11 +54,11 @@ in
         }
       '';
     };
-    thirdParyExtensions = mkOption {
+    thirdPartyExtensions = mkOption {
       type = types.attrs;
       default = { };
     };
-    thirdParyCustomApps = mkOption {
+    thirdPartyCustomApps = mkOption {
       type = types.attrs;
       default = { };
     };
@@ -223,12 +223,12 @@ in
         extraCommands =
           (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
-          + (lineBreakConcat (makeCpCommands "Themes" cfg.thirdParyThemes))
-          + (lineBreakConcat ((makeCpCommands "Extensions" cfg.thirdParyExtensions)))
-          + (lineBreakConcat ((makeCpCommands "CustomApps" cfg.thirdParyCustomApps)));
+          + (lineBreakConcat (makeCpCommands "Themes" cfg.thirdPartyThemes))
+          + (lineBreakConcat ((makeCpCommands "Extensions" cfg.thirdPartyExtensions)))
+          + (lineBreakConcat ((makeCpCommands "CustomApps" cfg.thirdPartyCustomApps)));
 
         # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
-        customAppsFixupCommands = lineBreakConcat (makeCpCommands "Apps" thirdParyCustomApps);
+        customAppsFixupCommands = lineBreakConcat (makeCpCommands "Apps" thirdPartyCustomApps);
 
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
