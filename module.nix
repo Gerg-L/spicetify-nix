@@ -224,9 +224,9 @@ in
           (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
           + (lineBreakConcat (makeLnCommands "Themes" cfg.thirdParyThemes))
-          + (lineBreakConcat (makeLnCommands "Extensions" cfg.thirdParyExtensions))
-          + (lineBreakConcat (makeLnCommands "CustomApps" cfg.thirdParyCustomApps));
-        
+          + (lineBreakConcat ([ "mkdir -p Extensions" ] ++ (makeLnCommands "Extensions" cfg.thirdParyExtensions)))
+          + (lineBreakConcat ([ "mkdir -p CustomApps" ] ++ (makeLnCommands "CustomApps" cfg.thirdParyCustomApps)));
+
         # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
         customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
 
@@ -248,7 +248,8 @@ in
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
-                cp -r ${cfg.themesSrc} Themes
+                # cp -r ${cfg.themesSrc} Themes
+                find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes
                 ${cfg.extraCommands}
                 ${extraCommands}
                 
@@ -260,10 +261,9 @@ in
                 ${customAppsFixupCommands}
                 popd
               '';
-
             in
             builtins.trace script script;
-          # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+          # ;
         });
       in
       [
