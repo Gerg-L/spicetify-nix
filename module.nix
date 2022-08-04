@@ -248,9 +248,6 @@ in
             ${lineBreakConcat (makeCpCommands "Extensions" cfg.thirdPartyExtensions)}
             # copy custom apps into CustomApps folder
             ${lineBreakConcat (makeCpCommands "CustomApps" cfg.thirdPartyCustomApps)}
-
-            # fix config to point to home directory (not necessary I don't think, but whatever)
-            sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" config-xpui.ini
                 
             popd
 
@@ -259,6 +256,9 @@ in
             popd
             
             ${spicetify} backup apply
+            
+            # fix config to point to home directory (not necessary I don't think, but whatever)
+            sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" $SPICETIFY_CONFIG/config-xpui.ini
           '';
         });
       in
