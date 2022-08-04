@@ -216,19 +216,19 @@ in
         # Helper functions
         lineBreakConcat = foldr (a: b: a + "\n" + b) "";
         boolToString = x: if x then "1" else "0";
-        makeLnCommands = type: (mapAttrsToList (name: path: "ln -sf ${path} ./${type}/${name}"));
+        makeCpCommands = type: (mapAttrsToList (name: path: "cp -r ${path} ./${type}/${name} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}"));
 
         spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
         extraCommands =
           (if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions \n" else "")
           + (if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions \n" else "")
-          + (lineBreakConcat (makeLnCommands "Themes" cfg.thirdParyThemes))
-          + (lineBreakConcat ([ "mkdir -p Extensions || rm -rf Extensions && mkdir Extensions" ] ++ (makeLnCommands "Extensions" cfg.thirdParyExtensions)))
-          + (lineBreakConcat ([ "mkdir -p CustomApps || rm -rf CustomApps && mkdir CustomApps" ] ++ (makeLnCommands "CustomApps" cfg.thirdParyCustomApps)));
+          + (lineBreakConcat (makeCpCommands "Themes" cfg.thirdParyThemes))
+          + (lineBreakConcat ([ "mkdir -p Extensions" ] ++ (makeCpCommands "Extensions" cfg.thirdParyExtensions)))
+          + (lineBreakConcat ([ "mkdir -p CustomApps" ] ++ (makeCpCommands "CustomApps" cfg.thirdParyCustomApps)));
 
         # similar to the spicetify ln commands, but these are for the spotify /share/spotify/Apps dir
-        customAppsFixupCommands = lineBreakConcat (makeLnCommands "Apps" thirdParyCustomApps);
+        customAppsFixupCommands = lineBreakConcat (makeCpCommands "Apps" thirdParyCustomApps);
 
         # custom spotify package with spicetify integrated in
         spiced-spotify-unwrapped = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
@@ -248,8 +248,11 @@ in
                 sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
                 sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
-                # cp -r ${cfg.themesSrc} Themes
-                find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+                cp -r ${cfg.themesSrc} Themes
+                ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
+
+                # the following command will link themes, but we want to copy so we can have w/r
+                # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
                 ${cfg.extraCommands}
                 ${extraCommands}
                 
