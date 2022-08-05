@@ -7,14 +7,13 @@ to date on Linux. This includes Dribbblish :(
 
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
 
-[spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are included and available, including Dribblish.
+[spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are included and available.
 
 To use, add this flake to your home-manager configuration flake inputs, like so:
 ```nix
 {
   inputs.spicetify-nix = {
     url = "github:the-argus/spicetify-nix";
-    inputs.nixpkgs.follows = "nixpkgs";
   };
 }
 ```
