@@ -23,31 +23,41 @@ a users home-manager configuration:
 ```nix
 { pkgs, spicetify-nix, ... }:
 {
-  imports = [ (import "${spicetify-nix}/module.nix") ];
+  # import the flake's module
+  imports = [ spicetify-nix.homeManagerModule ];
 
+  # configure spicetify :)
   programs.spicetify =
     let
-      av = pkgs.fetchFromGitHub {
-        owner = "amanharwara";
-        repo = "spicetify-autoVolume";
-        rev = "d7f7962724b567a8409ef2898602f2c57abddf5a";
-        sha256 = "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass";
+      hidePodcasts = pkgs.fetchgit {
+        url = "https://github.com/theRealPadster/spicetify-hide-podcasts";
+        rev = "cfda4ce0c3397b0ec38a971af4ff06daba71964d";
+        sha256 = "146bz9v94dk699bshbc21yq4y5yc38lq2kkv7w3sjk4x510i0v3q";
       };
     in
     {
       enable = true;
       theme = "Dribbblish";
-      colorScheme = "horizon";
-      enabledCustomApps = [ "reddit" ];
-      enabledExtensions = [ "newRelease.js" "autoVolume.js" ];
-      thirdParyExtensions = {
-        "autoVolume.js" = "${av}/autoVolume.js";
+      colorScheme = "rosepine";
+      enabledCustomApps = [ ];
+      enabledExtensions = [
+        "fullAppDisplay.js"
+        "shuffle+.js"
+        "hidePodcasts.js"
+      ];
+      #
+      # thirdPartyCustomApps = {
+      #   localFiles = "${localFiles}";
+      # };
+      #
+      thirdPartyExtensions = {
+        hidePodcasts = "${hidePodcasts}/hidePodcasts.js";
       };
     };
 }
 ```
 
-To add third-party themes, extensions or custom apps use `thirdParyThemes`, `thirdParyExtensions` or `thirdParyCustomApps`. These expect a set, where the key is the name of the new theme/extension and the value the path. Don't forget to enable it seperatly.
+To add third-party themes, extensions or custom apps use `thirdPartyThemes`, `thirdParyExtensions` or `thirdParyCustomApps`. These expect a set, where the key is the name of the new theme/extension and the value the path. Don't forget to enable it seperatly.
 
 For all available options, check module.nix or package.nix and the spicetify repo. Everything is optional and will revert to the defaults from spicetify.
 
