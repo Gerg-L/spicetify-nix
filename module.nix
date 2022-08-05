@@ -239,6 +239,7 @@ in
 
             # the following command will link themes, but we want to copy so we can have w/r
             # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
+            mkdir -p Extensions
             ${cfg.extraCommands}
             ${if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions/dribbblish.js \n" else ""}
             ${if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions/turntable.js \n" else ""}
