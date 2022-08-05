@@ -214,7 +214,11 @@ in
         # Helper functions
         lineBreakConcat = foldr (a: b: a + "\n" + b) "";
         boolToString = x: if x then "1" else "0";
-        makeCpCommands = type: (mapAttrsToList (name: path: "cp -r ${path} ./${type}/${name} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}"));
+        makeCpCommands = type: (mapAttrsToList (name: path: 
+        let
+            extension = if type == "Extensions" then ".js" else "";
+        in
+        "cp -r ${path} ./${type}/${name}${extension} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}"));
 
         spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
