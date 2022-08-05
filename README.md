@@ -1,10 +1,9 @@
 # Spicetify-Nix
 
-# Warning: currently nonfunctional, WIP
-The project I forked this from invoked spicetify-cli in order to change
-configuration values. I'm going to have to switch to an ini generator
-instead, because spicetify auto-generates the config ini if it's not there
-(and seems to always use the default configuration values).
+# Warning: Spotify sucks
+Spotify isn't FOSS and linux is a second class citizen on its release plan.
+Right now a lot of themes and extensions don't work because spotify isn't up
+to date on Linux. This includes Dribbblish :(
 
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
 
