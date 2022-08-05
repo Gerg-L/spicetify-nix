@@ -218,7 +218,7 @@ in
         let
             extension = if type == "Extensions" then ".js" else "";
         in
-        "cp -r ${path} ./${type}/${name}${extension} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}"));
+        "cp -r ${path} ./${type}/${name}${extension} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}${extension}"));
 
         spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
 
