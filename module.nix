@@ -180,7 +180,7 @@ in
             experimental_features = cfg.experimentalFeatures;
             extensions = extensionString;
             custom_apps = customAppsString;
-            sidebar_config = 1; # i dont know what this does
+            sidebar_config = 0; # i dont know what this does
           };
           Patch = { };
           Setting = {
