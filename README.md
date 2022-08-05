@@ -11,10 +11,12 @@ Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli)
 
 To use, add this flake to your home-manager configuration flake inputs, like so:
 ```nix
-spicetify-nix = {
-  url = "github:the-argus/spicetify-nix";
-  inputs.nixpkgs.follows = "nixpkgs";
-};
+{
+  inputs.spicetify-nix = {
+    url = "github:the-argus/spicetify-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+}
 ```
 
 An example of a file which configures spicetify when imported into
@@ -56,7 +58,7 @@ a users home-manager configuration:
 }
 ```
 
-To add third-party themes, extensions or custom apps use `thirdPartyThemes`, `thirdParyExtensions` or `thirdParyCustomApps`. These expect a set, where the key is the name of the new theme/extension and the value the path. Don't forget to enable it seperatly.
+To add third-party themes, extensions or custom apps use `thirdPartyThemes`, `thirdParyExtensions` or `thirdParyCustomApps`. These expect a set, where the key is the name of the new theme/extension and the value the path. Don't forget to enable it separately.
 
 For all available options, check module.nix or package.nix and the spicetify repo. Everything is optional and will revert to the defaults from spicetify.
 
