@@ -178,6 +178,11 @@ let
     sha256 = "1qqar6lcq1djbiwgsjd7sd5r8061fkwfy92yfvh3b7i9q939djf5";
   };
 
+  marketplaceSrc = pkgs.fetchzip {
+    url = "https://github.com/spicetify/spicetify-marketplace/releases/download/v0.7.1/spicetify-marketplace-v0.7.1.zip";
+    sha256 = "15wm3y8wc6w9y3zrk4jil5xzj69llc0hgdklmnia08nxwxp7jn9f";
+  };
+
   # EXTENSIONS ----------------------------------------------------------------
 
   dribbblishExt = {
@@ -527,6 +532,12 @@ let
   localFiles = {
     name = "localFiles";
     src = localFilesSrc;
+    appendName = false;
+  };
+
+  marketplace = {
+    name = "marketplace";
+    src = marketplaceSrc;
     appendName = false;
   };
 
