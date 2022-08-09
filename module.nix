@@ -39,19 +39,20 @@ in
     enabledExtensions = mkOption {
       type = types.listOf (types.oneOf [ spiceTypes.extension types.str ]);
       default = [ ];
-      description = "A list of extensions. Official extensions such as \"dribbblish.js\" can be referenced by string alone.";
+      description = "A list of extensions. Official extensions such \
+      as \"dribbblish.js\" can be referenced by string alone.";
       example = ''
         [
-            "dribbblish.js"
-            "shuffle+.js"
-            {
-                src = pkgs.fetchgit {
-                    url = "https://github.com/LucasBares/spicetify-last-fm";
-                    rev = "0f905b49362ea810b6247ac1950a2951dd35632e";
-                    sha256 = "1b0l2g5cyjj1nclw1ff7as9q94606mkq1k8l2s34zzdsx3m2zv81";
-                };
-                filename = "lastfm.js";
-            }
+          "dribbblish.js"
+          "shuffle+.js"
+          {
+            src = pkgs.fetchgit {
+              url = "https://github.com/LucasBares/spicetify-last-fm";
+              rev = "0f905b49362ea810b6247ac1950a2951dd35632e";
+              sha256 = "1b0l2g5cyjj1nclw1ff7as9q94606mkq1k8l2s34zzdsx3m2zv81";
+            };
+            filename = "lastfm.js";
+          }
         ]
       '';
     };
@@ -67,10 +68,22 @@ in
 
     # legacy/ease of use options (commonly set for themes like Dribbblish)
     # injectCss = xpui.Setting.inject_css;
-    injectCss = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
-    replaceColors = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
-    overwriteAssets = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
-    sidebarConfig = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
+    injectCss = mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+    };
+    replaceColors = mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+    };
+    overwriteAssets = mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+    };
+    sidebarConfig = mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+    };
     colorScheme = mkOption {
       type = lib.types.nullOr lib.types.str;
       default = null;
@@ -106,16 +119,18 @@ in
       extensionString = pipeConcat allExtensionFiles;
 
       # do the same thing again but for customapps this time
-      allApps = map spiceLib.getApp (cfg.enabledCustomApps ++ cfg.xpui.AdditionalOptions.custom_apps);
+      allApps = map spiceLib.getApp
+        (cfg.enabledCustomApps ++ cfg.xpui.AdditionalOptions.custom_apps);
       allAppsNames = map (item: item.name) allApps;
       customAppsString = pipeConcat allAppsNames;
- 
+
       # cfg.theme.injectCss is a submodule but cfg.injectCss is not, so we
       # have to have two different override functions for each case
       # (one value is null while the other is undefined...)
       createBoolOverride = set: attrName: cfgName:
-        ifTrue (set.${attrName} != null) (ifTrue (builtins.typeOf set.${attrName} == "bool")
-          { ${cfgName} = set.${attrName}; });
+        ifTrue (set.${attrName} != null)
+          (ifTrue (builtins.typeOf set.${attrName} == "bool")
+            { ${cfgName} = set.${attrName}; });
       createBoolOverrideFromSubmodule = set: attrName: cfgName:
         ifTrue (builtins.hasAttr attrName set)
           (ifTrue (builtins.typeOf set.${attrName} == "bool")
@@ -148,10 +163,13 @@ in
             // boolOverrideFunc container "overwriteAssets" "overwrite_assets"
             // boolOverrideFunc container "sidebarConfig" "sidebar_config"
             # also add the colorScheme as an override if defined in cfg
-            // (ifTrue (container == cfg) (createOverride container "colorScheme" "color_scheme"))
+            // (ifTrue (container == cfg) (createOverride container
+            "colorScheme" "color_scheme"))
             # and turn the theme into a string of its name
             // (ifTrue (container == cfg) { current_theme = actualTheme.name; });
-          Patch = (ifTrue (container == actualTheme) (ifTrue (builtins.hasAttr "patches" actualTheme) actualTheme.patches));
+          Patch = (ifTrue (container == actualTheme) (ifTrue
+            (builtins.hasAttr "patches" actualTheme)
+            actualTheme.patches));
           Backup = { version = (cfg.spotifyPackage.version or "Unknown"); };
         };
 
@@ -160,12 +178,15 @@ in
         (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
         (mkXpuiOverrides actualTheme createBoolOverrideFromSubmodule);
       # override any values defined by the theme with values defined in cfg
-      setToString = set: lineBreakConcat (lib.attrsets.mapAttrsToList (name: value: "${name}") set);
+      setToString = set: lineBreakConcat (lib.attrsets.mapAttrsToList
+        (name: value: "${name}")
+        set);
       overridenXpui2 = builtins.mapAttrs
         (name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value))
         (mkXpuiOverrides cfg createBoolOverride);
 
-      config-xpui = builtins.toFile "config-xpui.ini" (spiceLib.createXpuiINI overridenXpui2);
+      config-xpui = builtins.toFile "config-xpui.ini"
+        (spiceLib.createXpuiINI overridenXpui2);
 
       # INI created, now create the postInstall that runs spicetify
       inherit (pkgs.lib.lists) foldr;
@@ -174,7 +195,8 @@ in
       extensionCommands = lineBreakConcat (map
         (item:
           let
-            command = "cp -rn ${item.src}/${item.filename} ./Extensions/${item.filename}";
+            command = "cp -rn ${
+              item.src}/${item.filename} ./Extensions/${item.filename}";
           in
           "${command} && echo \"Cp command for ${item.filename} succeeded!\""
         )
@@ -260,9 +282,6 @@ in
           else ""}
         popd
         ${spicetify} backup apply
-            
-        # fix config to point to home directory (not necessary I don't think, but whatever)
-        # sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" $SPICETIFY_CONFIG/config-xpui.ini
       '';
 
 
@@ -276,7 +295,6 @@ in
       home.packages = with cfg;
         [
           spiced-spotify
-          cfg.spicetifyPackage
         ] ++
         # need montserrat for the BurntSienna theme
         (ifTrueList
@@ -287,9 +305,6 @@ in
           (cfg.theme == spicePkgs.themes.Orchis)
           [ pkgs.fira ]
         );
-      home.sessionVariables = {
-        SPICETIFY_CONFIG = "${spiced-spotify}/spicetify";
-      };
     };
 }
 
