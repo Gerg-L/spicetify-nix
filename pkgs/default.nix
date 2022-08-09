@@ -180,7 +180,7 @@ let
 
   marketplaceSrc = pkgs.fetchzip {
     url = "https://github.com/spicetify/spicetify-marketplace/releases/download/v0.7.1/spicetify-marketplace-v0.7.1.zip";
-    sha256 = "15wm3y8wc6w9y3zrk4jil5xzj69llc0hgdklmnia08nxwxp7jn9f";
+    sha256 = "sha256-oTryiBkldW7RPjlJ9gw00XJi7QhwtUAueFt24Fh3NTo=";
   };
 
   # EXTENSIONS ----------------------------------------------------------------
