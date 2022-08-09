@@ -679,5 +679,5 @@ in
   // appendJS fullScreen
   // appendJS playNext
   // appendJS volumePercentage;
-  apps = { inherit localFiles; } // official.apps;
+  apps = { inherit localFiles marketplace; } // official.apps;
 }
