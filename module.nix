@@ -2,12 +2,19 @@
 with lib;
 let
   cfg = config.programs.spicetify;
+  spiceLib = import ./lib { inherit pkgs lib; };
+  spiceTypes = spiceLib.types;
+  spicePkgs = import ./pkgs { inherit pkgs lib; };
+
+  ifTrue = lib.attrsets.optionalAttrs;
+  ifTrueList = lib.lists.optionals;
 in
 {
   options.programs.spicetify = {
     enable = mkEnableOption "A modded Spotify";
+
     theme = mkOption {
-      type = types.str;
+      type = types.oneOf [ types.str spiceTypes.theme ];
       default = "";
     };
 
@@ -23,254 +30,248 @@ in
       description = "The nix package containing spicetify-cli.";
     };
 
-    themesSrc = mkOption {
-      type = types.package;
-      default = builtins.fetchGit {
-        url = "https://github.com/spicetify/spicetify-themes";
-        rev = "5d3d42f913467f413be9b0159f5df5023adf89af";
-        submodules = true;
-      };
-      description = "A package which contains, at its root, a Themes directory,
-        which should be copied into the spicetify themes directory.";
-    };
-
     extraCommands = mkOption {
       type = types.lines;
       default = "";
       description = "Extra commands to be run during the setup of spicetify.";
     };
 
-    colorScheme = mkOption {
-      type = types.str;
-      default = "";
-    };
-    thirdPartyThemes = mkOption {
-      type = types.attrs;
-      default = { };
-      description = "A set of themes, indexed by name and containing the path to the theme.";
+    enabledExtensions = mkOption {
+      type = types.listOf (types.oneOf [ spiceTypes.extension types.str ]);
+      default = [ ];
+      description = "A list of extensions. Official extensions such as \"dribbblish.js\" can be referenced by string alone.";
       example = ''
-        {
-          Dribbblish = $\{spicetify-themes-git}/Dribbblish;
-        }
+        [
+            "dribbblish.js"
+            "shuffle+.js"
+            {
+                src = pkgs.fetchgit {
+                    url = "https://github.com/LucasBares/spicetify-last-fm";
+                    rev = "0f905b49362ea810b6247ac1950a2951dd35632e";
+                    sha256 = "1b0l2g5cyjj1nclw1ff7as9q94606mkq1k8l2s34zzdsx3m2zv81";
+                };
+                filename = "lastfm.js";
+            }
+        ]
       '';
     };
-    thirdPartyExtensions = mkOption {
-      type = types.attrs;
-      default = { };
-    };
-    thirdPartyCustomApps = mkOption {
-      type = types.attrs;
-      default = { };
-    };
-    enabledExtensions = mkOption {
-      type = types.listOf types.str;
-      default = [ ];
-    };
     enabledCustomApps = mkOption {
-      type = types.listOf types.str;
+      type = types.listOf (types.oneOf [ spiceTypes.app types.str ]);
       default = [ ];
     };
-    spotifyLaunchFlags = mkOption {
-      type = types.str;
-      default = "";
+
+    xpui = mkOption {
+      type = spiceTypes.xpui;
+      default = { };
     };
-    injectCss = mkOption {
-      type = types.bool;
-      default = false;
+
+    # legacy/ease of use options (commonly set for themes like Dribbblish)
+    # injectCss = xpui.Setting.inject_css;
+    injectCss = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
+    replaceColors = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
+    overwriteAssets = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
+    sidebarConfig = mkOption { type = lib.types.nullOr lib.types.bool; default = null; };
+    colorScheme = mkOption {
+      type = lib.types.nullOr lib.types.str;
+      default = null;
     };
-    replaceColors = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    overwriteAssets = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    disableSentry = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    disableUiLogging = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    removeRtlRule = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    exposeApis = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    disableUpgradeCheck = mkOption {
-      type = types.bool;
-      default = true;
-    };
-    fastUserSwitching = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    visualizationHighFramerate = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    radio = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    songPage = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    experimentalFeatures = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    home = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    lyricAlwaysShow = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    lyricForceNoSync = mkOption {
-      type = types.bool;
-      default = false;
+    customColorScheme = mkOption {
+      type = lib.types.nullOr lib.types.attrs;
+      default = null;
     };
   };
 
-  config = mkIf cfg.enable {
-    # install necessary packages for this user
-    home.packages = with cfg;
-      let
-        # turn certain values on by default if we know the theme needs it
-        isDribbblish = cfg.theme == "Dribbblish";
-        isTurntable = cfg.theme == "Turntable";
-        injectCSSReal = boolToString (isDribbblish || cfg.injectCss);
-        replaceColorsReal = boolToString (isDribbblish || cfg.replaceColors);
-        overwriteAssetsReal = boolToString (isDribbblish || cfg.overwriteAssets);
+  config =
+    let
+      actualTheme = spiceLib.getTheme cfg.theme;
 
+      # helper functions
+      pipeConcat = foldr (a: b: a + "|" + b) "";
+      lineBreakConcat = foldr (a: b: a + "\n" + b) "";
 
-        pipeConcat = foldr (a: b: a + "|" + b) "";
-        extensionString = pipeConcat (
-          (if isDribbblish then [ "dribbblish.js" ] else [ ])
-          ++ (if isTurntable then [ "turntable.js" ] else [ ])
-          ++ cfg.enabledExtensions
-        );
-        customAppsString = pipeConcat cfg.enabledCustomApps;
+      # take the list of extensions and turn strings into actual extensions
+      allExtensions = map spiceLib.getExtension (cfg.enabledExtensions ++
+        (ifTrueList (builtins.hasAttr "requiredExtensions" actualTheme)
+          actualTheme.requiredExtensions
+        ) ++ cfg.xpui.AdditionalOptions.extensions);
+      allExtensionFiles = map (item: item.filename) allExtensions;
+      extensionString = pipeConcat allExtensionFiles;
 
-        customToINI = lib.generators.toINI {
-          # specifies how to format a key/value pair
-          mkKeyValue = lib.generators.mkKeyValueDefault
-            {
-              # specifies the generated string for a subset of nix values
-              mkValueString = v:
-                if v == true then "1"
-                else if v == false then "0"
-                # else if isString v then ''"${v}"''
-                # and delegats all other values to the default generator
-                else lib.generators.mkValueStringDefault { } v;
-            } "=";
-        };
+      # do the same thing again but for customapps this time
+      allApps = map spiceLib.getApp (cfg.enabledCustomApps ++ cfg.xpui.AdditionalOptions.custom_apps);
+      allAppsNames = map (item: item.name) allApps;
+      customAppsString = pipeConcat allAppsNames;
 
-        config-xpui = builtins.toFile "config-xpui.ini" (customToINI {
+      # cfg.theme.injectCss is a submodule but cfg.injectCss is not, so we
+      # have to have two different override functions for each case
+      # (one value is null while the other is undefined...)
+      createBoolOverride = set: attrName: cfgName:
+        ifTrue (set.${attrName} != null) (ifTrue (builtins.typeOf set.${attrName} == "bool")
+          { ${cfgName} = set.${attrName}; });
+      createBoolOverrideFromSubmodule = set: attrName: cfgName:
+        ifTrue (builtins.hasAttr attrName set)
+          (ifTrue (builtins.typeOf set.${attrName} == "bool")
+            { ${cfgName} = set.${attrName}; });
+
+      # determine whether or not any extension requires experimental_features
+      needExperimental = lib.lists.any
+        (item: (if (builtins.hasAttr "experimentalFeatures" item) then
+          item.experimentalFeatures
+        else
+          false)
+        )
+        allExtensions;
+
+      mkXpuiOverrides =
+        let
+          createOverride = set: attrName: cfgName:
+            ifTrue (set.${attrName} != null)
+              { ${cfgName} = set.${attrName}; };
+        in
+        container: boolOverrideFunc: {
           AdditionalOptions = {
-            home = cfg.home;
-            experimental_features = cfg.experimentalFeatures;
             extensions = extensionString;
             custom_apps = customAppsString;
-            sidebar_config = 0; # i dont know what this does
+            experimental_features = needExperimental;
           };
-          Patch = { };
-          Setting = {
-            spotify_path = "__REPLACEME__"; # to be replaced in the spotify postInstall
-            prefs_path = "__REPLACEME2__";
-            current_theme = cfg.theme;
-            color_scheme = cfg.colorScheme;
-            spotify_launch_flags = cfg.spotifyLaunchFlags;
-            check_spicetify_upgrade = 0;
-            inject_css = injectCSSReal;
-            replace_colors = replaceColorsReal;
-            overwrite_assets = overwriteAssetsReal;
-          };
-          Preprocesses = {
-            disable_upgrade_check = cfg.disableUpgradeCheck;
-            disable_sentry = cfg.disableSentry;
-            disable_ui_logging = cfg.disableUiLogging;
-            remove_rtl_rule = cfg.removeRtlRule;
-            expose_apis = cfg.exposeApis;
-          };
-          Backup = {
-            version = cfg.spotifyPackage.version;
-            "with" = "Dev";
-          };
-        });
+          Setting = { }
+            // boolOverrideFunc container "injectCss" "inject_css"
+            // boolOverrideFunc container "replaceColors" "replace_colors"
+            // boolOverrideFunc container "overwriteAssets" "overwrite_assets"
+            // boolOverrideFunc container "sidebarConfig" "sidebar_config"
+            # also add the colorScheme as an override if defined in cfg
+            // (ifTrue (container == cfg) (createOverride container "colorScheme" "color_scheme"))
+            # and turn the theme into a string of its name
+            // (ifTrue (container == cfg) { current_theme = actualTheme.name; });
+          Patch = (ifTrue (container == actualTheme) (ifTrue (builtins.hasAttr "patches" actualTheme) actualTheme.patches));
+          Backup = { version = (cfg.spotifyPackage.version or "Unknown"); };
+        };
 
-        # INI created, now create the postInstall that runs spicetify
-        inherit (pkgs.lib.lists) foldr;
-        inherit (pkgs.lib.attrsets) mapAttrsToList;
+      # override any values defined by the user in cfg.xpui with values defined by the theme
+      overridenXpui1 = builtins.mapAttrs
+        (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
+        (mkXpuiOverrides actualTheme createBoolOverrideFromSubmodule);
+      # override any values defined by the theme with values defined in cfg
+      setToString = set: lineBreakConcat (lib.attrsets.mapAttrsToList (name: value: "${name}") set);
+      overridenXpui2 = builtins.mapAttrs
+        (name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value))
+        (mkXpuiOverrides cfg createBoolOverride);
 
-        # Helper functions
-        lineBreakConcat = foldr (a: b: a + "\n" + b) "";
-        boolToString = x: if x then "1" else "0";
-        makeCpCommands = type: (mapAttrsToList (name: path: 
-        let
-            extension = if type == "Extensions" then ".js" else "";
-        in
-        "cp -r ${path} ./${type}/${name}${extension} && ${pkgs.coreutils-full}/bin/chmod -R a+wr ./${type}/${name}${extension}"));
+      config-xpui = builtins.toFile "config-xpui.ini" (spiceLib.createXpuiINI overridenXpui2);
 
-        spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
+      # INI created, now create the postInstall that runs spicetify
+      inherit (pkgs.lib.lists) foldr;
+      inherit (pkgs.lib.attrsets) mapAttrsToList;
 
-        # custom spotify package with spicetify integrated in
-        spiced-spotify = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
-          postInstall = ''
-            export SPICETIFY_CONFIG=$out/spicetify
-            mkdir -p $SPICETIFY_CONFIG
-            pushd $SPICETIFY_CONFIG
+      extensionCommands = lineBreakConcat (map
+        (item:
+          let
+            command = "cp -rn ${item.src}/${item.filename} ./Extensions/${item.filename}";
+          in
+          "${command} && echo \"Cp command for ${item.filename} succeeded!\""
+        )
+        allExtensions);
+
+      customAppCommands = lineBreakConcat (map
+        (item: "cp -rn ${(if (builtins.hasAttr "appendName" item) then
+                if (item.appendName) then
+                    "${item.src}/${item.name}"
+                else
+                "${item.src}"
+            else
+              "${item.src}")} ./CustomApps/${item.name}")
+        allApps);
+
+      spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
+
+      theme = spiceLib.getTheme cfg.theme;
+      themePath = spiceLib.getThemePath theme;
+
+      customColorSchemeINI = (builtins.toFile "dummy-color.ini"
+        (spiceLib.createXpuiINI
+          { custom = cfg.customColorScheme; }));
+
+      customColorSchemeScript =
+        if (cfg.customColorScheme != null) then ''
+          COLORINI=./Themes/${actualTheme.name}/color.ini
+          if [ -e $COLORINI ]; then
+              echo "\n" >> $COLORINI
+              # finally, use cat for its actual purpose: concatenation
+              cat ${customColorSchemeINI} >> $COLORINI
+          fi
+        '' else "";
+
+      finalScript = ''
+        export SPICETIFY_CONFIG=$out/spicetify
+        mkdir -p $SPICETIFY_CONFIG
+        pushd $SPICETIFY_CONFIG
                 
-            # create config and prefs
-            cp ${config-xpui} config-xpui.ini
-            ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
-            touch $out/share/spotify/prefs
+        # create config and prefs
+        cp ${config-xpui} config-xpui.ini
+        ${pkgs.coreutils-full}/bin/chmod a+wr config-xpui.ini
+        touch $out/share/spotify/prefs
                 
-            # replace the spotify path with the current derivation's path
-            sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
-            sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
-
-            cp -r ${cfg.themesSrc} Themes
-            ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
-
-            # the following command will link themes, but we want to copy so we can have w/r
-            # find ${cfg.themesSrc} -maxdepth 1 -type d -exec ln -s {} Themes \;
-            mkdir -p Extensions
-            ${cfg.extraCommands}
-            ${if isDribbblish then "cp ./Themes/Dribbblish/dribbblish.js ./Extensions/dribbblish.js \n" else ""}
-            ${if isTurntable then "cp ./Themes/Turntable/turntable.js ./Extensions/turntable.js \n" else ""}
-            # copy themes into Themes folder
-            ${lineBreakConcat (makeCpCommands "Themes" cfg.thirdPartyThemes)}
-            # copy extensions into Extensions folder
-            ${lineBreakConcat (makeCpCommands "Extensions" cfg.thirdPartyExtensions)}
-            # copy custom apps into CustomApps folder
-            ${lineBreakConcat (makeCpCommands "CustomApps" cfg.thirdPartyCustomApps)}
-                
-            popd
-
-            pushd $out/share/spotify
-            ${lineBreakConcat (makeCpCommands "Apps" thirdPartyCustomApps)}
-            popd
+        # replace the spotify path with the current derivation's path
+        sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+        sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
             
-            ${spicetify} backup apply
+        mkdir -p Themes
+        mkdir -p Extensions
+        mkdir -p CustomApps
+        cp -r ${themePath} ./Themes/${theme.name}
+        ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
+        echo "copied theme"
+        # copy extensions into Extensions folder
+        ${extensionCommands}
+        ${pkgs.coreutils-full}/bin/chmod -R a+wr Extensions
+        # copy custom apps into CustomApps folder
+        ${customAppCommands}
+        ${pkgs.coreutils-full}/bin/chmod -R a+wr CustomApps
+        # completed app and extension installation
+        # add a custom color scheme if necessary
+        ${customColorSchemeScript}
+        # completed custom color scheme addition 
+        ${cfg.extraCommands}
+        
+        # extra commands that the theme might need
+        ${if (builtins.hasAttr "extraCommands" actualTheme) then
+            (if actualTheme.extraCommands != null then
+              actualTheme.extraCommands
+            else
+              "")
+          else ""}
+        popd
+        ${spicetify} backup apply
             
-            # fix config to point to home directory (not necessary I don't think, but whatever)
-            # sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" $SPICETIFY_CONFIG/config-xpui.ini
-          '';
-        });
-      in
-      [
-        spiced-spotify
-        cfg.spicetifyPackage
-      ];
-  };
+        # fix config to point to home directory (not necessary I don't think, but whatever)
+        # sed -i "s|$out/share/spotify/prefs|${config.home.homeDirectory}/.config/spotify/prefs|g" $SPICETIFY_CONFIG/config-xpui.ini
+      '';
+
+
+      # custom spotify package with spicetify integrated in
+      spiced-spotify = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
+        postInstall = finalScript;
+      });
+    in
+    mkIf cfg.enable {
+      # install necessary packages for this user
+      home.packages = with cfg;
+        [
+          spiced-spotify
+          cfg.spicetifyPackage
+        ] ++
+        # need montserrat for the BurntSienna theme
+        (ifTrueList
+          (actualTheme == spicePkgs.official.themes.BurntSienna)
+          [ pkgs.montserrat ]
+        ) ++
+        (ifTrueList
+          (cfg.theme == spicePkgs.themes.Orchis)
+          [ pkgs.fira ]
+        );
+      home.sessionVariables = {
+        SPICETIFY_CONFIG = "${spiced-spotify}/spicetify";
+      };
+    };
 }
 
