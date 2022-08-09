@@ -79,6 +79,14 @@ in
       type = lib.types.nullOr lib.types.attrs;
       default = null;
     };
+
+    cssMap = mkOption {
+      type = lib.types.path;
+      default = pkgs.fetchurl {
+        url = "https://raw.githubusercontent.com/spicetify/spicetify-cli/6f473f28151c75e08e83fb280dd30fadd22d9c04/css-map.json";
+        sha256 = "1qj0hlq98hz4v318qhz6ijyrir96fj962gqz036dm4jka3bg06l7";
+      };
+    };
   };
 
   config =
@@ -101,7 +109,7 @@ in
       allApps = map spiceLib.getApp (cfg.enabledCustomApps ++ cfg.xpui.AdditionalOptions.custom_apps);
       allAppsNames = map (item: item.name) allApps;
       customAppsString = pipeConcat allAppsNames;
-
+ 
       # cfg.theme.injectCss is a submodule but cfg.injectCss is not, so we
       # have to have two different override functions for each case
       # (one value is null while the other is undefined...)
@@ -182,7 +190,7 @@ in
               "${item.src}")} ./CustomApps/${item.name}")
         allApps);
 
-      spicetify = "${cfg.spicetifyPackage}/bin/spicetify-cli --no-restart";
+      spicetify = "spicetify-cli --no-restart";
 
       theme = spiceLib.getTheme cfg.theme;
       themePath = spiceLib.getThemePath theme;
@@ -204,6 +212,16 @@ in
       finalScript = ''
         export SPICETIFY_CONFIG=$out/spicetify
         mkdir -p $SPICETIFY_CONFIG
+        
+        # move spicetify bin here
+        cp ${cfg.spicetifyPackage}/bin/spicetify-cli $SPICETIFY_CONFIG/spicetify-cli
+        ${pkgs.coreutils-full}/bin/chmod +x $SPICETIFY_CONFIG/spicetify-cli
+        cp -r ${cfg.spicetifyPackage}/bin/jsHelper $SPICETIFY_CONFIG/jsHelper
+        # grab the css map
+        cp -r ${cfg.cssMap} $SPICETIFY_CONFIG/css-map.json
+        # add the current directory to path
+        export PATH=$SPICETIFY_CONFIG:$PATH
+        
         pushd $SPICETIFY_CONFIG
                 
         # create config and prefs

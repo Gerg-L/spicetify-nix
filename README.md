@@ -1,6 +1,21 @@
-# Warning: Spotify Sucks
-Linux is a second class citizen on Spotify's release plan, but because it isn't FOSS, there's nothing we can do. Right now a lot of themes and extensions don't work because spotify isn't up to date on Linux. This includes Dribbblish :(
+# ~~Warning: Spotify Sucks~~
+~~Linux is a second class citizen on Spotify's release plan, but because it isn't FOSS, there's nothing we can do. Right now a lot of themes and extensions don't work because spotify isn't up to date on Linux. This includes Dribbblish :(~~
 
+# EDIT: nevermind
+Turns out using spicetify 2.9.9 and the most recent CSS map fixes most (or all) of the issues. Use the following configuration option to get spicetify 2.9.9:
+```nix
+{
+  programs.spicetify.spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
+    pname = "spicetify-cli";
+    version = "2.9.9";
+    src = pkgs.fetchgit {
+      url = "https://github.com/spicetify/${pname}";
+      rev = "v${version}";
+      sha256 = "1a6lqp6md9adxjxj4xpxj0j1b60yv3rpjshs91qx3q7blpsi3z4z";
+    };
+  });
+}
+```
 # Spicetify-Nix
 
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
@@ -35,8 +50,6 @@ Here are two examples of files which configures spicetify when imported into a u
   programs.spicetify =
     {
       enable = true;
-      # recommended to use newest version of spicetify unless you know what you're doing
-      spicetifyPackage = unstable.spicetify-cli;
       theme = "catppuccin-mocha";
       # OR 
       # theme = spicetify-nix.pkgs.themes.catppuccin-mocha;
@@ -52,7 +65,6 @@ Here are two examples of files which configures spicetify when imported into a u
 ```
 
 ### MAXIMUM CONFIGURATION
-WARNING: Do not copy + paste this configuration. The "enabledCustomApps" causes spotify to give the "something went wrong" page eternally. This configuration is only meant as an example.
 ```nix
 { pkgs, unstable, lib, spicetify-nix, ... }:
 {
@@ -85,7 +97,15 @@ WARNING: Do not copy + paste this configuration. The "enabledCustomApps" causes 
       # use spotify from the nixpkgs master branch
       spotifyPackage = unstable.spotify-unwrapped;
       # use a custom build of spicetify, also an old version.
-      spicetifyPackage = import ../../packages/spicetify-cli-2.9.9.nix { inherit pkgs; };
+      spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
+        pname = "spicetify-cli";
+        version = "2.9.9";
+        src = pkgs.fetchgit {
+          url = "https://github.com/spicetify/${pname}";
+          rev = "v${version}";
+          sha256 = "1a6lqp6md9adxjxj4xpxj0j1b60yv3rpjshs91qx3q7blpsi3z4z";
+        };
+      });
 
       # actually enable the installation of spotify and spicetify
       enable = true;
@@ -138,7 +158,6 @@ WARNING: Do not copy + paste this configuration. The "enabledCustomApps" causes 
         misc = "6e6a86";
       };
       
-      # BROKEN AT TIME OF WRITING
       enabledCustomApps = with spicetify-nix.pkgs.apps; [
         new-releases
         {
