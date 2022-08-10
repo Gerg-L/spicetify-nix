@@ -691,5 +691,6 @@ in
   // appendJS fullScreen
   // appendJS playNext
   // appendJS volumePercentage;
-  apps = { inherit localFiles marketplace; } // official.apps;
+  apps = { inherit localFiles marketplace nameThatTune; }
+  // official.apps;
 }
