@@ -183,6 +183,12 @@ let
     sha256 = "sha256-oTryiBkldW7RPjlJ9gw00XJi7QhwtUAueFt24Fh3NTo=";
   };
 
+  nameThatTuneSrc = pkgs.fetchgit {
+    url = "https://github.com/theRealPadster/name-that-tune";
+    rev = "0ce6a0e26c08c19637e490494e9cada30d2b639b";
+    sha256 = "1apz9q3wgy0f798xcy90hhip6ry8vvklagyymphbvshq48api21j";
+  };
+
   # EXTENSIONS ----------------------------------------------------------------
 
   dribbblishExt = {
@@ -538,6 +544,12 @@ let
   marketplace = {
     name = "marketplace";
     src = marketplaceSrc;
+    appendName = false;
+  };
+  
+  nameThatTune = {
+    name = "nameThatTune";
+    src = nameThatTuneSrc;
     appendName = false;
   };
 
