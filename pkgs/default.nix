@@ -405,6 +405,7 @@ let
     src = spotifyNoPremiumSrc;
     appendName = false;
     requiredExtensions = [ adblock ];
+    injectCss = false;
   };
 
   Fluent = {
@@ -505,6 +506,7 @@ let
     src = draculaSrc;
     appendName = true;
     replaceColors = true;
+    injectCss = false;
   };
 
   Nord = {

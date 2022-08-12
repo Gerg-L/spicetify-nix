@@ -178,9 +178,6 @@ in
         (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
         (mkXpuiOverrides actualTheme createBoolOverrideFromSubmodule);
       # override any values defined by the theme with values defined in cfg
-      setToString = set: lineBreakConcat (lib.attrsets.mapAttrsToList
-        (name: value: "${name}")
-        set);
       overridenXpui2 = builtins.mapAttrs
         (name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value))
         (mkXpuiOverrides cfg createBoolOverride);
@@ -213,9 +210,7 @@ in
         allApps);
 
       spicetify = "spicetify-cli --no-restart";
-
-      theme = spiceLib.getTheme cfg.theme;
-      themePath = spiceLib.getThemePath theme;
+      themePath = spiceLib.getThemePath actualTheme;
 
       customColorSchemeINI = (builtins.toFile "dummy-color.ini"
         (spiceLib.createXpuiINI
@@ -302,9 +297,8 @@ in
           [ pkgs.montserrat ]
         ) ++
         (ifTrueList
-          (cfg.theme == spicePkgs.themes.Orchis)
+          (actualTheme == spicePkgs.themes.Orchis)
           [ pkgs.fira ]
         );
     };
 }
-
