@@ -253,7 +253,7 @@ in
         mkdir -p Themes
         mkdir -p Extensions
         mkdir -p CustomApps
-        cp -r ${themePath} ./Themes/${theme.name}
+        cp -r ${themePath} ./Themes/${actualTheme.name}
         ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
         echo "copied theme"
         # copy extensions into Extensions folder
