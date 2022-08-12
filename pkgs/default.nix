@@ -372,6 +372,7 @@ let
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
+      sidebarConfig = false;
     };
   };
   mkComfyTheme = name: {
@@ -384,6 +385,7 @@ let
         injectCss = true;
         replaceColors = true;
         overwriteAssets = true;
+        sidebarConfig = false;
         requiredExtensions = [
           {
             src = "${comfySrc}/${name}";
@@ -408,6 +410,7 @@ let
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
+    sidebarConfig = false;
   };
 
   Fluent = {
@@ -417,6 +420,7 @@ let
     injectCss = true;
     overwriteAssets = true;
     replaceColors = true;
+    sidebarConfig = false;
     patches = {
       "xpui.js_find_8008" = ",(\\w+=)32";
       "xpui.js_repl_8008" = ",$\{1}56";
@@ -436,6 +440,7 @@ let
     injectCss = true;
     replaceColors = true;
     overwriteAssets = false;
+    sidebarConfig = false;
     requiredExtensions = [
       {
         src = defaultDynamicSrc;
@@ -459,6 +464,7 @@ let
     injectCss = true;
     replaceColors = true;
     overwriteAssets = false;
+    sidebarConfig = false;
   };
 
   # BROKEN. no clue why
@@ -469,6 +475,7 @@ let
     injectCss = true;
     overwriteAssets = true;
     replaceColors = true;
+    sidebarConfig = false;
     requiredExtensions = [
       {
         src = omniSrc;
@@ -485,6 +492,7 @@ let
     injectCss = true;
     replaceColors = true;
     overwriteAssets = true;
+    sidebarConfig = false;
     patches = {
       "xpui.js_find_8008" = ",(\\w+=)32,";
       "xpui.js_repl_8008" = ",$\{1}56,";
@@ -504,6 +512,7 @@ let
     injectCss = true;
     replaceColors = true;
     overwriteAssets = false;
+    sidebarConfig = false;
   };
 
   Dracula = {
@@ -513,6 +522,7 @@ let
     replaceColors = true;
     injectCss = false;
     overwriteAssets = false;
+    sidebarConfig = false;
   };
 
   Nord = {
@@ -522,6 +532,7 @@ let
     injectCss = true;
     replaceColors = true;
     overwriteAssets = false;
+    sidebarConfig = false;
   };
 
   # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
@@ -536,6 +547,7 @@ let
     injectCss = true;
     overwriteAssets = false;
     replaceColors = false;
+    sidebarConfig = false;
 
     requiredExtensions = [
       {
@@ -557,7 +569,7 @@ let
     src = marketplaceSrc;
     appendName = false;
   };
-  
+
   nameThatTune = {
     name = "nameThatTune";
     src = nameThatTuneSrc;
@@ -703,5 +715,5 @@ in
   // appendJS playNext
   // appendJS volumePercentage;
   apps = { inherit localFiles marketplace nameThatTune; }
-  // official.apps;
+    // official.apps;
 }
