@@ -406,6 +406,8 @@ let
     appendName = false;
     requiredExtensions = [ adblock ];
     injectCss = false;
+    replaceColors = false;
+    overwriteAssets = false;
   };
 
   Fluent = {
@@ -433,6 +435,7 @@ let
     appendName = false;
     injectCss = true;
     replaceColors = true;
+    overwriteAssets = false;
     requiredExtensions = [
       {
         src = defaultDynamicSrc;
@@ -455,6 +458,7 @@ let
     appendName = false;
     injectCss = true;
     replaceColors = true;
+    overwriteAssets = false;
   };
 
   # BROKEN. no clue why
@@ -499,6 +503,7 @@ let
     appendName = true;
     injectCss = true;
     replaceColors = true;
+    overwriteAssets = false;
   };
 
   Dracula = {
@@ -507,6 +512,7 @@ let
     appendName = true;
     replaceColors = true;
     injectCss = false;
+    overwriteAssets = false;
   };
 
   Nord = {
@@ -515,6 +521,7 @@ let
     appendName = false;
     injectCss = true;
     replaceColors = true;
+    overwriteAssets = false;
   };
 
   # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
@@ -527,6 +534,8 @@ let
     src = "${spotifyCanvasSrc}/Themes/canvas";
     appendName = false;
     injectCss = true;
+    overwriteAssets = false;
+    replaceColors = false;
 
     requiredExtensions = [
       {
