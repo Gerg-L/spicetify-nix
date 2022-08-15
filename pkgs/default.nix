@@ -6,7 +6,7 @@ let
   officialThemes = pkgs.fetchgit {
     url = "https://github.com/spicetify/spicetify-themes";
     rev = "9a2fcb5a545da368e4bf1d8189f58d0f664f3115";
-    sha256 = "sha256-BrJkG1OYpkAfBYUfLn/CNDBc0n1tW5OLnpobkPABQow=";
+    sha256 = "18gmhahw7k4labygq3a4igqbkwqzlr67s7xvnf75521ynnzpnhca";
   };
 
   officialSrc = pkgs.fetchgit {
