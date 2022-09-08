@@ -201,7 +201,7 @@ let
     src = "${officialThemes}/Turntable";
   };
 
-  adblock = {
+  brokenAdblock = {
     src = spotifyNoPremiumSrc;
     filename = "adblock.js";
   };
@@ -342,13 +342,12 @@ let
     filename = "group-session.js";
   };
 
-
-  # UNUSED
-  # we already have an adblock
   charliesAdblock = {
     src = "${charlieS1103Src}/adblock";
     filename = "adblock.js";
   };
+
+  # UNUSED
   # startpage needs r/w
   startPage = {
     src = "${startPageSrc}/dist";
@@ -406,7 +405,7 @@ let
     name = "SpotifyNoPremium";
     src = spotifyNoPremiumSrc;
     appendName = false;
-    requiredExtensions = [ adblock ];
+    requiredExtensions = [ brokenAdblock ]; # might also require charliesAdblock
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
@@ -683,6 +682,7 @@ in
     "playlistIcons.js" = playlistIcons;
     "powerBar.js" = powerBar;
     "groupSession.js" = groupSession;
+    "brokenAdblock.js" = brokenAdblock; # this is old but you can still use it if you need
   } // official.extensions
   // appendJS groupSession
   // appendJS powerBar
@@ -708,7 +708,7 @@ in
   // appendJS lastfm
   // appendJS genre
   // appendJS hidePodcasts
-  // appendJS adblock
+  // appendJS charliesAdblock # adblock.js
   // appendJS savePlaylists
   // appendJS autoSkip
   // appendJS fullScreen
