@@ -227,7 +227,7 @@ in
         '' else "";
 
       finalScript = ''
-        export SPICETIFY_CONFIG=$out/spicetify
+        export SPICETIFY_CONFIG=$out/share/Spicetify
         mkdir -p $SPICETIFY_CONFIG
         
         # move spicetify bin here
@@ -277,6 +277,9 @@ in
           else ""}
         popd
         ${spicetify} backup apply
+
+        # cleanup
+        if [ -e $out/snap.yaml ] && rm $out/snap.yaml
       '';
 
 
