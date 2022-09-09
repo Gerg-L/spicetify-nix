@@ -279,7 +279,7 @@ in
         ${spicetify} backup apply
 
         # cleanup
-        if [ -e $out/snap.yaml ] && rm $out/snap.yaml
+        [[ -e $out/snap.yaml ]] && rm $out/snap.yaml
       '';
 
 
