@@ -407,7 +407,7 @@
     name = "SpotifyNoPremium";
     src = spotifyNoPremiumSrc;
     appendName = false;
-    requiredExtensions = [ brokenAdblock ]; # might also require charliesAdblock
+    requiredExtensions = [brokenAdblock]; # might also require charliesAdblock
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
@@ -670,59 +670,74 @@
   appendJS = ext: {${ext.filename} = ext;};
 in {
   inherit official;
-  themes = {
-    inherit SpotifyNoPremium Fluent DefaultDynamic RetroBlur Omni Bloom Orchis
-      Dracula Nord SpotifyCanvas;
-  } // official.themes
-  // mkCatppuccinTheme "catppuccin-mocha"
-  // mkCatppuccinTheme "catppuccin-frappe"
-  // mkCatppuccinTheme "catppuccin-latte"
-  // mkCatppuccinTheme "catppuccin-macchiato"
-  // mkComfyTheme "Comfy"
-  // mkComfyTheme "Comfy-Chromatic"
-  // mkComfyTheme "Comfy-Mono";
-  extensions = {
-    # aliases for weirdly named extension files
-    "history.js" = history;
-    "volumeProfiles.js" = volumeProfiles;
-    "copyToClipboard.js" = copyToClipboard;
-    "songStats.js" = songStats;
-    "featureShuffle.js" = featureShuffle;
-    "playlistIcons.js" = playlistIcons;
-    "powerBar.js" = powerBar;
-    "groupSession.js" = groupSession;
-    "brokenAdblock.js" = brokenAdblock; # this is old but you can still use it if you need
-  } // official.extensions
-  // appendJS groupSession
-  // appendJS powerBar
-  // appendJS seekSong
-  // appendJS skipOrPlayLikedSongs
-  // appendJS playlistIcons
-  // appendJS fullAlbumDate
-  // appendJS fullAppDisplayMod
-  // appendJS goToSong
-  // appendJS listPlaylistsWithSong
-  // appendJS playlistIntersection
-  // appendJS skipStats
-  // appendJS phraseToPlaylist
-  // appendJS fixEnhance
-  // appendJS wikify
-  // appendJS featureShuffle
-  // appendJS songStats
-  // appendJS showQueueDuration
-  // appendJS copyToClipboard
-  // appendJS volumeProfiles
-  // appendJS autoVolume
-  // appendJS history
-  // appendJS lastfm
-  // appendJS genre
-  // appendJS hidePodcasts
-  // appendJS charliesAdblock # adblock.js
-  // appendJS savePlaylists
-  // appendJS autoSkip
-  // appendJS fullScreen
-  // appendJS playNext
-  // appendJS volumePercentage;
-  apps = { inherit localFiles marketplace nameThatTune; }
+  themes =
+    {
+      inherit
+        SpotifyNoPremium
+        Fluent
+        DefaultDynamic
+        RetroBlur
+        Omni
+        Bloom
+        Orchis
+        Dracula
+        Nord
+        SpotifyCanvas
+        ;
+    }
+    // official.themes
+    // mkCatppuccinTheme "catppuccin-mocha"
+    // mkCatppuccinTheme "catppuccin-frappe"
+    // mkCatppuccinTheme "catppuccin-latte"
+    // mkCatppuccinTheme "catppuccin-macchiato"
+    // mkComfyTheme "Comfy"
+    // mkComfyTheme "Comfy-Chromatic"
+    // mkComfyTheme "Comfy-Mono";
+  extensions =
+    {
+      # aliases for weirdly named extension files
+      "history.js" = history;
+      "volumeProfiles.js" = volumeProfiles;
+      "copyToClipboard.js" = copyToClipboard;
+      "songStats.js" = songStats;
+      "featureShuffle.js" = featureShuffle;
+      "playlistIcons.js" = playlistIcons;
+      "powerBar.js" = powerBar;
+      "groupSession.js" = groupSession;
+      "brokenAdblock.js" = brokenAdblock; # this is old but you can still use it if you need
+    }
+    // official.extensions
+    // appendJS groupSession
+    // appendJS powerBar
+    // appendJS seekSong
+    // appendJS skipOrPlayLikedSongs
+    // appendJS playlistIcons
+    // appendJS fullAlbumDate
+    // appendJS fullAppDisplayMod
+    // appendJS goToSong
+    // appendJS listPlaylistsWithSong
+    // appendJS playlistIntersection
+    // appendJS skipStats
+    // appendJS phraseToPlaylist
+    // appendJS fixEnhance
+    // appendJS wikify
+    // appendJS featureShuffle
+    // appendJS songStats
+    // appendJS showQueueDuration
+    // appendJS copyToClipboard
+    // appendJS volumeProfiles
+    // appendJS autoVolume
+    // appendJS history
+    // appendJS lastfm
+    // appendJS genre
+    // appendJS hidePodcasts
+    // appendJS charliesAdblock # adblock.js
+    // appendJS savePlaylists
+    // appendJS autoSkip
+    // appendJS fullScreen
+    // appendJS playNext
+    // appendJS volumePercentage;
+  apps =
+    {inherit localFiles marketplace nameThatTune;}
     // official.apps;
 }
