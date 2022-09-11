@@ -1,6 +1,9 @@
-{ pkgs, lib, ... }:
-let
-  spiceTypes = (import ../lib { inherit pkgs lib; }).types;
+{
+  pkgs,
+  lib,
+  ...
+}: let
+  spiceTypes = (import ../lib {inherit pkgs lib;}).types;
 
   # SOURCE --------------------------------------------------------------------
   officialThemes = pkgs.fetchgit {
@@ -342,7 +345,6 @@ let
     filename = "group-session.js";
   };
 
-
   # UNUSED
   # we already have an adblock
   charliesAdblock = {
@@ -354,7 +356,6 @@ let
     src = "${startPageSrc}/dist";
     filename = "startup-page.js";
   };
-
 
   # THEME GENERATORS ----------------------------------------------------------
 
@@ -376,28 +377,28 @@ let
     };
   };
   mkComfyTheme = name: {
-    ${name} =
-      let lname = lib.strings.toLower name; in
-      {
-        inherit name;
-        src = comfySrc;
-        appendName = true;
-        injectCss = true;
-        replaceColors = true;
-        overwriteAssets = true;
-        sidebarConfig = false;
-        requiredExtensions = [
-          {
-            src = "${comfySrc}/${name}";
-            filename = "${lname}.js";
-          }
-        ];
-        extraCommands = ''
-          # remove the auto-update functionality
-          echo "\n" >> ./Extensions/${lname}.js
-          cat ./Themes/${name}/${lname}.script.js >> ./Extensions/${lname}.js
-        '';
-      };
+    ${name} = let
+      lname = lib.strings.toLower name;
+    in {
+      inherit name;
+      src = comfySrc;
+      appendName = true;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      sidebarConfig = false;
+      requiredExtensions = [
+        {
+          src = "${comfySrc}/${name}";
+          filename = "${lname}.js";
+        }
+      ];
+      extraCommands = ''
+        # remove the auto-update functionality
+        echo "\n" >> ./Extensions/${lname}.js
+        cat ./Themes/${name}/${lname}.script.js >> ./Extensions/${lname}.js
+      '';
+    };
   };
 
   # THEMES --------------------------------------------------------------------
@@ -406,7 +407,7 @@ let
     name = "SpotifyNoPremium";
     src = spotifyNoPremiumSrc;
     appendName = false;
-    requiredExtensions = [ adblock ];
+    requiredExtensions = [adblock];
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
@@ -579,15 +580,19 @@ let
   # OFFICIAL THEMES AND EXTENSIONS --------------------------------------------
 
   official = {
-    themes =
-      let
-        mkOfficialTheme = themeName: { ${themeName} = { name = themeName; src = officialThemes; }; };
-      in
+    themes = let
+      mkOfficialTheme = themeName: {
+        ${themeName} = {
+          name = themeName;
+          src = officialThemes;
+        };
+      };
+    in
       {
         Dribbblish = {
           name = "Dribbblish";
           src = officialThemes;
-          requiredExtensions = [ dribbblishExt ];
+          requiredExtensions = [dribbblishExt];
           patches = {
             "xpui.js_find_8008" = ",(\\w+=)32";
             "xpui.js_repl_8008" = ",$\{1}56";
@@ -614,20 +619,24 @@ let
         Turntable = {
           name = "Turntable";
           src = officialThemes;
-          requiredExtensions = [ "fullAppDisplay.js" turntableExt ];
+          requiredExtensions = ["fullAppDisplay.js" turntableExt];
         };
-      } //
-      mkOfficialTheme "Ziro" //
-      mkOfficialTheme "Sleek" //
-      mkOfficialTheme "Onepunch" //
-      mkOfficialTheme "Flow" //
-      mkOfficialTheme "Default" //
-      mkOfficialTheme "BurntSienna";
+      }
+      // mkOfficialTheme "Ziro"
+      // mkOfficialTheme "Sleek"
+      // mkOfficialTheme "Onepunch"
+      // mkOfficialTheme "Flow"
+      // mkOfficialTheme "Default"
+      // mkOfficialTheme "BurntSienna";
 
-    extensions =
-      let
-        mkOfficialExt = name: { "${name}.js" = { src = "${officialSrc}/Extensions"; filename = "${name}.js"; }; };
-      in
+    extensions = let
+      mkOfficialExt = name: {
+        "${name}.js" = {
+          src = "${officialSrc}/Extensions";
+          filename = "${name}.js";
+        };
+      };
+    in
       {
         "dribbblish.js" = dribbblishExt;
         "turntable.js" = turntableExt;
@@ -658,62 +667,76 @@ let
       };
     };
   };
-  appendJS = ext: { ${ext.filename} = ext; };
-in
-{
+  appendJS = ext: {${ext.filename} = ext;};
+in {
   inherit official;
-  themes = {
-    inherit SpotifyNoPremium Fluent DefaultDynamic RetroBlur Omni Bloom Orchis
-      Dracula Nord SpotifyCanvas;
-  } // official.themes
-  // mkCatppuccinTheme "catppuccin-mocha"
-  // mkCatppuccinTheme "catppuccin-frappe"
-  // mkCatppuccinTheme "catppuccin-latte"
-  // mkCatppuccinTheme "catppuccin-macchiato"
-  // mkComfyTheme "Comfy"
-  // mkComfyTheme "Comfy-Chromatic"
-  // mkComfyTheme "Comfy-Mono";
-  extensions = {
-    # aliases for weirdly named extension files
-    "history.js" = history;
-    "volumeProfiles.js" = volumeProfiles;
-    "copyToClipboard.js" = copyToClipboard;
-    "songStats.js" = songStats;
-    "featureShuffle.js" = featureShuffle;
-    "playlistIcons.js" = playlistIcons;
-    "powerBar.js" = powerBar;
-    "groupSession.js" = groupSession;
-  } // official.extensions
-  // appendJS groupSession
-  // appendJS powerBar
-  // appendJS seekSong
-  // appendJS skipOrPlayLikedSongs
-  // appendJS playlistIcons
-  // appendJS fullAlbumDate
-  // appendJS fullAppDisplayMod
-  // appendJS goToSong
-  // appendJS listPlaylistsWithSong
-  // appendJS playlistIntersection
-  // appendJS skipStats
-  // appendJS phraseToPlaylist
-  // appendJS fixEnhance
-  // appendJS wikify
-  // appendJS featureShuffle
-  // appendJS songStats
-  // appendJS showQueueDuration
-  // appendJS copyToClipboard
-  // appendJS volumeProfiles
-  // appendJS autoVolume
-  // appendJS history
-  // appendJS lastfm
-  // appendJS genre
-  // appendJS hidePodcasts
-  // appendJS adblock
-  // appendJS savePlaylists
-  // appendJS autoSkip
-  // appendJS fullScreen
-  // appendJS playNext
-  // appendJS volumePercentage;
-  apps = { inherit localFiles marketplace nameThatTune; }
+  themes =
+    {
+      inherit
+        SpotifyNoPremium
+        Fluent
+        DefaultDynamic
+        RetroBlur
+        Omni
+        Bloom
+        Orchis
+        Dracula
+        Nord
+        SpotifyCanvas
+        ;
+    }
+    // official.themes
+    // mkCatppuccinTheme "catppuccin-mocha"
+    // mkCatppuccinTheme "catppuccin-frappe"
+    // mkCatppuccinTheme "catppuccin-latte"
+    // mkCatppuccinTheme "catppuccin-macchiato"
+    // mkComfyTheme "Comfy"
+    // mkComfyTheme "Comfy-Chromatic"
+    // mkComfyTheme "Comfy-Mono";
+  extensions =
+    {
+      # aliases for weirdly named extension files
+      "history.js" = history;
+      "volumeProfiles.js" = volumeProfiles;
+      "copyToClipboard.js" = copyToClipboard;
+      "songStats.js" = songStats;
+      "featureShuffle.js" = featureShuffle;
+      "playlistIcons.js" = playlistIcons;
+      "powerBar.js" = powerBar;
+      "groupSession.js" = groupSession;
+    }
+    // official.extensions
+    // appendJS groupSession
+    // appendJS powerBar
+    // appendJS seekSong
+    // appendJS skipOrPlayLikedSongs
+    // appendJS playlistIcons
+    // appendJS fullAlbumDate
+    // appendJS fullAppDisplayMod
+    // appendJS goToSong
+    // appendJS listPlaylistsWithSong
+    // appendJS playlistIntersection
+    // appendJS skipStats
+    // appendJS phraseToPlaylist
+    // appendJS fixEnhance
+    // appendJS wikify
+    // appendJS featureShuffle
+    // appendJS songStats
+    // appendJS showQueueDuration
+    // appendJS copyToClipboard
+    // appendJS volumeProfiles
+    // appendJS autoVolume
+    // appendJS history
+    // appendJS lastfm
+    // appendJS genre
+    // appendJS hidePodcasts
+    // appendJS adblock
+    // appendJS savePlaylists
+    // appendJS autoSkip
+    // appendJS fullScreen
+    // appendJS playNext
+    // appendJS volumePercentage;
+  apps =
+    {inherit localFiles marketplace nameThatTune;}
     // official.apps;
 }
