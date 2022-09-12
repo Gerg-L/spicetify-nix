@@ -15,7 +15,7 @@
       "aarch64-linux"
     ];
     genSystems = nixpkgs.lib.genAttrs supportedSystems;
-    pkgs = genSystems (import nixpkgs {inherit system;});
+    pkgs = genSystems (system: import nixpkgs {inherit system;});
   in {
     homeManagerModule = import ./module.nix;
 
