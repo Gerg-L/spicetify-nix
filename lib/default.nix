@@ -1,5 +1,5 @@
 {
-  pkgs,
+  callPackage,
   lib,
   ...
 }: let
@@ -20,9 +20,9 @@
       } "=";
   };
 
-  spicePkgs = import ../pkgs {inherit pkgs lib;};
+  spicePkgs = callPackage ../pkgs {};
 in {
-  types = import ./types.nix {inherit pkgs lib;};
+  types = callPackage ./types.nix {};
 
   createXpuiINI = xpui: (customToINI xpui);
 

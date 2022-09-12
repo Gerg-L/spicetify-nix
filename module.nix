@@ -5,10 +5,11 @@
   ...
 }:
 with lib; let
+  inherit (pkgs) callPackage fetchurl;
   cfg = config.programs.spicetify;
-  spiceLib = import ./lib {inherit pkgs lib;};
+  spiceLib = callPackage ./lib {};
   spiceTypes = spiceLib.types;
-  spicePkgs = import ./pkgs {inherit pkgs lib;};
+  spicePkgs = callPackage ./pkgs {};
 
   ifTrue = lib.attrsets.optionalAttrs;
   ifTrueList = lib.lists.optionals;
@@ -98,7 +99,7 @@ in {
 
     cssMap = mkOption {
       type = lib.types.path;
-      default = pkgs.fetchurl {
+      default = fetchurl {
         url = "https://raw.githubusercontent.com/spicetify/spicetify-cli/6f473f28151c75e08e83fb280dd30fadd22d9c04/css-map.json";
         sha256 = "1qj0hlq98hz4v318qhz6ijyrir96fj962gqz036dm4jka3bg06l7";
       };
@@ -197,8 +198,8 @@ in {
       (spiceLib.createXpuiINI overridenXpui2);
 
     # INI created, now create the postInstall that runs spicetify
-    inherit (pkgs.lib.lists) foldr;
-    inherit (pkgs.lib.attrsets) mapAttrsToList;
+    inherit (lib.lists) foldr;
+    inherit (lib.attrsets) mapAttrsToList;
 
     extensionCommands = lineBreakConcat (map
       (

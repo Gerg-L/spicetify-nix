@@ -17,7 +17,7 @@
     genSystems = nixpkgs.lib.genAttrs supportedSystems;
     pkgs = genSystems (system: import nixpkgs {inherit system;});
   in {
-    homeManagerModule = import ./module.nix;
+    homeManagerModule = pkgs.callPackage ./module.nix {};
 
     lib = import ./lib {
       inherit pkgs;
