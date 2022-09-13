@@ -67,6 +67,9 @@ Here are two examples of files which configures spicetify when imported into a u
 ### MAXIMUM CONFIGURATION
 ```nix
 { pkgs, unstable, lib, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.pkgSets.${pkgs.system};
+in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -158,7 +161,7 @@ Here are two examples of files which configures spicetify when imported into a u
         misc = "6e6a86";
       };
       
-      enabledCustomApps = with spicetify-nix.pkgs.apps; [
+      enabledCustomApps = with spicePkgs.apps; [
         new-releases
         {
             name = "localFiles";
@@ -166,7 +169,7 @@ Here are two examples of files which configures spicetify when imported into a u
             appendName = false;
         }
       ];
-      enabledExtensions = with spicetify-nix.pkgs.extensions; [
+      enabledExtensions = with spicePkgs.extensions; [
         "playlistIcons.js"
         "lastfm.js"
         "genre.js"
