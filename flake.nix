@@ -20,22 +20,20 @@
     # legacy reasons...
     defaultSystem = "x86_64-linux";
   in {
-    # legacy version thats just for x86_64 linux
-    homeManagerModule = pkgs.${defaultSystem}.callPackage ./module.nix {};
-
+    homeManagerModule = import ./module.nix;
+    
+    # legacy stuff thats just for x86_64 linux
     lib = import ./lib {
-      inherit pkgs;
-      lib = pkgs.lib;
+      pkgs = pkgs.${defaultSystem};
+      lib = pkgs.${defaultSystem}.lib;
     };
 
     pkgs = import ./pkgs {
-      inherit pkgs;
-      lib = pkgs.lib;
+      pkgs = pkgs.${defaultSystem};
+      lib = pkgs.${defaultSystem}.lib;
     };
 
     # version which supports aarch64
-    homeManagerModules = genSystems (system: pkgs.${system}.callPackage ./module.nix {});
-
     libs = genSystems (
       system: (pkgs.${system}.callPackage ./lib {})
     );

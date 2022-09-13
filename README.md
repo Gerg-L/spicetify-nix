@@ -44,7 +44,7 @@ Here are two examples of files which configures spicetify when imported into a u
   ];
 
   # import the flake's module for your system
-  imports = [ spicetify-nix.homeManagerModules.${pkgs.system} ];
+  imports = [ spicetify-nix.homeManagerModule ];
 
   # configure spicetify :)
   programs.spicetify =
