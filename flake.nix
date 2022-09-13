@@ -23,15 +23,8 @@
     homeManagerModule = import ./module.nix;
     
     # legacy stuff thats just for x86_64 linux
-    lib = import ./lib {
-      pkgs = pkgs.${defaultSystem};
-      lib = pkgs.${defaultSystem}.lib;
-    };
-
-    pkgs = import ./pkgs {
-      pkgs = pkgs.${defaultSystem};
-      lib = pkgs.${defaultSystem}.lib;
-    };
+    pkgs = pkgs.${defaultSystem}.callPackage ./pkgs {};
+    lib = pkgs.${defaultSystem}.callPackage ./lib {};
 
     # version which supports aarch64
     libs = genSystems (
