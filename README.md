@@ -43,8 +43,8 @@ Here are two examples of files which configures spicetify when imported into a u
     "spotify-unwrapped"
   ];
 
-  # import the flake's module
-  imports = [ spicetify-nix.homeManagerModule ];
+  # import the flake's module for your system
+  imports = [ spicetify-nix.homeManagerModules.${pkgs.system} ];
 
   # configure spicetify :)
   programs.spicetify =
@@ -52,7 +52,7 @@ Here are two examples of files which configures spicetify when imported into a u
       enable = true;
       theme = "catppuccin-mocha";
       # OR 
-      # theme = spicetify-nix.pkgs.themes.catppuccin-mocha;
+      # theme = spicetify-nix.pkgSets.${pkgs.system}.themes.catppuccin-mocha;
       colorScheme = "flamingo";
 
       enabledExtensions = [
