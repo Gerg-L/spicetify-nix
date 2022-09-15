@@ -243,7 +243,7 @@ in {
       else "";
 
     finalScript = ''
-      export SPICETIFY_CONFIG=$out/spicetify
+      export SPICETIFY_CONFIG=$out/share/spicetify
       mkdir -p $SPICETIFY_CONFIG
 
       # move spicetify bin here
@@ -297,6 +297,7 @@ in {
       }
       popd
       ${spicetify} backup apply
+      rm $out/snap.yaml
     '';
 
     # custom spotify package with spicetify integrated in
