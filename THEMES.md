@@ -46,7 +46,7 @@ Default spotify with the colors of the popular scheme. [Source](https://github.c
 ![preview](https://github.com/Darkempire78/Dracula-Spicetify/blob/master/screenshot.png)
 ### Nord
 Default spotify with the colors of the popular scheme. [Source](https://github.com/Tetrax-10/Nord-Spotify)
-![preview](https://raw.githubusercontent.com/Tetrax-10/Spicetify-Themes/master/assets/screenshot_1.png)
+![preview](https://github.com/Tetrax-10/Nord-Spotify/blob/master/assets/home.png)
 ### SpotifyCanvas
 A theme attempting to bring canvas, the video/clip player, to spotify desktop. It normally is only available on mobile. [Source](https://github.com/itsmeow/Spicetify-Canvas)
 ![preview](https://camo.githubusercontent.com/824738caeda9df907e11a83825e2dea7d7673e044b963c2d672d6efc5d190c38/68747470733a2f2f692e696d6775722e636f6d2f653575734164422e706e67)
