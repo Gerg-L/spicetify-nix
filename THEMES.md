@@ -37,7 +37,7 @@ Inspired by the Zorin GTK theme.
 ## Community Themes
 ### Catppuccin*
 A soothing pastel theme for spotify. Comes in four variations, each with their own color schemes: catppuccin-mocha, catppuccin-frappe, catppuccin-latte, and catppuccin-macchiato. [Source](https://github.com/catppuccin/spicetify)
-![preview](https://github.com/catppuccin/spicetify/blob/main/assets/preview.png)
+![preview](https://github.com/catppuccin/spicetify/blob/main/assets/preview.webp)
 ### Comfy
 Stay comfy while listening to music. Rounded corners and dark blues. Comes in two additional variations: Comfy-Chromatic and Comfy-Mono. [Source](https://github.com/Comfy-Themes/Spicetify)
 ![preview](https://camo.githubusercontent.com/6c6a1ee2d5b2585b51e2b6f02ab6eba1a702e9912c46a775781ff4febb1b4720/68747470733a2f2f636f6d66792d7468656d65732e6769746875622e696f2f5370696365746966792f436f6d66792f6173736574732f707265766965772e706e67)
