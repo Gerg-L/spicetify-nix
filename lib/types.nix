@@ -2,7 +2,7 @@
   lib,
   ...
 }: let
-  inherit (lib) mkOption types;
+  inherit (lib) mkOption types mkEnableOption;
 
   xpui = types.submodule {
     options = {
@@ -133,11 +133,7 @@
         description = "Name of the .js file to enable.";
         example = "dribbblish.js";
       };
-      experimentalFeatures = mkOption {
-        type = types.bool;
-        description = "Value to set AdditionalOptions/experimental_features to.";
-        default = false;
-      };
+      experimentalFeatures = mkEnableOption "Value to set AdditionalOptions/experimental_features to.";
     };
   };
 
