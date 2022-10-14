@@ -7,9 +7,9 @@
   ...
 }: let
   source = callPackage ./source.nix {};
-  themes = callPackage ./themes.nix source;
-  extensions = callPackage ./extensions.nix source;
-  apps = callPackage ./apps.nix source;
+  themes = callPackage ./themes.nix {inherit source;};
+  extensions = callPackage ./extensions.nix {inherit source;};
+  apps = callPackage ./apps.nix {inherit source;};
 
   inherit (source) officialThemes officialSrc;
 
