@@ -1,6 +1,7 @@
 {
   lib,
   source,
+  ...
 }:
 with source; let
   # THEME GENERATORS ----------------------------------------------------------

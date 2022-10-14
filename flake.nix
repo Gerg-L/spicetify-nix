@@ -21,7 +21,7 @@
     defaultSystem = "x86_64-linux";
   in {
     homeManagerModule = import ./module.nix;
-    
+
     # legacy stuff thats just for x86_64 linux
     pkgs = pkgs.${defaultSystem}.callPackage ./pkgs {};
     lib = pkgs.${defaultSystem}.callPackage ./lib {};
