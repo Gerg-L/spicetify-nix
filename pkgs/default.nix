@@ -12,15 +12,15 @@
   apps = callPackage ./apps.nix source;
 
   # OFFICIAL THEMES AND EXTENSIONS --------------------------------------------
-  
+
   dribbblishExt = {
     filename = "dribbblish.js";
-    src = "${officialThemes}/Dribbblish";
+    src = "${source.officialThemes}/Dribbblish";
   };
 
   turntableExt = {
     filename = "turntable.js";
-    src = "${officialThemes}/Turntable";
+    src = "${source.officialThemes}/Turntable";
   };
 
   official = with source; {
