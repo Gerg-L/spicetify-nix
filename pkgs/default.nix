@@ -11,16 +11,18 @@
   extensions = callPackage ./extensions.nix source;
   apps = callPackage ./apps.nix source;
 
+  inherit (source) officialThemes officialSrc;
+
   # OFFICIAL THEMES AND EXTENSIONS --------------------------------------------
 
   dribbblishExt = {
     filename = "dribbblish.js";
-    src = "${source.officialThemes}/Dribbblish";
+    src = "${officialThemes}/Dribbblish";
   };
 
   turntableExt = {
     filename = "turntable.js";
-    src = "${source.officialThemes}/Turntable";
+    src = "${officialThemes}/Turntable";
   };
 
   official = with source; {
