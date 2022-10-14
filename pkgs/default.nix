@@ -12,6 +12,16 @@
   apps = callPackage ./apps.nix source;
 
   # OFFICIAL THEMES AND EXTENSIONS --------------------------------------------
+  
+  dribbblishExt = {
+    filename = "dribbblish.js";
+    src = "${officialThemes}/Dribbblish";
+  };
+
+  turntableExt = {
+    filename = "turntable.js";
+    src = "${officialThemes}/Turntable";
+  };
 
   official = with source; {
     themes = let
@@ -26,7 +36,7 @@
         Dribbblish = {
           name = "Dribbblish";
           src = officialThemes;
-          requiredExtensions = [extensions.dribbblishExt];
+          requiredExtensions = [dribbblishExt];
           patches = {
             "xpui.js_find_8008" = ",(\\w+=)32";
             "xpui.js_repl_8008" = ",$\{1}56";
@@ -58,7 +68,7 @@
         Turntable = {
           name = "Turntable";
           src = officialThemes;
-          requiredExtensions = ["fullAppDisplay.js" extensions.turntableExt];
+          requiredExtensions = ["fullAppDisplay.js" turntableExt];
         };
       }
       // mkOfficialTheme "Ziro"
@@ -77,8 +87,8 @@
       };
     in
       {
-        "dribbblish.js" = extensions.dribbblishExt;
-        "turntable.js" = extensions.turntableExt;
+        "dribbblish.js" = dribbblishExt;
+        "turntable.js" = turntableExt;
       }
       // mkOfficialExt "autoSkipExplicit"
       // mkOfficialExt "autoSkipVideo"

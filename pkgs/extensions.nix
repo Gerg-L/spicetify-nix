@@ -1,16 +1,6 @@
 {source, ...}:
 with source; let
   # EXTENSIONS ----------------------------------------------------------------
-  dribbblishExt = {
-    filename = "dribbblish.js";
-    src = "${officialThemes}/Dribbblish";
-  };
-
-  turntableExt = {
-    filename = "turntable.js";
-    src = "${officialThemes}/Turntable";
-  };
-
   brokenAdblock = {
     src = spotifyNoPremiumSrc;
     filename = "adblock.js";
