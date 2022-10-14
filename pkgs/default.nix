@@ -36,6 +36,11 @@
           overwriteAssets = true;
           appendName = true;
           sidebarConfig = true;
+          additionalCss = ''
+            .Root {
+              padding-top: 3px;
+            }
+          '';
         };
 
         Dreary = {

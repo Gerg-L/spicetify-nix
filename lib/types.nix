@@ -1,7 +1,4 @@
-{
-  lib,
-  ...
-}: let
+{lib, ...}: let
   inherit (lib) mkOption types mkEnableOption;
 
   xpui = types.submodule {
@@ -200,6 +197,10 @@
       };
       sidebarConfig = mkOption {
         type = types.nullOr types.bool;
+      };
+      additionalCss = mkOption {
+        type = types.lines;
+        default = '''';
       };
     };
   };

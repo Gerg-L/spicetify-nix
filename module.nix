@@ -242,6 +242,8 @@ in {
       ''
       else "";
 
+    extraCss = builtins.toFile "extra.css" actualTheme.additionalCss;
+
     finalScript = ''
       export SPICETIFY_CONFIG=$out/share/spicetify
       mkdir -p $SPICETIFY_CONFIG
@@ -272,6 +274,8 @@ in {
       cp -r ${themePath} ./Themes/${actualTheme.name}
       ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
       echo "copied theme"
+      cat ${extraCss} >> ./Themes/${actualTheme.name}/user.css
+      echo "applied additionalCss to theme"
       # copy extensions into Extensions folder
       ${extensionCommands}
       ${pkgs.coreutils-full}/bin/chmod -R a+wr Extensions
