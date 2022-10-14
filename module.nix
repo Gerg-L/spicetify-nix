@@ -242,7 +242,11 @@ in {
       ''
       else "";
 
-    extraCss = builtins.toFile "extra.css" actualTheme.additionalCss;
+    extraCss = builtins.toFile "extra.css" (
+      if builtins.hasAttr "additionalCss" actualTheme
+      then actualTheme.additionalCss
+      else ""
+    );
 
     finalScript = ''
       export SPICETIFY_CONFIG=$out/share/spicetify
