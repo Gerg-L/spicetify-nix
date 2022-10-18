@@ -157,6 +157,28 @@ with source; let
   appendJS = ext: {${ext.filename} = ext;};
 in
   {
+    official = let
+      mkOfficialExt = name: {
+        "${name}.js" = {
+          src = "${officialSrc}/Extensions";
+          filename = "${name}.js";
+        };
+      };
+    in
+      {
+        "dribbblish.js" = dribbblishExt;
+        "turntable.js" = turntableExt;
+      }
+      // mkOfficialExt "autoSkipExplicit"
+      // mkOfficialExt "autoSkipVideo"
+      // mkOfficialExt "bookmark"
+      // mkOfficialExt "fullAppDisplay"
+      // mkOfficialExt "keyboardShortcut"
+      // mkOfficialExt "loopyLoop"
+      // mkOfficialExt "popupLyrics"
+      // mkOfficialExt "shuffle+"
+      // mkOfficialExt "trashbin"
+      // mkOfficialExt "webnowplaying";
     # aliases for weirdly named extension files
     "history.js" = history;
     "volumeProfiles.js" = volumeProfiles;
