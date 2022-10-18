@@ -16,7 +16,7 @@ in {
     extensions = extensions.official;
     apps = apps.official;
   };
-  themes = builtins.removeAttrs themes ["official"];
-  apps = builtins.removeAttrs apps ["official"];
-  extensions = builtins.removeAttrs extensions ["official"];
+  themes = (builtins.removeAttrs themes ["official"]) // themes.official;
+  apps = (builtins.removeAttrs apps ["official"]) // apps.official;
+  extensions = (builtins.removeAttrs extensions ["official"]) // extensions.official;
 }
