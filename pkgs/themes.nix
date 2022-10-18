@@ -238,7 +238,7 @@ in
           sidebarConfig = true;
           additionalCss = ''
             .Root {
-              padding-top: 3px;
+              padding-top: 0px;
             }
           '';
         };
