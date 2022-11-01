@@ -18,4 +18,19 @@ with source; {
     src = nameThatTuneSrc;
     appendName = false;
   };
+
+  official = {
+    new-releases = {
+      src = "${officialSrc}/CustomApps";
+      name = "new-releases";
+    };
+    reddit = {
+      src = "${officialSrc}/CustomApps";
+      name = "reddit";
+    };
+    lyrics-plus = {
+      src = "${officialSrc}/CustomApps";
+      name = "lyrics-plus";
+    };
+  };
 }

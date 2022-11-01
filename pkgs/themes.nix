@@ -205,6 +205,68 @@ with source; let
   };
 in
   {
+    official = let
+      dribbblishExt = {
+        filename = "dribbblish.js";
+        src = "${officialThemes}/Dribbblish";
+      };
+
+      turntableExt = {
+        filename = "turntable.js";
+        src = "${officialThemes}/Turntable";
+      };
+      mkOfficialTheme = themeName: {
+        ${themeName} = {
+          name = themeName;
+          src = officialThemes;
+        };
+      };
+    in
+      {
+        Dribbblish = {
+          name = "Dribbblish";
+          src = officialThemes;
+          requiredExtensions = [dribbblishExt];
+          patches = {
+            "xpui.js_find_8008" = ",(\\w+=)32";
+            "xpui.js_repl_8008" = ",$\{1}56";
+          };
+          injectCss = true;
+          replaceColors = true;
+          overwriteAssets = true;
+          appendName = true;
+          sidebarConfig = true;
+          additionalCss = ''
+            .Root {
+              padding-top: 0px;
+            }
+          '';
+        };
+
+        Dreary = {
+          name = "Dreary";
+          src = officialThemes;
+          sidebarConfig = true;
+          appendName = true;
+        };
+        Glaze = {
+          name = "Glaze";
+          src = officialThemes;
+          sidebarConfig = true;
+          appendName = true;
+        };
+        Turntable = {
+          name = "Turntable";
+          src = officialThemes;
+          requiredExtensions = ["fullAppDisplay.js" turntableExt];
+        };
+      }
+      // mkOfficialTheme "Ziro"
+      // mkOfficialTheme "Sleek"
+      // mkOfficialTheme "Onepunch"
+      // mkOfficialTheme "Flow"
+      // mkOfficialTheme "Default"
+      // mkOfficialTheme "BurntSienna";
     inherit
       SpotifyNoPremium
       Fluent
