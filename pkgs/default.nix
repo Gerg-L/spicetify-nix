@@ -1,8 +1,4 @@
 {
-  lib,
-  fetchgit,
-  fetchzip,
-  fetchFromGitHub,
   callPackage,
   ...
 }: let
