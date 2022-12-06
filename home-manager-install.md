@@ -25,8 +25,8 @@ spicetify in your current directory.
 ```bash
 mkdir ~/home-manager-config && cd ~/home-manager-config
 nix flake init --template github:the-argus/spicetify-nix --extra-experimental-features nix-command --extra-experimental-features flakes
-sed "s/unknown_username/$(whoami)/" -i flake.nix
-sed "s/unknown_hostname/$(hostname)/" -i flake.nix
+sed "0,/unknown_username/{s/unknown_username/$(whoami)/}" -i flake.nix
+sed "0,/unknown_hostname/{s/unknown_hostname/$(hostname)}/" -i flake.nix
 git init --initial-branch=main
 git add .
 home-manager switch --flake . --extra-experimental-features nix-command --extra-experimental-features flakes
