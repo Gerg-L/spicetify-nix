@@ -1,11 +1,12 @@
 {
   pkgs,
+  lib,
   username,
   stateVersion,
   ...
 }: {
   imports = [./spicetify.nix];
-  
+
   # assume you're not using nixOS
   targets.genericLinux.enable = true;
 
@@ -18,6 +19,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "spotify-unwrapped"
+      "spotify"
     ];
 
   home.packages = with pkgs; [

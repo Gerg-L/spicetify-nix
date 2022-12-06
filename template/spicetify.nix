@@ -27,5 +27,14 @@ in {
     ];
   };
 
+  xdg.desktopEntries = {
+    spotify = {
+      name = "Spiced Spotify";
+      exec = "spotify";
+      icon = "spotify";
+      type = "Application";
+    };
+  };
+
   imports = [spicetify-nix.homeManagerModule];
 }

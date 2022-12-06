@@ -13,6 +13,8 @@ for documentation on ways you can configure spicetify.
 
 If you are on NixOS linux, you can remove the line
 ``targets.genericLinux.enable = true;`` from ``home.nix``.
+Additionally, change ``homeConfigUserString`` in ``flake.nix`` to be equal to
+``username``.
 
 If you want to add this configuration to a git repository, create one
 (for example, on github) and then link it up to this folder by running:

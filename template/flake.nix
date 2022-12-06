@@ -16,7 +16,13 @@
     home-manager,
     spicetify-nix,
   } @ inputs: let
-    username = "unknown";
+    username = "unknown_username";
+    hostname = "unknown_hostname";
+
+    homeConfigUserString =
+      if username == "unknown_username"
+      then abort "Please replace \"unknown_username\" in flake.nix with your actual username."
+      else "${username}@${hostname}";
 
     supportedSystems = [
       "x86_64-linux"
@@ -29,7 +35,7 @@
     stateVersion = "22.11";
   in {
     packages = genSystems (system: {
-      ${system}.homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration rec {
+      homeConfigurations.${homeConfigUserString} = home-manager.lib.homeManagerConfiguration {
         pkgs = pkgs.${system};
         modules = [./home.nix];
         extraSpecialArgs =
