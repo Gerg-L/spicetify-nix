@@ -14,14 +14,14 @@
     nixpkgs,
     home-manager,
     spicetify-nix,
-  } @ imports: let
+  } @ inputs: let
     # you can change these two variables to suit your system
     username = "unknown";
     system = "x86_64-linux";
 
     # not these though
     stateVersion = "22.11";
-    packages = import nixpkgs {localSystem = {inherit system;};};
+    pkgs = import nixpkgs {localSystem = {inherit system;};};
   in {
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration rec {
       inherit pkgs;
@@ -29,7 +29,7 @@
       extraSpecialArgs =
         inputs
         // {
-          inherit username;
+          inherit username stateVersion;
         };
     };
   };

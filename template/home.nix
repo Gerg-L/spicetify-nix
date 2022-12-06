@@ -5,6 +5,9 @@
   ...
 }: {
   imports = [./spicetify.nix];
+  
+  # assume you're not using nixOS
+  targets.genericLinux.enable = true;
 
   home = {
     inherit username stateVersion;
