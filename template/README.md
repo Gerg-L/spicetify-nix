@@ -13,3 +13,13 @@ for documentation on ways you can configure spicetify.
 
 If you are on NixOS linux, you can remove the line
 ``targets.genericLinux.enable = true;`` from ``home.nix``.
+
+If you want to add this configuration to a git repository, create one
+(for example, on github) and then link it up to this folder by running:
+
+```bash
+git remote add origin https://github.com/your-username/repo-name
+git push -u origin main
+```
+
+(``git remote rm origin`` is also useful if you accidentally add the wrong url)
