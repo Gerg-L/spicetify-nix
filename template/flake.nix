@@ -11,26 +11,33 @@
   };
 
   outputs = {
+    self,
     nixpkgs,
     home-manager,
     spicetify-nix,
   } @ inputs: let
-    # you can change these two variables to suit your system
     username = "unknown";
-    system = "x86_64-linux";
+
+    supportedSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    genSystems = nixpkgs.lib.genAttrs supportedSystems;
+    pkgs = genSystems (system: import nixpkgs {inherit system;});
 
     # not these though
     stateVersion = "22.11";
-    pkgs = import nixpkgs {localSystem = {inherit system;};};
   in {
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration rec {
-      inherit pkgs;
-      modules = [./home.nix];
-      extraSpecialArgs =
-        inputs
-        // {
-          inherit username stateVersion;
-        };
-    };
+    packages = genSystems (system: {
+      ${system}.homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration rec {
+        pkgs = pkgs.${system};
+        modules = [./home.nix];
+        extraSpecialArgs =
+          inputs
+          // {
+            inherit username stateVersion;
+          };
+      };
+    });
   };
 }
