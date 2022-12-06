@@ -29,5 +29,10 @@
     pkgSets = genSystems (
       system: (pkgs.${system}.callPackage ./pkgs {})
     );
+
+    templates.default = {
+      path = ./template;
+      description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
+    };
   };
 }
