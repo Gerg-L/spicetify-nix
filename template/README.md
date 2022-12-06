@@ -23,3 +23,9 @@ git push -u origin main
 ```
 
 (``git remote rm origin`` is also useful if you accidentally add the wrong url)
+
+## Known issues
+
+If you're on Fedora linux, SELinux is enabled by default, and it breaks nix.
+Edit ``/etc/selinux/config`` and change ``SELINUX=enforcing`` to
+``SELINUX=disabled`` and then restart your machine to disable it.
