@@ -16,11 +16,6 @@
     # legacy reasons...
     defaultSystem = "x86_64-linux";
   in {
-    # legacy stuff thats just for x86_64 linux
-    pkgs = pkgs.${defaultSystem}.callPackage ./pkgs {};
-    lib = pkgs.${defaultSystem}.callPackage ./lib {};
-
-    # version which supports aarch64
     libs = genSystems (
       system: (pkgs.${system}.callPackage ./lib {})
     );
@@ -35,20 +30,32 @@
       default = self.homeManagerModules.spicetify;
     };
 
+    templates.default = {
+      path = ./template;
+      description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
+    };
+
+    # DEPRECATED ---------------------------------------------------------------
+
     pkgSets = genSystems (system: (
       nixpkgs.lib.warn
-      "deprecated, use packages.${system}.default"
+      "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
       self.packages.${system}.default
     ));
 
     homeManagerModule =
       nixpkgs.lib.warn
-      "deprecated, use homeManagerModules.default"
+      "spicetify-nix.homeManagerModule is deprecated, use spicetify-nix.homeManagerModules.default"
       self.homeManagerModules.default;
 
-    templates.default = {
-      path = ./template;
-      description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
-    };
+    # legacy stuff thats just for x86_64 linux
+    pkgs =
+      nixpkgs.lib.warn
+      "spicetify-nix.pkgs is deprecated, use spicetify-nix.packages.\${pkgs.system}"
+      (pkgs.${defaultSystem}.callPackage ./pkgs {});
+    lib =
+      nixpkgs.lib.warn
+      "spicetify-nix.lib is deprecated, use spicetify-nix.libs.\${pkgs.system}"
+      (pkgs.${defaultSystem}.callPackage ./lib {});
   };
 }
