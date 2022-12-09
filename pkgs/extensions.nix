@@ -168,10 +168,16 @@ with source; let
     "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
     ext;
 
-  mkExtAlias = alias: ext: {
-    ${alias} = warnExt {inherit ext alias;};
-    ${sanitizeName ext.filename} = ext;
-  };
+  mkExtAlias = alias: ext:
+    {
+      ${alias} = warnExt {inherit ext alias;};
+      ${sanitizeName ext.filename} = ext;
+    }
+    // (
+      if alias != ext.filename
+      then {${sanitizeName alias} = ext;}
+      else {}
+    );
 
   appendJS = ext: mkExtAlias ext.filename ext;
 in
