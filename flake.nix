@@ -30,10 +30,15 @@
       default = spicetify;
     };
 
+    # a nice alias
+    homeManagerModule = homeManagerModules.default;
+
     templates.default = {
       path = ./template;
       description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
     };
+
+    formatter = genSystems (system: gennedPkgs.${system}.alejandra);
 
     # DEPRECATED ---------------------------------------------------------------
 
@@ -42,11 +47,6 @@
       "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
       packages.${system}.default
     ));
-
-    homeManagerModule =
-      nixpkgs.lib.warn
-      "spicetify-nix.homeManagerModule is deprecated, use spicetify-nix.homeManagerModules.default"
-      homeManagerModules.default;
 
     # legacy stuff thats just for x86_64 linux
     pkgs =

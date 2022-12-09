@@ -26,7 +26,7 @@ user's home-manager configuration.
 ```nix
 { pkgs, lib, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system};
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -44,7 +44,7 @@ in
       theme = spicePkgs.themes.catppuccin-mocha;
       colorScheme = "flamingo";
 
-      enabledExtensions = [
+      enabledExtensions = with spicePkgs.extensions; [
         "fullAppDisplay.js"
         "shuffle+.js"
         "hidePodcasts.js"
@@ -58,7 +58,7 @@ in
 ```nix
 { pkgs, unstable, lib, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system};
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -67,7 +67,7 @@ in
   ];
 
   # import the flake's module
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ spicetify-nix.homeManagerModules.default ];
 
   # configure spicetify :)
   programs.spicetify =
@@ -154,9 +154,9 @@ in
       enabledCustomApps = with spicePkgs.apps; [
         new-releases
         {
-            name = "localFiles";
-            src = localFilesSrc;
-            appendName = false;
+          name = "localFiles";
+          src = localFilesSrc;
+          appendName = false;
         }
       ];
       enabledExtensions = with spicePkgs.extensions; [
