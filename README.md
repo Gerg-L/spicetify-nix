@@ -11,20 +11,23 @@ To use, add this flake to your home-manager configuration flake inputs, like so:
 
 ```nix
 {
-  inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
+  inputs.spicetify-nix.url = github:the-argus/spicetify-nix;
 }
 
 ```
 
 ## Configuration examples
 
-Here are two examples of files which configures spicetify when imported into a
-users home-manager configuration.
+Here are two examples of files which configure spicetify when imported into a
+user's home-manager configuration.
 
 ### Minimal Configuration
 
 ```nix
-{ pkgs, unstable, lib, spicetify-nix, ... }:
+{ pkgs, lib, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system};
+in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -38,9 +41,7 @@ users home-manager configuration.
   programs.spicetify =
     {
       enable = true;
-      theme = "catppuccin-mocha";
-      # OR 
-      # theme = spicetify-nix.pkgSets.${pkgs.system}.themes.catppuccin-mocha;
+      theme = spicePkgs.themes.catppuccin-mocha;
       colorScheme = "flamingo";
 
       enabledExtensions = [
@@ -57,7 +58,7 @@ users home-manager configuration.
 ```nix
 { pkgs, unstable, lib, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.pkgSets.${pkgs.system};
+  spicePkgs = spicetify-nix.packages.${pkgs.system};
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
