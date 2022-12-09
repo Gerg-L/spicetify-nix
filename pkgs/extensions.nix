@@ -1,4 +1,8 @@
-{source, ...}:
+{
+  source,
+  lib,
+  ...
+}:
 with source; let
   # EXTENSIONS ----------------------------------------------------------------
   brokenAdblock = {
@@ -154,12 +158,24 @@ with source; let
     filename = "startup-page.js";
   };
 
-  appendJS = ext: {${ext.filename} = ext;};
+  sanitizeName = lib.replaceStrings [".js" "+"] ["" ""];
+
+  appendJS = ext: {
+    ${ext.filename} =
+      lib.trivial.warn
+      "You are referring to extension ${ext.filename} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
+      ext;
+    ${sanitizeName ext.filename} = ext;
+  };
 in
   {
     official = let
       mkOfficialExt = name: {
         "${name}.js" = {
+          src = "${officialSrc}/Extensions";
+          filename = "${name}.js";
+        };
+        ${name} = {
           src = "${officialSrc}/Extensions";
           filename = "${name}.js";
         };

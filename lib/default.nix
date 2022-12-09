@@ -42,7 +42,18 @@ in {
     then
       (
         if builtins.hasAttr theme spicePkgs.themes
-        then spicePkgs.themes.${theme}
+        then
+          (lib.warn
+            ''
+              Using a string like so:
+              programs.spicetify.theme = "${theme}";
+              is deprecated. Please use the following format:
+              programs.spicetify.theme = let
+                spicePkgs = spicetify-nix.packages.${"$\{pkgs.system}"}.default;
+              in
+                spicePkgs.themes.${theme};
+            ''
+            spicePkgs.themes.${theme})
         else throw "Unknown theme ${theme}. Try using the lib.theme type instead of a string."
       )
     else theme;
