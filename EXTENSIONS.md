@@ -1,6 +1,10 @@
 # Extensions
 
-Not all of these work properly. See the warning in the README.
+Javascript injections to add functionality to your spotify client.
+Official extensions can be found in
+``spicetify-nix.packages.${pkgs.system}.default.extensions.official.extensionName``
+and commmunity extensions in:
+``spicetify-nix.packages.${pkgs.system}.default.extensions.extensionName``
 
 ## Official Extensions
 

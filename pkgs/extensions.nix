@@ -160,11 +160,16 @@ with source; let
 
   sanitizeName = lib.replaceStrings [".js" "+"] ["" ""];
 
+  warnExt = {
+    ext,
+    alias ? ext.filename,
+  }:
+    lib.trivial.warn
+    "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
+    ext;
+
   appendJS = ext: {
-    ${ext.filename} =
-      lib.trivial.warn
-      "You are referring to extension ${ext.filename} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
-      ext;
+    ${ext.filename} = warnExt {inherit ext;};
     ${sanitizeName ext.filename} = ext;
   };
 in
@@ -175,7 +180,7 @@ in
           src = "${officialSrc}/Extensions";
           filename = "${name}.js";
         };
-        ${name} = {
+        ${sanitizeName name} = {
           src = "${officialSrc}/Extensions";
           filename = "${name}.js";
         };
@@ -184,6 +189,8 @@ in
       {
         "dribbblish.js" = dribbblishExt;
         "turntable.js" = turntableExt;
+        dribbblish = dribbblishExt;
+        turntable = turntableExt;
       }
       // mkOfficialExt "autoSkipExplicit"
       // mkOfficialExt "autoSkipVideo"
