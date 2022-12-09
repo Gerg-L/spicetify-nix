@@ -168,10 +168,12 @@ with source; let
     "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
     ext;
 
-  appendJS = ext: {
-    ${ext.filename} = warnExt {inherit ext;};
+  mkExtAlias = alias: ext: {
+    ${alias} = warnExt {inherit ext alias;};
     ${sanitizeName ext.filename} = ext;
   };
+
+  appendJS = ext: mkExtAlias ext.filename ext;
 in
   {
     official = let
@@ -203,16 +205,16 @@ in
       // mkOfficialExt "trashbin"
       // mkOfficialExt "webnowplaying";
     # aliases for weirdly named extension files
-    "history.js" = history;
-    "volumeProfiles.js" = volumeProfiles;
-    "copyToClipboard.js" = copyToClipboard;
-    "songStats.js" = songStats;
-    "featureShuffle.js" = featureShuffle;
-    "playlistIcons.js" = playlistIcons;
-    "powerBar.js" = powerBar;
-    "groupSession.js" = groupSession;
-    "brokenAdblock.js" = brokenAdblock; # this is old but you can still use it if you need
   }
+  // mkExtAlias "history.js" history
+  // mkExtAlias "volumeProfiles.js" volumeProfiles
+  // mkExtAlias "copyToClipboard.js" copyToClipboard
+  // mkExtAlias "songStats.js" songStats
+  // mkExtAlias "featureShuffle.js" featureShuffle
+  // mkExtAlias "playlistIcons.js" playlistIcons
+  // mkExtAlias "powerBar.js" powerBar
+  // mkExtAlias "groupSession.js" groupSession
+  // mkExtAlias "brokenAdblock.js" brokenAdblock # this is old but you can still use it if you need
   // appendJS groupSession
   // appendJS powerBar
   // appendJS seekSong
