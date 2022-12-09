@@ -16,8 +16,6 @@
     # legacy reasons...
     defaultSystem = "x86_64-linux";
   in {
-    homeManagerModule = import ./module.nix;
-
     # legacy stuff thats just for x86_64 linux
     pkgs = pkgs.${defaultSystem}.callPackage ./pkgs {};
     lib = pkgs.${defaultSystem}.callPackage ./lib {};
@@ -26,9 +24,27 @@
     libs = genSystems (
       system: (pkgs.${system}.callPackage ./lib {})
     );
-    pkgSets = genSystems (
-      system: (pkgs.${system}.callPackage ./pkgs {})
-    );
+
+    packages = genSystems (system: {
+      spicetify = pkgs.${system}.callPackage ./pkgs {};
+      default = self.packages.${system}.spicetify;
+    });
+
+    homeManagerModules = {
+      spicetify = import ./module.nix;
+      default = self.homeManagerModules.spicetify;
+    };
+
+    pkgSets = genSystems (system: (
+      nixpkgs.lib.warn
+      "deprecated, use packages.${system}.default"
+      self.packages.${system}.default
+    ));
+
+    homeManagerModule =
+      nixpkgs.lib.warn
+      "deprecated, use homeManagerModules.default"
+      self.homeManagerModules.default;
 
     templates.default = {
       path = ./template;
