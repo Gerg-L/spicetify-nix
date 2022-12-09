@@ -43,7 +43,7 @@ in {
       (
         if builtins.hasAttr theme spicePkgs.themes
         then
-          (lib.warn
+          (lib.trivial.warn
             ''
               Using a string like so:
               programs.spicetify.theme = "${theme}";
@@ -63,7 +63,18 @@ in {
     then
       (
         if builtins.hasAttr ext spicePkgs.extensions
-        then spicePkgs.extensions.${ext}
+        then
+          (lib.trivial.warn
+            ''
+              Using a string like so:
+              programs.spicetify.enabledExtensions = [ "${ext}" ];
+              is deprecated. Please use the following format:
+              programs.spicetify.enabledExtensions = let
+                spicePkgs = spicetify-nix.packages.${"$\{pkgs.system}"}.default;
+              in
+                with spicePkgs.extensions [ ${spicePkgs.extensions._lib.sanitizeName ext} ];
+            ''
+            spicePkgs.extensions.${ext})
         else throw "Unknown extension ${ext}. Try using the lib.extension type instead of a string."
       )
     else ext;
@@ -73,7 +84,20 @@ in {
     then
       (
         if builtins.hasAttr app spicePkgs.apps
-        then spicePkgs.apps.${app}
+        then
+          (
+            lib.trivial.warn
+            ''
+              Using a string like so:
+              programs.spicetify.enabledCustomApps = [ "${app}" ];
+              is deprecated. Please use the following format:
+              programs.spicetify.enabledCustomApps = let
+                spicePkgs = spicetify-nix.packages.${"$\{pkgs.system}"}.default;
+              in
+                with spicePkgs.apps [ ${app} ];
+            ''
+            spicePkgs.apps.${app}
+          )
         else throw "Unknown CustomApp ${app}. Try using the lib.app type instead of a string."
       )
     else app;

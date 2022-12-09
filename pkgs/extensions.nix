@@ -210,8 +210,11 @@ in
       // mkOfficialExt "shuffle+"
       // mkOfficialExt "trashbin"
       // mkOfficialExt "webnowplaying";
-    # aliases for weirdly named extension files
+    _lib = {
+      inherit sanitizeName;
+    };
   }
+  # aliases for weirdly named extension files
   // mkExtAlias "history.js" history
   // mkExtAlias "volumeProfiles.js" volumeProfiles
   // mkExtAlias "copyToClipboard.js" copyToClipboard
