@@ -11,23 +11,23 @@
       "aarch64-linux"
     ];
     genSystems = nixpkgs.lib.genAttrs supportedSystems;
-    pkgs = genSystems (system: import nixpkgs {inherit system;});
+    gennedPkgs = genSystems (system: import nixpkgs {inherit system;});
 
     # legacy reasons...
     defaultSystem = "x86_64-linux";
-  in {
+  in rec {
     libs = genSystems (
-      system: (pkgs.${system}.callPackage ./lib {})
+      system: (gennedPkgs.${system}.callPackage ./lib {})
     );
 
-    packages = genSystems (system: {
-      spicetify = pkgs.${system}.callPackage ./pkgs {};
-      default = self.packages.${system}.spicetify;
+    packages = genSystems (system: rec {
+      spicetify = gennedPkgs.${system}.callPackage ./pkgs {};
+      default = spicetify;
     });
 
-    homeManagerModules = {
+    homeManagerModules = rec {
       spicetify = import ./module.nix;
-      default = self.homeManagerModules.spicetify;
+      default = spicetify;
     };
 
     templates.default = {
@@ -40,22 +40,22 @@
     pkgSets = genSystems (system: (
       nixpkgs.lib.warn
       "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
-      self.packages.${system}.default
+      packages.${system}.default
     ));
 
     homeManagerModule =
       nixpkgs.lib.warn
       "spicetify-nix.homeManagerModule is deprecated, use spicetify-nix.homeManagerModules.default"
-      self.homeManagerModules.default;
+      homeManagerModules.default;
 
     # legacy stuff thats just for x86_64 linux
     pkgs =
       nixpkgs.lib.warn
       "spicetify-nix.pkgs is deprecated, use spicetify-nix.packages.\${pkgs.system}"
-      (pkgs.${defaultSystem}.callPackage ./pkgs {});
+      (gennedPkgs.${defaultSystem}.callPackage ./pkgs {});
     lib =
       nixpkgs.lib.warn
       "spicetify-nix.lib is deprecated, use spicetify-nix.libs.\${pkgs.system}"
-      (pkgs.${defaultSystem}.callPackage ./lib {});
+      (gennedPkgs.${defaultSystem}.callPackage ./lib {});
   };
 }
