@@ -199,7 +199,6 @@ in {
 
     # INI created, now create the postInstall that runs spicetify
     inherit (lib.lists) foldr;
-    inherit (lib.attrsets) mapAttrsToList;
 
     extensionCommands = lineBreakConcat (map
       (
@@ -309,7 +308,7 @@ in {
     '';
 
     # custom spotify package with spicetify integrated in
-    spiced-spotify = cfg.spotifyPackage.overrideAttrs (oldAttrs: rec {
+    spiced-spotify = cfg.spotifyPackage.overrideAttrs (_: rec {
       postInstall = finalScript;
     });
   in

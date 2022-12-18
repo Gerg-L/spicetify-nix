@@ -31,7 +31,7 @@ in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify-unwrapped"
+    "spotify"
   ];
 
   # import the flake's module for your system
@@ -45,9 +45,9 @@ in
       colorScheme = "flamingo";
 
       enabledExtensions = with spicePkgs.extensions; [
-        "fullAppDisplay.js"
-        "shuffle+.js"
-        "hidePodcasts.js"
+        fullAppDisplay
+        shuffle # shuffle+ (special characters are sanitized out of ext names)
+        hidePodcasts
       ];
     };
 }
@@ -63,7 +63,7 @@ in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify-unwrapped"
+    "spotify"
   ];
 
   # import the flake's module
@@ -160,13 +160,13 @@ in
         }
       ];
       enabledExtensions = with spicePkgs.extensions; [
-        "playlistIcons.js"
-        "lastfm.js"
-        "genre.js"
-        "historyShortcut.js"
-        "hidePodcasts.js"
-        "fullAppDisplay.js"
-        "shuffle+.js"
+        playlistIcons
+        lastfm
+        genre
+        historyShortcut
+        hidePodcasts
+        fullAppDisplay
+        shuffle
       ];
     };
 }
