@@ -1,46 +1,37 @@
-# ~~Warning: Spotify Sucks~~
-~~Linux is a second class citizen on Spotify's release plan, but because it isn't FOSS, there's nothing we can do. Right now a lot of themes and extensions don't work because spotify isn't up to date on Linux. This includes Dribbblish :(~~
-
-# EDIT: nevermind
-Turns out using spicetify 2.9.9 and the most recent CSS map fixes most (or all) of the issues. Use the following configuration option to get spicetify 2.9.9:
-```nix
-{
-  programs.spicetify.spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
-    pname = "spicetify-cli";
-    version = "2.9.9";
-    src = pkgs.fetchgit {
-      url = "https://github.com/spicetify/${pname}";
-      rev = "v${version}";
-      sha256 = "1a6lqp6md9adxjxj4xpxj0j1b60yv3rpjshs91qx3q7blpsi3z4z";
-    };
-  });
-}
-```
 # Spicetify-Nix
 
 Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
 
-[spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are included and available.
+[spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are
+included and available.
 
-# Usage
+## Usage
 
 To use, add this flake to your home-manager configuration flake inputs, like so:
+
 ```nix
 {
-  inputs.spicetify-nix.url = "github:the-argus/spicetify-nix";
+  inputs.spicetify-nix.url = github:the-argus/spicetify-nix;
 }
+
 ```
+
 ## Configuration examples
 
-Here are two examples of files which configures spicetify when imported into a users home-manager configuration.
+Here are two examples of files which configure spicetify when imported into a
+user's home-manager configuration.
 
 ### Minimal Configuration
+
 ```nix
-{ pkgs, unstable, lib, spicetify-nix, ... }:
+{ pkgs, lib, spicetify-nix, ... }:
+let
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify-unwrapped"
+    "spotify"
   ];
 
   # import the flake's module for your system
@@ -50,34 +41,33 @@ Here are two examples of files which configures spicetify when imported into a u
   programs.spicetify =
     {
       enable = true;
-      theme = "catppuccin-mocha";
-      # OR 
-      # theme = spicetify-nix.pkgSets.${pkgs.system}.themes.catppuccin-mocha;
+      theme = spicePkgs.themes.catppuccin-mocha;
       colorScheme = "flamingo";
 
-      enabledExtensions = [
-        "fullAppDisplay.js"
-        "shuffle+.js"
-        "hidePodcasts.js"
+      enabledExtensions = with spicePkgs.extensions; [
+        fullAppDisplay
+        shuffle # shuffle+ (special characters are sanitized out of ext names)
+        hidePodcasts
       ];
     };
 }
 ```
 
 ### MAXIMUM CONFIGURATION
+
 ```nix
 { pkgs, unstable, lib, spicetify-nix, ... }:
 let
-  spicePkgs = spicetify-nix.pkgSets.${pkgs.system};
+  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify-unwrapped"
+    "spotify"
   ];
 
   # import the flake's module
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ spicetify-nix.homeManagerModules.default ];
 
   # configure spicetify :)
   programs.spicetify =
@@ -164,19 +154,19 @@ in
       enabledCustomApps = with spicePkgs.apps; [
         new-releases
         {
-            name = "localFiles";
-            src = localFilesSrc;
-            appendName = false;
+          name = "localFiles";
+          src = localFilesSrc;
+          appendName = false;
         }
       ];
       enabledExtensions = with spicePkgs.extensions; [
-        "playlistIcons.js"
-        "lastfm.js"
-        "genre.js"
-        "historyShortcut.js"
-        "hidePodcasts.js"
-        "fullAppDisplay.js"
-        "shuffle+.js"
+        playlistIcons
+        lastfm
+        genre
+        historyShortcut
+        hidePodcasts
+        fullAppDisplay
+        shuffle
       ];
     };
 }
@@ -184,7 +174,9 @@ in
 
 ## Themes, Extensions, and CustomApps
 
-Are found in [THEMES.md](./THEMES.md), [EXTENSIONS.md](./EXTENSIONS.md), and [CUSTOMAPPS.md](./CUSTOMAPPS.md), respectively.
+Are found in [THEMES.md](./THEMES.md), [EXTENSIONS.md](./EXTENSIONS.md), and
+[CUSTOMAPPS.md](./CUSTOMAPPS.md), respectively.
 
 ## macOS
+
 This package has no macOS support, because Spotify in nixpkgs has no macOS support.

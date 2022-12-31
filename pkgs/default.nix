@@ -1,7 +1,4 @@
-{
-  callPackage,
-  ...
-}: let
+{callPackage, ...}: let
   source = callPackage ./source.nix {};
   themes = callPackage ./themes.nix {inherit source;};
   extensions = callPackage ./extensions.nix {inherit source;};

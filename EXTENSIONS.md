@@ -1,126 +1,178 @@
 # Extensions
-Not all of these work properly. See the warning in the README.
+
+Javascript injections to add functionality to your spotify client.
+Extensions can be referenced like so:
+``spicetify-nix.packages.${pkgs.system}.default.extensions.extensionName``
 
 ## Official Extensions
 
-### fullAppDisplay.js
+### fullAppDisplay
+
 Shows the song cover, title, and artist in fullscreen.
 
-### autoSkipExplicit.js
+### autoSkipExplicit
+
 Christian spotify!
 
-### autoSkipVideo.js
-Video playback (ads and stuff) causes problems in some regions where the videos can't be played. Just skip them with this extension.
+### autoSkipVideo
 
-### bookmark.js
+Video playback (ads and stuff) causes problems in some regions where the videos
+can't be played. Just skip them with this extension.
+
+### bookmark
+
 Store and browse pages for looking at later.
 
-### keyboardShortcut.js
+### keyboardShortcut
+
 Vimium-like navigation of spotify. See keyboard shortcuts [here.](https://spicetify.app/docs/advanced-usage/extensions#keyboard-shortcut)
 
-### loopyLoop.js
+### loopyLoop
+
 Specify a portion of track to loop over.
 
-### popupLyrics.js
+### popupLyrics
+
 Open a popup window with the current song's lyrics scrolling across it.
 
-### shuffle+.js
+### shuffle
+
 Shuffle properly, using Fisher-Yates with zero bias.
 
-### trashbin.js
+### trashbin
+
 Throw artists or songs in the trash, and permanently skip them.
 
-### webnowplaying.js
+### webnowplaying
+
 Only useful to windows/rainmeter users, I think. [Reference](https://spicetify.app/docs/advanced-usage/extensions#web-now-playing)
 
 ## Community Extensions
 
-### groupSession.js
+### groupSession
+
 Allows you to create a link to share with your friends to listen along with you.
 
-### powerBar.js
+### powerBar
+
 Spotlight-like search bar for spotify.
 
-### seekSong.js
+### seekSong
+
 Allows for youtube-like seeking with keyboard shortcuts.
 
-### skipOrPlayLikedSongs.js
+### skipOrPlayLikedSongs
+
 Set spotify to automatically skip liked songs, or to only play liked songs.
 
-### playlistIcons.js
+### playlistIcons
+
 Give your playlists icons in the left sidebar.
 
-### fullAlbumDate.js
+### fullAlbumDate
+
 Display the day and month of an album's release, as well as the year.
 
-### fullAppDisplayMod.js
-Same as fullAppDisplay.js, but with slight offset, and scrolling lyrics if using the lyrics-plus customapp.
+### fullAppDisplayMod
 
-### goToSong.js
+Same as fullAppDisplay, but with slight offset, and scrolling lyrics if using
+the lyrics-plus customapp.
+
+### goToSong
+
 Adds an option to the profile menu to go to the currently playing song or playlist.
 
-### listPlaylistsWithSong.js
-Adds an option to the context menu for songs to show all of your account's playlists which contain that song.
+### listPlaylistsWithSong
 
-### playlistIntersection.js
-Compare two playlists, and create a new playlist containing their common songs, or only the songs unique to one playlist.
+Adds an option to the context menu for songs to show all of your account's
+playlists which contain that song.
 
-### skipStats.js
+### playlistIntersection
+
+Compare two playlists, and create a new playlist containing their common songs,
+or only the songs unique to one playlist.
+
+### skipStats
+
 Track your skips.
 
-### phraseToPlaylist.js
-Given a phrase, this extension will make a playlist containing a series of songs which make up that phrase.
+### phraseToPlaylist
 
-### fixEnhance.js
-A patch to the "enhance playlist" option which spotify themselves has already fixed, but could be useful in older versions.
+Given a phrase, this extension will make a playlist containing a series of songs
+which make up that phrase.
 
-### wikify.js
+### fixEnhance
+
+A patch to the "enhance playlist" option which spotify themselves has already
+fixed, but could be useful in older versions.
+
+### wikify
+
 Show an artist's wikipedia entry.
 
-### featureShuffle.js
+### featureShuffle
+
 Create a playlist based off another playlist's audio features.
 
-### songStats.js
+### songStats
+
 Show a song's stats, like dancability, tempo, and key.
 
-### autoVolume.js
+### autoVolume
+
 Automatically adjust volume over long periods of time, to reduce ear strain.
 
-### showQueueDuration.js
+### showQueueDuration
+
 Show the total length of all songs currently queued.
 
-### copyToClipboard.js
+### copyToClipboard
+
 Adds an option in the context menu to copy a song's name to your clipboard.
 
-### volumeProfiles.js
+### volumeProfiles
+
 Edit and save settings related to volume to different "profiles."
 
-### history.js
+### history
+
 Adds a page that shows your listening history.
 
-### lastfm.js
-Integration with last.fm. Login to show your listening stats for a song, and get its last.fm link.
+### lastfm
 
-### genre.js
+Integration with last.fm. Login to show your listening stats for a song, and get
+its last.fm link.
+
+### genre
+
 Display the genre of an artist or song while playing.
 
-### hidePodcasts.js
+### hidePodcasts
+
 Remove everything from the spotify UI relating to podcasts.
 
-### adblock.js
+### adblock
+
 Remove ads.
 
-### savePlaylists.js
-More than just just following a playlist, this extension allows you to also create a duplicate of the playlist in your own library.
+### savePlaylists
 
-### autoSkip.js
+More than just just following a playlist, this extension allows you to also
+create a duplicate of the playlist in your own library.
+
+### autoSkip
+
 Automatically skip certain songs by category, such as remixes, or christmas songs.
 
-### fullScreen.js
-Similar to fullAppDisplay.js.
+### fullScreen
 
-### playNext.js
-Add track to the *top* of the queue.
+Similar to fullAppDisplay.
 
-### volumePercentage.js
-Adds a percentage number next to the volume adjustment slider, and allows for more fine control of volume.
+### playNext
+
+Add track to the _top_ of the queue.
+
+### volumePercentage
+
+Adds a percentage number next to the volume adjustment slider, and allows for
+more fine control of volume.

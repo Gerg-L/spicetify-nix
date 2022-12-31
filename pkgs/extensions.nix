@@ -1,4 +1,8 @@
-{source, ...}:
+{
+  source,
+  lib,
+  ...
+}:
 with source; let
   # EXTENSIONS ----------------------------------------------------------------
   brokenAdblock = {
@@ -154,7 +158,28 @@ with source; let
   #   filename = "startup-page.js";
   # };
 
-  appendJS = ext: {${ext.filename} = ext;};
+  sanitizeName = lib.replaceStrings [".js" "+"] ["" ""];
+
+  warnExt = {
+    ext,
+    alias ? ext.filename,
+  }:
+    lib.trivial.warn
+    "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
+    ext;
+
+  mkExtAlias = alias: ext:
+    {
+      ${alias} = warnExt {inherit ext alias;};
+      ${sanitizeName ext.filename} = ext;
+    }
+    // (
+      if alias != ext.filename
+      then {${sanitizeName alias} = ext;}
+      else {}
+    );
+
+  appendJS = ext: mkExtAlias ext.filename ext;
 in
   {
     official = let
@@ -163,11 +188,17 @@ in
           src = "${officialSrc}/Extensions";
           filename = "${name}.js";
         };
+        ${sanitizeName name} = {
+          src = "${officialSrc}/Extensions";
+          filename = "${name}.js";
+        };
       };
     in
       {
         "dribbblish.js" = dribbblishExt;
         "turntable.js" = turntableExt;
+        dribbblish = dribbblishExt;
+        turntable = turntableExt;
       }
       // mkOfficialExt "autoSkipExplicit"
       // mkOfficialExt "autoSkipVideo"
@@ -179,17 +210,20 @@ in
       // mkOfficialExt "shuffle+"
       // mkOfficialExt "trashbin"
       // mkOfficialExt "webnowplaying";
-    # aliases for weirdly named extension files
-    "history.js" = history;
-    "volumeProfiles.js" = volumeProfiles;
-    "copyToClipboard.js" = copyToClipboard;
-    "songStats.js" = songStats;
-    "featureShuffle.js" = featureShuffle;
-    "playlistIcons.js" = playlistIcons;
-    "powerBar.js" = powerBar;
-    "groupSession.js" = groupSession;
-    "brokenAdblock.js" = brokenAdblock; # this is old but you can still use it if you need
+    _lib = {
+      inherit sanitizeName;
+    };
   }
+  # aliases for weirdly named extension files
+  // mkExtAlias "history.js" history
+  // mkExtAlias "volumeProfiles.js" volumeProfiles
+  // mkExtAlias "copyToClipboard.js" copyToClipboard
+  // mkExtAlias "songStats.js" songStats
+  // mkExtAlias "featureShuffle.js" featureShuffle
+  // mkExtAlias "playlistIcons.js" playlistIcons
+  // mkExtAlias "powerBar.js" powerBar
+  // mkExtAlias "groupSession.js" groupSession
+  // mkExtAlias "brokenAdblock.js" brokenAdblock # this is old but you can still use it if you need
   // appendJS groupSession
   // appendJS powerBar
   // appendJS seekSong
