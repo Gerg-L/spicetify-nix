@@ -53,10 +53,23 @@ in
 }
 ```
 
-### MAXIMUM CONFIGURATION
+### Maximal configuration
+
+NOTE: the purpose of this configuration is to demonstrate all the possible
+customization options. It's not sane at all, and I see no reason why you
+should actually use this one.
 
 ```nix
-{ pkgs, unstable, lib, spicetify-nix, ... }:
+{
+  pkgs,
+  # this is the same as pkgs but the url is github:nixos/nixpkgs-unstable
+  unstable,
+  # this is pkgs.lib
+  lib,
+  # this is the input to the flake with url github:the-argus/spicetify-nix
+  spicetify-nix,
+  ...
+}:
 let
   spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
 in
@@ -89,15 +102,17 @@ in
     {
       # use spotify from the nixpkgs master branch
       spotifyPackage = unstable.spotify-unwrapped;
-      # use a custom build of spicetify, also an old version.
+
+      # use a custom build of spicetify
       spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
         pname = "spicetify-cli";
-        version = "2.9.9";
+        version = "2.14.1";
         src = pkgs.fetchgit {
           url = "https://github.com/spicetify/${pname}";
           rev = "v${version}";
-          sha256 = "1a6lqp6md9adxjxj4xpxj0j1b60yv3rpjshs91qx3q7blpsi3z4z";
+          sha256 = "sha256-262tnSKX6M9ggm4JIs0pANeq2JSNYzKkTN8awpqLyMM=";
         };
+        vendorSha256 = "sha256-E2Q+mXojMb8E0zSnaCOl9xp5QLeYcuTXjhcp3Hc8gH4=";
       });
 
       # actually enable the installation of spotify and spicetify
