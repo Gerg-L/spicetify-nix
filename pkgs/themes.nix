@@ -219,6 +219,11 @@ in
         ${themeName} = {
           name = themeName;
           src = officialThemes;
+          appendName = false;
+          injectCss = false;
+          replaceColors = false;
+          overwriteAssets = false;
+          sidebarConfig = false;
         };
       };
     in
