@@ -153,10 +153,10 @@ with source; let
 
   # UNUSED
   # startpage needs r/w
-  startPage = {
-    src = "${startPageSrc}/dist";
-    filename = "startup-page.js";
-  };
+  # startPage = {
+  #   src = "${startPageSrc}/dist";
+  #   filename = "startup-page.js";
+  # };
 
   sanitizeName = lib.replaceStrings [".js" "+"] ["" ""];
 
