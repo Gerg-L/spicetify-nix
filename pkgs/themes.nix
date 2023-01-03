@@ -219,7 +219,7 @@ in
         ${themeName} = {
           name = themeName;
           src = officialThemes;
-          appendName = false;
+          appendName = true;
           injectCss = true;
           replaceColors = true;
           overwriteAssets = false;
