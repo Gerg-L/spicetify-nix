@@ -220,7 +220,7 @@ in
           name = themeName;
           src = officialThemes;
           appendName = false;
-          injectCss = false;
+          injectCss = true;
           replaceColors = false;
           overwriteAssets = false;
           sidebarConfig = false;
