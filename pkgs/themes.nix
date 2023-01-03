@@ -221,7 +221,7 @@ in
           src = officialThemes;
           appendName = false;
           injectCss = true;
-          replaceColors = false;
+          replaceColors = true;
           overwriteAssets = false;
           sidebarConfig = false;
         };
