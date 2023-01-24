@@ -18,7 +18,6 @@
   # list where you can specify unfree packages to allow
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
-      "spotify-unwrapped"
       "spotify"
     ];
 
