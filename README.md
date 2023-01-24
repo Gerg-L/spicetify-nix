@@ -101,7 +101,7 @@ in
     in
     {
       # use spotify from the nixpkgs master branch
-      spotifyPackage = unstable.spotify-unwrapped;
+      spotifyPackage = unstable.spotify;
 
       # use a custom build of spicetify
       spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {

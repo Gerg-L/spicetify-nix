@@ -17,6 +17,19 @@ in {
   options.programs.spicetify = {
     enable = mkEnableOption "A modded Spotify";
 
+    dontInstall = mkEnableOption "Put spiced spotify in config.programs.spicetify.spicedSpotify, but do not install it in home.packages.";
+
+    spicedSpotify = mkOption {
+      type = types.nullOr types.package;
+      default = null;
+      description = "An internal option which is NOT meant to be set by the user. It stores the final derivation produced by this module.";
+    };
+    createdPackages = mkOption {
+      type = types.nullOr (types.listOf types.package);
+      default = null;
+      description = "An internal option which is NOT meant to be set by the user. It stores all of the packages which will be installed if dontInstall is false.";
+    };
+
     theme = mkOption {
       type = types.oneOf [types.str spiceTypes.theme];
       default = "";
@@ -24,7 +37,7 @@ in {
 
     spotifyPackage = mkOption {
       type = types.package;
-      default = pkgs.spotify-unwrapped;
+      default = pkgs.spotify;
       description = "The nix package containing Spotify Desktop.";
     };
 
@@ -308,27 +321,41 @@ in {
     '';
 
     # custom spotify package with spicetify integrated in
-    spiced-spotify = cfg.spotifyPackage.overrideAttrs (_: rec {
-      postInstall = finalScript;
-    });
+    spiced-spotify = let
+      isSpotifyWM = cfg.spotifyPackage == pkgs.spotifywm;
+      spotifyToOverride =
+        if isSpotifyWM
+        then pkgs.spotify
+        else cfg.spotifyPackage;
+      overridenSpotify = spotifyToOverride.overrideAttrs (_: rec {
+        postInstall = finalScript;
+      });
+    in
+      if isSpotifyWM
+      then cfg.spotifyPackage.override {spotify = overridenSpotify;}
+      else overridenSpotify;
+
+    packagesToInstall = with cfg;
+      [
+        spiced-spotify
+      ]
+      ++
+      # need montserrat for the BurntSienna theme
+      (
+        ifTrueList
+        (actualTheme == spicePkgs.official.themes.BurntSienna)
+        [pkgs.montserrat]
+      )
+      ++ (
+        ifTrueList
+        (actualTheme == spicePkgs.themes.Orchis)
+        [pkgs.fira]
+      );
   in
     mkIf cfg.enable {
+      programs.spicetify.spicedSpotify = spiced-spotify;
+      programs.spicetify.createdPackages = packagesToInstall;
       # install necessary packages for this user
-      home.packages = with cfg;
-        [
-          spiced-spotify
-        ]
-        ++
-        # need montserrat for the BurntSienna theme
-        (
-          ifTrueList
-          (actualTheme == spicePkgs.official.themes.BurntSienna)
-          [pkgs.montserrat]
-        )
-        ++ (
-          ifTrueList
-          (actualTheme == spicePkgs.themes.Orchis)
-          [pkgs.fira]
-        );
+      home.packages = ifTrueList (!cfg.dontInstall) packagesToInstall;
     };
 }
