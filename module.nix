@@ -325,7 +325,7 @@ in {
       isSpotifyWM = cfg.spotifyPackage == pkgs.spotifywm;
       spotifyToOverride =
         if isSpotifyWM
-        then pkgs.spotify
+        then builtins.trace "USING SPOTIFY WM" pkgs.spotify
         else cfg.spotifyPackage;
       overridenSpotify = spotifyToOverride.overrideAttrs (_: rec {
         postInstall = finalScript;
