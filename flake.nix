@@ -5,7 +5,11 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
 
-  outputs = {nixpkgs, ...}: let
+  outputs = {
+    self,
+    nixpkgs,
+    ...
+  }: let
     supportedSystems = [
       "x86_64-linux"
       "aarch64-linux"
@@ -15,23 +19,29 @@
 
     # legacy reasons...
     defaultSystem = "x86_64-linux";
-  in rec {
+  in {
     libs = genSystems (
       system: (gennedPkgs.${system}.callPackage ./lib {})
     );
 
-    packages = genSystems (system: rec {
+    packages = genSystems (system: {
       spicetify = gennedPkgs.${system}.callPackage ./pkgs {};
-      default = spicetify;
+      default = self.packages.${system}.spicetify;
     });
 
-    homeManagerModules = rec {
-      spicetify = import ./module.nix;
-      default = spicetify;
+    homeManagerModules = {
+      spicetify = (import ./module.nix) {isNixOSModule = false;};
+      default = self.homeManagerModules.spicetify;
     };
 
-    # a nice alias
-    homeManagerModule = homeManagerModules.default;
+    nixosModules = {
+      spicetify = import ./module.nix {isNixOSModule = true;};
+      default = self.nixosModules.spicetify;
+    };
+
+    # nice aliases
+    homeManagerModule = self.homeManagerModules.default;
+    nixosModule = self.nixosModules.default;
 
     templates.default = {
       path = ./template;
@@ -45,7 +55,7 @@
     pkgSets = genSystems (system: (
       nixpkgs.lib.warn
       "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
-      packages.${system}.default
+      self.packages.${system}.default
     ));
 
     # legacy stuff thats just for x86_64 linux
