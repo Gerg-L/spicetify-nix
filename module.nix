@@ -1,4 +1,4 @@
-{
+{isNixOSModule ? false}: {
   lib,
   pkgs,
   config,
@@ -351,11 +351,22 @@ in {
         (actualTheme == spicePkgs.themes.Orchis)
         [pkgs.fira]
       );
-  in
-    mkIf cfg.enable {
-      programs.spicetify.spicedSpotify = spiced-spotify;
-      programs.spicetify.createdPackages = packagesToInstall;
-      # install necessary packages for this user
+    homeConfiguration = {
       home.packages = ifTrueList (!cfg.dontInstall) packagesToInstall;
     };
+    nixosConfiguration = {
+      environment.systemPackages = ifTrueList (!cfg.dontInstall) packagesToInstall;
+    };
+  in
+    mkIf cfg.enable
+    ({
+        programs.spicetify.spicedSpotify = spiced-spotify;
+        programs.spicetify.createdPackages = packagesToInstall;
+        # install necessary packages for this user
+      }
+      // (
+        if isNixOSModule
+        then nixosConfiguration
+        else homeConfiguration
+      ));
 }
