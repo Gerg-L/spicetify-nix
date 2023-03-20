@@ -31,8 +31,8 @@ in {
     };
 
     theme = mkOption {
-      type = types.oneOf [types.str spiceTypes.theme];
-      default = "";
+      type = lib.types.nullOr (types.oneOf [types.str spiceTypes.theme]);
+      default = null;
     };
 
     spotifyPackage = mkOption {
@@ -91,7 +91,7 @@ in {
     };
     replaceColors = mkOption {
       type = lib.types.nullOr lib.types.bool;
-      default = null;
+      default = if (cfg.theme == null && cfg.customColorScheme != null) then true else null;
     };
     overwriteAssets = mkOption {
       type = lib.types.nullOr lib.types.bool;
@@ -136,7 +136,7 @@ in {
     # take the list of extensions and turn strings into actual extensions
     allExtensions = map spiceLib.getExtension (cfg.enabledExtensions
       ++ (
-        ifTrueList (builtins.hasAttr "requiredExtensions" actualTheme)
+        ifTrueList (cfg.theme != null && builtins.hasAttr "requiredExtensions" actualTheme)
         actualTheme.requiredExtensions
       )
       ++ cfg.xpui.AdditionalOptions.extensions);
@@ -195,8 +195,8 @@ in {
           // (ifTrue (container == cfg) (createOverride container
               "colorScheme" "color_scheme"))
           # and turn the theme into a string of its name
-          // (ifTrue (container == cfg) {current_theme = actualTheme.name;});
-        Patch = ifTrue (container == actualTheme) (ifTrue
+          // (ifTrue (container == cfg) {current_theme = if (cfg.theme == null) then "Default" else actualTheme.name;});
+        Patch = ifTrue (cfg.theme != null && container == actualTheme) (ifTrue
           (builtins.hasAttr "patches" actualTheme)
           actualTheme.patches);
         Backup = {version = cfg.spotifyPackage.version or "Unknown";};
@@ -206,7 +206,7 @@ in {
     overridenXpui1 =
       builtins.mapAttrs
       (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
-      (mkXpuiOverrides actualTheme createBoolOverrideFromSubmodule);
+      (mkXpuiOverrides (if (cfg.theme == null) then {} else actualTheme) createBoolOverrideFromSubmodule);
     # override any values defined by the theme with values defined in cfg
     overridenXpui2 =
       builtins.mapAttrs
@@ -249,17 +249,17 @@ in {
       (spiceLib.createXpuiINI
         {custom = cfg.customColorScheme;});
 
-    customColorSchemeScript =
-      if (cfg.customColorScheme != null)
-      then ''
-        COLORINI=./Themes/${actualTheme.name}/color.ini
-        if [ -e $COLORINI ]; then
-            echo "" >> $COLORINI
-            # finally, use cat for its actual purpose: concatenation
-            cat ${customColorSchemeINI} >> $COLORINI
-        fi
-      ''
-      else "";
+    customColorSchemeScript = ''
+      ${lib.optionalString (cfg.theme == null) ''
+        mkdir -p Themes/Default
+      ''}
+      ${lib.optionalString (cfg.customColorScheme != null) (if (cfg.theme == null) then ''
+        cat ${customColorSchemeINI} > Themes/Default/color.ini
+      '' else ''
+        echo -en '\n' >> Themes/${actualTheme.name}/color.ini
+        cat ${customColorSchemeINI} >> Themes/${actualTheme.name}/color.ini
+      '')}
+    '';
 
     extraCss = builtins.toFile "extra.css" (
       if builtins.hasAttr "additionalCss" actualTheme
@@ -291,20 +291,28 @@ in {
       sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
       sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
-      mkdir -p Themes
-      mkdir -p Extensions
-      mkdir -p CustomApps
-      cp -r ${themePath} ./Themes/${actualTheme.name}
-      ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
-      echo "copied theme"
-      cat ${extraCss} >> ./Themes/${actualTheme.name}/user.css
-      echo "applied additionalCss to theme"
+      ${
+        if (cfg.theme != null) then ''
+          mkdir -p Themes
+          cp -r ${themePath} ./Themes/${actualTheme.name}
+          ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes
+          echo "copied theme"
+          cat ${extraCss} >> ./Themes/${actualTheme.name}/user.css
+          echo "applied additionalCss to theme"
+        ''
+        else ""
+      }
+
       # copy extensions into Extensions folder
+      mkdir -p Extensions
       ${extensionCommands}
       ${pkgs.coreutils-full}/bin/chmod -R a+wr Extensions
+
       # copy custom apps into CustomApps folder
+      mkdir -p CustomApps
       ${customAppCommands}
       ${pkgs.coreutils-full}/bin/chmod -R a+wr CustomApps
+
       # completed app and extension installation
       # add a custom color scheme if necessary
       ${customColorSchemeScript}
@@ -313,7 +321,7 @@ in {
 
       # extra commands that the theme might need
       ${
-        if (builtins.hasAttr "extraCommands" actualTheme)
+        if (cfg.theme != null && builtins.hasAttr "extraCommands" actualTheme)
         then
           (
             if actualTheme.extraCommands != null
