@@ -82,10 +82,11 @@
     sha256 = "0yniia7rnjq8n1br9bazkyy0c7537kgyiypgdr4h07hjmpq4xyri";
   };
 
-  dakshExtensions = fetchgit {
-    url = "https://github.com/daksh2k/Spicetify-stuff";
-    rev = "0bb19e6ce6c711247e4948e3100eb7dd943277e8";
-    sha256 = "1p049536mid0yv3m15gap1r7a5dxazi1v91c2b1xsw4xhlwgpfzw";
+  dakshExtensions = fetchFromGitHub {
+    owner = "daksh2k";
+    repo = "Spicetify-stuff";
+    rev = "67245d949a07e568581a76bd6197f163e334b54c";
+    sha256 = "sha256-AfbYxjAuSWo6Oai3vkvG3LG9R09Fwfr0QU4nbPrawMI=";
   };
 
   hidePodcastsSrc = fetchgit {
@@ -100,10 +101,11 @@
     sha256 = "0fv5fb6k9zc446a1lznhmd68m47sil5pqabv4dmrqk6cvfhba49r";
   };
 
-  genreSrc = fetchgit {
-    url = "https://github.com/Shinyhero36/Spicetify-Genre";
-    rev = "4ab66852825525869ef5ced5747e7e84ddd0a8bb";
-    sha256 = "09b69dcknqvj9nc5ayfqcdg63vc5yshn0wa23gyachzicwalq30m";
+  genreSrc = fetchFromGitHub {
+    owner = "Shinyhero36";
+    repo = "Spicetify-Genre";
+    rev = "f2cb950a7e27cce3bfd4168141b5c5e55552df5a";
+    sha256 = "sha256-R7D6oiSZviZQiMo6GSe4phQKfUmLNToXkyv6F4JXf3M=";
   };
 
   lastfmSrc = fetchgit {
@@ -137,10 +139,11 @@
     sha256 = "1jqm2l4pl03xrkvrw2h1rvx3kbabsh1crd3nxz15d8j524cbdxa2";
   };
 
-  charlieS1103Src = fetchgit {
-    url = "https://github.com/CharlieS1103/spicetify-extensions";
-    rev = "dde0f0cc3eb658be720daadc4e1b520d6bfa2fdc";
-    sha256 = "05rqnfjzq70i1bd6zmpwx1pg2pzphwchlw9xpljayl469d1m08a8";
+  charlieS1103Src = fetchFromGitHub {
+    owner = "CharlieS1103";
+    repo = "spicetify-extensions";
+    rev = "edaec2f43c7fcf61ca30fa7eff500cfd70aa8e6f";
+    sha256 = "sha256-tbgU7Rn8Ek6c0h+3Cxi7o3rxd2ymXprobtSX8cmEXbY=";
   };
 
   huhExtensionsSrc = fetchgit {
@@ -167,10 +170,11 @@
     sha256 = "05argdskjqal3rw70aapvd1g78yx8rga9lkddlf9a9s4i7jjl73a";
   };
 
-  groupSessionSrc = fetchgit {
-    url = "https://github.com/timll/spotify-group-session";
+  groupSessionSrc = fetchFromGitHub {
+    owner = "timll";
+    repo = "spotify-group-session";
     rev = "a9fa45da69495137b2f7272f61ff8d1a457aef5b";
-    sha256 = "1h5s4v7qq2y5drkci5c81ajf0zqi286dviwp4n64hwygphsffdk1";
+    sha256 = "sha256-YTbnNLzPc0iMJZfH3QwSEX/gpAqIlchmbsULjM8musA=";
   };
 
   startPageSrc = fetchgit {
