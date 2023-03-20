@@ -103,7 +103,7 @@ in {
     };
     colorScheme = mkOption {
       type = lib.types.nullOr lib.types.str;
-      default = null;
+      default = if cfg.customColorScheme != null then "custom" else null;
     };
     customColorScheme = mkOption {
       type = lib.types.nullOr lib.types.attrs;
