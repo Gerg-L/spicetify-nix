@@ -1,4 +1,7 @@
-{ isNixOSModule ? false, spicetify-cli ? null }: {
+{
+  isNixOSModule ? false,
+  spicetify-cli ? null,
+}: {
   lib,
   pkgs,
   config,
@@ -91,7 +94,10 @@ in {
     };
     replaceColors = mkOption {
       type = lib.types.nullOr lib.types.bool;
-      default = if (cfg.theme == null && cfg.customColorScheme != null) then true else null;
+      default =
+        if (cfg.theme == null && cfg.customColorScheme != null)
+        then true
+        else null;
     };
     overwriteAssets = mkOption {
       type = lib.types.nullOr lib.types.bool;
@@ -103,7 +109,10 @@ in {
     };
     colorScheme = mkOption {
       type = lib.types.nullOr lib.types.str;
-      default = if cfg.customColorScheme != null then "custom" else null;
+      default =
+        if cfg.customColorScheme != null
+        then "custom"
+        else null;
     };
     customColorScheme = mkOption {
       type = lib.types.nullOr lib.types.attrs;
@@ -113,15 +122,16 @@ in {
     cssMap = mkOption {
       type = lib.types.path;
       default = let
-        src = if (spicetify-cli != null) then
-          spicetify-cli
-        else
-          fetchFromGitHub {
-            owner = "spicetify";
-            repo = "spicetify-cli";
-            rev = "c9d8068d58d8c45f961ca42edcea47d7be904164";
-            sha256 = "sha256-C5J+OJjoiPOo/scVd48lTBJKKWial3TCkCIDBSerO+4=";
-          };
+        src =
+          if (spicetify-cli != null)
+          then spicetify-cli
+          else
+            fetchFromGitHub {
+              owner = "spicetify";
+              repo = "spicetify-cli";
+              rev = "c9d8068d58d8c45f961ca42edcea47d7be904164";
+              sha256 = "sha256-C5J+OJjoiPOo/scVd48lTBJKKWial3TCkCIDBSerO+4=";
+            };
       in "${src}/css-map.json";
     };
   };
@@ -195,7 +205,12 @@ in {
           // (ifTrue (container == cfg) (createOverride container
               "colorScheme" "color_scheme"))
           # and turn the theme into a string of its name
-          // (ifTrue (container == cfg) {current_theme = if (cfg.theme == null) then "Default" else actualTheme.name;});
+          // (ifTrue (container == cfg) {
+            current_theme =
+              if (cfg.theme == null)
+              then "Default"
+              else actualTheme.name;
+          });
         Patch = ifTrue (cfg.theme != null && container == actualTheme) (ifTrue
           (builtins.hasAttr "patches" actualTheme)
           actualTheme.patches);
@@ -206,7 +221,12 @@ in {
     overridenXpui1 =
       builtins.mapAttrs
       (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
-      (mkXpuiOverrides (if (cfg.theme == null) then {} else actualTheme) createBoolOverrideFromSubmodule);
+      (mkXpuiOverrides (
+          if (cfg.theme == null)
+          then {}
+          else actualTheme
+        )
+        createBoolOverrideFromSubmodule);
     # override any values defined by the theme with values defined in cfg
     overridenXpui2 =
       builtins.mapAttrs
@@ -253,12 +273,16 @@ in {
       ${lib.optionalString (cfg.theme == null) ''
         mkdir -p Themes/Default
       ''}
-      ${lib.optionalString (cfg.customColorScheme != null) (if (cfg.theme == null) then ''
-        cat ${customColorSchemeINI} > Themes/Default/color.ini
-      '' else ''
-        echo -en '\n' >> Themes/${actualTheme.name}/color.ini
-        cat ${customColorSchemeINI} >> Themes/${actualTheme.name}/color.ini
-      '')}
+      ${lib.optionalString (cfg.customColorScheme != null) (
+        if (cfg.theme == null)
+        then ''
+          cat ${customColorSchemeINI} > Themes/Default/color.ini
+        ''
+        else ''
+          echo -en '\n' >> Themes/${actualTheme.name}/color.ini
+          cat ${customColorSchemeINI} >> Themes/${actualTheme.name}/color.ini
+        ''
+      )}
     '';
 
     extraCss = builtins.toFile "extra.css" (
@@ -292,7 +316,8 @@ in {
       sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
       ${
-        if (cfg.theme != null) then ''
+        if (cfg.theme != null)
+        then ''
           mkdir -p Themes
           cp -r ${themePath} ./Themes/${actualTheme.name}
           ${pkgs.coreutils-full}/bin/chmod -R a+wr Themes

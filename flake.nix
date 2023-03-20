@@ -12,15 +12,27 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, spicetify-cli, ... }:
+  outputs = {
+    self,
+    nixpkgs,
+    flake-utils,
+    spicetify-cli,
+    ...
+  }:
     {
       homeManagerModules = {
-        spicetify = (import ./module.nix) { isNixOSModule = false; inherit spicetify-cli; };
+        spicetify = (import ./module.nix) {
+          isNixOSModule = false;
+          inherit spicetify-cli;
+        };
         default = self.homeManagerModules.spicetify;
       };
 
       nixosModules = {
-        spicetify = import ./module.nix { isNixOSModule = true; inherit spicetify-cli; };
+        spicetify = import ./module.nix {
+          isNixOSModule = true;
+          inherit spicetify-cli;
+        };
         default = self.nixosModules.spicetify;
       };
 
@@ -34,31 +46,36 @@
       };
     }
     # legacy stuff thats just for x86_64 linux
-    // (let legacyPkgs = import nixpkgs { system = flake-utils.lib.system.x86_64-linux; };
+    // (let
+      legacyPkgs = import nixpkgs {system = flake-utils.lib.system.x86_64-linux;};
     in {
-      pkgs = nixpkgs.lib.warn
+      pkgs =
+        nixpkgs.lib.warn
         "spicetify-nix.pkgs is deprecated, use spicetify-nix.packages.\${pkgs.system}"
-        (legacyPkgs.callPackage ./pkgs { });
-      lib = nixpkgs.lib.warn
+        (legacyPkgs.callPackage ./pkgs {});
+      lib =
+        nixpkgs.lib.warn
         "spicetify-nix.lib is deprecated, use spicetify-nix.libs.\${pkgs.system}"
-        (legacyPkgs.callPackage ./lib { });
-    }) // flake-utils.lib.eachSystem
-    (let inherit (flake-utils.lib) system; in [ system.aarch64-linux system.x86_64-linux ]) (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        libs = pkgs.callPackage ./lib { };
+        (legacyPkgs.callPackage ./lib {});
+    })
+    // flake-utils.lib.eachSystem
+    (let inherit (flake-utils.lib) system; in [system.aarch64-linux system.x86_64-linux]) (system: let
+      pkgs = import nixpkgs {inherit system;};
+    in {
+      libs = pkgs.callPackage ./lib {};
 
-        packages = {
-          spicetify = pkgs.callPackage ./pkgs { };
-          default = self.packages.${system}.spicetify;
-        };
+      packages = {
+        spicetify = pkgs.callPackage ./pkgs {};
+        default = self.packages.${system}.spicetify;
+      };
 
-        formatter = pkgs.alejandra;
+      formatter = pkgs.alejandra;
 
-        # DEPRECATED ---------------------------------------------------------------
+      # DEPRECATED ---------------------------------------------------------------
 
-        pkgSets = nixpkgs.lib.warn
-          "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
-          self.packages.${system}.default;
-      });
+      pkgSets =
+        nixpkgs.lib.warn
+        "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
+        self.packages.${system}.default;
+    });
 }
