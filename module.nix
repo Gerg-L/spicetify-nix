@@ -1,11 +1,11 @@
-{isNixOSModule ? false}: {
+{ isNixOSModule ? false, spicetify-cli ? null }: {
   lib,
   pkgs,
   config,
   ...
 }:
 with lib; let
-  inherit (pkgs) callPackage fetchurl;
+  inherit (pkgs) callPackage fetchFromGitHub;
   cfg = config.programs.spicetify;
   spiceLib = callPackage ./lib {};
   spiceTypes = spiceLib.types;
@@ -112,10 +112,17 @@ in {
 
     cssMap = mkOption {
       type = lib.types.path;
-      default = fetchurl {
-        url = "https://raw.githubusercontent.com/spicetify/spicetify-cli/6f473f28151c75e08e83fb280dd30fadd22d9c04/css-map.json";
-        sha256 = "1qj0hlq98hz4v318qhz6ijyrir96fj962gqz036dm4jka3bg06l7";
-      };
+      default = let
+        src = if (spicetify-cli != null) then
+          spicetify-cli
+        else
+          fetchFromGitHub {
+            owner = "spicetify";
+            repo = "spicetify-cli";
+            rev = "c9d8068d58d8c45f961ca42edcea47d7be904164";
+            sha256 = "sha256-C5J+OJjoiPOo/scVd48lTBJKKWial3TCkCIDBSerO+4=";
+          };
+      in "${src}/css-map.json";
     };
   };
 
