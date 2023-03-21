@@ -22,6 +22,8 @@ in {
 
     dontInstall = mkEnableOption "Put spiced spotify in config.programs.spicetify.spicedSpotify, but do not install it in home.packages.";
 
+    windowManagerPatch = mkEnableOption "Linker preload spotifywm patch.";
+
     spicedSpotify = mkOption {
       type = types.nullOr types.package;
       default = null;
@@ -221,7 +223,8 @@ in {
     overridenXpui1 =
       builtins.mapAttrs
       (name: value: (lib.trivial.mergeAttrs cfg.xpui.${name} value))
-      (mkXpuiOverrides (
+      (mkXpuiOverrides
+        (
           if (cfg.theme == null)
           then {}
           else actualTheme
@@ -365,7 +368,7 @@ in {
       isSpotifyWM = cfg.spotifyPackage == pkgs.spotifywm;
       spotifyToOverride =
         if isSpotifyWM
-        then pkgs.spotify
+        then (lib.trivial.warn "SpotifyWM is a weird package. Please consider settings programs.spicetify.windowManagerPatch to true, instead." pkgs.spotify)
         else cfg.spotifyPackage;
       overridenSpotify = spotifyToOverride.overrideAttrs (_: rec {
         postInstall = finalScript;
@@ -377,7 +380,15 @@ in {
 
     packagesToInstall = with cfg;
       [
-        spiced-spotify
+        (
+          # give warning if spotifywm is set redundantly
+          if cfg.spotifyPackage == pkgs.spotifywm && cfg.windowManagerPatch
+          then lib.trivial.warn "spotify package set to spotifywm and windowManagerPatch is set to true. It is recommended to only use windowManagerPatch."
+          # wrap spotify with the window manager patch if necessary
+          else if cfg.windowManagerPatch
+          then spicePkgs.spotifywm.override {spotify = spiced-spotify;}
+          else spiced-spotify
+        )
       ]
       ++
       # need montserrat for the BurntSienna theme
