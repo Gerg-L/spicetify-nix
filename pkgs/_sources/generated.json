@@ -20,7 +20,7 @@
     },
     "bloomSrc": {
         "cargoLocks": null,
-        "date": "2023-05-02",
+        "date": "2023-05-07",
         "extract": null,
         "name": "bloomSrc",
         "passthru": null,
@@ -30,16 +30,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "be77059df1c1bfe5f5d7ae0c6ecbdc08c15ebcc2",
-            "sha256": "sha256-W71BLn7ZzKeP+yoORjGI4HaGWOWq3MbxfoxVLO4+dzk=",
+            "rev": "4ffcb1ae3dcac0a261c941e18c0c3a3d646aed7f",
+            "sha256": "sha256-OrbgHFDjdEKzIPfOqHf3d2j6e80h42g4JaROEe7/WQc=",
             "type": "git",
             "url": "https://github.com/nimsandu/spicetify-bloom"
         },
-        "version": "be77059df1c1bfe5f5d7ae0c6ecbdc08c15ebcc2"
+        "version": "4ffcb1ae3dcac0a261c941e18c0c3a3d646aed7f"
     },
     "catppuccinSrc": {
         "cargoLocks": null,
-        "date": "2023-04-30",
+        "date": "2023-05-03",
         "extract": null,
         "name": "catppuccinSrc",
         "passthru": null,
@@ -49,16 +49,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1f55254dc7513f4866de16ba4efa81db2607a2d3",
-            "sha256": "sha256-bp4ImpuNJPIhaoJKogHYvISQHxZiiNgjqebvx2txb4g=",
+            "rev": "2d69148bac880e622912fd58896dcaeb3afa3804",
+            "sha256": "sha256-40hvUs+n0+sXbeqZVFfcnROtGG5e5dPaFGalFMhmi2w=",
             "type": "git",
             "url": "https://github.com/catppuccin/spicetify"
         },
-        "version": "1f55254dc7513f4866de16ba4efa81db2607a2d3"
+        "version": "2d69148bac880e622912fd58896dcaeb3afa3804"
     },
     "charlieS1103Src": {
         "cargoLocks": null,
-        "date": "2023-05-01",
+        "date": "2023-05-07",
         "extract": null,
         "name": "charlieS1103Src",
         "passthru": null,
@@ -68,12 +68,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a5427aa0306e7e12c2a3ef1b2b6ab3626db5eb74",
-            "sha256": "sha256-6ZWTPMsi5wxg2cvrTpLUpNecwgBabdx+jZHBBTA0snw=",
+            "rev": "b5c82418f2893cab4cd7d0226844edb5e46f5847",
+            "sha256": "sha256-Fl/nOgOqYwAVjVZGzxSEpkltODzTiB2TCkNZSgXyT5w=",
             "type": "git",
             "url": "https://github.com/CharlieS1103/spicetify-extensions"
         },
-        "version": "a5427aa0306e7e12c2a3ef1b2b6ab3626db5eb74"
+        "version": "b5c82418f2893cab4cd7d0226844edb5e46f5847"
     },
     "comfySrc": {
         "cargoLocks": null,
@@ -362,7 +362,7 @@
     },
     "nordSrc": {
         "cargoLocks": null,
-        "date": "2023-05-02",
+        "date": "2023-05-06",
         "extract": null,
         "name": "nordSrc",
         "passthru": null,
@@ -372,16 +372,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4d27e59fcb27ac09c2beccbeebdef4f5a4465ad2",
-            "sha256": "sha256-LvgofvvFEbSV1v7LFHjKl4NzBGKN1Suj56DNInGPqKo=",
+            "rev": "fdf42973e49fcbc751e9893de1b69317da1c67d9",
+            "sha256": "sha256-Khb3zAeGdbXu5Ad9JLKqr/evJnuYl8TB/TVHRsPK2lQ=",
             "type": "git",
             "url": "https://github.com/Tetrax-10/Nord-Spotify"
         },
-        "version": "4d27e59fcb27ac09c2beccbeebdef4f5a4465ad2"
+        "version": "fdf42973e49fcbc751e9893de1b69317da1c67d9"
     },
     "officialSrc": {
         "cargoLocks": null,
-        "date": "2023-05-02",
+        "date": "2023-05-07",
         "extract": null,
         "name": "officialSrc",
         "passthru": null,
@@ -391,16 +391,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "57cde7dc923c9468c8780439e20b5cab417c0f21",
-            "sha256": "sha256-6To4Fg2jb9ShRwyqnV1Afn1f+Vzp3dLn64ooC9LnP5M=",
+            "rev": "f57732570ff2be31dcc8e8a53e5bc09eafbb0577",
+            "sha256": "sha256-/Yi7nD/6TdGebP7uhCPibc7o+95GyXwZiYhWgfJXnNI=",
             "type": "git",
             "url": "https://github.com/spicetify/spicetify-cli"
         },
-        "version": "57cde7dc923c9468c8780439e20b5cab417c0f21"
+        "version": "f57732570ff2be31dcc8e8a53e5bc09eafbb0577"
     },
     "officialThemes": {
         "cargoLocks": null,
-        "date": "2023-04-26",
+        "date": "2023-05-05",
         "extract": null,
         "name": "officialThemes",
         "passthru": null,
@@ -410,12 +410,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4f10f4f7a6e679b05c0c8d9eac6043ca80aea063",
-            "sha256": "sha256-te7XstT98m5dwnJ9iBs54OMR61DTKqzEGtEBW2SsBpc=",
+            "rev": "e945db43cb51e8036a4b3412540eb18182618d2c",
+            "sha256": "sha256-1ZmavROvKdC2234wZwb2mY0ZwYMwxlPAJK9Tj4kUQ+A=",
             "type": "git",
             "url": "https://github.com/spicetify/spicetify-themes"
         },
-        "version": "4f10f4f7a6e679b05c0c8d9eac6043ca80aea063"
+        "version": "e945db43cb51e8036a4b3412540eb18182618d2c"
     },
     "omniSrc": {
         "cargoLocks": null,
@@ -476,7 +476,7 @@
     },
     "powerBarSrc": {
         "cargoLocks": null,
-        "date": "2023-04-04",
+        "date": "2023-05-04",
         "extract": null,
         "name": "powerBarSrc",
         "passthru": null,
@@ -486,16 +486,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "63a8b90538e90dd6d5ea9170fc1df087faacb2c7",
-            "sha256": "sha256-RM7sbkQ+ZEiYogoNdls+os70+ZLGad28nMTeATRcGto=",
+            "rev": "bbf1f949d4f317ed4ce87eea630e11909fc94001",
+            "sha256": "sha256-p3H1CNt2Fbwr4MOAKeYSERcZ/o5zYWY1b+Be3iGRZqI=",
             "type": "git",
             "url": "https://github.com/jeroentvb/spicetify-power-bar"
         },
-        "version": "63a8b90538e90dd6d5ea9170fc1df087faacb2c7"
+        "version": "bbf1f949d4f317ed4ce87eea630e11909fc94001"
     },
     "retroBlurSrc": {
         "cargoLocks": null,
-        "date": "2023-05-01",
+        "date": "2023-05-05",
         "extract": null,
         "name": "retroBlurSrc",
         "passthru": null,
@@ -505,12 +505,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "221706239205e353e704581eca10d5daf4a3b5e2",
-            "sha256": "sha256-s7FtghyT4NFnFKBE37duxVS65rUYBtl14Ci72/Rvfgw=",
+            "rev": "327c48e4e1ef483aa5c90c62eb931107effd8c8f",
+            "sha256": "sha256-XBOzbZLMrG3dGVddH6iF0NAda7b+kkWaOs0cgyJ6AbE=",
             "type": "git",
             "url": "https://github.com/Motschen/Retroblur"
         },
-        "version": "221706239205e353e704581eca10d5daf4a3b5e2"
+        "version": "327c48e4e1ef483aa5c90c62eb931107effd8c8f"
     },
     "spotifyCanvasSrc": {
         "cargoLocks": null,
