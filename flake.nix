@@ -5,25 +5,18 @@
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
 
     flake-utils.url = "github:numtide/flake-utils";
-
-    spicetify-cli = {
-      url = "github:spicetify/spicetify-cli";
-      flake = false;
-    };
   };
 
   outputs = {
     self,
     nixpkgs,
     flake-utils,
-    spicetify-cli,
     ...
   }:
     {
       homeManagerModules = {
         spicetify = (import ./module.nix) {
           isNixOSModule = false;
-          inherit spicetify-cli;
         };
         default = self.homeManagerModules.spicetify;
       };
@@ -31,7 +24,6 @@
       nixosModules = {
         spicetify = import ./module.nix {
           isNixOSModule = true;
-          inherit spicetify-cli;
         };
         default = self.nixosModules.spicetify;
       };
@@ -66,6 +58,7 @@
 
       packages = {
         spicetify = pkgs.callPackage ./pkgs {};
+
         default = self.packages.${system}.spicetify;
       };
 
@@ -77,5 +70,13 @@
         nixpkgs.lib.warn
         "spicetify-nix.pkgSets is deprecated, use spicetify-nix.packages.\${pkgs.system}.default"
         self.packages.${system}.default;
+
+      devShells = {
+        default = pkgs.mkShell {
+          packages = [
+            pkgs.nvfetcher
+          ];
+        };
+      };
     });
 }

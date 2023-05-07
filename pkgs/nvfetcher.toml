@@ -1,0 +1,127 @@
+[spotifywmSrc]
+src.git = "https://github.com/dasJ/spotifywm"
+fetch.git = "https://github.com/dasJ/spotifywm"
+
+[officialThemes]
+src.git = "https://github.com/spicetify/spicetify-themes"
+fetch.git = "https://github.com/spicetify/spicetify-themes"
+
+[officialSrc]
+src.git = "https://github.com/spicetify/spicetify-cli"
+fetch.git = "https://github.com/spicetify/spicetify-cli"
+
+[catppuccinSrc]
+src.git = "https://github.com/catppuccin/spicetify"
+fetch.git = "https://github.com/catppuccin/spicetify"
+
+[spotifyNoPremiumSrc]
+src.git = "https://github.com/Daksh777/SpotifyNoPremium"
+fetch.git = "https://github.com/Daksh777/SpotifyNoPremium"
+
+[comfySrc]
+src.git = "https://github.com/Comfy-Themes/Spicetify"
+fetch.git = "https://github.com/Comfy-Themes/Spicetify"
+
+[fluentSrc]
+src.git = "https://github.com/williamckha/spicetify-fluent"
+fetch.git = "https://github.com/williamckha/spicetify-fluent"
+
+[defaultDynamicSrc]
+src.git = "https://github.com/JulienMaille/spicetify-dynamic-theme"
+fetch.git = "https://github.com/JulienMaille/spicetify-dynamic-theme"
+
+[retroBlurSrc]
+src.git = "https://github.com/Motschen/Retroblur"
+fetch.git= "https://github.com/Motschen/Retroblur"
+
+[omniSrc]
+src.git = "https://github.com/getomni/spicetify"
+fetch.git = "https://github.com/getomni/spicetify"
+
+[bloomSrc]
+src.git = "https://github.com/nimsandu/spicetify-bloom"
+fetch.git = "https://github.com/nimsandu/spicetify-bloom"
+
+[orchisSrc]
+src.git = "https://github.com/canbeardig/Spicetify-Orchis-Colours-v2"
+fetch.git = "https://github.com/canbeardig/Spicetify-Orchis-Colours-v2"
+
+[draculaSrc]
+src.git = "https://github.com/Darkempire78/Dracula-Spicetify"
+fetch.git = "https://github.com/Darkempire78/Dracula-Spicetify"
+
+[nordSrc]
+src.git = "https://github.com/Tetrax-10/Nord-Spotify"
+fetch.git = "https://github.com/Tetrax-10/Nord-Spotify"
+
+[dakshExtensions]
+src.git = "https://github.com/daksh2k/Spicetify-stuff"
+fetch.git = "https://github.com/daksh2k/Spicetify-stuff"
+
+[hidePodcastsSrc]
+src.git = "https://github.com/theRealPadster/spicetify-hide-podcasts"
+fetch.git = "https://github.com/theRealPadster/spicetify-hide-podcasts"
+
+[historySrc]
+src.git = "https://github.com/einzigartigerName/spicetify-history"
+fetch.git = "https://github.com/einzigartigerName/spicetify-history"
+
+[genreSrc]
+src.git = "https://github.com/Shinyhero36/Spicetify-Genre"
+fetch.git = "https://github.com/Shinyhero36/Spicetify-Genre"
+
+[lastfmSrc]
+src.git = "https://github.com/LucasBares/spicetify-last-fm"
+fetch.git = "https://github.com/LucasBares/spicetify-last-fm"
+
+[localFilesSrc]
+src.git = "https://github.com/hroland/spicetify-show-local-files"
+fetch.git = "https://github.com/hroland/spicetify-show-local-files"
+
+[autoVolumeSrc]
+src.git = "https://github.com/amanharwara/spicetify-autoVolume"
+fetch.git = "https://github.com/amanharwara/spicetify-autoVolume"
+
+[customAppsExtensionsSrc]
+src.git = "https://github.com/3raxton/spicetify-custom-apps-and-extensions"
+fetch.git = "https://github.com/3raxton/spicetify-custom-apps-and-extensions"
+
+[spotifyCanvasSrc]
+src.git = "https://github.com/itsmeow/Spicetify-Canvas"
+fetch.git = "https://github.com/itsmeow/Spicetify-Canvas"
+
+[charlieS1103Src]
+src.git = "https://github.com/CharlieS1103/spicetify-extensions"
+fetch.git = "https://github.com/CharlieS1103/spicetify-extensions"
+
+[huhExtensionsSrc]
+src.git = "https://github.com/huhridge/huh-spicetify-extensions"
+fetch.git = "https://github.com/huhridge/huh-spicetify-extensions"
+
+[playlistIconsSrc]
+src.git = "https://github.com/jeroentvb/spicetify-playlist-icons"
+fetch.git = "https://github.com/jeroentvb/spicetify-playlist-icons"
+
+[tetraxSrc]
+src.git = "https://github.com/Tetrax-10/Spicetify-Extensions"
+fetch.git = "https://github.com/Tetrax-10/Spicetify-Extensions"
+
+[powerBarSrc]
+src.git = "https://github.com/jeroentvb/spicetify-power-bar"
+fetch.git = "https://github.com/jeroentvb/spicetify-power-bar"
+
+[groupSessionSrc]
+src.git = "https://github.com/timll/spotify-group-session"
+fetch.git = "https://github.com/timll/spotify-group-session"
+
+[startPageSrc]
+src.git = "https://github.com/Resxt/startup-page"
+fetch.git = "https://github.com/Resxt/startup-page"
+
+[nameThatTuneSrc]
+src.git = "https://github.com/theRealPadster/name-that-tune"
+fetch.git = "https://github.com/theRealPadster/name-that-tune"
+
+[marketplaceSrc]
+src.git = "https://github.com/spicetify/spicetify-marketplace"
+fetch.git = "https://github.com/spicetify/spicetify-marketplace"

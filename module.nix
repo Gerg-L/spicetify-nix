@@ -1,14 +1,11 @@
-{
-  isNixOSModule ? false,
-  spicetify-cli ? null,
-}: {
+{isNixOSModule ? false}: {
   lib,
   pkgs,
   config,
   ...
 }:
 with lib; let
-  inherit (pkgs) callPackage fetchFromGitHub;
+  inherit (pkgs) callPackage;
   cfg = config.programs.spicetify;
   spiceLib = callPackage ./lib {};
   spiceTypes = spiceLib.types;
@@ -123,18 +120,7 @@ in {
 
     cssMap = mkOption {
       type = lib.types.path;
-      default = let
-        src =
-          if (spicetify-cli != null)
-          then spicetify-cli
-          else
-            fetchFromGitHub {
-              owner = "spicetify";
-              repo = "spicetify-cli";
-              rev = "c9d8068d58d8c45f961ca42edcea47d7be904164";
-              sha256 = "sha256-C5J+OJjoiPOo/scVd48lTBJKKWial3TCkCIDBSerO+4=";
-            };
-      in "${src}/css-map.json";
+      default = "${cfg.spicetifyPackage.src}/css-map.json";
     };
   };
 
@@ -370,7 +356,7 @@ in {
         if isSpotifyWM
         then (lib.trivial.warn "SpotifyWM is a weird package. Please consider settings programs.spicetify.windowManagerPatch to true, instead." pkgs.spotify)
         else cfg.spotifyPackage;
-      overridenSpotify = spotifyToOverride.overrideAttrs (_: rec {
+      overridenSpotify = spotifyToOverride.overrideAttrs (_: {
         postInstall = finalScript;
       });
     in
@@ -378,7 +364,7 @@ in {
       then cfg.spotifyPackage.override {spotify = overridenSpotify;}
       else overridenSpotify;
 
-    packagesToInstall = with cfg;
+    packagesToInstall =
       [
         (
           # give warning if spotifywm is set redundantly

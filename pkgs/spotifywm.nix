@@ -1,21 +1,13 @@
 {
   stdenv,
-  fetchFromGitHub,
   xorg,
   spotify,
   makeWrapper,
-  ...
+  callPackage,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "spotifywm";
-  version = "10-25-2022";
-
-  src = fetchFromGitHub {
-    owner = "dasJ";
-    repo = pname;
-    rev = "8624f539549973c124ed18753881045968881745";
-    sha256 = "sha256-AsXqcoqUXUFxTG+G+31lm45gjP6qGohEnUSUtKypew0=";
-  };
+  inherit ((callPackage ./_sources/generated.nix {}).spotifywmSrc) src version;
 
   buildInputs = [xorg.libX11 makeWrapper];
 
