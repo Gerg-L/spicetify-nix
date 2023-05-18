@@ -15,11 +15,11 @@ with source; let
     filename = "savePlaylists.js";
   };
   fullScreen = {
-    src = "${dakshExtensions}/Extensions";
+    src = "${dakshExtensions}/Extensions/full-screen/dist";
     filename = "fullScreen.js";
   };
   autoSkip = {
-    src = "${dakshExtensions}/Extensions";
+    src = "${dakshExtensions}/Extensions/auto-skip/dist";
     filename = "autoSkip.js";
   };
   playNext = {
@@ -74,14 +74,13 @@ with source; let
     src = "${charlieS1103Src}/featureshuffle";
     filename = "featureshuffle.js";
   };
+  oldSidebar = {
+    src = "${charlieS1103Src}/old-sidebar";
+    filename = "oldSidebar.js";
+  };
   wikify = {
     src = "${charlieS1103Src}/wikify";
     filename = "wikify.js";
-  };
-  fixEnhance = {
-    src = "${charlieS1103Src}/fixEnhance";
-    filename = "fixEnhance.js";
-    experimentalFeatures = true;
   };
   phraseToPlaylist = {
     src = "${charlieS1103Src}/phraseToPlaylist";
@@ -93,7 +92,7 @@ with source; let
     filename = "fullAlbumDate.js";
   };
   fullAppDisplayMod = {
-    src = "${huhExtensionsSrc}/fullAppDisplayMod";
+    src = "${huhExtensionsSrc}/fullAppDisplayModified";
     filename = "fullAppDisplayMod.js";
   };
   goToSong = {
@@ -194,13 +193,7 @@ in
         };
       };
     in
-      {
-        "dribbblish.js" = dribbblishExt;
-        "turntable.js" = turntableExt;
-        dribbblish = dribbblishExt;
-        turntable = turntableExt;
-      }
-      // mkOfficialExt "autoSkipExplicit"
+      mkOfficialExt "autoSkipExplicit"
       // mkOfficialExt "autoSkipVideo"
       // mkOfficialExt "bookmark"
       // mkOfficialExt "fullAppDisplay"
@@ -236,7 +229,6 @@ in
   // appendJS playlistIntersection
   // appendJS skipStats
   // appendJS phraseToPlaylist
-  // appendJS fixEnhance
   // appendJS wikify
   // appendJS featureShuffle
   // appendJS songStats
@@ -254,3 +246,4 @@ in
   // appendJS fullScreen
   // appendJS playNext
   // appendJS volumePercentage
+  // appendJS oldSidebar

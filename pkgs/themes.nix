@@ -22,30 +22,6 @@ with source; let
       sidebarConfig = false;
     };
   };
-  mkComfyTheme = name: {
-    ${name} = let
-      lname = lib.strings.toLower name;
-    in {
-      inherit name;
-      src = comfySrc;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = true;
-      sidebarConfig = false;
-      requiredExtensions = [
-        {
-          src = "${comfySrc}/${name}";
-          filename = "${lname}.js";
-        }
-      ];
-      extraCommands = ''
-        # remove the auto-update functionality
-        echo "\n" >> ./Extensions/${lname}.js
-        cat ./Themes/${name}/${lname}.script.js >> ./Extensions/${lname}.js
-      '';
-    };
-  };
 
   # THEMES --------------------------------------------------------------------
 
@@ -182,6 +158,27 @@ with source; let
     sidebarConfig = false;
   };
 
+  Comfy = {
+    name = "Comfy";
+    src = comfySrc;
+    appendName = true;
+    injectCss = true;
+    replaceColors = true;
+    overwriteAssets = true;
+    sidebarConfig = false;
+    requiredExtensions = [
+      {
+        src = "${comfySrc}/Comfy";
+        filename = "theme.js";
+      }
+    ];
+    extraCommands = ''
+      # remove the auto-update functionality
+      echo "\n" >> ./Extensions/theme.js
+      cat ./Themes/Comfy/theme.script.js >> ./Extensions/theme.js
+    '';
+  };
+
   # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
   # about getting a custom build of chromium or something. I am NOT doing that
   # ... but maybe one day if someone asks
@@ -283,12 +280,10 @@ in
       Dracula
       Nord
       SpotifyCanvas
+      Comfy
       ;
   }
   // mkCatppuccinTheme "catppuccin-mocha"
   // mkCatppuccinTheme "catppuccin-frappe"
   // mkCatppuccinTheme "catppuccin-latte"
   // mkCatppuccinTheme "catppuccin-macchiato"
-  // mkComfyTheme "Comfy"
-  // mkComfyTheme "Comfy-Chromatic"
-  // mkComfyTheme "Comfy-Mono"

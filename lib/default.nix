@@ -3,7 +3,11 @@
   lib,
   ...
 }: let
-  customToINI = lib.generators.toINI {
+  spicePkgs = callPackage ../pkgs {};
+in {
+  types = callPackage ./types.nix {};
+
+  createXpuiINI = lib.generators.toINI {
     # specifies how to format a key/value pair
     mkKeyValue =
       lib.generators.mkKeyValueDefault
@@ -20,11 +24,9 @@
       } "=";
   };
 
-  spicePkgs = callPackage ../pkgs {};
-in {
-  types = callPackage ./types.nix {};
+  spicetifyBuilder = callPackage ./spicetify-builder.nix {};
 
-  createXpuiINI = xpui: (customToINI xpui);
+  xpuiBuilder = callPackage ./xpui-builder.nix {};
 
   getThemePath = theme:
     if (builtins.hasAttr "appendName" theme)
@@ -56,6 +58,11 @@ in {
             spicePkgs.themes.${theme})
         else throw "Unknown theme ${theme}. Try using the lib.theme type instead of a string."
       )
+    else if theme == null
+    then
+      lib.trivial.warn
+      "spicetify: null theme passed to getTheme, assuming official.Default"
+      spicePkgs.themes.official.Default
     else theme;
 
   getExtension = ext:
