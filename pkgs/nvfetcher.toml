@@ -52,6 +52,7 @@ fetch.git = "https://github.com/Darkempire78/Dracula-Spicetify"
 
 [nordSrc]
 src.git = "https://github.com/Tetrax-10/Nord-Spotify"
+src.branch = "dist"
 fetch.git = "https://github.com/Tetrax-10/Nord-Spotify"
 
 [dakshExtensions]
@@ -122,6 +123,7 @@ fetch.git = "https://github.com/Resxt/startup-page"
 
 [nameThatTuneSrc]
 src.git = "https://github.com/theRealPadster/name-that-tune"
+src.branch = "dist"
 fetch.git = "https://github.com/theRealPadster/name-that-tune"
 
 [marketplaceSrc]

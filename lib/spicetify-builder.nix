@@ -44,19 +44,21 @@
         command = "cp -rn ${
           item.src
         }/${item.filename} ./Extensions/${item.filename}";
-      in "${command} && echo \"Cp command for ${item.filename} succeeded!\""
+      in "${command} || echo \"Copying extension ${item.filename} failed.\""
     )
     extensions);
 
   customAppCommands = builtins.concatStringsSep "\n" (map
-    (item: "cp -rn ${(
-      if (builtins.hasAttr "appendName" item)
-      then
-        if (item.appendName)
-        then "${item.src}/${item.name}"
+    (item: let
+      command = "cp -rn ${(
+        if (builtins.hasAttr "appendName" item)
+        then
+          if (item.appendName)
+          then "${item.src}/${item.name}"
+          else "${item.src}"
         else "${item.src}"
-      else "${item.src}"
-    )} ./CustomApps/${item.name}")
+      )} ./CustomApps/${item.name}";
+    in "${command} || echo \"Copying custom app ${item.name} failed.\"")
     apps);
 
   spicetifyCmd = "spicetify-cli --no-restart";
@@ -64,6 +66,7 @@ in
   spotify.overrideAttrs (_: {
     name = "spicetify-${theme.name}";
     postInstall = ''
+      set -e
       export SPICETIFY_CONFIG=$out/share/spicetify
       mkdir -p $SPICETIFY_CONFIG
 
@@ -88,7 +91,7 @@ in
       sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
       mkdir -p Themes
-      cp -r ${spiceLib.getThemePath theme} ./Themes/${theme.name}
+      cp -r ${spiceLib.getThemePath theme} ./Themes/${theme.name} || echo "Copying theme ${theme.name} failed"
       ${coreutils-full}/bin/chmod -R a+wr Themes
       echo "copied theme"
       cat ${extraCss} >> ./Themes/${theme.name}/user.css

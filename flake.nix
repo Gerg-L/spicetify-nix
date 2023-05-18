@@ -74,6 +74,7 @@
       checks = {
         all-tests = pkgs.callPackage ./tests {};
         minimal-config = pkgs.callPackage ./tests/minimal-config.nix {};
+        apps = pkgs.callPackage ./tests/apps.nix {};
         default = self.checks.${system}.all-tests;
       };
 

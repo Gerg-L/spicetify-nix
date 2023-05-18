@@ -151,7 +151,7 @@ with source; let
   Nord = {
     name = "Nord";
     src = nordSrc;
-    appendName = false;
+    appendName = true;
     injectCss = true;
     replaceColors = true;
     overwriteAssets = false;

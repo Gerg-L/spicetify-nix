@@ -11,7 +11,7 @@
   themes = builtins.removeAttrs spicePkgs.themes ["override" "overrideDerivation"];
   drvs =
     (lib.attrsets.mapAttrsToList (_: value: tryAllExtensionsAndAppsFor value) themes)
-    ++ (callPackage ./minimal-config.nix {});
+    ++ [(callPackage ./minimal-config.nix {})];
   lnCommands = builtins.concatStringsSep "\n" (map (drv: "ln -sf ${drv} $out/") drvs);
 in
   stdenvNoCC.mkDerivation {
