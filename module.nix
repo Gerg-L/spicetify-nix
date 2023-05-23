@@ -33,7 +33,7 @@ in {
 
     theme = mkOption {
       type = types.oneOf [types.str spiceTypes.theme];
-      default = spicePkgs.themes.official.Default;
+      default = spicePkgs.themes.Default;
     };
 
     spotifyPackage = mkOption {

@@ -11,7 +11,7 @@
   flatten = lib.attrsets.mapAttrsToList (_: value: value);
   apps = flatten (builtins.removeAttrs spicePkgs.apps ["override" "overrideDerivation"]);
 
-  theme = spicePkgs.official.themes.Default;
+  theme = spicePkgs.themes.Default;
 
   config-xpui = spiceLib.xpuiBuilder {
     inherit apps theme;
