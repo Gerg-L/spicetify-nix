@@ -11,10 +11,8 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
-    spicetify-nix,
   } @ inputs: let
     username = "unknown_username";
     hostname = "unknown_hostname";
