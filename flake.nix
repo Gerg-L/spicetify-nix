@@ -39,11 +39,6 @@
       homeManagerModule = self.homeManagerModules.default;
       nixosModule = self.nixosModules.default;
 
-      templates.default = {
-        path = ./template;
-        description = "A basic home-manager configuration which installs spicetify with the Dribbblish theme.";
-      };
-
       libs.${system} = pkgs.callPackage ./lib {};
 
       legacyPackages.${system} = pkgs.callPackage ./pkgs {};
