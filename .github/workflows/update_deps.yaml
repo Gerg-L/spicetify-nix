@@ -1,0 +1,39 @@
+name: update_deps
+
+on:
+  workflow_dispatch: #allow manual triggering
+  schedule:
+      - cron: "0 4 * * *"
+jobs:
+  update_deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3.5.3
+      - name: install nix
+        uses: DeterminateSystems/nix-installer-action@v4
+      - name: setup git
+        run: | 
+          git config user.email Gerg-L@proton.me
+          git config user.name "GitHub Actions"
+          git checkout -b updates-${{ github.run_id }}
+      - name: update
+        run: |
+          cd pkgs 
+          nix run nixpkgs#nvfetcher -- --commit-changes
+          cd ..
+          nix flake update --no-warn-dirty --commit-lock-file
+      - name: merge 
+        run: |
+          export MESSAGE="$(git -P log --pretty=format:"%s%n%b" -2)"
+          git reset --soft HEAD~2
+          git commit -am "$MESSAGE"
+          git push -u origin updates-${{ github.run_id }}
+          PR=$(gh pr create \
+            --base master \
+            --body "$MESSAGE" \
+            --fill \
+            --title "Auto update $(date -I)")
+          gh pr merge $PR --squash --delete-branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
