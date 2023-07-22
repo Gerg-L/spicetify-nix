@@ -134,7 +134,7 @@
     },
     "defaultDynamicSrc": {
         "cargoLocks": null,
-        "date": "2022-09-17",
+        "date": "2023-07-22",
         "extract": null,
         "name": "defaultDynamicSrc",
         "passthru": null,
@@ -144,12 +144,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "c9b70479a5445c09fadb575d2d5cf940b871ff4d",
-            "sha256": "sha256-cj6Se4lJFTg1j+4vclnfp1qWF5FkHzBZqUldrj70Akw=",
+            "rev": "13c08c29ab6fc0dd0b44f9a082740b99e1cffac4",
+            "sha256": "sha256-rFYTkxtAUqS6mVV6Fn6askDXfNqGXz/n21zpUOsx7Vo=",
             "type": "git",
             "url": "https://github.com/JulienMaille/spicetify-dynamic-theme"
         },
-        "version": "c9b70479a5445c09fadb575d2d5cf940b871ff4d"
+        "version": "13c08c29ab6fc0dd0b44f9a082740b99e1cffac4"
     },
     "draculaSrc": {
         "cargoLocks": null,
@@ -400,7 +400,7 @@
     },
     "officialThemes": {
         "cargoLocks": null,
-        "date": "2023-07-16",
+        "date": "2023-07-21",
         "extract": null,
         "name": "officialThemes",
         "passthru": null,
@@ -410,12 +410,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "aaa4e2f0cb82731a89e29d1ebff8c2235d2b9a8e",
-            "sha256": "sha256-fLXqh+sifAeNBVvvhDQhAlu3vzKrNjxkFckt8Fl7Yqs=",
+            "rev": "b2269a9650b735b955d5b024d69c7a38022d4a7e",
+            "sha256": "sha256-pWMswQJ7uGBPTmlZjdHoBXdVAOr3VKv+PbKZt0+G2Qg=",
             "type": "git",
             "url": "https://github.com/spicetify/spicetify-themes"
         },
-        "version": "aaa4e2f0cb82731a89e29d1ebff8c2235d2b9a8e"
+        "version": "b2269a9650b735b955d5b024d69c7a38022d4a7e"
     },
     "omniSrc": {
         "cargoLocks": null,
