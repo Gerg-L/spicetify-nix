@@ -55,16 +55,16 @@
   };
   comfySrc = {
     pname = "comfySrc";
-    version = "49468bde7bd26343f50205b08e461dc4ffdc3d6f";
+    version = "19189367f73647467d1a2dcae66ebcab75955ce6";
     src = fetchgit {
       url = "https://github.com/Comfy-Themes/Spicetify";
-      rev = "49468bde7bd26343f50205b08e461dc4ffdc3d6f";
+      rev = "19189367f73647467d1a2dcae66ebcab75955ce6";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-9uHOYnf1zxyjwy1HOE3fzICGNUCGcATC3wX8zwYnvTk=";
+      sha256 = "sha256-Y7yKXxKkFCbHRzaG6Tv0TMt464Vwr13m2oLuXQasGHU=";
     };
-    date = "2023-07-20";
+    date = "2023-07-22";
   };
   customAppsExtensionsSrc = {
     pname = "customAppsExtensionsSrc";
@@ -94,16 +94,16 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "13c08c29ab6fc0dd0b44f9a082740b99e1cffac4";
+    version = "545b5c17d7a895baef70992a149b8de46a153727";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "13c08c29ab6fc0dd0b44f9a082740b99e1cffac4";
+      rev = "545b5c17d7a895baef70992a149b8de46a153727";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-rFYTkxtAUqS6mVV6Fn6askDXfNqGXz/n21zpUOsx7Vo=";
+      sha256 = "sha256-5OLcExZ3YZVeaeO4gTVwzYXX4pnaO64LjVB8BWX6Ajg=";
     };
-    date = "2023-07-22";
+    date = "2023-07-23";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -406,15 +406,15 @@
   };
   tetraxSrc = {
     pname = "tetraxSrc";
-    version = "996f0c6eab8b55701ab40718565541dd049b1e52";
+    version = "a224969550b3831c4fb084bcc8c675f3a77735d1";
     src = fetchgit {
       url = "https://github.com/Tetrax-10/Spicetify-Extensions";
-      rev = "996f0c6eab8b55701ab40718565541dd049b1e52";
+      rev = "a224969550b3831c4fb084bcc8c675f3a77735d1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-7M/NRRD9NUP06U58hBq3EH5jjmCAHTuFMYxUNBKaOGY=";
+      sha256 = "sha256-XT0l6DVaXXaD7QihilpF3vQ+kry98sss3POR5gTRmhI=";
     };
-    date = "2023-06-04";
+    date = "2023-07-22";
   };
 }
