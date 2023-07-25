@@ -16,16 +16,16 @@
   };
   bloomSrc = {
     pname = "bloomSrc";
-    version = "36f0408f913cb89bb9788174b35fc5fd10e46cf3";
+    version = "ac198c427084e7e887ab740a015c98210cf0b4f7";
     src = fetchgit {
       url = "https://github.com/nimsandu/spicetify-bloom";
-      rev = "36f0408f913cb89bb9788174b35fc5fd10e46cf3";
+      rev = "ac198c427084e7e887ab740a015c98210cf0b4f7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-vbM3xjFY6jn93aJTurrvMTeBdQYx7SsLntCKEHmF0tY=";
+      sha256 = "sha256-rnbWU4SPotWCjAi8XGGo9108eHtIQCdJq8tPoW17Kr8=";
     };
-    date = "2023-07-18";
+    date = "2023-07-23";
   };
   catppuccinSrc = {
     pname = "catppuccinSrc";
@@ -94,16 +94,16 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "545b5c17d7a895baef70992a149b8de46a153727";
+    version = "970c89708378551ce5f2677724f8417c62c54939";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "545b5c17d7a895baef70992a149b8de46a153727";
+      rev = "970c89708378551ce5f2677724f8417c62c54939";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-5OLcExZ3YZVeaeO4gTVwzYXX4pnaO64LjVB8BWX6Ajg=";
+      sha256 = "sha256-/BQbVQe1/j6aMmX64QUnth/lJ/bWfsBFXpelSIFT5ak=";
     };
-    date = "2023-07-23";
+    date = "2023-07-24";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -263,16 +263,16 @@
   };
   officialSrc = {
     pname = "officialSrc";
-    version = "4b511e10818a216c79186bd46d013f87a8fc1d54";
+    version = "e9d70b0f311c4c1d97b4c6ab127f0e4142a21e0e";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-cli";
-      rev = "4b511e10818a216c79186bd46d013f87a8fc1d54";
+      rev = "e9d70b0f311c4c1d97b4c6ab127f0e4142a21e0e";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-6Jg56lQR8oK9TaJNqnEu70JkUz9OomvRbm5to2j3NOA=";
+      sha256 = "sha256-+evDMYNo4Io0RAP5EkjA7h4QCLg21v4vLLloLZiSh0E=";
     };
-    date = "2023-07-17";
+    date = "2023-07-24";
   };
   officialThemes = {
     pname = "officialThemes";
