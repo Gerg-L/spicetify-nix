@@ -55,16 +55,16 @@
   };
   comfySrc = {
     pname = "comfySrc";
-    version = "19189367f73647467d1a2dcae66ebcab75955ce6";
+    version = "a5f07c501ea5c9f87eb416c1a919644e9acb4eda";
     src = fetchgit {
       url = "https://github.com/Comfy-Themes/Spicetify";
-      rev = "19189367f73647467d1a2dcae66ebcab75955ce6";
+      rev = "a5f07c501ea5c9f87eb416c1a919644e9acb4eda";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Y7yKXxKkFCbHRzaG6Tv0TMt464Vwr13m2oLuXQasGHU=";
+      sha256 = "sha256-atE/VJIRmnMlXZWs/HOzuhYsZII8GPtD/u0v8c6jFsE=";
     };
-    date = "2023-07-22";
+    date = "2023-07-26";
   };
   customAppsExtensionsSrc = {
     pname = "customAppsExtensionsSrc";
@@ -94,16 +94,16 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "970c89708378551ce5f2677724f8417c62c54939";
+    version = "af191ad6e89a1ce767581842410e821baf4c39c3";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "970c89708378551ce5f2677724f8417c62c54939";
+      rev = "af191ad6e89a1ce767581842410e821baf4c39c3";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-/BQbVQe1/j6aMmX64QUnth/lJ/bWfsBFXpelSIFT5ak=";
+      sha256 = "sha256-J2UXOYOGdslxxl9SqNdmwCKuFyLAePwJYa9DqA6u+Ug=";
     };
-    date = "2023-07-24";
+    date = "2023-07-26";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -263,16 +263,16 @@
   };
   officialSrc = {
     pname = "officialSrc";
-    version = "e9d70b0f311c4c1d97b4c6ab127f0e4142a21e0e";
+    version = "2b23613b894859d383fbe5de308eaf91ce05dcce";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-cli";
-      rev = "e9d70b0f311c4c1d97b4c6ab127f0e4142a21e0e";
+      rev = "2b23613b894859d383fbe5de308eaf91ce05dcce";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-+evDMYNo4Io0RAP5EkjA7h4QCLg21v4vLLloLZiSh0E=";
+      sha256 = "sha256-EbTmxnUk2taAKWPNuoVcKybKgdvPegFjz/ImTIabZ7Q=";
     };
-    date = "2023-07-24";
+    date = "2023-07-26";
   };
   officialThemes = {
     pname = "officialThemes";
