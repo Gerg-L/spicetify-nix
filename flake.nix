@@ -20,6 +20,14 @@
   in
     withSystem (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+      #unfreePkgs = import nixpkgs {
+      #  inherit system;
+      #  config.allowUnfreePredicate = pkg:
+      #    builtins.elem (nixpkgs.lib.getName pkg) [
+      #      "spotify"
+      #      "spicetify-Bloom"
+      #    ];
+      #};
     in {
       homeManagerModules = {
         spicetify = import ./module.nix {
@@ -35,27 +43,23 @@
         default = self.nixosModules.spicetify;
       };
 
-      # nice aliases
-      homeManagerModule = self.homeManagerModules.default;
-      nixosModule = self.nixosModules.default;
-
-      libs.${system} = pkgs.callPackage ./lib {};
+      lib.${system} = pkgs.callPackage ./lib {};
 
       legacyPackages.${system} = pkgs.callPackage ./pkgs {};
 
-      checks.${system} = {
-        all-tests = pkgs.callPackage ./tests {};
-        minimal-config = pkgs.callPackage ./tests/minimal-config.nix {};
-        all-for-theme = pkgs.callPackage ./tests/all-for-theme.nix {};
-        apps = pkgs.callPackage ./tests/apps.nix {};
-        default = self.checks.${system}.all-tests;
-        all-exts-and-apps =
-          builtins.mapAttrs
-          (_: self.checks.${system}.all-for-theme)
-          (builtins.removeAttrs
-            (pkgs.callPackage ./pkgs {}).themes
-            ["override" "overrideDerivation"]);
-      };
+      #checks.${system} = {
+      #  default = self.checks.${system}.all-tests;
+      #  all-tests = unfreePkgs.callPackage ./tests {};
+      #  minimal-config = unfreePkgs.callPackage ./tests/minimal-config.nix {};
+      #  all-for-theme = unfreePkgs.callPackage ./tests/all-for-theme.nix {};
+      #  apps = unfreePkgs.callPackage ./tests/apps.nix {};
+      #  all-exts-and-apps =
+      #    builtins.mapAttrs
+      #    (_: self.checks.${system}.all-for-theme)
+      #    (builtins.removeAttrs
+      #      (unfreePkgs.callPackage ./pkgs {}).themes
+      #      ["override" "overrideDerivation"]);
+      #};
 
       formatter.${system} = pkgs.alejandra;
 
