@@ -19,21 +19,39 @@ jobs:
           git checkout -b updates-${{ github.run_id }}
       - name: update
         run: |
+          MESSAGE=""
+
+          nix flake update --no-warn-dirty --commit-lock-file
+
+          if git rev-parse -q HEAD^; then
+            MESSAGE="$MESSAGE$(git -P log --pretty=format:"%s%n%b" -1)"
+            git reset --soft HEAD^
+          fi
+
           cd pkgs 
           nix run nixpkgs#nvfetcher -- --commit-changes
           cd ..
-          nix flake update --no-warn-dirty --commit-lock-file
-      - name: merge 
-        run: |
-          export MESSAGE="$(git -P log --pretty=format:"%s%n%b" -2)"
-          git reset --soft HEAD~2
+
+          if git rev-parse -q HEAD^; then
+            MESSAGE="$MESSAGE$(git -P log --pretty=format:"%s%n%b" -1)"
+            git reset --soft HEAD^
+          fi
+
+          if [ -z "$MESSAGE" ]; then
+            exit 0
+          fi
+
           git commit -am "$MESSAGE"
+
           git push -u origin updates-${{ github.run_id }}
+
           PR=$(gh pr create \
             --base master \
             --body "$MESSAGE" \
             --fill \
             --title "Auto update $(date -I)")
+
           gh pr merge $PR --squash --delete-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
