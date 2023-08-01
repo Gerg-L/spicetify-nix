@@ -94,16 +94,16 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "af191ad6e89a1ce767581842410e821baf4c39c3";
+    version = "b4cb932bbcb6aab62faae6f7618762b0170e8a29";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "af191ad6e89a1ce767581842410e821baf4c39c3";
+      rev = "b4cb932bbcb6aab62faae6f7618762b0170e8a29";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-J2UXOYOGdslxxl9SqNdmwCKuFyLAePwJYa9DqA6u+Ug=";
+      sha256 = "sha256-tMW7YULAyyFb1d5YIhsQxv3Cg2+CXHDyuIgGS+UexRk=";
     };
-    date = "2023-07-26";
+    date = "2023-07-31";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -224,16 +224,16 @@
   };
   marketplaceSrc = {
     pname = "marketplaceSrc";
-    version = "8e48a447a0bb52db30f5d76d76de9ec10a1b39c3";
+    version = "2c33daef80da65404e51abddcd88fc789ac866dd";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-marketplace";
-      rev = "8e48a447a0bb52db30f5d76d76de9ec10a1b39c3";
+      rev = "2c33daef80da65404e51abddcd88fc789ac866dd";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-RfGW3qbvIo/8R0rAE+t0vF6KduoY6fuWzShe8HBwJ1I=";
+      sha256 = "sha256-l0yg7YzXUe/ztTXXUlXH/YeCSnwNQAu1MfpnxIghc90=";
     };
-    date = "2023-07-29";
+    date = "2023-07-31";
   };
   nameThatTuneSrc = {
     pname = "nameThatTuneSrc";
@@ -276,16 +276,16 @@
   };
   officialThemes = {
     pname = "officialThemes";
-    version = "b2269a9650b735b955d5b024d69c7a38022d4a7e";
+    version = "e4a15de2e02642c7d5ba2cde6cb610dc3c9fac91";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-themes";
-      rev = "b2269a9650b735b955d5b024d69c7a38022d4a7e";
+      rev = "e4a15de2e02642c7d5ba2cde6cb610dc3c9fac91";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-pWMswQJ7uGBPTmlZjdHoBXdVAOr3VKv+PbKZt0+G2Qg=";
+      sha256 = "sha256-aTV3kv8LkC75wUAPBbFesv8GgArZcbHuTQ3NKdrstIU=";
     };
-    date = "2023-07-21";
+    date = "2023-07-31";
   };
   omniSrc = {
     pname = "omniSrc";
