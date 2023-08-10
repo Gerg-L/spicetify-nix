@@ -94,16 +94,16 @@
   };
   defaultDynamicSrc = {
     pname = "defaultDynamicSrc";
-    version = "35408c54c36c193cdc984350d973ad530a1d3514";
+    version = "bd66b1c72953567effaa6bb7a68cfb80377bf591";
     src = fetchgit {
       url = "https://github.com/JulienMaille/spicetify-dynamic-theme";
-      rev = "35408c54c36c193cdc984350d973ad530a1d3514";
+      rev = "bd66b1c72953567effaa6bb7a68cfb80377bf591";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-jMk8OYxtmv9IOC+Vlv1WUFf0aWYMOyOTmznjZd+yx3Y=";
+      sha256 = "sha256-Yz01HEK1cGJQGqgvaJquLtGCZxRo6LgM+oVin8g7Lbs=";
     };
-    date = "2023-08-06";
+    date = "2023-08-09";
   };
   draculaSrc = {
     pname = "draculaSrc";
@@ -263,16 +263,16 @@
   };
   officialSrc = {
     pname = "officialSrc";
-    version = "3c449b979d2cbaa742594954f786229c71439aa3";
+    version = "ab6fd65c43de7d965979c836ebd75d515dc24762";
     src = fetchgit {
       url = "https://github.com/spicetify/spicetify-cli";
-      rev = "3c449b979d2cbaa742594954f786229c71439aa3";
+      rev = "ab6fd65c43de7d965979c836ebd75d515dc24762";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-RhtY+CLLESSqgt2Evvs/HkZbZ/M5hK73k0TjgtQmU4o=";
+      sha256 = "sha256-0h0uHHikmCwIjE08lrV5xbnjtyrD4fGLzJcVMPq55zU=";
     };
-    date = "2023-08-04";
+    date = "2023-08-09";
   };
   officialThemes = {
     pname = "officialThemes";
@@ -328,16 +328,16 @@
   };
   powerBarSrc = {
     pname = "powerBarSrc";
-    version = "e0e8232500770f14add5d3d03a2ac380c570e144";
+    version = "b5812329495f2c4805cd26245f56da450e14ceba";
     src = fetchgit {
       url = "https://github.com/jeroentvb/spicetify-power-bar";
-      rev = "e0e8232500770f14add5d3d03a2ac380c570e144";
+      rev = "b5812329495f2c4805cd26245f56da450e14ceba";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-t8Y7ULDVlozKn70HB4kfYXdKPy35Q1kBJmQUkku90/U=";
+      sha256 = "sha256-jZE3njnHszSVE26GSHz9myxeP4NojoZ6BtxLd6bzV9g=";
     };
-    date = "2023-08-07";
+    date = "2023-08-09";
   };
   retroBlurSrc = {
     pname = "retroBlurSrc";
