@@ -115,7 +115,7 @@
     },
     "dakshExtensions": {
         "cargoLocks": null,
-        "date": "2023-08-06",
+        "date": "2023-08-11",
         "extract": null,
         "name": "dakshExtensions",
         "passthru": null,
@@ -125,12 +125,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "93d444c7d9f91ea94442e6a4e9fd948e6544030c",
+            "rev": "1e83a63c74f3d504816146e1ba3607636bd400dc",
             "sha256": "sha256-5DndaeAyb3rxYJXcdPNR8wvlSLBUcMeibwXyaiKxUC0=",
             "type": "git",
             "url": "https://github.com/daksh2k/Spicetify-stuff"
         },
-        "version": "93d444c7d9f91ea94442e6a4e9fd948e6544030c"
+        "version": "1e83a63c74f3d504816146e1ba3607636bd400dc"
     },
     "defaultDynamicSrc": {
         "cargoLocks": null,
@@ -476,7 +476,7 @@
     },
     "powerBarSrc": {
         "cargoLocks": null,
-        "date": "2023-08-09",
+        "date": "2023-08-10",
         "extract": null,
         "name": "powerBarSrc",
         "passthru": null,
@@ -486,12 +486,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b5812329495f2c4805cd26245f56da450e14ceba",
-            "sha256": "sha256-jZE3njnHszSVE26GSHz9myxeP4NojoZ6BtxLd6bzV9g=",
+            "rev": "cd7d930d5a5229015f7c8b5493c01c2bf37d1ce7",
+            "sha256": "sha256-io/0hbjSBsRQwMQe//bRRgtyEctcCBiweLGPvEyAcz8=",
             "type": "git",
             "url": "https://github.com/jeroentvb/spicetify-power-bar"
         },
-        "version": "b5812329495f2c4805cd26245f56da450e14ceba"
+        "version": "cd7d930d5a5229015f7c8b5493c01c2bf37d1ce7"
     },
     "retroBlurSrc": {
         "cargoLocks": null,
