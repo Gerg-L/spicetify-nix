@@ -1,9 +1,8 @@
 {
   callPackage,
-  lib,
   ...
 }: let
-  source = lib.mapAttrs (_: value: value.src) (callPackage ./_sources/generated.nix {});
+  source = import ../npins;
   themes = callPackage ./themes.nix {inherit source;};
   extensions = callPackage ./extensions.nix {inherit source;};
   apps = callPackage ./apps.nix {inherit source;};

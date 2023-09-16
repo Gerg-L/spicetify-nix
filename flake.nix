@@ -65,7 +65,7 @@
 
       devShells.${system}.default = pkgs.mkShell {
         packages = [
-          pkgs.nvfetcher
+          pkgs.npins
         ];
       };
     });

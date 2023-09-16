@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3.5.3
+        uses: actions/checkout@v4.0.0
       - name: install nix
         uses: DeterminateSystems/nix-installer-action@v4
       - name: setup git
@@ -24,24 +24,26 @@ jobs:
           nix flake update --no-warn-dirty --commit-lock-file
 
           if git rev-parse -q HEAD^; then
-            MESSAGE="$MESSAGE$(git -P log --pretty=format:"%s%n%b" -1)"
+
+            MESSAGE="$(git -P log --pretty=format:"%s%n%b" -1)"
+
             git reset --soft HEAD^
           fi
 
-          cd pkgs 
-          nix run nixpkgs#nvfetcher -- --commit-changes
-          cd ..
+          if NPINS=$(nix run nixpkgs#npins -- update -f | grep -E '[^\(no changes\)]*url.*'); then
+            MESSAGE="$MESSAGE
 
-          if git rev-parse -q HEAD^; then
-            MESSAGE="$MESSAGE$(git -P log --pretty=format:"%s%n%b" -1)"
-            git reset --soft HEAD^
+          npins url updates:
+          $NPINS"
           fi
 
           if [ -z "$MESSAGE" ]; then
             exit 0
           fi
+          
+          git add -A
 
-          git commit -am "$MESSAGE"
+          git commit -m "CI update $(date -I)" -m "$MESSAGE"
 
           git push -u origin updates-${{ github.run_id }}
 
@@ -54,4 +56,3 @@ jobs:
           gh pr merge $PR --squash --delete-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
