@@ -11,7 +11,10 @@ To use, add this flake to your home-manager configuration flake inputs, like so:
 
 ```nix
 {
-  inputs.spicetify-nix.url = github:the-argus/spicetify-nix;
+  inputs.spicetify-nix = {
+    url = "github:Gerg-L/spicetify-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
 }
 
 ```
@@ -24,9 +27,9 @@ user's home-manager configuration.
 ### Minimal Configuration
 
 ```nix
-{ pkgs, lib, spicetify-nix, ... }:
+{ pkgs, lib, inputs, ... }:
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -35,7 +38,7 @@ in
   ];
 
   # import the flake's module for your system
-  imports = [ spicetify-nix.homeManagerModule ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   # configure spicetify :)
   programs.spicetify =
@@ -62,16 +65,12 @@ should actually use this one.
 ```nix
 {
   pkgs,
-  # this is the same as pkgs but the url is github:nixos/nixpkgs-unstable
-  unstable,
-  # this is pkgs.lib
   lib,
-  # this is the input to the flake with url github:the-argus/spicetify-nix
-  spicetify-nix,
+  inputs,
   ...
 }:
 let
-  spicePkgs = spicetify-nix.packages.${pkgs.system}.default;
+  spicePkgs = inputs.spicetify-nix.packages.${pkgs.system};
 in
 {
   # allow spotify to be installed if you don't have unfree enabled already
@@ -80,7 +79,7 @@ in
   ];
 
   # import the flake's module
-  imports = [ spicetify-nix.homeManagerModules.default ];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   # configure spicetify :)
   programs.spicetify =
@@ -100,8 +99,8 @@ in
       };
     in
     {
-      # use spotify from the nixpkgs master branch
-      spotifyPackage = unstable.spotify;
+      # use spotify from the nixpkgs unstable branch
+      spotifyPackage = inputs.nixpkgs-unstable.spotify;
 
       # use a custom build of spicetify
       spicetifyPackage = pkgs.spicetify-cli.overrideAttrs (oa: rec {
@@ -194,4 +193,4 @@ Are found in [THEMES.md](./THEMES.md), [EXTENSIONS.md](./EXTENSIONS.md), and
 
 ## macOS
 
-This package has no macOS support, because Spotify in nixpkgs has no macOS support.
+This package has no macOS support, because I don't have access to a macOS system

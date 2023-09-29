@@ -1,8 +1,8 @@
 {
-  description = "A nix flake that provides a home-manager module to configure spicetify with.";
+  description = "A nix flake that provides nix modules to configure spicetify with.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     flake-compat = {
       url = "github:edolstra/flake-compat";
       flake = false;
