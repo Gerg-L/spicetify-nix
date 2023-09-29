@@ -268,7 +268,11 @@ in
       // mkOfficialTheme "Onepunch"
       // mkOfficialTheme "Flow"
       // mkOfficialTheme "Default"
-      // mkOfficialTheme "BurntSienna";
+      // mkOfficialTheme "BurntSienna"
+      // mkOfficialTheme "Blossom"
+      // mkOfficialTheme "Sleek"
+      // mkOfficialTheme "Nightlight"
+      // mkOfficialTheme "Matte";
     inherit
       SpotifyNoPremium
       Fluent
