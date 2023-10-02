@@ -44,9 +44,9 @@
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "revision": "e201abd26f8abb7988f04cf4a673b7636dc3af9a",
-      "url": "https://github.com/CharlieS1103/spicetify-extensions/archive/e201abd26f8abb7988f04cf4a673b7636dc3af9a.tar.gz",
-      "hash": "0nf7dzzxkbdvmpa2v3vzx6z1jand374rx24snk641qxdxhrqmlqa"
+      "revision": "d618561c232f02a56223bae6276fc9fd8c6a357a",
+      "url": "https://github.com/CharlieS1103/spicetify-extensions/archive/d618561c232f02a56223bae6276fc9fd8c6a357a.tar.gz",
+      "hash": "134mzyifs4h9yrzrjf2xrb58f5p0dryxyg3c0l2z58cvrw3bw5l6"
     },
     "comfySrc": {
       "type": "Git",
@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "d893d0752215ddaffe7aa9316e01d089e62d3226",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/d893d0752215ddaffe7aa9316e01d089e62d3226.tar.gz",
-      "hash": "0jlj61bigm6asy84h63hm3ys26ak045iilq5cgp24jb8lb6l47jy"
+      "revision": "da1af91ef5f6b567319fadaa23790d079818f028",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/da1af91ef5f6b567319fadaa23790d079818f028.tar.gz",
+      "hash": "0grqaslwmmshw5lh1j9liivr9ifqakdp0ammrh9cgkv9qx9dja0x"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -152,9 +152,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "6fa8fc9b1c20cc36fb036ec2ae5d7cc977c0e6ed",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/6fa8fc9b1c20cc36fb036ec2ae5d7cc977c0e6ed.tar.gz",
-      "hash": "0hcx9m47p992cicx1jn1c9378nislgi3b60wg39q72384gyrpqd4"
+      "revision": "5d34920d6cebd2f3711e731b8186b0553e0da2a9",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/5d34920d6cebd2f3711e731b8186b0553e0da2a9.tar.gz",
+      "hash": "11ngy7b2rpab2xgbli0y4mgfdwf80inxs4mqd0k11fds3zr7pllz"
     },
     "historySrc": {
       "type": "Git",
@@ -224,9 +224,9 @@
         "repo": "name-that-tune"
       },
       "branch": "main",
-      "revision": "ca271a845c45e597c1515fc49cb65d542a468de2",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/ca271a845c45e597c1515fc49cb65d542a468de2.tar.gz",
-      "hash": "0ziavahhdh9ddhnsrfbvz3zvpscda6x7kndhrgspa3jn0bh3lvai"
+      "revision": "55887bd73f7e0bb88744487dbfb4d857cc9817c8",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/55887bd73f7e0bb88744487dbfb4d857cc9817c8.tar.gz",
+      "hash": "0axsk09pa9gj45slyl38j66slvifdkk8v8zcc0qbhcdh659v9jnk"
     },
     "nordSrc": {
       "type": "Git",
