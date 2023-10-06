@@ -32,9 +32,9 @@
         "repo": "spicetify"
       },
       "branch": "main",
-      "revision": "dc3d4b24dcdd2fc3a8aa716d6280047c1928c029",
-      "url": "https://github.com/catppuccin/spicetify/archive/dc3d4b24dcdd2fc3a8aa716d6280047c1928c029.tar.gz",
-      "hash": "1b4kb5bha2f1v31s341ijd4a5ksgiy1yk1iyhg533281png0zasy"
+      "revision": "14b479fe2d640154d2ba497c027625499d712548",
+      "url": "https://github.com/catppuccin/spicetify/archive/14b479fe2d640154d2ba497c027625499d712548.tar.gz",
+      "hash": "0qswax4id12nbmnhrczyvzpmb3cf3pkyiz4kr824fh2kqihggxyb"
     },
     "charlieS1103Src": {
       "type": "Git",
