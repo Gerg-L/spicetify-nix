@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "850367c84d87ec59eb0d3cc476a0984b6a994c12",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/850367c84d87ec59eb0d3cc476a0984b6a994c12.tar.gz",
-      "hash": "1dlripvsfcnlpw64lf2wzr7jgbfkpmfr2hy6pf4qa7439cy8kbwn"
+      "revision": "083a0c6c2bf88565a1909be555c1cbe7eef067c7",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/083a0c6c2bf88565a1909be555c1cbe7eef067c7.tar.gz",
+      "hash": "1h8lpm57dind4a3hlby6p3194jvnfmpvgx14cdwjbfg33xr70sfg"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
