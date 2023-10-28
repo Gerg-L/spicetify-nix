@@ -3,67 +3,76 @@
   coreutils-full,
   callPackage,
   ...
-}: {
+}:
+{
   spotify,
   spicetify,
   config-xpui,
   theme,
   usingCustomColorScheme ? false,
-  customColorScheme ? {},
+  customColorScheme ? { },
   cssMap ? "${spicetify.src}/css-map.json",
-  extensions ? [],
-  apps ? [],
+  extensions ? [ ],
+  apps ? [ ],
   extraCommands ? "",
   ...
-}: let
+}:
+let
   inherit (lib.strings) optionalString;
-  spiceLib = callPackage ./. {};
+  spiceLib = callPackage ./. { };
 
   # add extra css if theme requires
   extraCss = builtins.toFile "extra.css" (
-    optionalString
-    (builtins.hasAttr "additionalCss" theme)
-    theme.additionalCss
+    optionalString (builtins.hasAttr "additionalCss" theme) theme.additionalCss
   );
   # add custom color scheme if configured
-  customColorSchemeScript = let
-    customColorSchemeINI =
-      builtins.toFile "dummy-color.ini"
-      (spiceLib.createXpuiINI
-        {custom = customColorScheme;});
-  in
+  customColorSchemeScript =
+    let
+      customColorSchemeINI = builtins.toFile "dummy-color.ini" (
+        spiceLib.createXpuiINI { custom = customColorScheme; }
+      );
+    in
     optionalString usingCustomColorScheme ''
       mkdir -p Themes/${theme.name}
       echo -en '\n' >> Themes/${theme.name}/color.ini
       cat ${customColorSchemeINI} >> Themes/${theme.name}/color.ini
     '';
 
-  extensionCommands = builtins.concatStringsSep "\n" (map
-    (
-      item: let
-        command = "cp -rn ${
-          item.src
-        }/${item.filename} ./Extensions/${item.filename}";
-      in "${command} || echo \"Copying extension ${item.filename} failed.\""
-    )
-    extensions);
+  extensionCommands = builtins.concatStringsSep "\n" (
+    map
+      (
+        item:
+        let
+          command = "cp -rn ${item.src}/${item.filename} ./Extensions/${item.filename}";
+        in
+        ''${command} || echo "Copying extension ${item.filename} failed."''
+      )
+      extensions
+  );
 
-  customAppCommands = builtins.concatStringsSep "\n" (map
-    (item: let
-      command = "cp -rn ${(
-        if (builtins.hasAttr "appendName" item)
-        then
-          if (item.appendName)
-          then "${item.src}/${item.name}"
-          else "${item.src}"
-        else "${item.src}"
-      )} ./CustomApps/${item.name}";
-    in "${command} || echo \"Copying custom app ${item.name} failed.\"")
-    apps);
+  customAppCommands = builtins.concatStringsSep "\n" (
+    map
+      (
+        item:
+        let
+          command = "cp -rn ${
+              (
+                if (builtins.hasAttr "appendName" item) then
+                  if item.appendName then "${item.src}/${item.name}" else "${item.src}"
+                else
+                  "${item.src}"
+              )
+            } ./CustomApps/${item.name}";
+        in
+        ''${command} || echo "Copying custom app ${item.name} failed."''
+      )
+      apps
+  );
 
   spicetifyCmd = "spicetify-cli --no-restart";
 in
-  spotify.overrideAttrs (_: {
+spotify.overrideAttrs (
+  _: {
     name = "spicetify-${theme.name}";
     postInstall = ''
       set -e
@@ -91,7 +100,9 @@ in
       sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
       mkdir -p Themes
-      cp -r ${spiceLib.getThemePath theme} ./Themes/${theme.name} || echo "Copying theme ${theme.name} failed"
+      cp -r ${
+        spiceLib.getThemePath theme
+      } ./Themes/${theme.name} || echo "Copying theme ${theme.name} failed"
       ${coreutils-full}/bin/chmod -R a+wr Themes
       echo "copied theme"
       cat ${extraCss} >> ./Themes/${theme.name}/user.css
@@ -114,13 +125,12 @@ in
       ${extraCommands}
 
       # extra commands that the theme might need
-      ${
-        optionalString
+      ${optionalString
         (builtins.hasAttr "extraCommands" theme && theme.extraCommands != null)
-        theme.extraCommands
-      }
+        theme.extraCommands}
       popd > /dev/null
       ${spicetifyCmd} backup apply
       rm $out/snap.yaml
     '';
-  })
+  }
+)

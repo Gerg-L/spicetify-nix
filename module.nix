@@ -1,22 +1,29 @@
-{isNixOSModule ? false}: {
+{
+  isNixOSModule ? false,
+}:
+{
   lib,
   pkgs,
   config,
   ...
 }:
-with lib; let
+with lib;
+let
   inherit (pkgs) callPackage;
   cfg = config.programs.spicetify;
-  spiceLib = callPackage ./lib {};
+  spiceLib = callPackage ./lib { };
   spiceTypes = spiceLib.types;
-  spicePkgs = callPackage ./pkgs {};
+  spicePkgs = callPackage ./pkgs { };
 
   optList = lib.lists.optionals;
-in {
+in
+{
   options.programs.spicetify = {
     enable = mkEnableOption "A modded Spotify";
 
-    dontInstall = mkEnableOption "Put spiced spotify in config.programs.spicetify.spicedSpotify, but do not install it in home.packages.";
+    dontInstall =
+      mkEnableOption
+        "Put spiced spotify in config.programs.spicetify.spicedSpotify, but do not install it in home.packages.";
 
     windowManagerPatch = mkEnableOption "Linker preload spotifywm patch.";
 
@@ -32,7 +39,10 @@ in {
     };
 
     theme = mkOption {
-      type = types.oneOf [types.str spiceTypes.theme];
+      type = types.oneOf [
+        types.str
+        spiceTypes.theme
+      ];
       default = spicePkgs.themes.Default;
     };
 
@@ -55,10 +65,16 @@ in {
     };
 
     enabledExtensions = mkOption {
-      type = types.listOf (types.oneOf [spiceTypes.extension types.str]);
-      default = [];
-      description = "A list of extensions. Official extensions such \
-      as \"dribbblish.js\" can be referenced by string alone.";
+      type = types.listOf (
+        types.oneOf [
+          spiceTypes.extension
+          types.str
+        ]
+      );
+      default = [ ];
+      description = ''
+        A list of extensions. Official extensions such 
+              as "dribbblish.js" can be referenced by string alone.'';
       example = ''
         [
           "dribbblish.js"
@@ -75,8 +91,13 @@ in {
       '';
     };
     enabledCustomApps = mkOption {
-      type = types.listOf (types.oneOf [spiceTypes.app types.str]);
-      default = [];
+      type = types.listOf (
+        types.oneOf [
+          spiceTypes.app
+          types.str
+        ]
+      );
+      default = [ ];
     };
 
     xpui = mkOption {
@@ -92,10 +113,7 @@ in {
     };
     replaceColors = mkOption {
       type = lib.types.nullOr lib.types.bool;
-      default =
-        if (cfg.customColorScheme != null)
-        then true
-        else null;
+      default = if (cfg.customColorScheme != null) then true else null;
     };
     overwriteAssets = mkOption {
       type = lib.types.nullOr lib.types.bool;
@@ -107,10 +125,7 @@ in {
     };
     colorScheme = mkOption {
       type = lib.types.nullOr lib.types.str;
-      default =
-        if cfg.customColorScheme != null
-        then "custom"
-        else null;
+      default = if cfg.customColorScheme != null then "custom" else null;
     };
     customColorScheme = mkOption {
       type = lib.types.nullOr lib.types.attrs;
@@ -123,97 +138,97 @@ in {
     };
   };
 
-  config = let
-    xpui = lib.attrsets.recursiveUpdate cfg.xpui spiceLib.types.defaultXpui;
-    actualTheme = spiceLib.getTheme cfg.theme;
+  config =
+    let
+      xpui = lib.attrsets.recursiveUpdate cfg.xpui spiceLib.types.defaultXpui;
+      actualTheme = spiceLib.getTheme cfg.theme;
 
-    # take the list of extensions and turn strings into actual extensions
-    allExtensions = map spiceLib.getExtension (cfg.enabledExtensions
-      ++ (
-        optList
-        (builtins.hasAttr "requiredExtensions" actualTheme)
-        actualTheme.requiredExtensions
-      )
-      ++ xpui.AdditionalOptions.extensions);
+      # take the list of extensions and turn strings into actual extensions
+      allExtensions = map spiceLib.getExtension (
+        cfg.enabledExtensions
+        ++ (optList (builtins.hasAttr "requiredExtensions" actualTheme)
+          actualTheme.requiredExtensions
+        )
+        ++ xpui.AdditionalOptions.extensions
+      );
 
-    # do the same thing again but for customapps this time
-    allApps =
-      map spiceLib.getApp
-      (cfg.enabledCustomApps ++ xpui.AdditionalOptions.custom_apps);
+      # do the same thing again but for customapps this time
+      allApps = map spiceLib.getApp (
+        cfg.enabledCustomApps ++ xpui.AdditionalOptions.custom_apps
+      );
 
-    # custom spotify package with spicetify integrated in
-    spiced-spotify = let
-      isSpotifyWM = cfg.spotifyPackage == pkgs.spotifywm;
+      # custom spotify package with spicetify integrated in
+      spiced-spotify =
+        let
+          isSpotifyWM = cfg.spotifyPackage == pkgs.spotifywm;
 
-      spotifyToOverride =
-        if isSpotifyWM
-        then (lib.trivial.warn "SpotifyWM is a weird package. Please consider settings programs.spicetify.windowManagerPatch to true, instead." pkgs.spotify)
-        else cfg.spotifyPackage;
+          spotifyToOverride =
+            if isSpotifyWM then
+              (lib.trivial.warn
+                "SpotifyWM is a weird package. Please consider settings programs.spicetify.windowManagerPatch to true, instead."
+                pkgs.spotify
+              )
+            else
+              cfg.spotifyPackage;
 
-      overridenSpotify = spiceLib.spicetifyBuilder {
-        spotify = spotifyToOverride;
-        spicetify = cfg.spicetifyPackage;
-        extensions = allExtensions;
-        apps = allApps;
-        theme = actualTheme;
-        usingCustomColorScheme = cfg.customColorScheme != null;
-        inherit (cfg) customColorScheme;
-        # compose the configuration as well as options required by extensions and
-        # cfg.xpui into one set
-        config-xpui = spiceLib.xpuiBuilder {
-          extensions = allExtensions;
-          apps = allApps;
-          theme = actualTheme;
-          cfgXpui = xpui;
-          cfgColorScheme = cfg.colorScheme;
-          inherit cfg;
-        };
+          overridenSpotify = spiceLib.spicetifyBuilder {
+            spotify = spotifyToOverride;
+            spicetify = cfg.spicetifyPackage;
+            extensions = allExtensions;
+            apps = allApps;
+            theme = actualTheme;
+            usingCustomColorScheme = cfg.customColorScheme != null;
+            inherit (cfg) customColorScheme;
+            # compose the configuration as well as options required by extensions and
+            # cfg.xpui into one set
+            config-xpui = spiceLib.xpuiBuilder {
+              extensions = allExtensions;
+              apps = allApps;
+              theme = actualTheme;
+              cfgXpui = xpui;
+              cfgColorScheme = cfg.colorScheme;
+              inherit cfg;
+            };
+          };
+        in
+        if isSpotifyWM then
+          cfg.spotifyPackage.override { spotify = overridenSpotify; }
+        else
+          overridenSpotify;
+
+      packagesToInstall =
+        [
+          (
+            # give warning if spotifywm is set redundantly
+            if cfg.spotifyPackage == pkgs.spotifywm && cfg.windowManagerPatch then
+              lib.trivial.warn
+                "spotify package set to spotifywm and windowManagerPatch is set to true. It is recommended to only use windowManagerPatch."
+            # wrap spotify with the window manager patch if necessary
+            else if cfg.windowManagerPatch then
+              spicePkgs.spotifywm.override { spotify = spiced-spotify; }
+            else
+              spiced-spotify
+          )
+        ]
+        ++
+        # need montserrat for the BurntSienna theme
+        (optList (actualTheme == spicePkgs.official.themes.BurntSienna) [
+          pkgs.montserrat
+        ])
+        ++ (optList (actualTheme == spicePkgs.themes.Orchis) [ pkgs.fira ]);
+      homeConfiguration = {
+        home.packages = optList (!cfg.dontInstall) packagesToInstall;
+      };
+      nixosConfiguration = {
+        environment.systemPackages = optList (!cfg.dontInstall) packagesToInstall;
       };
     in
-      if isSpotifyWM
-      then cfg.spotifyPackage.override {spotify = overridenSpotify;}
-      else overridenSpotify;
-
-    packagesToInstall =
-      [
-        (
-          # give warning if spotifywm is set redundantly
-          if cfg.spotifyPackage == pkgs.spotifywm && cfg.windowManagerPatch
-          then lib.trivial.warn "spotify package set to spotifywm and windowManagerPatch is set to true. It is recommended to only use windowManagerPatch."
-          # wrap spotify with the window manager patch if necessary
-          else if cfg.windowManagerPatch
-          then spicePkgs.spotifywm.override {spotify = spiced-spotify;}
-          else spiced-spotify
-        )
-      ]
-      ++
-      # need montserrat for the BurntSienna theme
-      (
-        optList
-        (actualTheme == spicePkgs.official.themes.BurntSienna)
-        [pkgs.montserrat]
-      )
-      ++ (
-        optList
-        (actualTheme == spicePkgs.themes.Orchis)
-        [pkgs.fira]
-      );
-    homeConfiguration = {
-      home.packages = optList (!cfg.dontInstall) packagesToInstall;
-    };
-    nixosConfiguration = {
-      environment.systemPackages = optList (!cfg.dontInstall) packagesToInstall;
-    };
-  in
-    mkIf cfg.enable
-    ({
+    mkIf cfg.enable (
+      {
         programs.spicetify.spicedSpotify = spiced-spotify;
         programs.spicetify.createdPackages = packagesToInstall;
         # install necessary packages for this user
       }
-      // (
-        if isNixOSModule
-        then nixosConfiguration
-        else homeConfiguration
-      ));
+      // (if isNixOSModule then nixosConfiguration else homeConfiguration)
+    );
 }

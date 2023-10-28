@@ -1,9 +1,6 @@
-{
-  lib,
-  source,
-  ...
-}:
-with source; let
+{ source, ... }:
+with source;
+let
   # THEME GENERATORS ----------------------------------------------------------
   mkCatppuccinTheme = name: {
     ${name} = {
@@ -29,7 +26,7 @@ with source; let
     name = "SpotifyNoPremium";
     src = spotifyNoPremiumSrc;
     appendName = false;
-    requiredExtensions = [brokenAdblock]; # might also require charliesAdblock
+    requiredExtensions = [ brokenAdblock ]; # might also require charliesAdblock
     injectCss = false;
     replaceColors = false;
     overwriteAssets = false;
@@ -46,7 +43,7 @@ with source; let
     sidebarConfig = false;
     patches = {
       "xpui.js_find_8008" = ",(\\w+=)32";
-      "xpui.js_repl_8008" = ",$\{1}56";
+      "xpui.js_repl_8008" = ",\${1}56";
     };
     requiredExtensions = [
       {
@@ -76,7 +73,7 @@ with source; let
     ];
     patches = {
       "xpui.js_find_8008" = ",(\\w+=)32,";
-      "xpui.js_repl_8008" = ",$\{1}28,";
+      "xpui.js_repl_8008" = ",\${1}28,";
     };
   };
 
@@ -118,7 +115,7 @@ with source; let
     sidebarConfig = false;
     patches = {
       "xpui.js_find_8008" = ",(\\w+=)32,";
-      "xpui.js_repl_8008" = ",$\{1}56,";
+      "xpui.js_repl_8008" = ",\${1}56,";
     };
     requiredExtensions = [
       {
@@ -201,8 +198,9 @@ with source; let
     ];
   };
 in
-  {
-    official = let
+{
+  official =
+    let
       dribbblishExt = {
         filename = "dribbblish.js";
         src = "${officialThemes}/Dribbblish";
@@ -224,70 +222,73 @@ in
         };
       };
     in
-      {
-        Dribbblish = {
-          name = "Dribbblish";
-          src = officialThemes;
-          requiredExtensions = [dribbblishExt];
-          patches = {
-            "xpui.js_find_8008" = ",(\\w+=)32";
-            "xpui.js_repl_8008" = ",$\{1}56";
-          };
-          injectCss = true;
-          replaceColors = true;
-          overwriteAssets = true;
-          appendName = true;
-          sidebarConfig = true;
-          additionalCss = ''
-            .Root {
-              padding-top: 0px;
-            }
-          '';
+    {
+      Dribbblish = {
+        name = "Dribbblish";
+        src = officialThemes;
+        requiredExtensions = [ dribbblishExt ];
+        patches = {
+          "xpui.js_find_8008" = ",(\\w+=)32";
+          "xpui.js_repl_8008" = ",\${1}56";
         };
+        injectCss = true;
+        replaceColors = true;
+        overwriteAssets = true;
+        appendName = true;
+        sidebarConfig = true;
+        additionalCss = ''
+          .Root {
+            padding-top: 0px;
+          }
+        '';
+      };
 
-        Dreary = {
-          name = "Dreary";
-          src = officialThemes;
-          sidebarConfig = true;
-          appendName = true;
-        };
-        Glaze = {
-          name = "Glaze";
-          src = officialThemes;
-          sidebarConfig = true;
-          appendName = true;
-        };
-        Turntable = {
-          name = "Turntable";
-          src = officialThemes;
-          requiredExtensions = ["fullAppDisplay.js" turntableExt];
-        };
-      }
-      // mkOfficialTheme "Ziro"
-      // mkOfficialTheme "Sleek"
-      // mkOfficialTheme "Onepunch"
-      // mkOfficialTheme "Flow"
-      // mkOfficialTheme "Default"
-      // mkOfficialTheme "BurntSienna"
-      // mkOfficialTheme "Blossom"
-      // mkOfficialTheme "Sleek"
-      // mkOfficialTheme "Nightlight"
-      // mkOfficialTheme "Matte";
-    inherit
-      SpotifyNoPremium
-      Fluent
-      DefaultDynamic
-      RetroBlur
-      Omni
-      Bloom
-      Orchis
-      Dracula
-      Nord
-      SpotifyCanvas
-      Comfy
-      ;
-  }
-  // mkCatppuccinTheme "catppuccin-mocha"
-  // mkCatppuccinTheme "catppuccin-frappe"
-  // mkCatppuccinTheme "catppuccin-latte"
-  // mkCatppuccinTheme "catppuccin-macchiato"
+      Dreary = {
+        name = "Dreary";
+        src = officialThemes;
+        sidebarConfig = true;
+        appendName = true;
+      };
+      Glaze = {
+        name = "Glaze";
+        src = officialThemes;
+        sidebarConfig = true;
+        appendName = true;
+      };
+      Turntable = {
+        name = "Turntable";
+        src = officialThemes;
+        requiredExtensions = [
+          "fullAppDisplay.js"
+          turntableExt
+        ];
+      };
+    }
+    // mkOfficialTheme "Ziro"
+    // mkOfficialTheme "Sleek"
+    // mkOfficialTheme "Onepunch"
+    // mkOfficialTheme "Flow"
+    // mkOfficialTheme "Default"
+    // mkOfficialTheme "BurntSienna"
+    // mkOfficialTheme "Blossom"
+    // mkOfficialTheme "Sleek"
+    // mkOfficialTheme "Nightlight"
+    // mkOfficialTheme "Matte";
+  inherit
+    SpotifyNoPremium
+    Fluent
+    DefaultDynamic
+    RetroBlur
+    Omni
+    Bloom
+    Orchis
+    Dracula
+    Nord
+    SpotifyCanvas
+    Comfy
+  ;
+}
+// mkCatppuccinTheme "catppuccin-mocha"
+// mkCatppuccinTheme "catppuccin-frappe"
+// mkCatppuccinTheme "catppuccin-latte"
+// mkCatppuccinTheme "catppuccin-macchiato"

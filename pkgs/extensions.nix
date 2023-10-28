@@ -1,9 +1,6 @@
-{
-  source,
-  lib,
-  ...
-}:
-with source; let
+{ source, lib, ... }:
+with source;
+let
   # EXTENSIONS ----------------------------------------------------------------
   brokenAdblock = {
     src = spotifyNoPremiumSrc;
@@ -157,31 +154,41 @@ with source; let
   #   filename = "startup-page.js";
   # };
 
-  sanitizeName = lib.replaceStrings [".js" "+"] ["" ""];
+  sanitizeName =
+    lib.replaceStrings
+      [
+        ".js"
+        "+"
+      ]
+      [
+        ""
+        ""
+      ];
 
-  warnExt = {
-    ext,
-    alias ? ext.filename,
-  }:
-    lib.trivial.warn
-    "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.$\{pkgs.system}.default.extensions.${sanitizeName ext.filename}"
-    ext;
-
-  mkExtAlias = alias: ext:
+  warnExt =
     {
-      ${alias} = warnExt {inherit ext alias;};
+      ext,
+      alias ? ext.filename,
+    }:
+    lib.trivial.warn
+      "You are referring to extension ${alias} by filename. This behavior is deprecated, please use spicetify-nix.packages.\${pkgs.system}.default.extensions.${
+        sanitizeName ext.filename
+      }"
+      ext;
+
+  mkExtAlias =
+    alias: ext:
+    {
+      ${alias} = warnExt { inherit ext alias; };
       ${sanitizeName ext.filename} = ext;
     }
-    // (
-      if alias != ext.filename
-      then {${sanitizeName alias} = ext;}
-      else {}
-    );
+    // (if alias != ext.filename then { ${sanitizeName alias} = ext; } else { });
 
   appendJS = ext: mkExtAlias ext.filename ext;
 in
-  {
-    official = let
+{
+  official =
+    let
       mkOfficialExt = name: {
         "${name}.js" = {
           src = "${officialSrc}/Extensions";
@@ -193,57 +200,57 @@ in
         };
       };
     in
-      mkOfficialExt "autoSkipExplicit"
-      // mkOfficialExt "autoSkipVideo"
-      // mkOfficialExt "bookmark"
-      // mkOfficialExt "fullAppDisplay"
-      // mkOfficialExt "keyboardShortcut"
-      // mkOfficialExt "loopyLoop"
-      // mkOfficialExt "popupLyrics"
-      // mkOfficialExt "shuffle+"
-      // mkOfficialExt "trashbin"
-      // mkOfficialExt "webnowplaying";
-    _lib = {
-      inherit sanitizeName;
-    };
-  }
-  # aliases for weirdly named extension files
-  // mkExtAlias "history.js" history
-  // mkExtAlias "volumeProfiles.js" volumeProfiles
-  // mkExtAlias "copyToClipboard.js" copyToClipboard
-  // mkExtAlias "songStats.js" songStats
-  // mkExtAlias "featureShuffle.js" featureShuffle
-  // mkExtAlias "playlistIcons.js" playlistIcons
-  // mkExtAlias "powerBar.js" powerBar
-  // mkExtAlias "groupSession.js" groupSession
-  // mkExtAlias "brokenAdblock.js" brokenAdblock # this is old but you can still use it if you need
-  // appendJS groupSession
-  // appendJS powerBar
-  // appendJS seekSong
-  // appendJS skipOrPlayLikedSongs
-  // appendJS playlistIcons
-  // appendJS fullAlbumDate
-  // appendJS fullAppDisplayMod
-  // appendJS goToSong
-  // appendJS listPlaylistsWithSong
-  // appendJS playlistIntersection
-  // appendJS skipStats
-  // appendJS phraseToPlaylist
-  // appendJS wikify
-  // appendJS featureShuffle
-  // appendJS songStats
-  // appendJS showQueueDuration
-  // appendJS copyToClipboard
-  // appendJS volumeProfiles
-  // appendJS autoVolume
-  // appendJS history
-  // appendJS lastfm
-  // appendJS genre
-  // appendJS hidePodcasts
-  // appendJS charliesAdblock # adblock.js
-  // appendJS savePlaylists
-  // appendJS autoSkip
-  // appendJS fullScreen
-  // appendJS playNext
-  // appendJS volumePercentage
-  // appendJS oldSidebar
+    mkOfficialExt "autoSkipExplicit"
+    // mkOfficialExt "autoSkipVideo"
+    // mkOfficialExt "bookmark"
+    // mkOfficialExt "fullAppDisplay"
+    // mkOfficialExt "keyboardShortcut"
+    // mkOfficialExt "loopyLoop"
+    // mkOfficialExt "popupLyrics"
+    // mkOfficialExt "shuffle+"
+    // mkOfficialExt "trashbin"
+    // mkOfficialExt "webnowplaying";
+  _lib = {
+    inherit sanitizeName;
+  };
+}
+# aliases for weirdly named extension files
+// mkExtAlias "history.js" history
+// mkExtAlias "volumeProfiles.js" volumeProfiles
+// mkExtAlias "copyToClipboard.js" copyToClipboard
+// mkExtAlias "songStats.js" songStats
+// mkExtAlias "featureShuffle.js" featureShuffle
+// mkExtAlias "playlistIcons.js" playlistIcons
+// mkExtAlias "powerBar.js" powerBar
+// mkExtAlias "groupSession.js" groupSession
+// mkExtAlias "brokenAdblock.js" brokenAdblock # this is old but you can still use it if you need
+// appendJS groupSession
+// appendJS powerBar
+// appendJS seekSong
+// appendJS skipOrPlayLikedSongs
+// appendJS playlistIcons
+// appendJS fullAlbumDate
+// appendJS fullAppDisplayMod
+// appendJS goToSong
+// appendJS listPlaylistsWithSong
+// appendJS playlistIntersection
+// appendJS skipStats
+// appendJS phraseToPlaylist
+// appendJS wikify
+// appendJS featureShuffle
+// appendJS songStats
+// appendJS showQueueDuration
+// appendJS copyToClipboard
+// appendJS volumeProfiles
+// appendJS autoVolume
+// appendJS history
+// appendJS lastfm
+// appendJS genre
+// appendJS hidePodcasts
+// appendJS charliesAdblock # adblock.js
+// appendJS savePlaylists
+// appendJS autoSkip
+// appendJS fullScreen
+// appendJS playNext
+// appendJS volumePercentage
+// appendJS oldSidebar

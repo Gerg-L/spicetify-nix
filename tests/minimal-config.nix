@@ -3,9 +3,10 @@
   spicetify-cli,
   spotify,
   ...
-}: let
-  spiceLib = callPackage ../lib {};
-  spicePkgs = callPackage ../pkgs {};
+}:
+let
+  spiceLib = callPackage ../lib { };
+  spicePkgs = callPackage ../pkgs { };
 
   extensions = with spicePkgs.extensions; [
     fullAppDisplay
@@ -19,11 +20,16 @@
     inherit extensions theme;
     cfgXpui = spiceLib.types.defaultXpui;
     cfgColorScheme = "flamingo";
-    cfg = {};
-    apps = [];
+    cfg = { };
+    apps = [ ];
   };
 in
-  spiceLib.spicetifyBuilder {
-    inherit spotify config-xpui extensions theme;
-    spicetify = spicetify-cli;
-  }
+spiceLib.spicetifyBuilder {
+  inherit
+    spotify
+    config-xpui
+    extensions
+    theme
+  ;
+  spicetify = spicetify-cli;
+}

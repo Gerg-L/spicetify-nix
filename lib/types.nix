@@ -1,12 +1,13 @@
-{lib, ...}: let
+{ lib, ... }:
+let
   inherit (lib) mkOption types mkEnableOption;
 
   defaultXpui = {
     AdditionalOptions = {
       home = false;
       experimental_features = false;
-      extensions = [];
-      custom_apps = [];
+      extensions = [ ];
+      custom_apps = [ ];
       sidebar_config = true;
     };
     Setting = {
@@ -31,7 +32,7 @@
       version = "";
       "with" = "Dev";
     };
-    Patch = {};
+    Patch = { };
   };
 
   xpui = types.submodule {
@@ -63,7 +64,7 @@
         };
         default = defaultXpui.AdditionalOptions;
       };
-      Patch = {};
+      Patch = { };
       Setting = mkOption {
         type = types.submodule {
           options = {
@@ -147,7 +148,7 @@
             };
           };
         };
-        default = {};
+        default = { };
       };
     };
   };
@@ -155,7 +156,10 @@
   extension = types.submodule {
     options = {
       src = mkOption {
-        type = types.oneOf [types.path types.str];
+        type = types.oneOf [
+          types.path
+          types.str
+        ];
         description = "Path to the folder which contains the .js file.";
       };
       filename = mkOption {
@@ -163,7 +167,9 @@
         description = "Name of the .js file to enable.";
         example = "dribbblish.js";
       };
-      experimentalFeatures = mkEnableOption "Value to set AdditionalOptions/experimental_features to.";
+      experimentalFeatures =
+        mkEnableOption
+          "Value to set AdditionalOptions/experimental_features to.";
     };
   };
 
@@ -172,26 +178,36 @@
       name = mkOption {
         type = types.str;
         description = "The name of the theme as it will be copied into the spicetify themes directory.";
-        example = ''Dribbblish'';
+        example = "Dribbblish";
       };
       src = mkOption {
-        type = types.oneOf [types.path types.str];
+        type = types.oneOf [
+          types.path
+          types.str
+        ];
         description = "Path to folder containing the theme.";
-        example = ''          pkgs.fetchgit {
+        example = ''
+          pkgs.fetchgit {
                                 url = "https://github.com/spicetify/spicetify-themes";
                                 rev = "5d3d42f913467f413be9b0159f5df5023adf89af";
                                 submodules = true;
                               };'';
       };
       requiredExtensions = mkOption {
-        type = types.listOf (types.oneOf [extension types.str]);
-        default = [];
+        type = types.listOf (
+          types.oneOf [
+            extension
+            types.str
+          ]
+        );
+        default = [ ];
       };
 
       appendName = mkOption {
         type = types.bool;
         default = true;
-        description = ''          Whether or not to append the name of the theme
+        description = ''
+          Whether or not to append the name of the theme
                   to the src file path when copying. For example:
                   (with appendName on)
                   cp /nix/store/2309435394589320fjirjf032-spicetify-themes/Dribbblish Themes
@@ -209,7 +225,7 @@
           };
         '';
         description = "INI entries to add in the [Patch] section of config-xpui.ini";
-        default = {};
+        default = { };
       };
 
       extraCommands = mkOption {
@@ -219,21 +235,13 @@
       };
 
       # some config values that can be specified per-theme
-      injectCss = mkOption {
-        type = types.nullOr types.bool;
-      };
-      overwriteAssets = mkOption {
-        type = types.nullOr types.bool;
-      };
-      replaceColors = mkOption {
-        type = types.nullOr types.bool;
-      };
-      sidebarConfig = mkOption {
-        type = types.nullOr types.bool;
-      };
+      injectCss = mkOption { type = types.nullOr types.bool; };
+      overwriteAssets = mkOption { type = types.nullOr types.bool; };
+      replaceColors = mkOption { type = types.nullOr types.bool; };
+      sidebarConfig = mkOption { type = types.nullOr types.bool; };
       additionalCss = mkOption {
         type = types.lines;
-        default = '''';
+        default = "";
       };
     };
   };
@@ -241,7 +249,10 @@
   app = types.submodule {
     options = {
       src = mkOption {
-        type = types.oneOf [types.path types.str];
+        type = types.oneOf [
+          types.path
+          types.str
+        ];
         description = "Path to the folder containing the app code.";
         example = ''
           pkgs.fetchgit {
@@ -261,6 +272,13 @@
       };
     };
   };
-in {
-  inherit theme extension xpui app defaultXpui;
+in
+{
+  inherit
+    theme
+    extension
+    xpui
+    app
+    defaultXpui
+  ;
 }
