@@ -141,21 +141,18 @@ in
   config =
     let
       xpui = lib.attrsets.recursiveUpdate cfg.xpui spiceLib.types.defaultXpui;
-      actualTheme = spiceLib.getTheme cfg.theme;
+      actualTheme = cfg.theme;
 
       # take the list of extensions and turn strings into actual extensions
-      allExtensions = map spiceLib.getExtension (
+      allExtensions =
         cfg.enabledExtensions
         ++ (optList (builtins.hasAttr "requiredExtensions" actualTheme)
           actualTheme.requiredExtensions
         )
-        ++ xpui.AdditionalOptions.extensions
-      );
+        ++ xpui.AdditionalOptions.extensions;
 
       # do the same thing again but for customapps this time
-      allApps = map spiceLib.getApp (
-        cfg.enabledCustomApps ++ xpui.AdditionalOptions.custom_apps
-      );
+      allApps = cfg.enabledCustomApps ++ xpui.AdditionalOptions.custom_apps;
 
       # custom spotify package with spicetify integrated in
       spiced-spotify =
