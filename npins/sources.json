@@ -348,18 +348,6 @@
       "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/7e5a20b150bf65a377731fd8cb20b084712ee166.tar.gz",
       "hash": "18hpr2kwqc89bcmgcfc7bm6211kcpqz2nhv0zslpqqhm8q5b6gql"
     },
-    "spotifywmSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "dasJ",
-        "repo": "spotifywm"
-      },
-      "branch": "master",
-      "revision": "8624f539549973c124ed18753881045968881745",
-      "url": "https://github.com/dasJ/spotifywm/archive/8624f539549973c124ed18753881045968881745.tar.gz",
-      "hash": "03bvm6nb9524km28h6mazs6613lvcmyzp1kg9iql2pcli9rfmi82"
-    },
     "startPageSrc": {
       "type": "Git",
       "repository": {

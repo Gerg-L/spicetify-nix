@@ -15,5 +15,4 @@ in
   apps = (builtins.removeAttrs apps [ "official" ]) // apps.official;
   extensions =
     (builtins.removeAttrs extensions [ "official" ]) // extensions.official;
-  spotifywm = callPackage ./spotifywm.nix { };
 }
