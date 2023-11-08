@@ -212,9 +212,9 @@
         "repo": "spicetify-marketplace"
       },
       "branch": "main",
-      "revision": "81c8290d48da45ac2796e75eeb7b1a4fe2cccc12",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/81c8290d48da45ac2796e75eeb7b1a4fe2cccc12.tar.gz",
-      "hash": "0mm8ds8ag3s3wk1cmaj1yihv8z3skmi740k26pivkbrrjk855v4s"
+      "revision": "1d31291be666f50bf47a5db3aedf3be9e3803632",
+      "url": "https://github.com/spicetify/spicetify-marketplace/archive/1d31291be666f50bf47a5db3aedf3be9e3803632.tar.gz",
+      "hash": "0paai73i98m9s6pibv45gfzn2gbrr32gyjpkzafhmq7cvmg780f1"
     },
     "nameThatTuneSrc": {
       "type": "Git",
@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "befb6d55d9516663b3e8eddd72cf6eb914ddaaf2",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/befb6d55d9516663b3e8eddd72cf6eb914ddaaf2.tar.gz",
-      "hash": "0p3bqf7kdj1gb0gxjqqr9hv7l9srx24kkcyws4cwn102jqyf7ydf"
+      "revision": "c06c3640d8bf4ffeea6063780f8ccf2ea3c4eae2",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/c06c3640d8bf4ffeea6063780f8ccf2ea3c4eae2.tar.gz",
+      "hash": "1kyxcw9rnvfvxgy4i863ivsqq3ziq1qv527w39rg5jr48y6za5pz"
     },
     "officialThemes": {
       "type": "Git",
@@ -260,9 +260,9 @@
         "repo": "spicetify-themes"
       },
       "branch": "master",
-      "revision": "62e2f6d22a02db38567983c7501bf8d87890cfc9",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/62e2f6d22a02db38567983c7501bf8d87890cfc9.tar.gz",
-      "hash": "1bsrjb2xk37789573zdqv26ivndykf6l33ly82nq9f1b9hydvmxr"
+      "revision": "2e124a90561649a8aa410e89c6893e5b5d4816b9",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/2e124a90561649a8aa410e89c6893e5b5d4816b9.tar.gz",
+      "hash": "0sab8jh4867fh66zdz7msg1bwwqpm0zc6y20hw7328p7agcr7xlk"
     },
     "omniSrc": {
       "type": "Git",
