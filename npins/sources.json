@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "c06c3640d8bf4ffeea6063780f8ccf2ea3c4eae2",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/c06c3640d8bf4ffeea6063780f8ccf2ea3c4eae2.tar.gz",
-      "hash": "1kyxcw9rnvfvxgy4i863ivsqq3ziq1qv527w39rg5jr48y6za5pz"
+      "revision": "cad42fee8248aeb089237b204ed9aa8880698732",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/cad42fee8248aeb089237b204ed9aa8880698732.tar.gz",
+      "hash": "1lpr00r7sl2ladq1jrcah0w4v8dmflvh67vf56zmmx13l777xvld"
     },
     "officialThemes": {
       "type": "Git",
