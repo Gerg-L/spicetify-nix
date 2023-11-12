@@ -20,9 +20,9 @@
         "repo": "spicetify-bloom"
       },
       "branch": "main",
-      "revision": "de03a2ee161e8588ab25fb3f4a1a416966a2a9d3",
-      "url": "https://github.com/nimsandu/spicetify-bloom/archive/de03a2ee161e8588ab25fb3f4a1a416966a2a9d3.tar.gz",
-      "hash": "0hpwj0l75ydja6a5c87jv28n7skcnzwhgzk2w245nasgi4rdllnl"
+      "revision": "2f0b47cdf7a7e7e146762d5e281e62e33ca7923e",
+      "url": "https://github.com/nimsandu/spicetify-bloom/archive/2f0b47cdf7a7e7e146762d5e281e62e33ca7923e.tar.gz",
+      "hash": "0nlmx7kwny13g7sgmdl9xrnhjwbwzydmdv2aycapj2a3lp4drich"
     },
     "catppuccinSrc": {
       "type": "Git",
@@ -152,9 +152,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "2a7231c722bd5f55155fc8613b784b42c449e477",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/2a7231c722bd5f55155fc8613b784b42c449e477.tar.gz",
-      "hash": "1qd5vd42qxzyapgb3k3f10lkhqr8shksbi7df9dn1h7dhz3cz44c"
+      "revision": "661b670bab88b714d32e43f9ccc3bb261995e4f7",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/661b670bab88b714d32e43f9ccc3bb261995e4f7.tar.gz",
+      "hash": "1dwq34q7h9yvh0aylnn98lcwfhqvabah8cf7lwjykc2ddf49z10x"
     },
     "historySrc": {
       "type": "Git",
@@ -224,9 +224,9 @@
         "repo": "name-that-tune"
       },
       "branch": "main",
-      "revision": "9b820da13d321289c8118436cd14f2accca7d7f9",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/9b820da13d321289c8118436cd14f2accca7d7f9.tar.gz",
-      "hash": "0h1sxbhx500af5c82vlqrsqfj779m05bzadz20w6zlj6bnfk1fhd"
+      "revision": "298c71b6e8b54c78b3f186a73e1a9f260234bb96",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/298c71b6e8b54c78b3f186a73e1a9f260234bb96.tar.gz",
+      "hash": "1i8ri24xl5vrjpmkg2c3qban8ybj8hdlvnmq8syz5s4pwvarazyi"
     },
     "nordSrc": {
       "type": "Git",
