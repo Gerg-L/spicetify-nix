@@ -356,9 +356,9 @@
         "repo": "startup-page"
       },
       "branch": "main",
-      "revision": "2b15d3b1249ce29520d225dfde8a8168ee549934",
-      "url": "https://github.com/Resxt/startup-page/archive/2b15d3b1249ce29520d225dfde8a8168ee549934.tar.gz",
-      "hash": "0kj4ajdnn7y9680m1zcii62khkq2hm587d27gm9syv2bgidcx5v6"
+      "revision": "b32d463c1a1778bb5a898b673dcaad8fac5e7391",
+      "url": "https://github.com/Resxt/startup-page/archive/b32d463c1a1778bb5a898b673dcaad8fac5e7391.tar.gz",
+      "hash": "14dpi9fxwx4hw9iihl34iwv4qjrjnf3980209y87shpd62b6fw2k"
     },
     "tetraxSrc": {
       "type": "Git",
