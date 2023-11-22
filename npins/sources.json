@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "d440813952e9f57e3391617af68dbc4a4502b57e",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/d440813952e9f57e3391617af68dbc4a4502b57e.tar.gz",
-      "hash": "19rh9kfjr0r5hr1bnwmy0ld5lqbwjqsgla68lb55xk7fdvij1b55"
+      "revision": "2467149ac46d2b8b77cb7cc0dfe5747b1db76931",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/2467149ac46d2b8b77cb7cc0dfe5747b1db76931.tar.gz",
+      "hash": "0alvfzllq1v7snga0bsbk6dknv9s751c0ygi7clnxvdyqvjckm3l"
     },
     "officialThemes": {
       "type": "Git",
@@ -356,9 +356,9 @@
         "repo": "startup-page"
       },
       "branch": "main",
-      "revision": "b32d463c1a1778bb5a898b673dcaad8fac5e7391",
-      "url": "https://github.com/Resxt/startup-page/archive/b32d463c1a1778bb5a898b673dcaad8fac5e7391.tar.gz",
-      "hash": "14dpi9fxwx4hw9iihl34iwv4qjrjnf3980209y87shpd62b6fw2k"
+      "revision": "651dfe8157de2fc0aefe3f70ca75ef524fdd43eb",
+      "url": "https://github.com/Resxt/startup-page/archive/651dfe8157de2fc0aefe3f70ca75ef524fdd43eb.tar.gz",
+      "hash": "0zn23n8hmkgwilbpwddmpk7rp47f12dsximp0ja6rqr74nd0f437"
     },
     "tetraxSrc": {
       "type": "Git",
