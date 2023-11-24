@@ -62,7 +62,4 @@ in
 if version == 3 then
   builtins.mapAttrs (_: mkSource) data.pins
 else
-  throw
-    "Unsupported format version ${
-      toString version
-    } in sources.json. Try running `npins upgrade`"
+  throw "Unsupported format version ${toString version} in sources.json. Try running `npins upgrade`"

@@ -1,24 +1,9 @@
-{ callPackage, lib, ... }:
-{
-  types = callPackage ./types.nix { };
+pkgs: {
+  types = pkgs.callPackage ./types.nix { };
 
-  createXpuiINI = lib.generators.toINI {
-    mkKeyValue =
-      lib.generators.mkKeyValueDefault
-        {
-          mkValueString =
-            v:
-            if builtins.isBool v then
-              (if v then "1" else "0")
-            else
-              lib.generators.mkValueStringDefault { } v;
-        }
-        "=";
-  };
+  spicetifyBuilder = pkgs.callPackage ./spicetify-builder.nix { };
 
-  spicetifyBuilder = callPackage ./spicetify-builder.nix { };
-
-  xpuiBuilder = callPackage ./xpui-builder.nix { };
+  xpuiBuilder = pkgs.callPackage ./xpui-builder.nix { };
 
   getThemePath =
     theme:

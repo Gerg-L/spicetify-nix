@@ -1,39 +1,37 @@
-{ source, ... }:
-with source; {
+{ source }:
+{
   # CUSTOMAPPS ----------------------------------------------------------------
   localFiles = {
     name = "localFiles";
-    src = localFilesSrc;
+    src = source.localFilesSrc;
     appendName = false;
   };
 
   marketplace = {
     name = "marketplace";
-    src = marketplaceSrc;
+    src = source.marketplaceSrc;
     appendName = false;
   };
 
   nameThatTune = {
     name = "nameThatTune";
-    src = nameThatTuneSrc;
+    src = source.nameThatTuneSrc;
     appendName = false;
   };
 
-  official = {
-    new-releases = {
-      src = "${officialSrc}/CustomApps";
-      name = "new-releases";
-      appendName = true;
-    };
-    reddit = {
-      src = "${officialSrc}/CustomApps";
-      name = "reddit";
-      appendName = true;
-    };
-    lyrics-plus = {
-      src = "${officialSrc}/CustomApps";
-      name = "lyrics-plus";
-      appendName = true;
-    };
+  new-releases = {
+    src = "${source.officialSrc}/CustomApps";
+    name = "new-releases";
+    appendName = true;
+  };
+  reddit = {
+    src = "${source.officialSrc}/CustomApps";
+    name = "reddit";
+    appendName = true;
+  };
+  lyrics-plus = {
+    src = "${source.officialSrc}/CustomApps";
+    name = "lyrics-plus";
+    appendName = true;
   };
 }

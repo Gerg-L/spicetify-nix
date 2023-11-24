@@ -1,8 +1,8 @@
 {
+  stdenv,
   lib,
   coreutils-full,
   callPackage,
-  ...
 }:
 {
   spotify,
@@ -29,7 +29,7 @@ let
   customColorSchemeScript =
     let
       customColorSchemeINI = builtins.toFile "dummy-color.ini" (
-        spiceLib.createXpuiINI { custom = customColorScheme; }
+        lib.generators.toINI { } { custom = customColorScheme; }
       );
     in
     optionalString usingCustomColorScheme ''
@@ -56,13 +56,13 @@ let
         item:
         let
           command = "cp -rn ${
-              (
-                if (builtins.hasAttr "appendName" item) then
-                  if item.appendName then "${item.src}/${item.name}" else "${item.src}"
-                else
-                  "${item.src}"
-              )
-            } ./CustomApps/${item.name}";
+            (
+              if (builtins.hasAttr "appendName" item) then
+                if item.appendName then "${item.src}/${item.name}" else "${item.src}"
+              else
+                "${item.src}"
+            )
+          } ./CustomApps/${item.name}";
         in
         ''${command} || echo "Copying custom app ${item.name} failed."''
       )
@@ -93,16 +93,24 @@ spotify.overrideAttrs (
       # create config and prefs
       cp ${config-xpui} config-xpui.ini
       ${coreutils-full}/bin/chmod a+wr config-xpui.ini
+
+      mkdir -p $out/share/spotify
       touch $out/share/spotify/prefs
 
       # replace the spotify path with the current derivation's path
-      sed -i "s|__REPLACEME__|$out/share/spotify|g" config-xpui.ini
+      ${if stdenv.isLinux then
+        ''
+          sed -i 's|__REPLACEME__|${placeholder "out"}/share/spotify|g' config-xpui.ini
+        ''
+      else if stdenv.isDarwin then
+        "sed -i 's|__REPLACEME__|${placeholder "out"}/Applications/Spotify.app/Contents/Resources|g' config-xpui.ini"
+      else
+        throw "WHAT IS EVEN HAPPENING"}
+
       sed -i "s|__REPLACEME2__|$out/share/spotify/prefs|g" config-xpui.ini
 
       mkdir -p Themes
-      cp -r ${
-        spiceLib.getThemePath theme
-      } ./Themes/${theme.name} || echo "Copying theme ${theme.name} failed"
+      cp -r ${spiceLib.getThemePath theme} ./Themes/${theme.name} || echo "Copying theme ${theme.name} failed"
       ${coreutils-full}/bin/chmod -R a+wr Themes
       echo "copied theme"
       cat ${extraCss} >> ./Themes/${theme.name}/user.css
@@ -125,12 +133,11 @@ spotify.overrideAttrs (
       ${extraCommands}
 
       # extra commands that the theme might need
-      ${optionalString
-        (builtins.hasAttr "extraCommands" theme && theme.extraCommands != null)
+      ${optionalString (builtins.hasAttr "extraCommands" theme && theme.extraCommands != null)
         theme.extraCommands}
       popd > /dev/null
       ${spicetifyCmd} backup apply
-      rm $out/snap.yaml
+      rm -f $out/snap.yaml
     '';
   }
 )
