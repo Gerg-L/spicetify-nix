@@ -1,6 +1,8 @@
-{ lib, ... }:
+{ lib }:
 let
   inherit (lib) mkOption types mkEnableOption;
+in
+rec {
 
   defaultXpui = {
     AdditionalOptions = {
@@ -167,9 +169,7 @@ let
         description = "Name of the .js file to enable.";
         example = "dribbblish.js";
       };
-      experimentalFeatures =
-        mkEnableOption
-          "Value to set AdditionalOptions/experimental_features to.";
+      experimentalFeatures = mkEnableOption "Value to set AdditionalOptions/experimental_features to.";
     };
   };
 
@@ -272,13 +272,4 @@ let
       };
     };
   };
-in
-{
-  inherit
-    theme
-    extension
-    xpui
-    app
-    defaultXpui
-  ;
 }

@@ -1,18 +1,9 @@
-{ callPackage, ... }:
+pkgs:
 let
   source = import ../npins;
-  themes = callPackage ./themes.nix { inherit source; };
-  extensions = callPackage ./extensions.nix { inherit source; };
-  apps = callPackage ./apps.nix { inherit source; };
 in
 {
-  official = {
-    themes = themes.official;
-    extensions = extensions.official;
-    apps = apps.official;
-  };
-  themes = (builtins.removeAttrs themes [ "official" ]) // themes.official;
-  apps = (builtins.removeAttrs apps [ "official" ]) // apps.official;
-  extensions =
-    (builtins.removeAttrs extensions [ "official" ]) // extensions.official;
+  themes = pkgs.callPackage ./themes.nix { inherit source; };
+  apps = pkgs.callPackage ./apps.nix { inherit source; };
+  extensions = pkgs.callPackage ./extensions.nix { inherit source; };
 }

@@ -1,6 +1,4 @@
 {
-  description = "A nix flake that provides nix modules to configure spicetify with.";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     flake-compat = {
@@ -16,8 +14,10 @@
         f:
         nixpkgs.lib.fold nixpkgs.lib.recursiveUpdate { } (
           map f [
-            "x86_64-linux"
+            "aarch64-darwin"
             "aarch64-linux"
+            "x86_64-darwin"
+            "x86_64-linux"
           ]
         );
     in
@@ -26,42 +26,26 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
       in
-      #unfreePkgs = import nixpkgs {
-      #  inherit system;
-      #  config.allowUnfreePredicate = pkg:
-      #    builtins.elem (nixpkgs.lib.getName pkg) [
-      #      "spotify"
-      #      "spicetify-Bloom"
-      #    ];
-      #};
       {
         homeManagerModules = {
-          spicetify = import ./module.nix { isNixOSModule = false; };
+          spicetify = import ./module.nix {
+            inherit self;
+            isNixOSModule = false;
+          };
           default = self.homeManagerModules.spicetify;
         };
 
         nixosModules = {
-          spicetify = import ./module.nix { isNixOSModule = true; };
+          spicetify = import ./module.nix {
+            inherit self;
+            isNixOSModule = true;
+          };
           default = self.nixosModules.spicetify;
         };
 
-        lib.${system} = pkgs.callPackage ./lib { };
+        lib.${system} = import ./lib pkgs;
 
-        legacyPackages.${system} = pkgs.callPackage ./pkgs { };
-
-        #checks.${system} = {
-        #  default = self.checks.${system}.all-tests;
-        #  all-tests = unfreePkgs.callPackage ./tests {};
-        #  minimal-config = unfreePkgs.callPackage ./tests/minimal-config.nix {};
-        #  all-for-theme = unfreePkgs.callPackage ./tests/all-for-theme.nix {};
-        #  apps = unfreePkgs.callPackage ./tests/apps.nix {};
-        #  all-exts-and-apps =
-        #    builtins.mapAttrs
-        #    (_: self.checks.${system}.all-for-theme)
-        #    (builtins.removeAttrs
-        #      (unfreePkgs.callPackage ./pkgs {}).themes
-        #      ["override" "overrideDerivation"]);
-        #};
+        legacyPackages.${system} = import ./pkgs pkgs;
 
         formatter.${system} = pkgs.alejandra;
 
