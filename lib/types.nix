@@ -1,13 +1,15 @@
-{ lib, ... }:
+lib:
 let
   inherit (lib) mkOption types mkEnableOption;
+in
+rec {
 
   defaultXpui = {
     AdditionalOptions = {
       home = false;
       experimental_features = false;
-      extensions = [ ];
-      custom_apps = [ ];
+      extensions = [];
+      custom_apps = [];
       sidebar_config = true;
     };
     Setting = {
@@ -32,7 +34,7 @@ let
       version = "";
       "with" = "Dev";
     };
-    Patch = { };
+    Patch = {};
   };
 
   xpui = types.submodule {
@@ -64,7 +66,7 @@ let
         };
         default = defaultXpui.AdditionalOptions;
       };
-      Patch = { };
+      Patch = {};
       Setting = mkOption {
         type = types.submodule {
           options = {
@@ -148,7 +150,7 @@ let
             };
           };
         };
-        default = { };
+        default = {};
       };
     };
   };
@@ -167,9 +169,7 @@ let
         description = "Name of the .js file to enable.";
         example = "dribbblish.js";
       };
-      experimentalFeatures =
-        mkEnableOption
-          "Value to set AdditionalOptions/experimental_features to.";
+      experimentalFeatures = mkEnableOption "Value to set AdditionalOptions/experimental_features to.";
     };
   };
 
@@ -200,7 +200,7 @@ let
             types.str
           ]
         );
-        default = [ ];
+        default = [];
       };
 
       appendName = mkOption {
@@ -225,7 +225,7 @@ let
           };
         '';
         description = "INI entries to add in the [Patch] section of config-xpui.ini";
-        default = { };
+        default = {};
       };
 
       extraCommands = mkOption {
@@ -235,10 +235,10 @@ let
       };
 
       # some config values that can be specified per-theme
-      injectCss = mkOption { type = types.nullOr types.bool; };
-      overwriteAssets = mkOption { type = types.nullOr types.bool; };
-      replaceColors = mkOption { type = types.nullOr types.bool; };
-      sidebarConfig = mkOption { type = types.nullOr types.bool; };
+      injectCss = mkOption {type = types.nullOr types.bool;};
+      overwriteAssets = mkOption {type = types.nullOr types.bool;};
+      replaceColors = mkOption {type = types.nullOr types.bool;};
+      sidebarConfig = mkOption {type = types.nullOr types.bool;};
       additionalCss = mkOption {
         type = types.lines;
         default = "";
@@ -272,13 +272,4 @@ let
       };
     };
   };
-in
-{
-  inherit
-    theme
-    extension
-    xpui
-    app
-    defaultXpui
-  ;
 }

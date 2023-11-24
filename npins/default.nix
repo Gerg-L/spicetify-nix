@@ -19,7 +19,7 @@ let
         else
           builtins.throw "Unknown source type ${spec.type}";
     in
-    spec // { outPath = path; };
+    spec // {outPath = path;};
 
   mkGitSource =
     {
@@ -46,14 +46,14 @@ let
       };
 
   mkPyPiSource =
-    { url, hash, ... }:
+    {url, hash, ...}:
     builtins.fetchurl {
       inherit url;
       sha256 = hash;
     };
 
   mkChannelSource =
-    { url, hash, ... }:
+    {url, hash, ...}:
     builtins.fetchTarball {
       inherit url;
       sha256 = hash;
@@ -62,7 +62,4 @@ in
 if version == 3 then
   builtins.mapAttrs (_: mkSource) data.pins
 else
-  throw
-    "Unsupported format version ${
-      toString version
-    } in sources.json. Try running `npins upgrade`"
+  throw "Unsupported format version ${toString version} in sources.json. Try running `npins upgrade`"

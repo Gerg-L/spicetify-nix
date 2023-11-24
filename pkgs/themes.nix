@@ -1,294 +1,282 @@
-{ source, ... }:
-with source;
-let
-  # THEME GENERATORS ----------------------------------------------------------
-  mkCatppuccinTheme = name: {
-    ${name} = {
-      inherit name;
-      src = catppuccinSrc;
+{source, lib}:
+(lib.genAttrs
+  [
+    "blossom"
+    "burntSienna"
+    "default"
+    "flow"
+    "matte"
+    "nightlight"
+    "onepunch"
+    "sleek"
+    "ziro"
+  ]
+  (
+    x: {
+      name = lib.toUpper (builtins.substring 0 1 x) + (builtins.substring 1 (builtins.stringLength x) x);
+      src = source.officialThemes;
       appendName = true;
-      requiredExtensions = [
-        {
-          src = "${catppuccinSrc}/js";
-          filename = "${name}.js";
-        }
-      ];
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    }
+  )
+)
+//
+
+  {
+    catppuccin = {
+      name = "catppuccin";
+      src = source.catppuccinSrc;
+      appendName = true;
       injectCss = true;
       replaceColors = true;
       overwriteAssets = true;
       sidebarConfig = false;
     };
-  };
-
-  # THEMES --------------------------------------------------------------------
-
-  SpotifyNoPremium = {
-    name = "SpotifyNoPremium";
-    src = spotifyNoPremiumSrc;
-    appendName = false;
-    requiredExtensions = [ brokenAdblock ]; # might also require charliesAdblock
-    injectCss = false;
-    replaceColors = false;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  };
-
-  Fluent = {
-    name = "Fluent";
-    src = fluentSrc;
-    appendName = false;
-    injectCss = true;
-    overwriteAssets = true;
-    replaceColors = true;
-    sidebarConfig = false;
-    patches = {
-      "xpui.js_find_8008" = ",(\\w+=)32";
-      "xpui.js_repl_8008" = ",\${1}56";
-    };
-    requiredExtensions = [
-      {
-        src = fluentSrc;
-        filename = "fluent.js";
-      }
-    ];
-  };
-
-  DefaultDynamic = {
-    name = "DefaultDynamic";
-    src = defaultDynamicSrc;
-    appendName = false;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = false;
-    sidebarConfig = false;
-    requiredExtensions = [
-      {
-        src = defaultDynamicSrc;
-        filename = "default-dynamic.js";
-      }
-      {
-        src = defaultDynamicSrc;
-        filename = "Vibrant.min.js";
-      }
-    ];
-    patches = {
-      "xpui.js_find_8008" = ",(\\w+=)32,";
-      "xpui.js_repl_8008" = ",\${1}28,";
-    };
-  };
-
-  RetroBlur = {
-    name = "RetroBlur";
-    src = retroBlurSrc;
-    appendName = false;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  };
-
-  # BROKEN. no clue why
-  Omni = {
-    name = "Omni";
-    src = omniSrc;
-    appendName = false;
-    injectCss = true;
-    overwriteAssets = true;
-    replaceColors = true;
-    sidebarConfig = false;
-    requiredExtensions = [
-      {
-        src = omniSrc;
-        filename = "omni.js";
-      }
-    ];
-  };
-
-  # light colorscheme is broken, think that's the theme's fault
-  Bloom = {
-    name = "Bloom";
-    src = bloomSrc;
-    appendName = false;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = true;
-    sidebarConfig = false;
-    patches = {
-      "xpui.js_find_8008" = ",(\\w+=)32,";
-      "xpui.js_repl_8008" = ",\${1}56,";
-    };
-    requiredExtensions = [
-      {
-        src = bloomSrc;
-        filename = "bloom.js";
-      }
-    ];
-  };
-
-  Orchis = {
-    name = "DarkGreen";
-    src = orchisSrc;
-    appendName = true;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  };
-
-  Dracula = {
-    name = "Dracula";
-    src = draculaSrc;
-    appendName = true;
-    replaceColors = true;
-    injectCss = false;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  };
-
-  Nord = {
-    name = "Nord";
-    src = nordSrc;
-    appendName = true;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  };
-
-  Comfy = {
-    name = "Comfy";
-    src = comfySrc;
-    appendName = true;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = true;
-    sidebarConfig = false;
-    requiredExtensions = [
-      {
-        src = "${comfySrc}/Comfy";
-        filename = "theme.js";
-      }
-    ];
-    extraCommands = ''
-      # remove the auto-update functionality
-      echo "\n" >> ./Extensions/theme.js
-      cat ./Themes/Comfy/theme.script.js >> ./Extensions/theme.js
-    '';
-  };
-
-  # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
-  # about getting a custom build of chromium or something. I am NOT doing that
-  # ... but maybe one day if someone asks
-  # TODO: add the ability to append this user.css to any other user.css
-  # for installation in any theme
-  SpotifyCanvas = {
-    name = "SpotifyCanvas";
-    src = "${spotifyCanvasSrc}/Themes/canvas";
-    appendName = false;
-    injectCss = true;
-    overwriteAssets = false;
-    replaceColors = false;
-    sidebarConfig = false;
-
-    requiredExtensions = [
-      {
-        src = "${spotifyCanvasSrc}/Extensions";
-        filename = "getCanvas.js";
-      }
-    ];
-  };
-in
-{
-  official =
-    let
-      dribbblishExt = {
-        filename = "dribbblish.js";
-        src = "${officialThemes}/Dribbblish";
+    dribbblish = {
+      name = "Dribbblish";
+      src = source.officialThemes;
+      requiredExtensions = [
+        {
+          filename = "theme.js";
+          src = "${source.officialThemes}/Dribbblish";
+        }
+      ];
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)32";
+        "xpui.js_repl_8008" = ",\${1}56";
       };
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      appendName = true;
+      sidebarConfig = true;
+      additionalCss = ''
+        .Root {
+          padding-top: 0px;
+        }
+      '';
+    };
 
-      turntableExt = {
-        filename = "turntable.js";
-        src = "${officialThemes}/Turntable";
+    text = {
+      name = "text";
+      src = source.officialThemes;
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)56";
+        "xpui.js_repl_8008" = ",\${1}32";
       };
-      mkOfficialTheme = themeName: {
-        ${themeName} = {
-          name = themeName;
-          src = officialThemes;
-          appendName = true;
-          injectCss = true;
-          replaceColors = true;
-          overwriteAssets = false;
-          sidebarConfig = false;
-        };
-      };
-    in
-    {
-      Dribbblish = {
-        name = "Dribbblish";
-        src = officialThemes;
-        requiredExtensions = [ dribbblishExt ];
-        patches = {
-          "xpui.js_find_8008" = ",(\\w+=)32";
-          "xpui.js_repl_8008" = ",\${1}56";
-        };
-        injectCss = true;
-        replaceColors = true;
-        overwriteAssets = true;
-        appendName = true;
-        sidebarConfig = true;
-        additionalCss = ''
-          .Root {
-            padding-top: 0px;
+      injectCss = true;
+      replaceColors = true;
+      appendName = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    dreary = {
+      name = "Dreary";
+      src = source.officialThemes;
+      sidebarConfig = true;
+      appendName = true;
+    };
+    glaze = {
+      name = "Glaze";
+      src = source.officialThemes;
+      sidebarConfig = true;
+      appendName = true;
+    };
+    turntable = {
+      name = "Turntable";
+      src = source.officialThemes;
+      requiredExtensions =
+        [
+          #"fullAppDisplay.js"
+          {
+            filename = "turntable.js";
+            src = "${source.officialThemes}/Turntable";
           }
-        '';
-      };
-
-      Dreary = {
-        name = "Dreary";
-        src = officialThemes;
-        sidebarConfig = true;
-        appendName = true;
-      };
-      Glaze = {
-        name = "Glaze";
-        src = officialThemes;
-        sidebarConfig = true;
-        appendName = true;
-      };
-      Turntable = {
-        name = "Turntable";
-        src = officialThemes;
-        requiredExtensions = [
-          "fullAppDisplay.js"
-          turntableExt
         ];
+    };
+
+    spotifyNoPremium = {
+      name = "SpotifyNoPremium";
+      src = source.spotifyNoPremiumSrc;
+      appendName = false;
+      requiredExtensions = [
+        {
+          src = "${source.charlieS1103Src}/adblock";
+          filename = "adblock.js";
+        }
+      ];
+      injectCss = false;
+      replaceColors = false;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    fluent = {
+      name = "Fluent";
+      src = source.fluentSrc;
+      appendName = false;
+      injectCss = true;
+      overwriteAssets = true;
+      replaceColors = true;
+      sidebarConfig = false;
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)32";
+        "xpui.js_repl_8008" = ",\${1}56";
       };
-    }
-    // mkOfficialTheme "Ziro"
-    // mkOfficialTheme "Sleek"
-    // mkOfficialTheme "Onepunch"
-    // mkOfficialTheme "Flow"
-    // mkOfficialTheme "Default"
-    // mkOfficialTheme "BurntSienna"
-    // mkOfficialTheme "Blossom"
-    // mkOfficialTheme "Sleek"
-    // mkOfficialTheme "Nightlight"
-    // mkOfficialTheme "Matte";
-  inherit
-    SpotifyNoPremium
-    Fluent
-    DefaultDynamic
-    RetroBlur
-    Omni
-    Bloom
-    Orchis
-    Dracula
-    Nord
-    SpotifyCanvas
-    Comfy
-  ;
-}
-// mkCatppuccinTheme "catppuccin-mocha"
-// mkCatppuccinTheme "catppuccin-frappe"
-// mkCatppuccinTheme "catppuccin-latte"
-// mkCatppuccinTheme "catppuccin-macchiato"
+      requiredExtensions = [
+        {
+          src = source.fluentSrc;
+          filename = "fluent.js";
+        }
+      ];
+    };
+
+    defaultDynamic = {
+      name = "DefaultDynamic";
+      src = source.defaultDynamicSrc;
+      appendName = false;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+      requiredExtensions = [
+        {
+          src = source.defaultDynamicSrc;
+          filename = "default-dynamic.js";
+        }
+        {
+          src = source.defaultDynamicSrc;
+          filename = "Vibrant.min.js";
+        }
+      ];
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)32,";
+        "xpui.js_repl_8008" = ",\${1}28,";
+      };
+    };
+
+    retroBlur = {
+      name = "RetroBlur";
+      src = source.retroBlurSrc;
+      appendName = false;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    # BROKEN. no clue why
+    omni = {
+      name = "Omni";
+      src = source.omniSrc;
+      appendName = false;
+      injectCss = true;
+      overwriteAssets = true;
+      replaceColors = true;
+      sidebarConfig = false;
+      requiredExtensions = [
+        {
+          src = source.omniSrc;
+          filename = "omni.js";
+        }
+      ];
+    };
+
+    # light colorscheme is broken, think that's the theme's fault
+    bloom = {
+      name = "Bloom";
+      src = source.bloomSrc;
+      appendName = false;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      sidebarConfig = false;
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)32,";
+        "xpui.js_repl_8008" = ",\${1}56,";
+      };
+      requiredExtensions = [
+        {
+          src = source.bloomSrc;
+          filename = "bloom.js";
+        }
+      ];
+    };
+
+    orchis = {
+      name = "DarkGreen";
+      src = source.orchisSrc;
+      appendName = true;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    dracula = {
+      name = "Dracula";
+      src = source.draculaSrc;
+      appendName = true;
+      replaceColors = true;
+      injectCss = false;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    nord = {
+      name = "Nord";
+      src = source.nordSrc;
+      appendName = true;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      sidebarConfig = false;
+    };
+
+    comfy = {
+      name = "Comfy";
+      src = source.comfySrc;
+      appendName = true;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      sidebarConfig = false;
+      requiredExtensions = [
+        {
+          src = "${source.comfySrc}/Comfy";
+          filename = "theme.js";
+        }
+      ];
+      extraCommands = ''
+        # remove the auto-update functionality
+        echo "\n" >> ./Extensions/theme.js
+        cat ./Themes/Comfy/theme.script.js >> ./Extensions/theme.js
+      '';
+    };
+
+    # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
+    # about getting a custom build of chromium or something. I am NOT doing that
+    # ... but maybe one day if someone asks
+    # TODO: add the ability to append this user.css to any other user.css
+    # for installation in any theme
+    spotifyCanvas = {
+      name = "SpotifyCanvas";
+      src = "${source.spotifyCanvasSrc}/Themes/canvas";
+      appendName = false;
+      injectCss = true;
+      overwriteAssets = false;
+      replaceColors = false;
+      sidebarConfig = false;
+
+      requiredExtensions = [
+        {
+          src = "${source.spotifyCanvasSrc}/Extensions";
+          filename = "getCanvas.js";
+        }
+      ];
+    };
+  }
