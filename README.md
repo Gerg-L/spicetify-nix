@@ -1,8 +1,13 @@
 # Spicetify-Nix
 
-Modifies Spotify using [spicetify-cli](https://github.com/khanhas/spicetify-cli).
+Originally forked from [the-argus](https://github.com/the-argus/spicetify-nix)
+which forked from [the-argus](https://github.com/pietdevries94/spicetify-nix)
+deleted and re-made repo for discoverability as github does not like to show forks in the search
 
-[spicetify-themes](https://github.com/morpheusthewhite/spicetify-themes) are
+
+Modifies Spotify using [spicetify-cli](https://github.com/spicetify/spicetify-cli).
+
+[spicetify-themes](https://github.com/spicetify/spicetify-themes) are
 included and available.
 
 ## Usage
