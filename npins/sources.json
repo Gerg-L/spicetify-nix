@@ -140,9 +140,9 @@
         "repo": "spotify-group-session"
       },
       "branch": "main",
-      "revision": "a9fa45da69495137b2f7272f61ff8d1a457aef5b",
-      "url": "https://github.com/timll/spotify-group-session/archive/a9fa45da69495137b2f7272f61ff8d1a457aef5b.tar.gz",
-      "hash": "1h5s4v7qq2y5drkci5c81ajf0zqi286dviwp4n64hwygphsffdk1"
+      "revision": "bc93e673d7efaa0294eca69321de33dc1dc8bdc3",
+      "url": "https://github.com/timll/spotify-group-session/archive/bc93e673d7efaa0294eca69321de33dc1dc8bdc3.tar.gz",
+      "hash": "0s4psn6ckx91ggizig8l6l3pf77b2ncbsgh16j7b518a9klib38r"
     },
     "hidePodcastsSrc": {
       "type": "Git",
@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "c2a00541a7ab2581167ab21bc2cdc3d6f86c87ac",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/c2a00541a7ab2581167ab21bc2cdc3d6f86c87ac.tar.gz",
-      "hash": "1mgx7ih5hb27bd7qjhqfsw0yl9ikmp4qxgwb17gfx2g3qlmzn9m7"
+      "revision": "c61e4e36fdf5d80e5e9bea3b9464a6ade4366d1a",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/c61e4e36fdf5d80e5e9bea3b9464a6ade4366d1a.tar.gz",
+      "hash": "09q8mcvlpc3g373q4jp2qybv9s8n6wdsz3bg7fp2lp173z30f27j"
     },
     "officialThemes": {
       "type": "Git",
@@ -260,9 +260,9 @@
         "repo": "spicetify-themes"
       },
       "branch": "master",
-      "revision": "9ba01f9861d1f52e049ad1ac01883f1609ffd45b",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/9ba01f9861d1f52e049ad1ac01883f1609ffd45b.tar.gz",
-      "hash": "0q2izca6qpgi1v17v4f9msr0lk78dl5binx78z9vszwf79x3kd2s"
+      "revision": "1c01e3d68dbf0d7e6675d1d4b648694cdfccc20f",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/1c01e3d68dbf0d7e6675d1d4b648694cdfccc20f.tar.gz",
+      "hash": "0qx8sq756f9nhsxzp4dgbia0kvcga5gljwcf2mwgndpad1zmcak2"
     },
     "omniSrc": {
       "type": "Git",
