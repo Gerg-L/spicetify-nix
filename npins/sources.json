@@ -20,9 +20,9 @@
         "repo": "spicetify-bloom"
       },
       "branch": "main",
-      "revision": "078ab30f38037aff9f72aab54e390474e2b79bd6",
-      "url": "https://github.com/nimsandu/spicetify-bloom/archive/078ab30f38037aff9f72aab54e390474e2b79bd6.tar.gz",
-      "hash": "06na0yl6ld73mv63d368lgl67ihwkd1k97krvf8g3v7xpir07pxj"
+      "revision": "4dcd24d20aae8ce6c43ca19c3eeeb17b9f4de79d",
+      "url": "https://github.com/nimsandu/spicetify-bloom/archive/4dcd24d20aae8ce6c43ca19c3eeeb17b9f4de79d.tar.gz",
+      "hash": "00dw9b2zx7ag7xn34rqlvnl4wm1yqhxn3mj56mfpg5qvspwf5p9y"
     },
     "catppuccinSrc": {
       "type": "Git",
