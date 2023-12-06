@@ -92,9 +92,9 @@
         "repo": "spicetify-dynamic-theme"
       },
       "branch": "main",
-      "revision": "d525ef3da7dd4784977e95a7d945f45053f6593a",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/d525ef3da7dd4784977e95a7d945f45053f6593a.tar.gz",
-      "hash": "191v2vfi4fvrlpvfvddza6v0hrzi66aa2zgq2wgfi3l1hfbxypjy"
+      "revision": "d9ce29a2a85e17982f82861e63e0ac7c0a5c7935",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/d9ce29a2a85e17982f82861e63e0ac7c0a5c7935.tar.gz",
+      "hash": "1z05ndqpd5xglx3kynhsh7dy487mg6d55s0j3lqcvk8y7qss35bk"
     },
     "draculaSrc": {
       "type": "Git",
@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "c61e4e36fdf5d80e5e9bea3b9464a6ade4366d1a",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/c61e4e36fdf5d80e5e9bea3b9464a6ade4366d1a.tar.gz",
-      "hash": "09q8mcvlpc3g373q4jp2qybv9s8n6wdsz3bg7fp2lp173z30f27j"
+      "revision": "5745752a4dece47518ef2b8870df6c93f31d1ca5",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/5745752a4dece47518ef2b8870df6c93f31d1ca5.tar.gz",
+      "hash": "0yszq899xh3s4xm9xjxprw7l28rgr2sxizi84kqmqgm01m3457k3"
     },
     "officialThemes": {
       "type": "Git",
@@ -356,9 +356,9 @@
         "repo": "startup-page"
       },
       "branch": "main",
-      "revision": "3f7186dc66e2b3122fdbbc908571579ee1a21391",
-      "url": "https://github.com/Resxt/startup-page/archive/3f7186dc66e2b3122fdbbc908571579ee1a21391.tar.gz",
-      "hash": "1imxpgyynidgmim6hz8pqm4kkab4ynkd4skwrawkd1k8qda8m320"
+      "revision": "8eb7e047696500a80c178cf5f2b9128caa88fdbb",
+      "url": "https://github.com/Resxt/startup-page/archive/8eb7e047696500a80c178cf5f2b9128caa88fdbb.tar.gz",
+      "hash": "1nxv45z2a2vy1k5jmdm9849khz5m2whp27f1hlkss2njai8kbs9f"
     },
     "tetraxSrc": {
       "type": "Git",
