@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "a5fa45926ad45dcd1dbfd9267fb32ea82f71e43a",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/a5fa45926ad45dcd1dbfd9267fb32ea82f71e43a.tar.gz",
-      "hash": "14ansq4r5pgmzrbij6qskrbh1f7qqdi4jp1j3vsfz3k6qhvn2l7f"
+      "revision": "e1c01bca82c4a089082ca597dc2d9e902d23d494",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/e1c01bca82c4a089082ca597dc2d9e902d23d494.tar.gz",
+      "hash": "0x8jhnpcqh8vcd001mvq5m3f2giljbr3z8vihc6phv3zfadsry6j"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -176,9 +176,9 @@
         "repo": "huh-spicetify-extensions"
       },
       "branch": "main",
-      "revision": "bba2733d42b33fce2d365f3a882d3cbb56ca829e",
-      "url": "https://github.com/huhridge/huh-spicetify-extensions/archive/bba2733d42b33fce2d365f3a882d3cbb56ca829e.tar.gz",
-      "hash": "1f2z37nxj27gcwpyj0gf35yiz0libq23v26wvzj8mv27ycrw80j4"
+      "revision": "f032dde7cce9d441795d9e2f728531684e97e3fa",
+      "url": "https://github.com/huhridge/huh-spicetify-extensions/archive/f032dde7cce9d441795d9e2f728531684e97e3fa.tar.gz",
+      "hash": "01npwafnxy4av0yi2v1ny9w8d9cx6gpissni0fwdq65awmhmknvy"
     },
     "lastfmSrc": {
       "type": "Git",
