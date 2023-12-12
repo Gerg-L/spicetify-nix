@@ -20,9 +20,9 @@
         "repo": "spicetify-bloom"
       },
       "branch": "main",
-      "revision": "518ca845cd0dff8833341c9b9d871643b897c266",
-      "url": "https://github.com/nimsandu/spicetify-bloom/archive/518ca845cd0dff8833341c9b9d871643b897c266.tar.gz",
-      "hash": "0a4gql82r2130m57x4p4njz8cpm6d42vifi7zqc7na30m5j78557"
+      "revision": "c3495558e831dceb90abd14362fa962c9e919a6d",
+      "url": "https://github.com/nimsandu/spicetify-bloom/archive/c3495558e831dceb90abd14362fa962c9e919a6d.tar.gz",
+      "hash": "10v09f8zsg6dgnk9c90iq81va3an0z3lsnrslm8f2igfp2f8dmr7"
     },
     "catppuccinSrc": {
       "type": "Git",
@@ -80,9 +80,9 @@
         "repo": "Spicetify-stuff"
       },
       "branch": "master",
-      "revision": "d51cd4613583d5a0504b30758976d92bc65070b3",
-      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/d51cd4613583d5a0504b30758976d92bc65070b3.tar.gz",
-      "hash": "05985jf3kldzk78lh8h2q7drqs69w2bfgwvnr533sj514q8bp68i"
+      "revision": "e9f9b87267c538e67c4bb45a220d27569822d06b",
+      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/e9f9b87267c538e67c4bb45a220d27569822d06b.tar.gz",
+      "hash": "031w9jwp21bnvv9857xfmlhn7vf09g3mnk42901rgcy9b3yin53p"
     },
     "defaultDynamicSrc": {
       "type": "Git",
@@ -248,9 +248,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "1fc2bb9aa4fba6e1073db1a7d142b33a8e02370f",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/1fc2bb9aa4fba6e1073db1a7d142b33a8e02370f.tar.gz",
-      "hash": "05xm3sa6i264pw3k4p662andj21kcrr4w043rrcm38kcs67sj8ry"
+      "revision": "bc9b20f6727ab12d09a28ef350e4f9f293071866",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/bc9b20f6727ab12d09a28ef350e4f9f293071866.tar.gz",
+      "hash": "1phs16cnzli1q5i279g9fc05py17zaj734vrr0my1i920v7qxzsr"
     },
     "officialThemes": {
       "type": "Git",
