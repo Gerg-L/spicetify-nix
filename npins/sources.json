@@ -32,9 +32,9 @@
         "repo": "spicetify"
       },
       "branch": "main",
-      "revision": "146f42d612e5c57fe7bbb3e69b1e5b5b83c34fdd",
-      "url": "https://github.com/catppuccin/spicetify/archive/146f42d612e5c57fe7bbb3e69b1e5b5b83c34fdd.tar.gz",
-      "hash": "0q1x6dfh80gy32aqqvcj30ndpvrfr47lzvzhph1388mxmc46pnh4"
+      "revision": "06565dba4569e3a3668b263c026de38ad8fc1384",
+      "url": "https://github.com/catppuccin/spicetify/archive/06565dba4569e3a3668b263c026de38ad8fc1384.tar.gz",
+      "hash": "1av6m58vmax8d4m3s36hdpnajk1nd5b4j589x4q7h9g70ryaw8y6"
     },
     "charlieS1103Src": {
       "type": "Git",
@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "2511226d2b3e563c1392016099cd77196e81f23e",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/2511226d2b3e563c1392016099cd77196e81f23e.tar.gz",
-      "hash": "1c06lww9cly941crzp3rj4xczx7ygw2lhiqcaz9ryq02j2gj86bp"
+      "revision": "d49455cc1be474dc07e84bbcb16c8a8f50e7bc1b",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/d49455cc1be474dc07e84bbcb16c8a8f50e7bc1b.tar.gz",
+      "hash": "0lyfxrbcxzahaygy9wmj9c68c7dd2w2v1zpyw6ncgsm8k02iqwrq"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
