@@ -181,7 +181,6 @@ in
       enabledExtensions = with spicePkgs.extensions; [
         playlistIcons
         lastfm
-        genre
         historyShortcut
         hidePodcasts
         fullAppDisplay

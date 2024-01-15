@@ -30,10 +30,6 @@ let
     src = source.historySrc;
     filename = "historyShortcut.js";
   };
-  genre = {
-    src = source.genreSrc;
-    filename = "genre.js";
-  };
   lastfm = {
     src = "${source.lastfmSrc}/src";
     filename = "lastfm.js";
@@ -207,7 +203,6 @@ in
       autoVolume
       history
       lastfm
-      genre
       hidePodcasts
       charliesAdblock # adblock.js
       savePlaylists

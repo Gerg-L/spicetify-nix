@@ -120,18 +120,6 @@
       "url": "https://github.com/williamckha/spicetify-fluent/archive/772cd8491105d679c7d3d1ff3f927b4a3dbb0e62.tar.gz",
       "hash": "1gxlzg07pqnlgp7kw8d12f16cn68zi2cw334jfyznbjm9ddqid12"
     },
-    "genreSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Shinyhero36",
-        "repo": "Spicetify-Genre"
-      },
-      "branch": "master",
-      "revision": "f2cb950a7e27cce3bfd4168141b5c5e55552df5a",
-      "url": "https://github.com/Shinyhero36/Spicetify-Genre/archive/f2cb950a7e27cce3bfd4168141b5c5e55552df5a.tar.gz",
-      "hash": "0wvzay11gyibjcbkldcb95yhl556p0kijfnai182dglr4jigmc27"
-    },
     "groupSessionSrc": {
       "type": "Git",
       "repository": {

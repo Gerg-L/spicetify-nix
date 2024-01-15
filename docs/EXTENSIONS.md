@@ -143,10 +143,6 @@ Adds a page that shows your listening history.
 Integration with last.fm. Login to show your listening stats for a song, and get
 its last.fm link.
 
-### genre
-
-Display the genre of an artist or song while playing.
-
 ### hidePodcasts
 
 Remove everything from the spotify UI relating to podcasts.
