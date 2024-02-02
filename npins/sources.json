@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "33b3cdcf8a71c4763227c4529e26ccd23cfcf96d",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/33b3cdcf8a71c4763227c4529e26ccd23cfcf96d.tar.gz",
-      "hash": "0f8gd0wyikzr8way7llb4pgqvidffgksa2mvidh45avhnjlkr8wn"
+      "revision": "504c876202a97d72b2eecfe4a5786b94f24831cb",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/504c876202a97d72b2eecfe4a5786b94f24831cb.tar.gz",
+      "hash": "1jl4d1xfa6w11ybzc172f6wvzgqlcpvg80lb2lqigg7k7prdxa6x"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -140,9 +140,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "878258325a5f39df278926c2992d3bd671cb09e7",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/878258325a5f39df278926c2992d3bd671cb09e7.tar.gz",
-      "hash": "06x7q2ivi12yz2y3hnq726b7z42z5m6jr40kqdkf7hcwbcy1h3lm"
+      "revision": "b7bc873ee7c043ba7d707cb9041ad3ecb6b5e4e1",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/b7bc873ee7c043ba7d707cb9041ad3ecb6b5e4e1.tar.gz",
+      "hash": "03yiwwnaf9a52wc9bmw8szfp8rr3wqyhvp1h379h3jksw5sdhmbc"
     },
     "historySrc": {
       "type": "Git",
@@ -212,9 +212,9 @@
         "repo": "name-that-tune"
       },
       "branch": "main",
-      "revision": "b288eaaa473fbd2f27a7b2e42c3c77ac29c512c7",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/b288eaaa473fbd2f27a7b2e42c3c77ac29c512c7.tar.gz",
-      "hash": "0hjrkixln425yg9dmv40qnqbzqmaj1j72gq6a7f1q4vqm4znpdmn"
+      "revision": "7c15d119c8a3340df6e39915d8424ea734459902",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/7c15d119c8a3340df6e39915d8424ea734459902.tar.gz",
+      "hash": "0ymalb6bidbm64hg62v42cfq8g5r1dy914iiaavd2c1qnykkc7a6"
     },
     "nordSrc": {
       "type": "Git",
@@ -236,9 +236,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "42b8f603b1e3e24428a5d9225e3b24bb55bb61dc",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/42b8f603b1e3e24428a5d9225e3b24bb55bb61dc.tar.gz",
-      "hash": "11g034nf89ygh4qh3kchzm6qf2hwrjrpkb27cpc0jvnk790xgvip"
+      "revision": "2369bf9b05d78ee39feb2fa6913560af078bed6b",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/2369bf9b05d78ee39feb2fa6913560af078bed6b.tar.gz",
+      "hash": "135zgvymxi25aga8b71b7v2blyasqa4knsp7alghyr0a7cgjwk04"
     },
     "officialThemes": {
       "type": "Git",
