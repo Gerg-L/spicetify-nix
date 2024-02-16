@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "0df5905847157ca0556028bf79286fdc5c158cc8",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/0df5905847157ca0556028bf79286fdc5c158cc8.tar.gz",
-      "hash": "0j545xjxkiinv04lhzaagr5z5wbjylm5r7hhi1dbs38ajlvmjnj2"
+      "revision": "328fe29fdf807bff3a5df836ace2e72f85c0abc5",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/328fe29fdf807bff3a5df836ace2e72f85c0abc5.tar.gz",
+      "hash": "0jdgk64xshv9xik3ddkl1ilbi3d1hy9vln32m19sd4hacqcp8jcp"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -320,9 +320,9 @@
         "repo": "Spicetify-Canvas"
       },
       "branch": "master",
-      "revision": "2c441ef1e7b96096577251ba4c17a58a32516a87",
-      "url": "https://github.com/itsmeow/Spicetify-Canvas/archive/2c441ef1e7b96096577251ba4c17a58a32516a87.tar.gz",
-      "hash": "0mr2vmmz0cw3rfdqgav65v2badhfsqg2sl9smpl7rrcaz2ry54wh"
+      "revision": "ec852982f81ca8c2515eda84b251052118c6032f",
+      "url": "https://github.com/itsmeow/Spicetify-Canvas/archive/ec852982f81ca8c2515eda84b251052118c6032f.tar.gz",
+      "hash": "0r7hzy88xgql2vxrz0hc93xw6avadd8qipan7srqhyag70m7jbls"
     },
     "spotifyNoPremiumSrc": {
       "type": "Git",
