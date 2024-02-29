@@ -66,7 +66,8 @@ spotify.overrideAttrs (
          # replace the spotify path with the current derivation's path
          sed "s|__REPLACEME__|${spotifyPath}|g; s|__REPLACEME2__|$SPICETIFY_CONFIG/prefs|g" ${config-xpui} > config-xpui.ini
 
-         mkdir -p Themes
+         mkdir -p {Themes,Extensions,CustomApps}
+
          cp -r ${themePath} Themes/${theme.name}
          chmod -R a+wr Themes
          ${
@@ -81,11 +82,9 @@ spotify.overrideAttrs (
         ${lib.optionalString (theme ? extraCommands && theme.extraCommands != null) theme.extraCommands}
 
          # copy extensions into Extensions folder
-         mkdir -p Extensions
          ${extensionCommands}
 
          # copy custom apps into CustomApps folder
-         mkdir -p CustomApps
          ${customAppCommands}
 
          # completed app and extension installation
