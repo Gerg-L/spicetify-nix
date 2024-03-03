@@ -140,9 +140,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "ba7b38496147744aa9ab7511478480ede4fcbc4d",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/ba7b38496147744aa9ab7511478480ede4fcbc4d.tar.gz",
-      "hash": "0rb2bc02dxz4ar6bnwjvpqbgl8xv6b44sfs7y6y2b8r8j5k4hxvl"
+      "revision": "672e6c9cd7a4f56ebccb79ef756864e152f98de0",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/672e6c9cd7a4f56ebccb79ef756864e152f98de0.tar.gz",
+      "hash": "0n66v38riqd1272lr83m6xfxps7qlvl2bipckydqf2i008snryzw"
     },
     "historySrc": {
       "type": "Git",
@@ -236,9 +236,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "7657d0a6c891b3fc0c10214f970e640df7242550",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/7657d0a6c891b3fc0c10214f970e640df7242550.tar.gz",
-      "hash": "1b493cx4qpwdvblal87qsm8finbn9dg58nc8sfz4a59l9dbyhr96"
+      "revision": "931af1d263731e3c04644e9a0c160910aa75da25",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/931af1d263731e3c04644e9a0c160910aa75da25.tar.gz",
+      "hash": "0xavmqa67x3qik2zq2b82ww7ni98xyds5m4aq7b8dk0ai6x9l9qq"
     },
     "officialThemes": {
       "type": "Git",
