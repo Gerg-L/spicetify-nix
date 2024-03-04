@@ -192,8 +192,8 @@ in
 
 ## Themes, Extensions, and CustomApps
 
-Are found in [THEMES.md](./THEMES.md), [EXTENSIONS.md](./EXTENSIONS.md), and
-[CUSTOMAPPS.md](./CUSTOMAPPS.md), respectively.
+Are found in [THEMES.md](./docs/THEMES.md), [EXTENSIONS.md](./docs/EXTENSIONS.md), and
+[CUSTOMAPPS.md](./docs/CUSTOMAPPS.md), respectively.
 
 ## macOS
 
