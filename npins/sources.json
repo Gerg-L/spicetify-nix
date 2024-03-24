@@ -92,9 +92,9 @@
         "repo": "spicetify-dynamic-theme"
       },
       "branch": "main",
-      "revision": "9bd60cbbedeb81049bf1115e5b8433123d1a7ef1",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/9bd60cbbedeb81049bf1115e5b8433123d1a7ef1.tar.gz",
-      "hash": "1ikzivf41f9mhjcpsjgn0wlh2hgdj1r708h15b39bv0bmb8dvpc9"
+      "revision": "7b884c9ed0e1828610ac429dd01de23b59590513",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/7b884c9ed0e1828610ac429dd01de23b59590513.tar.gz",
+      "hash": "1nff9n30jvf091vcckjk0l2wdkslx1cqnf4ls0x0mmkgcd52yy9l"
     },
     "draculaSrc": {
       "type": "Git",
