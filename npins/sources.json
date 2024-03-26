@@ -80,9 +80,9 @@
         "repo": "Spicetify-stuff"
       },
       "branch": "master",
-      "revision": "dbdbdb59c39a7a8c2d51b0ab4aa517378e5b437f",
-      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/dbdbdb59c39a7a8c2d51b0ab4aa517378e5b437f.tar.gz",
-      "hash": "0bhfbf2iycr1yrz9lw9cazmiha1c5cg388jihbfb36bm9fqsayik"
+      "revision": "98ae8206f240e655dd27cbdacfcb1b309e31b29b",
+      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/98ae8206f240e655dd27cbdacfcb1b309e31b29b.tar.gz",
+      "hash": "1w909wa3vjn8wd905dp301b7dgf99i880p7yawjgqis6nrz4fbvq"
     },
     "defaultDynamicSrc": {
       "type": "Git",
