@@ -7,10 +7,10 @@
   theme ? throw "",
   config-xpui ? throw "",
   usingCustomColorScheme ? false,
-  customColorScheme ? {},
+  customColorScheme ? { },
   cssMap ? "${spicetify-cli.src}/css-map.json",
-  extensions ? [],
-  apps ? [],
+  extensions ? [ ],
+  apps ? [ ],
   extraCommands ? "",
 }:
 let
@@ -91,7 +91,7 @@ spotify.overrideAttrs (
          # add a custom color scheme if necessary
          ${lib.optionalString usingCustomColorScheme ''
           cat << EOF > Themes/${theme.name}/color.ini
-            ${lib.generators.toINI {} {custom = customColorScheme;}}
+            ${lib.generators.toINI { } { custom = customColorScheme; }}
           EOF
         ''}
 

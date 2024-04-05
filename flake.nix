@@ -8,11 +8,11 @@
   };
 
   outputs =
-    {self, nixpkgs, ...}:
+    { self, nixpkgs, ... }:
     let
       withSystem =
         f:
-        nixpkgs.lib.fold nixpkgs.lib.recursiveUpdate {} (
+        nixpkgs.lib.fold nixpkgs.lib.recursiveUpdate { } (
           map f [
             "aarch64-darwin"
             "aarch64-linux"
@@ -47,9 +47,9 @@
 
         legacyPackages.${system} = import ./pkgs pkgs;
 
-        formatter.${system} = pkgs.alejandra;
+        formatter.${system} = pkgs.nixfmt-rfc-style;
 
-        devShells.${system}.default = pkgs.mkShell {packages = [pkgs.npins];};
+        devShells.${system}.default = pkgs.mkShell { packages = [ pkgs.npins ]; };
       }
     );
 }

@@ -1,4 +1,4 @@
-{source, lib}:
+{ source, lib }:
 let
   # EXTENSIONS ----------------------------------------------------------------
   savePlaylists = {
@@ -153,7 +153,7 @@ let
     {
       ${sanitizeName ext.filename} = ext;
     }
-    // lib.optionalAttrs (alias != ext.filename) {${sanitizeName alias} = ext;};
+    // lib.optionalAttrs (alias != ext.filename) { ${sanitizeName alias} = ext; };
 in
 (lib.listToAttrs (
   map

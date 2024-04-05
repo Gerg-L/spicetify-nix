@@ -12,5 +12,5 @@
       sha256 = lock.nodes.${nodeName}.locked.narHash;
     }
   )
-  {src = ./.;}
+  { src = ./.; }
 ).defaultNix

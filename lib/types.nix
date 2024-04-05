@@ -8,8 +8,8 @@ rec {
     AdditionalOptions = {
       home = false;
       experimental_features = false;
-      extensions = [];
-      custom_apps = [];
+      extensions = [ ];
+      custom_apps = [ ];
       sidebar_config = true;
     };
     Setting = {
@@ -34,7 +34,7 @@ rec {
       version = "";
       "with" = "Dev";
     };
-    Patch = {};
+    Patch = { };
   };
 
   xpui = types.submodule {
@@ -66,7 +66,7 @@ rec {
         };
         default = defaultXpui.AdditionalOptions;
       };
-      Patch = {};
+      Patch = { };
       Setting = mkOption {
         type = types.submodule {
           options = {
@@ -150,7 +150,7 @@ rec {
             };
           };
         };
-        default = {};
+        default = { };
       };
     };
   };
@@ -200,7 +200,7 @@ rec {
             types.str
           ]
         );
-        default = [];
+        default = [ ];
       };
 
       appendName = mkOption {
@@ -225,7 +225,7 @@ rec {
           };
         '';
         description = "INI entries to add in the [Patch] section of config-xpui.ini";
-        default = {};
+        default = { };
       };
 
       extraCommands = mkOption {
@@ -235,10 +235,10 @@ rec {
       };
 
       # some config values that can be specified per-theme
-      injectCss = mkOption {type = types.nullOr types.bool;};
-      overwriteAssets = mkOption {type = types.nullOr types.bool;};
-      replaceColors = mkOption {type = types.nullOr types.bool;};
-      sidebarConfig = mkOption {type = types.nullOr types.bool;};
+      injectCss = mkOption { type = types.nullOr types.bool; };
+      overwriteAssets = mkOption { type = types.nullOr types.bool; };
+      replaceColors = mkOption { type = types.nullOr types.bool; };
+      sidebarConfig = mkOption { type = types.nullOr types.bool; };
       additionalCss = mkOption {
         type = types.lines;
         default = "";

@@ -1,4 +1,4 @@
-{source, lib}:
+{ source, lib }:
 (lib.genAttrs
   [
     "blossom"
@@ -89,14 +89,13 @@
     turntable = {
       name = "Turntable";
       src = source.officialThemes;
-      requiredExtensions =
-        [
-          #"fullAppDisplay.js"
-          {
-            filename = "turntable.js";
-            src = "${source.officialThemes}/Turntable";
-          }
-        ];
+      requiredExtensions = [
+        #"fullAppDisplay.js"
+        {
+          filename = "turntable.js";
+          src = "${source.officialThemes}/Turntable";
+        }
+      ];
     };
 
     spotifyNoPremium = {

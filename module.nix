@@ -36,9 +36,9 @@ in
       inherit (spicePkgs.themes) default;
     };
 
-    spotifyPackage = lib.mkPackageOption pkgs "spotify" {};
+    spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
 
-    spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" {};
+    spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" { };
 
     extraCommands = lib.mkOption {
       type = lib.types.lines;
@@ -48,7 +48,7 @@ in
 
     enabledExtensions = lib.mkOption {
       type = lib.types.listOf spiceLib.types.extension;
-      default = [];
+      default = [ ];
       description = ''
         A list of extensions.
       '';
@@ -67,7 +67,7 @@ in
     };
     enabledCustomApps = lib.mkOption {
       type = lib.types.listOf spiceLib.types.app;
-      default = [];
+      default = [ ];
     };
 
     xpui = lib.mkOption {
@@ -102,7 +102,7 @@ in
       default = null;
     };
 
-    cssMap = lib.mkOption {type = lib.types.path;};
+    cssMap = lib.mkOption { type = lib.types.path; };
   };
 
   config =
@@ -146,7 +146,10 @@ in
             };
           };
         in
-        if isSpotifyWM then cfg.spotifyPackage.override {spotify = overridenSpotify;} else overridenSpotify;
+        if isSpotifyWM then
+          cfg.spotifyPackage.override { spotify = overridenSpotify; }
+        else
+          overridenSpotify;
 
       packagesToInstall =
         [
@@ -156,7 +159,7 @@ in
               lib.trivial.warn "spotify package set to spotifywm and windowManagerPatch is set to true. It is recommended to only use windowManagerPatch."
             # wrap spotify with the window manager patch if necessary
             else if cfg.windowManagerPatch then
-              spicePkgs.spotifywm.override {spotify = spiced-spotify;}
+              spicePkgs.spotifywm.override { spotify = spiced-spotify; }
             else
               spiced-spotify
           )
@@ -176,9 +179,9 @@ in
         }
         (lib.mkIf (!cfg.dontInstall) (
           if isNixOSModule then
-            {environment.systemPackages = packagesToInstall;}
+            { environment.systemPackages = packagesToInstall; }
           else
-            {home.packages = packagesToInstall;}
+            { home.packages = packagesToInstall; }
         ))
       ]
     );

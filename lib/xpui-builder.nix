@@ -33,7 +33,7 @@ let
         set: attrName: cfgName:
         optAttrs (builtins.hasAttr attrName set) (
           optAttrs (set.${attrName} != null) (
-            optAttrs (builtins.typeOf set.${attrName} == "bool") {${cfgName} = set.${attrName};}
+            optAttrs (builtins.typeOf set.${attrName} == "bool") { ${cfgName} = set.${attrName}; }
           )
         );
     in
@@ -49,9 +49,9 @@ let
         (boolOverride container "overwriteAssets" "overwrite_assets")
         (boolOverride container "sidebarConfig" "sidebar_config")
         # always add the configured color scheme (only cfg provides this)
-        (optAttrs (cfgColorScheme != null) {color_scheme = cfgColorScheme;})
+        (optAttrs (cfgColorScheme != null) { color_scheme = cfgColorScheme; })
         # always add theme name
-        {current_theme = theme.name;}
+        { current_theme = theme.name; }
       ];
       Patch = optAttrs (builtins.hasAttr "patches" theme) theme.patches;
       Backup.version = "Unknown";
@@ -69,4 +69,4 @@ let
     builtins.mapAttrs (name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value))
       (mkXpuiOverrides cfg);
 in
-builtins.toFile "config-xpui.ini" (lib.generators.toINI {} overridenXpui2)
+builtins.toFile "config-xpui.ini" (lib.generators.toINI { } overridenXpui2)
