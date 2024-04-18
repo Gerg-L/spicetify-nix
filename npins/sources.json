@@ -284,9 +284,9 @@
         "repo": "spicetify-playlist-icons"
       },
       "branch": "main",
-      "revision": "8b2e50adb211bd899210374c26705977467eb15c",
-      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/8b2e50adb211bd899210374c26705977467eb15c.tar.gz",
-      "hash": "1ah7in363c0sr59hilikv4gkmqlvqyr70988fc2s1vhxb7sxh5jh"
+      "revision": "4625c96e109bbb00b011843044f0fca76a4232de",
+      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/4625c96e109bbb00b011843044f0fca76a4232de.tar.gz",
+      "hash": "1xja757dks9fpx4h1h0cz4vm1rp69szy19pc1y309yhi5gdp849q"
     },
     "powerBarSrc": {
       "type": "Git",
