@@ -248,9 +248,9 @@
         "repo": "spicetify-themes"
       },
       "branch": "master",
-      "revision": "4d596125c52b8ffc3fb4a7a243d0c37e9892b150",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/4d596125c52b8ffc3fb4a7a243d0c37e9892b150.tar.gz",
-      "hash": "14ys53hch6bgi49nnpa1l2nfn1skk8h7qy67xjj19cjkmyh9w8ff"
+      "revision": "439051a271192fb685b54fde5588eac7f3515f01",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/439051a271192fb685b54fde5588eac7f3515f01.tar.gz",
+      "hash": "1qavskr35p0y4y7nsxk9fwl4z6sygz88kl9rrl4g0hc87pyk54g9"
     },
     "omniSrc": {
       "type": "Git",
