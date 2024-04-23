@@ -36,17 +36,12 @@ Add this flake as an input
 ```
 (Ensure you have spotify allowed as [unfree](https://wiki.nixos.org/wiki/Unfree_Software))
 
-## Configuration
-
-Here are two examples of files which configure spicetify when imported into a
-user's home-manager configuration.
-
 ### Minimal Configuration
 
 ```nix
 programs.spicetify =
    let
-     spicePkgs = inputs.spicetify-nix.x86_64-linux.legacyPackages;
+     spicePkgs = inputs.spicetify-nix.${pkgs.system}.legacyPackages;
    in
    {
      enable = true;
