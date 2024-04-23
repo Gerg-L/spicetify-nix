@@ -1,8 +1,16 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
+    nixpkgs = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixpkgs";
+      ref = "nixos-unstable";
+    };
+
     flake-compat = {
-      url = "github:edolstra/flake-compat";
+      type = "github";
+      owner = "edolstra";
+      repo = "flake-compat";
       flake = false;
     };
   };
