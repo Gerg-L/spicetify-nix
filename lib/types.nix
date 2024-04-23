@@ -5,68 +5,42 @@ in
 rec {
 
   defaultXpui = {
-    AdditionalOptions = {
-      home = false;
-      experimental_features = false;
-      extensions = [ ];
-      custom_apps = [ ];
-      sidebar_config = true;
-    };
     Setting = {
       spotify_path = "__REPLACEME__";
       prefs_path = "__REPLACEME2__";
       current_theme = "";
       color_scheme = "";
+      inject_theme_js = true;
+      inject_css = true;
+      replace_colors = true;
+      overwrite_assets = false;
       spotify_launch_flags = "";
       check_spicetify_upgrade = false;
-      inject_css = false;
-      replace_colors = false;
-      overwrite_assets = false;
+      always_enable_devtools = false;
     };
     Preprocesses = {
-      disable_upgrade_check = true;
       disable_sentry = true;
       disable_ui_logging = true;
+      # disable_upgrade_check = true;
       remove_rtl_rule = true;
       expose_apis = true;
     };
+    AdditionalOptions = {
+      extensions = [ ];
+      custom_apps = [ ];
+      sidebar_config = true;
+      home_config = true;
+      experimental_features = true;
+    };
+    Patch = { };
     Backup = {
       version = "";
       "with" = "Dev";
     };
-    Patch = { };
   };
 
   xpui = types.submodule {
     options = {
-      AdditionalOptions = mkOption {
-        type = types.submodule {
-          options = {
-            home = mkOption {
-              type = types.bool;
-              default = defaultXpui.AdditionalOptions.home;
-            };
-            experimental_features = mkOption {
-              type = types.bool;
-              default = defaultXpui.AdditionalOptions.experimental_features;
-            };
-            extensions = mkOption {
-              type = types.listOf types.str;
-              default = defaultXpui.AdditionalOptions.extensions;
-            };
-            custom_apps = mkOption {
-              type = types.listOf types.str;
-              default = defaultXpui.AdditionalOptions.custom_apps;
-            };
-            sidebar_config = mkOption {
-              type = types.bool;
-              default = defaultXpui.AdditionalOptions.sidebar_config;
-            };
-          };
-        };
-        default = defaultXpui.AdditionalOptions;
-      };
-      Patch = { };
       Setting = mkOption {
         type = types.submodule {
           options = {
@@ -86,13 +60,9 @@ rec {
               type = types.str;
               default = defaultXpui.Setting.color_scheme;
             };
-            spotify_launch_flags = mkOption {
-              type = types.str;
-              default = defaultXpui.Setting.spotify_launch_flags;
-            };
-            check_spicetify_upgrade = mkOption {
+            inject_theme_js = mkOption {
               type = types.bool;
-              default = defaultXpui.Setting.check_spicetify_upgrade;
+              default = defaultXpui.Setting.inject_theme_js;
             };
             inject_css = mkOption {
               type = types.bool;
@@ -106,6 +76,18 @@ rec {
               type = types.bool;
               default = defaultXpui.Setting.overwrite_assets;
             };
+            spotify_launch_flags = mkOption {
+              type = types.str;
+              default = defaultXpui.Setting.spotify_launch_flags;
+            };
+            check_spicetify_upgrade = mkOption {
+              type = types.bool;
+              default = defaultXpui.Setting.check_spicetify_upgrade;
+            };
+            always_enable_devtools = mkOption {
+              type = types.bool;
+              default = defaultXpui.Setting.always_enable_devtools;
+            };
           };
         };
         default = defaultXpui.Setting;
@@ -113,10 +95,6 @@ rec {
       Preprocesses = mkOption {
         type = types.submodule {
           options = {
-            disable_upgrade_check = mkOption {
-              type = types.bool;
-              default = defaultXpui.Preprocesses.disable_upgrade_check;
-            };
             disable_sentry = mkOption {
               type = types.bool;
               default = defaultXpui.Preprocesses.disable_sentry;
@@ -137,6 +115,34 @@ rec {
         };
         default = defaultXpui.Preprocesses;
       };
+      AdditionalOptions = mkOption {
+        type = types.submodule {
+          options = {
+            extensions = mkOption {
+              type = types.listOf types.str;
+              default = defaultXpui.AdditionalOptions.extensions;
+            };
+            custom_apps = mkOption {
+              type = types.listOf types.str;
+              default = defaultXpui.AdditionalOptions.custom_apps;
+            };
+            sidebar_config = mkOption {
+              type = types.bool;
+              default = defaultXpui.AdditionalOptions.sidebar_config;
+            };
+            home_config = mkOption {
+              type = types.bool;
+              default = defaultXpui.AdditionalOptions.home_config;
+            };
+            experimental_features = mkOption {
+              type = types.bool;
+              default = defaultXpui.AdditionalOptions.experimental_features;
+            };
+          };
+        };
+        default = defaultXpui.AdditionalOptions;
+      };
+      Patch = { };
       Backup = mkOption {
         type = types.submodule {
           options = {
