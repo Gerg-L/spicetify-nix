@@ -110,7 +110,7 @@ in
   config =
     let
 
-      xpui = lib.attrsets.recursiveUpdate cfg.xpui spiceLib.types.defaultXpui;
+      xpui = lib.attrsets.recursiveUpdate spiceLib.types.defaultXpui cfg.xpui;
       actualTheme = cfg.theme;
 
       # take the list of extensions and turn strings into actual extensions
