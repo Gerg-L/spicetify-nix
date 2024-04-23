@@ -194,7 +194,3 @@ in
 
 Are found in [THEMES.md](./docs/THEMES.md), [EXTENSIONS.md](./docs/EXTENSIONS.md), and
 [CUSTOMAPPS.md](./docs/CUSTOMAPPS.md), respectively.
-
-## macOS
-
-This package has no macOS support, because I don't have access to a macOS system
