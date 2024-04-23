@@ -77,34 +77,14 @@ in
       default = spiceLib.types.defaultXpui;
     };
 
-    # legacy/ease of use options (commonly set for themes like Dribbblish)
-    # injectCss = xpui.Setting.inject_css;
-    injectCss = lib.mkOption {
-      type = lib.types.nullOr lib.types.bool;
-      default = null;
-    };
-    replaceColors = lib.mkOption {
-      type = lib.types.nullOr lib.types.bool;
-      default = if (cfg.customColorScheme != null) then true else null;
-    };
-    overwriteAssets = lib.mkOption {
-      type = lib.types.nullOr lib.types.bool;
-      default = null;
-    };
-    sidebarConfig = lib.mkOption {
-      type = lib.types.nullOr lib.types.bool;
-      default = null;
-    };
     colorScheme = lib.mkOption {
-      type = lib.types.nullOr lib.types.str;
-      default = if cfg.customColorScheme != null then "custom" else null;
+      type = lib.types.str;
+      default = if cfg.customColorScheme != { } then "custom" else "";
     };
     customColorScheme = lib.mkOption {
-      type = lib.types.nullOr lib.types.attrs;
-      default = null;
+      type = lib.types.attrs;
+      default = { };
     };
-
-    cssMap = lib.mkOption { type = lib.types.path; };
   };
 
   config =
@@ -131,7 +111,7 @@ in
             extensions = allExtensions;
             apps = allApps;
             theme = actualTheme;
-            usingCustomColorScheme = cfg.customColorScheme != null;
+            usingCustomColorScheme = cfg.customColorScheme != "";
             inherit (cfg) customColorScheme;
             # compose the configuration as well as options required by extensions and
             # cfg.xpui into one set
