@@ -12,12 +12,9 @@ let
   optAttrs = lib.optionalAttrs;
 
   # determine whether or not any extension requires experimental_features
-  needExperimental =
-    lib.lists.any
-      (
-        item: (if (builtins.hasAttr "experimentalFeatures" item) then item.experimentalFeatures else false)
-      )
-      extensions;
+  needExperimental = lib.lists.any (
+    item: (if (builtins.hasAttr "experimentalFeatures" item) then item.experimentalFeatures else false)
+  ) extensions;
 
   allExtensionFiles = map (item: item.filename) extensions;
   extensionString = builtins.concatStringsSep "|" allExtensionFiles;
@@ -65,8 +62,8 @@ let
     mkXpuiOverrides theme
   );
   # override any values defined by the theme with values defined in cfg
-  overridenXpui2 =
-    builtins.mapAttrs (name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value))
-      (mkXpuiOverrides cfg);
+  overridenXpui2 = builtins.mapAttrs (
+    name: value: (lib.trivial.mergeAttrs overridenXpui1.${name} value)
+  ) (mkXpuiOverrides cfg);
 in
 builtins.toFile "config-xpui.ini" (lib.generators.toINI { } overridenXpui2)

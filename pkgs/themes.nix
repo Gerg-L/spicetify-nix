@@ -11,17 +11,15 @@
     "sleek"
     "ziro"
   ]
-  (
-    x: {
-      name = lib.toUpper (builtins.substring 0 1 x) + (builtins.substring 1 (builtins.stringLength x) x);
-      src = source.officialThemes;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
-      sidebarConfig = false;
-    }
-  )
+  (x: {
+    name = lib.toUpper (builtins.substring 0 1 x) + (builtins.substring 1 (builtins.stringLength x) x);
+    src = source.officialThemes;
+    appendName = true;
+    injectCss = true;
+    replaceColors = true;
+    overwriteAssets = false;
+    sidebarConfig = false;
+  })
 )
 //
 
