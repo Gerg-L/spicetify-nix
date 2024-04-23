@@ -185,4 +185,6 @@ in
         ))
       ]
     );
+
+  _file = ./module.nix;
 }
