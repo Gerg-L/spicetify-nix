@@ -15,11 +15,9 @@ let
 in
 {
   options.programs.spicetify = {
-    enable = lib.mkEnableOption "A modded Spotify";
+    enable = lib.mkEnableOption "a modded Spotify";
 
-    dontInstall = lib.mkEnableOption "Put spiced spotify in config.programs.spicetify.spicedSpotify, but do not install it in home.packages.";
-
-    windowManagerPatch = lib.mkEnableOption "Linker preload spotifywm patch.";
+    dontInstall = lib.mkEnableOption "outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it";
 
     spicedSpotify = lib.mkOption {
       type = lib.types.package;
@@ -38,7 +36,11 @@ in
 
     spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
 
+    spotifywmPackage = lib.mkPackageOption pkgs "spotifywm" { };
+
     spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" { };
+
+    windowManagerPatch = lib.mkEnableOption "preloading the spotifywm patch";
 
     extraCommands = lib.mkOption {
       type = lib.types.lines;
@@ -108,8 +110,6 @@ in
   config =
     let
 
-      isSpotifyWM = cfg.spotifyPackage.pname == "spotifywm";
-
       xpui = lib.attrsets.recursiveUpdate cfg.xpui spiceLib.types.defaultXpui;
       actualTheme = cfg.theme;
 
@@ -125,8 +125,7 @@ in
       # custom spotify package with spicetify integrated in
       spiced-spotify =
         let
-
-          overridenSpotify = spicePkgs.spicetify.override {
+          pre = spicePkgs.spicetify.override {
             spotify = cfg.spotifyPackage;
             spicetify-cli = cfg.spicetifyPackage;
             extensions = allExtensions;
@@ -146,24 +145,20 @@ in
             };
           };
         in
-        if isSpotifyWM then
-          cfg.spotifyPackage.override { spotify = overridenSpotify; }
-        else
-          overridenSpotify;
+        (
+          assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
+            Spotifywm does not support darwin
+          '';
+          assert lib.assertMsg (cfg.spotifyPackage.pname != "spotifywm") ''
+            Do not set spotifyPackage to pkgs.spotifywm
+            instead enable windowManagerPatch and set spotifywmPackage
+          '';
+
+          if cfg.windowManagerPatch then cfg.spotifywmPackage.override { spotify = pre; } else pre
+        );
 
       packagesToInstall =
-        [
-          (
-            # give warning if spotifywm is set redundantly
-            if isSpotifyWM && cfg.windowManagerPatch then
-              lib.trivial.warn "spotify package set to spotifywm and windowManagerPatch is set to true. It is recommended to only use windowManagerPatch."
-            # wrap spotify with the window manager patch if necessary
-            else if cfg.windowManagerPatch then
-              spicePkgs.spotifywm.override { spotify = spiced-spotify; }
-            else
-              spiced-spotify
-          )
-        ]
+        [ spiced-spotify ]
         ++
         # need montserrat for the BurntSienna theme
         (lib.optional (actualTheme == spicePkgs.themes.burntSienna) pkgs.montserrat)
