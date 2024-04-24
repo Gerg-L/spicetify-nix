@@ -111,7 +111,7 @@ in
             extensions = allExtensions;
             apps = allApps;
             theme = actualTheme;
-            usingCustomColorScheme = cfg.customColorScheme != "";
+            usingCustomColorScheme = cfg.customColorScheme != { };
             inherit (cfg) customColorScheme;
             # compose the configuration as well as options required by extensions and
             # cfg.xpui into one set
