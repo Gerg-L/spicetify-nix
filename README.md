@@ -1,7 +1,7 @@
 # Spicetify-Nix
 
 Originally forked from [the-argus](https://github.com/the-argus/spicetify-nix)
-which forked from [the-argus](https://github.com/pietdevries94/spicetify-nix)
+which forked from [pietdevries94](https://github.com/pietdevries94/spicetify-nix)
 deleted and re-made repo for discoverability as github does not like to show forks in the search
 
 
