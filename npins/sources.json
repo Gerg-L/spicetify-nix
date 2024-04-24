@@ -56,9 +56,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "8d9cee8fa983a21df5ea402321d7cb858e5e7726",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/8d9cee8fa983a21df5ea402321d7cb858e5e7726.tar.gz",
-      "hash": "1kd686kxbs781nwryhfv0b4hqn4dvpf26w76g1jl0m1vhfl1ca7b"
+      "revision": "5c061c9ca4ae0e1bb3f87b543afadb211399d462",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/5c061c9ca4ae0e1bb3f87b543afadb211399d462.tar.gz",
+      "hash": "14pgkw7kk0ki383cvaxyar6nlfjfhhmd24n2xfgln21i7hvvsl7k"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -236,9 +236,9 @@
         "repo": "spicetify-cli"
       },
       "branch": "master",
-      "revision": "83c3ad8d602f171d5bdad63f6f39e13e634da2f2",
-      "url": "https://github.com/spicetify/spicetify-cli/archive/83c3ad8d602f171d5bdad63f6f39e13e634da2f2.tar.gz",
-      "hash": "1gsb78s6p9ngq6wcl4v011adrshzhd7903y6l43j4ddrxn32163j"
+      "revision": "49d5cbd5288cee6eff090301736594c0eb2e2525",
+      "url": "https://github.com/spicetify/spicetify-cli/archive/49d5cbd5288cee6eff090301736594c0eb2e2525.tar.gz",
+      "hash": "0p12bmz23hd3z70j7hg5jwygrlk8q6b7p7418gh7njxgjyiy0vw0"
     },
     "officialThemes": {
       "type": "Git",
@@ -248,9 +248,9 @@
         "repo": "spicetify-themes"
       },
       "branch": "master",
-      "revision": "439051a271192fb685b54fde5588eac7f3515f01",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/439051a271192fb685b54fde5588eac7f3515f01.tar.gz",
-      "hash": "1qavskr35p0y4y7nsxk9fwl4z6sygz88kl9rrl4g0hc87pyk54g9"
+      "revision": "d39d5e519dd15b21c1b82e1f6ec6095f1faca95a",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/d39d5e519dd15b21c1b82e1f6ec6095f1faca95a.tar.gz",
+      "hash": "0r48qrfhljb6x74bndk66v7560my19ncdn2b2ssxh1zffnsb7b6r"
     },
     "omniSrc": {
       "type": "Git",
