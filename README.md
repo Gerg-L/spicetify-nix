@@ -41,7 +41,7 @@ Add this flake as an input
 ```nix
 programs.spicetify =
    let
-     spicePkgs = inputs.spicetify-nix.${pkgs.system}.legacyPackages;
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
    in
    {
      enable = true;
