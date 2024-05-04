@@ -138,6 +138,10 @@ Edit and save settings related to volume to different "profiles."
 
 Adds a page that shows your listening history.
 
+### betterGenres
+
+See what genres the current song is.
+
 ### lastfm
 
 Integration with last.fm. Login to show your listening stats for a song, and get
