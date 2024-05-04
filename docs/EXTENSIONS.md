@@ -140,7 +140,7 @@ Adds a page that shows your listening history.
 
 ### betterGenres
 
-See what genres you are listening.
+See what genres the current song is.
 
 ### lastfm
 
