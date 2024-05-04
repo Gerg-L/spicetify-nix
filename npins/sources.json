@@ -12,6 +12,18 @@
       "url": "https://github.com/amanharwara/spicetify-autoVolume/archive/d7f7962724b567a8409ef2898602f2c57abddf5a.tar.gz",
       "hash": "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass"
     },
+    "betterGenresSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Vexcited",
+        "repo": "better-spotify-genres"
+      },
+      "branch": "build",
+      "revision": "ef5b0222cbb106d52103325e0bba7e19babe4ab8",
+      "url": "https://github.com/Vexcited/better-spotify-genres/archive/ef5b0222cbb106d52103325e0bba7e19babe4ab8.tar.gz",
+      "hash": "0f28cxq06iq7qwa9mvbpal6dghzfw4sk3y470wjbjvz5mx2bz2v7"
+    },
     "bloomSrc": {
       "type": "Git",
       "repository": {
