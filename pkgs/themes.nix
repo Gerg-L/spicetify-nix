@@ -1,8 +1,14 @@
-{ source, lib }:
+{
+  sources,
+  extensions,
+  pkgs,
+}:
+let
+  inherit (pkgs) lib;
+in
 (lib.genAttrs
   [
     "blossom"
-    "burntSienna"
     "default"
     "flow"
     "matte"
@@ -11,46 +17,54 @@
     "sleek"
     "ziro"
   ]
-  (x: {
-    name = lib.toUpper (builtins.substring 0 1 x) + (builtins.substring 1 (builtins.stringLength x) x);
-    src = source.officialThemes;
-    appendName = true;
-    injectCss = true;
-    replaceColors = true;
-    overwriteAssets = false;
-    sidebarConfig = false;
-  })
+  (
+    x:
+    let
+
+      name = lib.toUpper (builtins.substring 0 1 x) + (builtins.substring 1 (builtins.stringLength x) x);
+    in
+    {
+      inherit name;
+      src = "${sources.officialThemes}/${name}";
+
+      sidebarConfig = false;
+    }
+  )
 )
 //
 
   {
+    burntSienna = {
+      name = "BurntSienna";
+      src = "${sources.officialThemes}/BurntSienna";
+      extraPkgs = [ pkgs.montserrat ];
+
+      sidebarConfig = false;
+    };
+
     catppuccin = {
       name = "catppuccin";
-      src = source.catppuccinSrc;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
+      src = "${sources.catppuccinSrc}/catppuccin";
+
       overwriteAssets = true;
       sidebarConfig = false;
     };
     dribbblish = {
       name = "Dribbblish";
-      src = source.officialThemes;
+      src = "${sources.officialThemes}/Dribbblish";
       requiredExtensions = [
         {
-          filename = "theme.js";
-          src = "${source.officialThemes}/Dribbblish";
+          src = "${sources.officialThemes}/Dribbblish";
+          name = "theme.js";
         }
       ];
       patches = {
         "xpui.js_find_8008" = ",(\\w+=)32";
         "xpui.js_repl_8008" = ",\${1}56";
       };
-      injectCss = true;
-      replaceColors = true;
+
       overwriteAssets = true;
-      appendName = true;
-      sidebarConfig = true;
+
       additionalCss = ''
         .Root {
           padding-top: 0px;
@@ -60,65 +74,52 @@
 
     text = {
       name = "text";
-      src = source.officialThemes;
+      src = "${sources.officialThemes}/text";
       patches = {
         "xpui.js_find_8008" = ",(\\w+=)56";
         "xpui.js_repl_8008" = ",\${1}32";
       };
-      injectCss = true;
-      replaceColors = true;
-      appendName = true;
-      overwriteAssets = false;
+
       sidebarConfig = false;
     };
 
     dreary = {
       name = "Dreary";
-      src = source.officialThemes;
-      sidebarConfig = true;
-      appendName = true;
+      src = "${sources.officialThemes}/Dreary";
     };
     glaze = {
       name = "Glaze";
-      src = source.officialThemes;
-      sidebarConfig = true;
-      appendName = true;
+      src = "${sources.officialThemes}/Glaze";
     };
     turntable = {
       name = "Turntable";
-      src = source.officialThemes;
+      src = sources.officialThemes;
       requiredExtensions = [
         #"fullAppDisplay.js"
         {
-          filename = "turntable.js";
-          src = "${source.officialThemes}/Turntable";
+          name = "turntable.js";
+          src = "${sources.officialThemes}/Turntable";
         }
       ];
     };
 
     spotifyNoPremium = {
       name = "SpotifyNoPremium";
-      src = source.spotifyNoPremiumSrc;
-      appendName = false;
-      requiredExtensions = [
-        {
-          src = "${source.charlieS1103Src}/adblock";
-          filename = "adblock.js";
-        }
-      ];
+      src = sources.spotifyNoPremiumSrc;
+
+      requiredExtensions = [ extensions.adblock ];
       injectCss = false;
       replaceColors = false;
-      overwriteAssets = false;
+
       sidebarConfig = false;
     };
 
     fluent = {
       name = "Fluent";
-      src = source.fluentSrc;
-      appendName = false;
-      injectCss = true;
+      src = sources.fluentSrc;
+
       overwriteAssets = true;
-      replaceColors = true;
+
       sidebarConfig = false;
       patches = {
         "xpui.js_find_8008" = ",(\\w+=)32";
@@ -126,28 +127,25 @@
       };
       requiredExtensions = [
         {
-          src = source.fluentSrc;
-          filename = "fluent.js";
+          src = sources.fluentSrc;
+          name = "fluent.js";
         }
       ];
     };
 
     defaultDynamic = {
       name = "DefaultDynamic";
-      src = source.defaultDynamicSrc;
-      appendName = false;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
+      src = sources.defaultDynamicSrc;
+
       sidebarConfig = false;
       requiredExtensions = [
         {
-          src = source.defaultDynamicSrc;
-          filename = "default-dynamic.js";
+          src = sources.defaultDynamicSrc;
+          name = "default-dynamic.js";
         }
         {
-          src = source.defaultDynamicSrc;
-          filename = "Vibrant.min.js";
+          src = sources.defaultDynamicSrc;
+          name = "Vibrant.min.js";
         }
       ];
       patches = {
@@ -158,27 +156,23 @@
 
     retroBlur = {
       name = "RetroBlur";
-      src = source.retroBlurSrc;
-      appendName = false;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
+      src = sources.retroBlurSrc;
+
       sidebarConfig = false;
     };
 
     # BROKEN. no clue why
     omni = {
       name = "Omni";
-      src = source.omniSrc;
-      appendName = false;
-      injectCss = true;
+      src = sources.omniSrc;
+
       overwriteAssets = true;
-      replaceColors = true;
+
       sidebarConfig = false;
       requiredExtensions = [
         {
-          src = source.omniSrc;
-          filename = "omni.js";
+          src = sources.omniSrc;
+          name = "omni.js";
         }
       ];
     };
@@ -186,10 +180,8 @@
     # light colorscheme is broken, think that's the theme's fault
     bloom = {
       name = "Bloom";
-      src = source.bloomSrc;
-      appendName = false;
-      injectCss = true;
-      replaceColors = true;
+      src = sources.bloomSrc;
+
       overwriteAssets = true;
       sidebarConfig = false;
       patches = {
@@ -198,54 +190,45 @@
       };
       requiredExtensions = [
         {
-          src = source.bloomSrc;
-          filename = "bloom.js";
+          src = sources.bloomSrc;
+          name = "bloom.js";
         }
       ];
     };
 
     orchis = {
       name = "DarkGreen";
-      src = source.orchisSrc;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
+      src = "${sources.orchisSrc}/DarkGreen";
+      extraPkgs = [ pkgs.fira ];
+
       sidebarConfig = false;
     };
 
     dracula = {
       name = "Dracula";
-      src = source.draculaSrc;
-      appendName = true;
-      replaceColors = true;
+      src = "${sources.draculaSrc}/Dracula";
+
       injectCss = false;
-      overwriteAssets = false;
       sidebarConfig = false;
     };
 
     nord = {
       name = "Nord";
-      src = source.nordSrc;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
+      src = "${sources.nordSrc}/Nord";
+
       sidebarConfig = false;
     };
 
     comfy = {
       name = "Comfy";
-      src = source.comfySrc;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
+      src = "${sources.comfySrc}/Comfy";
+
       overwriteAssets = true;
       sidebarConfig = false;
       requiredExtensions = [
         {
-          src = "${source.comfySrc}/Comfy";
-          filename = "theme.js";
+          src = "${sources.comfySrc}/Comfy";
+          name = "theme.js";
         }
       ];
       extraCommands = ''
@@ -262,17 +245,15 @@
     # for installation in any theme
     spotifyCanvas = {
       name = "SpotifyCanvas";
-      src = "${source.spotifyCanvasSrc}/Themes/canvas";
-      appendName = false;
-      injectCss = true;
-      overwriteAssets = false;
+      src = "${sources.spotifyCanvasSrc}/Themes/canvas";
+
       replaceColors = false;
       sidebarConfig = false;
 
       requiredExtensions = [
         {
-          src = "${source.spotifyCanvasSrc}/Extensions";
-          filename = "getCanvas.js";
+          src = "${sources.spotifyCanvasSrc}/Extensions";
+          name = "getCanvas.js";
         }
       ];
     };

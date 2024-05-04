@@ -4,97 +4,81 @@
   spotify,
   spicetify-cli,
 
+  # These are throw's for callPackage to be able to get to the override call
   theme ? throw "",
-  config-xpui ? throw "",
-  usingCustomColorScheme ? false,
+  config-xpui ? { },
   customColorScheme ? { },
   cssMap ? "${spicetify-cli.src}/css-map.json",
   extensions ? [ ],
   apps ? [ ],
   extraCommands ? "",
-}:
-let
+}@args:
 
-  extensionCommands = lib.concatLines (
-    map (item: "cp -rn ${item.src}/${item.filename} Extensions/${item.filename}") extensions
-  );
-
-  customAppCommands = lib.concatLines (
-    map (
-      item:
-      "cp -rn ${
-        (
-          if item ? appendName then
-            if item.appendName then "${item.src}/${item.name}" else item.src
-          else
-            item.src
-        )
-      } CustomApps/${item.name}"
-    ) apps
-  );
-
-  spotifyPath =
-    if stdenv.isLinux then
-      "$out/share/spotify"
-    else if stdenv.isDarwin then
-      "$out/Applications/Spotify.app/Contents/Resources"
-    else
-      throw "";
-
-  themePath =
-    if (builtins.hasAttr "appendName" theme) then
-      (if theme.appendName then "${theme.src}/${theme.name}" else theme.src)
-    else
-      theme.src;
-in
 spotify.overrideAttrs (old: {
   name = "spicetify-${theme.name}";
 
   postInstall =
     (old.postInstall or "")
     + ''
-       export SPICETIFY_CONFIG=$PWD
+      export SPICETIFY_CONFIG=$PWD
 
-       cp ${lib.getExe spicetify-cli} spicetify-cli 
-       ln -s ${lib.getExe' spicetify-cli "jsHelper"} jsHelper
-       ln -s ${cssMap} css-map.json
-       touch prefs
+      mkdir -p {Themes,Extensions,CustomApps}
 
-       # replace the spotify path with the current derivation's path
-       sed "s|__REPLACEME__|${spotifyPath}|g; s|__REPLACEME2__|$SPICETIFY_CONFIG/prefs|g" ${config-xpui} > config-xpui.ini
+      cp -r ${theme.src} Themes
+      chmod -R a+wr Themes
 
-       mkdir -p {Themes,Extensions,CustomApps}
+      ${lib.optionalString (theme ? additionalCss) ''
+        cat << EOF >> Themes/${theme.name}/user.css
+          ${"\n" + theme.additionalCss}
+        EOF
+      ''}
 
-       cp -r ${themePath} Themes/${theme.name}
-       chmod -R a+wr Themes
-       ${
-         lib.optionalString (theme ? additionalCss) ''
-           cat << EOF >> Themes/${theme.name}/user.css
-             ${"\n" + theme.additionalCss}
-           EOF
-         ''
-       }
+      # extra commands that the theme might need
+      ${theme.extraCommands or ""}
 
-       # extra commands that the theme might need
-      ${lib.optionalString (theme ? extraCommands && theme.extraCommands != null) theme.extraCommands}
+      # copy extensions into Extensions folder
+      ${lib.concatMapStringsSep "\n" (item: "cp -rn ${item.src}/${item.name} Extensions") extensions}
 
-       # copy extensions into Extensions folder
-       ${extensionCommands}
+      # copy custom apps into CustomApps folder
+      ${lib.concatMapStringsSep "\n" (item: "cp -rn ${item.src} CustomApps/${item.name} CustomApps") apps}
 
-       # copy custom apps into CustomApps folder
-       ${customAppCommands}
+      # add a custom color scheme if necessary
+      ${lib.optionalString (customColorScheme != { }) ''
+        cat ${
+          builtins.toFile "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
+        } > Themes/${theme.name}/color.ini
+      ''}
 
-       # completed app and extension installation
-       # add a custom color scheme if necessary
-       ${lib.optionalString usingCustomColorScheme ''
-         cat << EOF > Themes/${theme.name}/color.ini
-           ${lib.generators.toINI { } { custom = customColorScheme; }}
-         EOF
-       ''}
 
-       # completed custom color scheme addition
-       ${extraCommands}
+      cp ${lib.getExe spicetify-cli} spicetify 
+      ln -s ${lib.getExe' spicetify-cli "jsHelper"} jsHelper
+      ln -s ${cssMap} css-map.json
 
-       ./spicetify-cli --no-restart backup apply
+      touch prefs
+
+      # replace the spotify path with the current derivation's path
+      sed "s|__SPOTIFY__|${
+        if stdenv.isLinux then
+          "$out/share/spotify"
+        else if stdenv.isDarwin then
+          "$out/Applications/Spotify.app/Contents/Resources"
+        else
+          throw ""
+      }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" ${
+        builtins.toFile "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
+      } > config-xpui.ini
+
+
+      ${extraCommands}
+
+      ./spicetify --no-restart backup apply
     '';
+
+  passthru =
+    # For debugging purposes
+    (old.passthru or { })
+    // builtins.removeAttrs args [
+      "lib"
+      "stdenv"
+    ];
 })

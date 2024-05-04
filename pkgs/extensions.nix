@@ -1,124 +1,126 @@
-{ source, lib }:
+{ sources, pkgs }:
+
 let
+  inherit (pkgs) lib;
   # EXTENSIONS ----------------------------------------------------------------
   savePlaylists = {
-    src = "${source.dakshExtensions}/Extensions";
-    filename = "savePlaylists.js";
+    src = "${sources.dakshExtensions}/Extensions";
+    name = "savePlaylists.js";
   };
   fullScreen = {
-    src = "${source.dakshExtensions}/Extensions/full-screen/dist";
-    filename = "fullScreen.js";
+    src = "${sources.dakshExtensions}/Extensions/full-screen/dist";
+    name = "fullScreen.js";
   };
   autoSkip = {
-    src = "${source.dakshExtensions}/Extensions/auto-skip/dist";
-    filename = "autoSkip.js";
+    src = "${sources.dakshExtensions}/Extensions/auto-skip/dist";
+    name = "autoSkip.js";
   };
   playNext = {
-    src = "${source.dakshExtensions}/Extensions";
-    filename = "playNext.js";
+    src = "${sources.dakshExtensions}/Extensions";
+    name = "playNext.js";
   };
   volumePercentage = {
-    src = "${source.dakshExtensions}/Extensions";
-    filename = "volumePercentage.js";
+    src = "${sources.dakshExtensions}/Extensions";
+    name = "volumePercentage.js";
   };
 
   hidePodcasts = {
-    src = source.hidePodcastsSrc;
-    filename = "hidePodcasts.js";
+    src = sources.hidePodcastsSrc;
+    name = "hidePodcasts.js";
   };
   history = {
-    src = source.historySrc;
-    filename = "historyShortcut.js";
+    src = sources.historySrc;
+    name = "historyShortcut.js";
   };
   betterGenres = {
-    src = source.betterGenresSrc;
-    filename = "spotifyGenres.js";
+    src = sources.betterGenresSrc;
+    name = "spotifyGenres.js";
   };
   lastfm = {
-    src = "${source.lastfmSrc}/src";
-    filename = "lastfm.js";
+    src = "${sources.lastfmSrc}/src";
+    name = "lastfm.js";
   };
 
   autoVolume = {
-    src = source.autoVolumeSrc;
-    filename = "autoVolume.js";
+    src = sources.autoVolumeSrc;
+    name = "autoVolume.js";
   };
 
   copyToClipboard = {
-    src = "${source.customAppsExtensionsSrc}/v2/copy-to-clipboard";
-    filename = "copytoclipboard2.js";
+    src = "${sources.customAppsExtensionsSrc}/v2/copy-to-clipboard";
+    name = "copytoclipboard2.js";
   };
   showQueueDuration = {
-    src = "${source.customAppsExtensionsSrc}/v2/show-queue-duration";
-    filename = "showQueueDuration.js";
+    src = "${sources.customAppsExtensionsSrc}/v2/show-queue-duration";
+    name = "showQueueDuration.js";
   };
   volumeProfiles = {
-    src = "${source.customAppsExtensionsSrc}/v2/volume-profiles/dist";
-    filename = "volume-profiles.js";
+    src = "${sources.customAppsExtensionsSrc}/v2/volume-profiles/dist";
+    name = "volume-profiles.js";
   };
 
   songStats = {
-    src = "${source.charlieS1103Src}/songstats";
-    filename = "songstats.js";
+    src = "${sources.charlieS1103Src}/songstats";
+    name = "songstats.js";
   };
   featureShuffle = {
-    src = "${source.charlieS1103Src}/featureshuffle";
-    filename = "featureshuffle.js";
+    src = "${sources.charlieS1103Src}/featureshuffle";
+    name = "featureshuffle.js";
   };
   oldSidebar = {
-    src = "${source.charlieS1103Src}/old-sidebar";
-    filename = "oldSidebar.js";
+    src = "${sources.charlieS1103Src}/old-sidebar";
+    name = "oldSidebar.js";
   };
   wikify = {
-    src = "${source.charlieS1103Src}/wikify";
-    filename = "wikify.js";
+    src = "${sources.charlieS1103Src}/wikify";
+    name = "wikify.js";
   };
   phraseToPlaylist = {
-    src = "${source.charlieS1103Src}/phraseToPlaylist";
-    filename = "phraseToPlaylist.js";
+    src = "${sources.charlieS1103Src}/phraseToPlaylist";
+    name = "phraseToPlaylist.js";
   };
 
   fullAlbumDate = {
-    src = "${source.huhExtensionsSrc}/fullAlbumDate";
-    filename = "fullAlbumDate.js";
+    src = "${sources.huhExtensionsSrc}/fullAlbumDate";
+    name = "fullAlbumDate.js";
   };
   fullAppDisplayMod = {
-    src = "${source.huhExtensionsSrc}/fullAppDisplayModified";
-    filename = "fullAppDisplayMod.js";
+    src = "${sources.huhExtensionsSrc}/fullAppDisplayModified";
+    name = "fullAppDisplayMod.js";
   };
   goToSong = {
-    src = "${source.huhExtensionsSrc}/goToSong";
-    filename = "goToSong.js";
+    src = "${sources.huhExtensionsSrc}/goToSong";
+    name = "goToSong.js";
   };
   listPlaylistsWithSong = {
-    src = "${source.huhExtensionsSrc}/listPlaylistsWithSong";
-    filename = "listPlaylistsWithSong.js";
+    src = "${sources.huhExtensionsSrc}/listPlaylistsWithSong";
+    name = "listPlaylistsWithSong.js";
   };
   playlistIntersection = {
-    src = "${source.huhExtensionsSrc}/playlistIntersection";
-    filename = "playlistIntersection.js";
+    src = "${sources.huhExtensionsSrc}/playlistIntersection";
+    name = "playlistIntersection.js";
   };
   skipStats = {
-    src = "${source.huhExtensionsSrc}/skipStats";
-    filename = "skipStats.js";
+    src = "${sources.huhExtensionsSrc}/skipStats";
+    name = "skipStats.js";
   };
   playlistIcons = {
-    src = source.playlistIconsSrc;
-    filename = "playlist-icons.js";
+    src = sources.playlistIconsSrc;
+    name = "playlist-icons.js";
   };
 
   seekSong = {
-    src = "${source.tetraxSrc}/Seek-Song";
-    filename = "seekSong.js";
+    src = "${sources.tetraxSrc}/Seek-Song";
+    name = "seekSong.js";
   };
   skipOrPlayLikedSongs = {
-    src = "${source.tetraxSrc}/Skip-or-Play-Liked-Songs";
-    filename = "skipOrPlayLikedSongs.js";
+    src = "${sources.tetraxSrc}/Skip-or-Play-Liked-Songs";
+    name = "skipOrPlayLikedSongs.js";
   };
 
   powerBar = {
-    src = source.powerBarSrc;
-    filename = "power-bar.js";
+    src = sources.powerBarSrc;
+    name = "power-bar.js";
   };
   # TODO: add user.css additions as part of extensions, for snippets
   # powerBar can by styled with the following CSS:
@@ -132,13 +134,13 @@ let
   # }
 
   groupSession = {
-    src = "${source.groupSessionSrc}/src";
-    filename = "group-session.js";
+    src = "${sources.groupSessionSrc}/src";
+    name = "group-session.js";
   };
 
   charliesAdblock = {
-    src = "${source.charlieS1103Src}/adblock";
-    filename = "adblock.js";
+    src = "${sources.charlieS1103Src}/adblock";
+    name = "adblock.js";
   };
 
   sanitizeName =
@@ -155,17 +157,17 @@ let
   mkExtAlias =
     alias: ext:
     {
-      ${sanitizeName ext.filename} = ext;
+      ${sanitizeName ext.name} = ext;
     }
-    // lib.optionalAttrs (alias != ext.filename) { ${sanitizeName alias} = ext; };
+    // lib.optionalAttrs (alias != ext.name) { ${sanitizeName alias} = ext; };
 in
 (lib.listToAttrs (
   map
     (x: {
       name = sanitizeName x;
       value = {
-        src = "${source.officialSrc}/Extensions";
-        filename = "${x}.js";
+        src = "${sources.officialSrc}/Extensions";
+        name = "${x}.js";
       };
     })
     [
@@ -185,7 +187,7 @@ in
 
   #append .js
   lib.attrsets.mergeAttrsList (
-    map (x: mkExtAlias x.filename x) [
+    map (x: mkExtAlias x.name x) [
       groupSession
       powerBar
       seekSong

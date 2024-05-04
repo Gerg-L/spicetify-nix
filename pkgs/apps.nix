@@ -1,37 +1,29 @@
-{ source }:
+{ sources }:
 {
   # CUSTOMAPPS ----------------------------------------------------------------
   localFiles = {
     name = "localFiles";
-    src = source.localFilesSrc;
-    appendName = false;
+    src = sources.localFilesSrc;
   };
-
   marketplace = {
     name = "marketplace";
-    src = source.marketplaceSrc;
-    appendName = false;
+    src = sources.marketplaceSrc;
   };
-
   nameThatTune = {
     name = "nameThatTune";
-    src = source.nameThatTuneSrc;
-    appendName = false;
+    src = sources.nameThatTuneSrc;
   };
 
-  new-releases = {
-    src = "${source.officialSrc}/CustomApps";
+  newReleases = {
+    src = "${sources.officialSrc}/CustomApps/new-releases";
     name = "new-releases";
-    appendName = true;
   };
   reddit = {
-    src = "${source.officialSrc}/CustomApps";
+    src = "${sources.officialSrc}/CustomApps/reddit";
     name = "reddit";
-    appendName = true;
   };
-  lyrics-plus = {
-    src = "${source.officialSrc}/CustomApps";
+  lyricsPlus = {
+    src = "${sources.officialSrc}/CustomApps/lyrics-plus";
     name = "lyrics-plus";
-    appendName = true;
   };
 }

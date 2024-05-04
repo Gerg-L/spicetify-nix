@@ -18,9 +18,10 @@
   outputs =
     { self, nixpkgs, ... }:
     let
+      inherit (nixpkgs) lib;
       withSystem =
         f:
-        nixpkgs.lib.fold nixpkgs.lib.recursiveUpdate { } (
+        lib.fold lib.recursiveUpdate { } (
           map f [
             "aarch64-darwin"
             "aarch64-linux"
@@ -51,9 +52,7 @@
           default = self.nixosModules.spicetify;
         };
 
-        lib = import ./lib nixpkgs.lib;
-
-        legacyPackages.${system} = import ./pkgs pkgs;
+        legacyPackages.${system} = import ./pkgs {inherit pkgs self;};
 
         formatter.${system} = pkgs.nixfmt-rfc-style;
 
