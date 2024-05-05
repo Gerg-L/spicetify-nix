@@ -104,9 +104,9 @@
         "repo": "spicetify-dynamic-theme"
       },
       "branch": "main",
-      "revision": "ebb53549036802f51f4872e6a2c5dbafd9b37466",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/ebb53549036802f51f4872e6a2c5dbafd9b37466.tar.gz",
-      "hash": "1zjd30bsawjm8nlf0bkiw8kjm7w2j78f6v180aai4iz8jpd604q2"
+      "revision": "fadd6cbe5c673e47b67e2d099f3edb5e0c521e6f",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/fadd6cbe5c673e47b67e2d099f3edb5e0c521e6f.tar.gz",
+      "hash": "08ip8a2bwwrirzwksyv2pl0w4p9j4rpkm5jy485cy2z4mlvb9vq1"
     },
     "draculaSrc": {
       "type": "Git",
@@ -308,9 +308,9 @@
         "repo": "spicetify-power-bar"
       },
       "branch": "main",
-      "revision": "095a128a00e958080432386e506fa22407f1a52d",
-      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/095a128a00e958080432386e506fa22407f1a52d.tar.gz",
-      "hash": "0g007q3arx60p1db6ajn5dbihdachwkiyr0fbxn8ax4mr8qmwgrv"
+      "revision": "5872bc18e7d01198f1acd9bc913b3d4a74c4e7f6",
+      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/5872bc18e7d01198f1acd9bc913b3d4a74c4e7f6.tar.gz",
+      "hash": "0x2k1vkgindkvchl4adlkhc3lvz0smpic17wbm7i5945ysxgfn9h"
     },
     "retroBlurSrc": {
       "type": "Git",
