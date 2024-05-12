@@ -2,13 +2,13 @@
 
 ## Official Apps
 
-### new-releases
+### newReleases
 Add a page showing new releases from artists you follow.
 
 ### reddit
 Add a page showing popular music on certain music subreddits.
 
-### lyrics-plus
+### lyricsPlus
 Add a page with pretty scrolling lyrics.
 
 ### marketplace
