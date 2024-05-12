@@ -3,6 +3,7 @@
   stdenv,
   spotify,
   spicetify-cli,
+  writeText,
 
   # These are throw's for callPackage to be able to get to the override call
   theme ? throw "",
@@ -28,24 +29,24 @@ spotify.overrideAttrs (old: {
       chmod -R a+wr Themes
 
       ${lib.optionalString (theme ? additionalCss) ''
-        cat << EOF >> Themes/${theme.name}/user.css
-          ${"\n" + theme.additionalCss}
-        EOF
+        cat ${
+          writeText "spicetify-additional-CSS" ("\n" + theme.additionalCss)
+        } >> Themes/${theme.name}/user.css
       ''}
 
       # extra commands that the theme might need
       ${theme.extraCommands or ""}
 
       # copy extensions into Extensions folder
-      ${lib.concatMapStringsSep "\n" (item: "cp -rn ${item.src}/${item.name} Extensions") extensions}
+      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src}/${item.name} Extensions") extensions}
 
       # copy custom apps into CustomApps folder
-      ${lib.concatMapStringsSep "\n" (item: "cp -rn ${item.src} CustomApps/${item.name} CustomApps") apps}
+      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src} CustomApps") apps}
 
       # add a custom color scheme if necessary
       ${lib.optionalString (customColorScheme != { }) ''
         cat ${
-          builtins.toFile "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
+          writeText "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
         } > Themes/${theme.name}/color.ini
       ''}
 
@@ -65,7 +66,7 @@ spotify.overrideAttrs (old: {
         else
           throw ""
       }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" ${
-        builtins.toFile "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
+        writeText "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
       } > config-xpui.ini
 
 
