@@ -344,9 +344,9 @@
         "repo": "SpotifyNoPremium"
       },
       "branch": "main",
-      "revision": "b67e393a3eacab964ed388d10802944fc1935148",
-      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/b67e393a3eacab964ed388d10802944fc1935148.tar.gz",
-      "hash": "0a21jlyq411mwqj5n5hj5w4i8m99c0yccamgsv7hq3vnbzn5mwhy"
+      "revision": "13c540cd0950028f7133feac58ca557c48565c14",
+      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/13c540cd0950028f7133feac58ca557c48565c14.tar.gz",
+      "hash": "1grn6j20cfaljmwm7mrar8v0gr9cmmybki9z20c0789dwwn4c4z8"
     },
     "startPageSrc": {
       "type": "Git",
