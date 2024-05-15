@@ -15,6 +15,7 @@ in
     "nightlight"
     "onepunch"
     "sleek"
+    "starryNight"
     "ziro"
   ]
   (
