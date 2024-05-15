@@ -6,6 +6,9 @@ All of these themes can be found [here.](https://github.com/spicetify/spicetify-
 ### default
 Identical to the default look of spotify, but with other colorschemes available.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Default/ocean.png)
+### blossom
+A little theme for your Spotify client
+![preview](https://github.com/spicetify/spicetify-themes/blob/master/Blossom/images/home.png)]
 ### burntSienna
 Grey and orange theme using the montserrat typeface.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/BurntSienna/screenshot.png)
@@ -18,6 +21,11 @@ Modern, rounded, and minimal design, with fading effects and gradients.
 ### flow
 Monochromatic colorschemes with subtle differences between colors, and soft vertical gradients.
 ![preview](https://raw.githubusercontent.com/spicetify/spicetify-themes/master/Flow/screenshots/ocean.png)
+### matte 
+A distinct top bar, quick-to-edit CSS variables, and color schemes from Windows visual styles by KDr3w
+![preview](https://github.com/spicetify/spicetify-themes/blob/master/Matte/screenshots/queue.png)
+### nightlight
+![preview](https://github.com/spicetify/spicetify-themes/blob/master/Nightlight/screenshots/nightlight.png)
 ### glaze
 Simple theme which gives spotify a simpler design and a single highlight color.
 ![preview](https://github.com/CharlieS1103/Glaze-theme/blob/main/screenshots/base.png)

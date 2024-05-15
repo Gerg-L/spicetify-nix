@@ -1,14 +1,7 @@
 # Extensions
-
-Javascript injections to add functionality to your spotify client.
-Extensions can be referenced like so:
-``spicetify-nix.packages.${pkgs.system}.default.extensions.extensionName``
-
 ## Official Extensions
 
-### fullAppDisplay
 
-Shows the song cover, title, and artist in fullscreen.
 
 ### autoSkipExplicit
 
@@ -22,6 +15,10 @@ can't be played. Just skip them with this extension.
 ### bookmark
 
 Store and browse pages for looking at later.
+
+### fullAppDisplay
+
+Shows the song cover, title, and artist in fullscreen.
 
 ### keyboardShortcut
 
