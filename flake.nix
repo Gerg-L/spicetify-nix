@@ -37,7 +37,7 @@
       in
       {
         homeManagerModules = {
-          spicetify = import ./module.nix {
+          spicetify = import "${self}/module.nix" {
             inherit self;
             isNixOSModule = false;
           };
@@ -45,14 +45,14 @@
         };
 
         nixosModules = {
-          spicetify = import ./module.nix {
+          spicetify = import "${self}/module.nix" {
             inherit self;
             isNixOSModule = true;
           };
           default = self.nixosModules.spicetify;
         };
 
-        legacyPackages.${system} = import ./pkgs {inherit pkgs self;};
+        legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
 
         formatter.${system} = pkgs.nixfmt-rfc-style;
 

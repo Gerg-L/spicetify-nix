@@ -2,10 +2,11 @@
   fetchzip,
   fetchgit,
   fetchurl,
+  self,
 }:
 let
 
-  data = builtins.fromJSON (builtins.readFile ./sources.json);
+  data = builtins.fromJSON (builtins.readFile "${self}/npins/sources.json");
 
   mkSource =
     spec:
