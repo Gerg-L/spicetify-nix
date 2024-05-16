@@ -41,7 +41,7 @@ spotify.overrideAttrs (old: {
       ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src}/${item.name} Extensions") extensions}
 
       # copy custom apps into CustomApps folder
-      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src} CustomApps") apps}
+      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src} CustomApps/${item.name}") apps}
 
       # add a custom color scheme if necessary
       ${lib.optionalString (customColorScheme != { }) ''
