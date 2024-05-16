@@ -21,3 +21,6 @@ Add a shortcut to see just your local files.
 
 ### nameThatTune
 Heardle.app for spicetify. [Source](https://github.com/theRealPadster/name-that-tune)
+
+### ncsVisualizer
+NCS-style visualizer for Spicetify [Source](https://github.com/Konsl/spicetify-ncs-visualizer)

@@ -228,6 +228,18 @@
       "url": "https://github.com/theRealPadster/name-that-tune/archive/cd28eb0823454dee03b59f28a2220fbbfb14c8e6.tar.gz",
       "hash": "07wwzj7v8y27mhmknjw3d29m9641qlkzmm0kmnd27qikangqhnrr"
     },
+    "ncsVisualizerSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Konsl",
+        "repo": "spicetify-ncs-visualizer"
+      },
+      "branch": "dist",
+      "revision": "afc1f5c8d73cbb68c46df86ac4cbb4e0e1313750",
+      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/afc1f5c8d73cbb68c46df86ac4cbb4e0e1313750.tar.gz",
+      "hash": "0xzrgqr792ynxryf5zlmm6mvlglcpsfzvhbdnhdzgl7jshxkv8py"
+    },
     "nordSrc": {
       "type": "Git",
       "repository": {

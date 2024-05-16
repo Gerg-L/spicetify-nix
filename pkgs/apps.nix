@@ -1,6 +1,10 @@
 { sources }:
 {
-  # CUSTOMAPPS ----------------------------------------------------------------
+  ncsVisualizer = {
+    name = "ncs-visualizer";
+    src = sources.ncsVisualizerSrc;
+  };
+
   localFiles = {
     name = "localFiles";
     src = sources.localFilesSrc;
