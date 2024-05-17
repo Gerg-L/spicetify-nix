@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v4.1.5
+        uses: actions/checkout@v4.1.6
       - name: install nix
         uses: DeterminateSystems/nix-installer-action@v11
       - name: setup git
