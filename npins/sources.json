@@ -44,9 +44,9 @@
         "repo": "spicetify"
       },
       "branch": "main",
-      "revision": "d3c4b697f1739149684e36977a1502f88c344b3a",
-      "url": "https://github.com/catppuccin/spicetify/archive/d3c4b697f1739149684e36977a1502f88c344b3a.tar.gz",
-      "hash": "0aj4rj2mm97c2lgpgaky3ma26pbc52w8pi7ykj59kml5v9dj06ap"
+      "revision": "93aa0e6b8a2b24aebc9627ee00858c53c99109dc",
+      "url": "https://github.com/catppuccin/spicetify/archive/93aa0e6b8a2b24aebc9627ee00858c53c99109dc.tar.gz",
+      "hash": "1wvy2jnmy8lrp2qpgwm2f44xhyd7c9wn033nljjbxcli00lpnlm9"
     },
     "charlieS1103Src": {
       "type": "Git",
@@ -356,9 +356,9 @@
         "repo": "SpotifyNoPremium"
       },
       "branch": "main",
-      "revision": "13c540cd0950028f7133feac58ca557c48565c14",
-      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/13c540cd0950028f7133feac58ca557c48565c14.tar.gz",
-      "hash": "1grn6j20cfaljmwm7mrar8v0gr9cmmybki9z20c0789dwwn4c4z8"
+      "revision": "5a77b3bd355fdf5fe0af7f777623955055cf930f",
+      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/5a77b3bd355fdf5fe0af7f777623955055cf930f.tar.gz",
+      "hash": "12wzd6h0lav963zml3398zba1mcb88cs9wpaa1kbw2pbcfj5bg7c"
     },
     "startPageSrc": {
       "type": "Git",
