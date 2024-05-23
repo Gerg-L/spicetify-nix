@@ -68,9 +68,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "35c9cdd5eed479be2139518b83c53f04090fcfb6",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/35c9cdd5eed479be2139518b83c53f04090fcfb6.tar.gz",
-      "hash": "19z1gmsq68hvmyjmyz4dkri93pmxih493cr9ija9gsbrr04s6zd9"
+      "revision": "cf2d3b88e183f2c777b28e2323523ef913ccd352",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/cf2d3b88e183f2c777b28e2323523ef913ccd352.tar.gz",
+      "hash": "15sghpfgrbrksd44y36xizg9bpsjhb6wq7jycp9nh0n26asxqcfk"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -356,9 +356,9 @@
         "repo": "SpotifyNoPremium"
       },
       "branch": "main",
-      "revision": "5a77b3bd355fdf5fe0af7f777623955055cf930f",
-      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/5a77b3bd355fdf5fe0af7f777623955055cf930f.tar.gz",
-      "hash": "12wzd6h0lav963zml3398zba1mcb88cs9wpaa1kbw2pbcfj5bg7c"
+      "revision": "9abed42e8777de09041b1197dfe5794266ce6523",
+      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/9abed42e8777de09041b1197dfe5794266ce6523.tar.gz",
+      "hash": "03hhmb4mgxlbsfvq5rq6bbg7cyg9hk8lp71pd164gn8qpn88a45s"
     },
     "startPageSrc": {
       "type": "Git",
