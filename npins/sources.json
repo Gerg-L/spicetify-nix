@@ -20,9 +20,9 @@
         "repo": "better-spotify-genres"
       },
       "branch": "build",
-      "revision": "ef5b0222cbb106d52103325e0bba7e19babe4ab8",
-      "url": "https://github.com/Vexcited/better-spotify-genres/archive/ef5b0222cbb106d52103325e0bba7e19babe4ab8.tar.gz",
-      "hash": "0f28cxq06iq7qwa9mvbpal6dghzfw4sk3y470wjbjvz5mx2bz2v7"
+      "revision": "304b0af9c580b5301bd589a5e1ffabffc0c20e53",
+      "url": "https://github.com/Vexcited/better-spotify-genres/archive/304b0af9c580b5301bd589a5e1ffabffc0c20e53.tar.gz",
+      "hash": "19np0hyy70x01ddggqq8p991h88g8b28h2cihprq2zqmm8jcx8br"
     },
     "bloomSrc": {
       "type": "Git",
