@@ -11,7 +11,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.6
       - name: install nix
-        uses: DeterminateSystems/nix-installer-action@v11
+        uses: DeterminateSystems/nix-installer-action@v12
       - name: setup git
         run: | 
           git config user.email Gerg-L@proton.me
