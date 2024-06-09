@@ -17,7 +17,7 @@ Add this flake as an input
 #flake.nix
 {
   inputs = {
-    nvim-flake = {
+    spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
