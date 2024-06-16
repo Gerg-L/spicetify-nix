@@ -212,9 +212,9 @@
         "repo": "spicetify-marketplace"
       },
       "branch": "main",
-      "revision": "6f210f80f1d14b86f164b4b7fc068bc2e885276d",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/6f210f80f1d14b86f164b4b7fc068bc2e885276d.tar.gz",
-      "hash": "05kjd9agdcph4zihb37ly7wzhzbhq7xypx8i7g1kpha3vgh2yc24"
+      "revision": "8d78b0837cb1318393769800ef8148afad784302",
+      "url": "https://github.com/spicetify/spicetify-marketplace/archive/8d78b0837cb1318393769800ef8148afad784302.tar.gz",
+      "hash": "0ss55bi39kwpgncpxylwmj8nyg0ajgi4p10n606xyjrvy7lmv60n"
     },
     "nameThatTuneSrc": {
       "type": "Git",
