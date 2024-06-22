@@ -14,9 +14,8 @@ jobs:
         uses: DeterminateSystems/nix-installer-action@v12
       - name: setup git
         run: | 
-          git config user.email Gerg-L@proton.me
-          git config user.name "GitHub Actions"
-          git checkout -b updates-${{ github.run_id }}
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
       - name: update
         run: |
           MESSAGE=""
@@ -45,14 +44,8 @@ jobs:
 
           git commit -m "CI update $(date -I)" -m "$MESSAGE"
 
-          git push -u origin updates-${{ github.run_id }}
+          git push origin HEAD:${{ github.ref_name }}
 
-          PR=$(gh pr create \
-            --base master \
-            --body "$MESSAGE" \
-            --fill \
-            --title "Auto update $(date -I)")
-
-          gh pr merge $PR --squash --delete-branch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
