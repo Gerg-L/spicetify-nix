@@ -48,18 +48,6 @@
       "url": "https://github.com/catppuccin/spicetify/archive/4294a61f54a044768c6e9db20e83c5b74da71091.tar.gz",
       "hash": "0wh98li6brlhgcfwa8g9s9ia2mvza36fzsl6l1ddz3x3h2x1lyrq"
     },
-    "charlieS1103Src": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "CharlieS1103",
-        "repo": "spicetify-extensions"
-      },
-      "branch": "main",
-      "revision": "ab8fe9ccabc86477bc55a561fc532a0fa416d58c",
-      "url": "https://github.com/CharlieS1103/spicetify-extensions/archive/ab8fe9ccabc86477bc55a561fc532a0fa416d58c.tar.gz",
-      "hash": "0wawa8kc1arnfyvmqndmmcggskikmg798qvsr8ylq4rhga23b16p"
-    },
     "comfySrc": {
       "type": "Git",
       "repository": {
@@ -335,6 +323,18 @@
       "revision": "123b932561e098adde6fe3d6d8c98f2c51332c13",
       "url": "https://github.com/Motschen/Retroblur/archive/123b932561e098adde6fe3d6d8c98f2c51332c13.tar.gz",
       "hash": "0qz7vi3vz72skrsv6xnj7xypl8i350m431kpj6hzlwzqga1a9d5b"
+    },
+    "rxriSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "rxri",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "9168bc5d6c3b816ba404d91161fd577b3bf43e4a",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/9168bc5d6c3b816ba404d91161fd577b3bf43e4a.tar.gz",
+      "hash": "1n2n26704f4vylcx2gfcvxwgl4qxzah417g7lssp3ddibh6ydy4h"
     },
     "spotifyCanvasSrc": {
       "type": "Git",
