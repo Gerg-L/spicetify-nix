@@ -245,7 +245,7 @@
       "repository": {
         "type": "GitHub",
         "owner": "spicetify",
-        "repo": "spicetify-cli"
+        "repo": "cli"
       },
       "branch": "master",
       "revision": "e23e0f252b6d1641149620cb9f04a815fd5818f4",
