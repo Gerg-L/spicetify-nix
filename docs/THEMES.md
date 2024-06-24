@@ -50,8 +50,8 @@ A TUI-like theme.
 A soothing pastel theme for spotify. Comes in four color schemes: mocha, frappe, latte, and macchiato. [Source](https://github.com/catppuccin/spicetify)
 ![preview](https://github.com/catppuccin/spicetify/blob/main/assets/preview.webp)
 ### comfy
-Stay comfy while listening to music. Rounded corners and dark blues. Comes in two additional variations: Comfy-Chromatic and Comfy-Mono. [Source](https://github.com/Comfy-Themes/Spicetify)
-![preview](https://github.com/Comfy-Themes/Spicetify/blob/main/Comfy/preview/home.png)
+Stay comfy while listening to music. Rounded corners and dark blues. Comes in many variations. [Source](https://github.com/Comfy-Themes/Spicetify)
+![preview](https://github.com/Comfy-Themes/Spicetify/blob/main/images/color-schemes/comfy.png)
 ### dracula
 Default spotify with the colors of the popular scheme. [Source](https://github.com/Darkempire78/Dracula-Spicetify)
 ![preview](https://github.com/Darkempire78/Dracula-Spicetify/blob/master/screenshot.png)
