@@ -319,10 +319,10 @@
         "owner": "jeroentvb",
         "repo": "spicetify-power-bar"
       },
-      "branch": "main",
-      "revision": "5872bc18e7d01198f1acd9bc913b3d4a74c4e7f6",
-      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/5872bc18e7d01198f1acd9bc913b3d4a74c4e7f6.tar.gz",
-      "hash": "0x2k1vkgindkvchl4adlkhc3lvz0smpic17wbm7i5945ysxgfn9h"
+      "branch": "dist",
+      "revision": "021ffb8839a6ef5959f306693288f2b96bd3b992",
+      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/021ffb8839a6ef5959f306693288f2b96bd3b992.tar.gz",
+      "hash": "008c0kisjjwxnfyv3ymxfih6zv4k53n1z4qbzf080z4njpa5wv3x"
     },
     "retroBlurSrc": {
       "type": "Git",
