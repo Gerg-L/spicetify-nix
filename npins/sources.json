@@ -307,10 +307,10 @@
         "owner": "jeroentvb",
         "repo": "spicetify-playlist-icons"
       },
-      "branch": "main",
-      "revision": "4625c96e109bbb00b011843044f0fca76a4232de",
-      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/4625c96e109bbb00b011843044f0fca76a4232de.tar.gz",
-      "hash": "1xja757dks9fpx4h1h0cz4vm1rp69szy19pc1y309yhi5gdp849q"
+      "branch": "dist",
+      "revision": "7a4bcbf1fc6b37ac37e16cacb9c9bcd0fe99636e",
+      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/7a4bcbf1fc6b37ac37e16cacb9c9bcd0fe99636e.tar.gz",
+      "hash": "1iaa81dzka8isrkdmyjr3bb2f8pga4yn087mygz42bh1zajhshrp"
     },
     "powerBarSrc": {
       "type": "Git",
