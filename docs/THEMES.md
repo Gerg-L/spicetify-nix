@@ -60,7 +60,7 @@ Default spotify with the colors of the popular scheme. [Source](https://github.c
 ![preview](https://github.com/Tetrax-10/Nord-Spotify/blob/master/assets/home.png)
 ### spotifyCanvas
 A theme attempting to bring canvas, the video/clip player, to spotify desktop. It normally is only available on mobile. [Source](https://github.com/itsmeow/Spicetify-Canvas)
-![preview](https://camo.githubusercontent.com/824738caeda9df907e11a83825e2dea7d7673e044b963c2d672d6efc5d190c38/68747470733a2f2f692e696d6775722e636f6d2f653575734164422e706e67)
+![preview](https://camo.githubusercontent.com/c1c042a751f8277cd31f0091fac874f5841d31e969483af1134e964a44ec0cb5/68747470733a2f2f692e696d6775722e636f6d2f6275647263454e2e676966)
 ### spotifyNoPremium
 Same as default spotify but without ads and anything related to getting premium. [Source](https://github.com/Daksh777/SpotifyNoPremium)
 ![preview](https://camo.githubusercontent.com/7d8bea70db4173dd0bebffbf777695da77547c24173a48b898b2d1167c1114bf/68747470733a2f2f692e696d6775722e636f6d2f6b4566664479382e706e67)
