@@ -69,7 +69,7 @@ Inspired by the design of Windows 11. [Source](https://github.com/williamckha/sp
 ![preview](https://github.com/williamckha/spicetify-fluent/blob/master/screenshots/dark-1.png)
 ### defaultDynamic
 Same as default spotify, but colors change dynamically with album art. [Source](https://github.com/JulienMaille/spicetify-dynamic-theme)
-![preview](https://github.com/JulienMaille/spicetify-dynamic-theme/blob/main/Dark.gif)
+![preview](https://github.com/JulienMaille/spicetify-dynamic-theme/blob/main/preview.gif)
 ### retroBlur
 Synthwave theme with a lot of blur and effects. [Source](https://github.com/Motschen/Retroblur)
 ![preview](https://github.com/Motschen/Retroblur/blob/main/preview/playlist.png)
