@@ -63,7 +63,7 @@ A theme attempting to bring canvas, the video/clip player, to spotify desktop. I
 ![preview](https://camo.githubusercontent.com/824738caeda9df907e11a83825e2dea7d7673e044b963c2d672d6efc5d190c38/68747470733a2f2f692e696d6775722e636f6d2f653575734164422e706e67)
 ### spotifyNoPremium
 Same as default spotify but without ads and anything related to getting premium. [Source](https://github.com/Daksh777/SpotifyNoPremium)
-![preview](https://camo.githubusercontent.com/31d933c55d8aa67041b6e13e30e92442e38fcb9d4134061adc7853630df13a3e/68747470733a2f2f692e696d6775722e636f6d2f48566a5448544f2e706e67)
+![preview](https://camo.githubusercontent.com/7d8bea70db4173dd0bebffbf777695da77547c24173a48b898b2d1167c1114bf/68747470733a2f2f692e696d6775722e636f6d2f6b4566664479382e706e67)
 ### fluent
 Inspired by the design of Windows 11. [Source](https://github.com/williamckha/spicetify-fluent)
 ![preview](https://github.com/williamckha/spicetify-fluent/blob/master/screenshots/dark-1.png)
