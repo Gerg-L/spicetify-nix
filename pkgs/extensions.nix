@@ -75,6 +75,14 @@ let
     src = "${sources.rxriSrc}/wikify";
     name = "wikify.js";
   };
+  writeify = {
+    src = "${sources.rxriSrc}/writeify";
+    name = "writeify.js";
+  };
+  formatColors = {
+    src = "${sources.rxriSrc}/formatColors";
+    name = "formatColors.js";
+  };
   phraseToPlaylist = {
     src = "${sources.rxriSrc}/phraseToPlaylist";
     name = "phraseToPlaylist.js";
@@ -201,6 +209,8 @@ in
       skipStats
       phraseToPlaylist
       wikify
+      writeify
+      formatColors
       featureShuffle
       songStats
       showQueueDuration
