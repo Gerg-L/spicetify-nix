@@ -26,9 +26,6 @@ A distinct top bar, quick-to-edit CSS variables, and color schemes from Windows 
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Matte/screenshots/queue.png)
 ### nightlight
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Nightlight/screenshots/nightlight.png)
-### glaze
-Simple theme which gives spotify a simpler design and a single highlight color.
-![preview](https://github.com/CharlieS1103/Glaze-theme/blob/main/screenshots/base.png)
 ### onepunch
 Gruvbox.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Onepunch/screenshots/dark_home.png)
@@ -53,26 +50,26 @@ A TUI-like theme.
 A soothing pastel theme for spotify. Comes in four color schemes: mocha, frappe, latte, and macchiato. [Source](https://github.com/catppuccin/spicetify)
 ![preview](https://github.com/catppuccin/spicetify/blob/main/assets/preview.webp)
 ### comfy
-Stay comfy while listening to music. Rounded corners and dark blues. Comes in two additional variations: Comfy-Chromatic and Comfy-Mono. [Source](https://github.com/Comfy-Themes/Spicetify)
-![preview](https://github.com/Comfy-Themes/Spicetify/blob/main/Comfy/preview/home.png)
+Stay comfy while listening to music. Rounded corners and dark blues. Comes in many variations. [Source](https://github.com/Comfy-Themes/Spicetify)
+![preview](https://github.com/Comfy-Themes/Spicetify/blob/main/images/color-schemes/comfy.png)
 ### dracula
 Default spotify with the colors of the popular scheme. [Source](https://github.com/Darkempire78/Dracula-Spicetify)
 ![preview](https://github.com/Darkempire78/Dracula-Spicetify/blob/master/screenshot.png)
 ### nord
 Default spotify with the colors of the popular scheme. [Source](https://github.com/Tetrax-10/Nord-Spotify)
-![preview](https://github.com/Tetrax-10/Nord-Spotify/blob/master/assets/home.png)
+![preview](https://raw.githubusercontent.com/Tetrax-10/Nord-Spotify/master/assets/nord/libx/libx-home-page.png)
 ### spotifyCanvas
 A theme attempting to bring canvas, the video/clip player, to spotify desktop. It normally is only available on mobile. [Source](https://github.com/itsmeow/Spicetify-Canvas)
-![preview](https://camo.githubusercontent.com/824738caeda9df907e11a83825e2dea7d7673e044b963c2d672d6efc5d190c38/68747470733a2f2f692e696d6775722e636f6d2f653575734164422e706e67)
+![preview](https://camo.githubusercontent.com/c1c042a751f8277cd31f0091fac874f5841d31e969483af1134e964a44ec0cb5/68747470733a2f2f692e696d6775722e636f6d2f6275647263454e2e676966)
 ### spotifyNoPremium
 Same as default spotify but without ads and anything related to getting premium. [Source](https://github.com/Daksh777/SpotifyNoPremium)
-![preview](https://camo.githubusercontent.com/31d933c55d8aa67041b6e13e30e92442e38fcb9d4134061adc7853630df13a3e/68747470733a2f2f692e696d6775722e636f6d2f48566a5448544f2e706e67)
+![preview](https://camo.githubusercontent.com/7d8bea70db4173dd0bebffbf777695da77547c24173a48b898b2d1167c1114bf/68747470733a2f2f692e696d6775722e636f6d2f6b4566664479382e706e67)
 ### fluent
 Inspired by the design of Windows 11. [Source](https://github.com/williamckha/spicetify-fluent)
 ![preview](https://github.com/williamckha/spicetify-fluent/blob/master/screenshots/dark-1.png)
 ### defaultDynamic
 Same as default spotify, but colors change dynamically with album art. [Source](https://github.com/JulienMaille/spicetify-dynamic-theme)
-![preview](https://github.com/JulienMaille/spicetify-dynamic-theme/blob/main/Dark.gif)
+![preview](https://github.com/JulienMaille/spicetify-dynamic-theme/blob/main/preview.gif)
 ### retroBlur
 Synthwave theme with a lot of blur and effects. [Source](https://github.com/Motschen/Retroblur)
 ![preview](https://github.com/Motschen/Retroblur/blob/main/preview/playlist.png)
@@ -81,7 +78,7 @@ Dark theme created by Rocketseat. [Source](https://github.com/getomni/spicetify)
 ![preview](https://github.com/getomni/spicetify/blob/main/screenshot.png)
 ### bloom
 Another Spicetify theme inspired by Microsoft's Fluent Design System. [Source](https://github.com/nimsandu/spicetify-bloom)
-![preview](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/Dark-1.png)
+![preview](https://github.com/nimsandu/spicetify-bloom/blob/main/images/dark.png)
 ### orchis
 Simple dark green/grey theme. [Source](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2)
 ![preview](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2/blob/main/screenshot.png)

@@ -60,23 +60,31 @@ let
   };
 
   songStats = {
-    src = "${sources.charlieS1103Src}/songstats";
+    src = "${sources.rxriSrc}/songstats";
     name = "songstats.js";
   };
   featureShuffle = {
-    src = "${sources.charlieS1103Src}/featureshuffle";
+    src = "${sources.rxriSrc}/featureshuffle";
     name = "featureshuffle.js";
   };
   oldSidebar = {
-    src = "${sources.charlieS1103Src}/old-sidebar";
+    src = "${sources.rxriSrc}/old-sidebar";
     name = "oldSidebar.js";
   };
   wikify = {
-    src = "${sources.charlieS1103Src}/wikify";
+    src = "${sources.rxriSrc}/wikify";
     name = "wikify.js";
   };
+  writeify = {
+    src = "${sources.rxriSrc}/writeify";
+    name = "writeify.js";
+  };
+  formatColors = {
+    src = "${sources.rxriSrc}/formatColors";
+    name = "formatColors.js";
+  };
   phraseToPlaylist = {
-    src = "${sources.charlieS1103Src}/phraseToPlaylist";
+    src = "${sources.rxriSrc}/phraseToPlaylist";
     name = "phraseToPlaylist.js";
   };
 
@@ -139,7 +147,7 @@ let
   };
 
   charliesAdblock = {
-    src = "${sources.charlieS1103Src}/adblock";
+    src = "${sources.rxriSrc}/adblock";
     name = "adblock.js";
   };
 
@@ -201,6 +209,8 @@ in
       skipStats
       phraseToPlaylist
       wikify
+      writeify
+      formatColors
       featureShuffle
       songStats
       showQueueDuration

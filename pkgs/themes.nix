@@ -88,10 +88,6 @@ in
       name = "Dreary";
       src = "${sources.officialThemes}/Dreary";
     };
-    glaze = {
-      name = "Glaze";
-      src = "${sources.officialThemes}/Glaze";
-    };
     turntable = {
       name = "Turntable";
       src = sources.officialThemes;

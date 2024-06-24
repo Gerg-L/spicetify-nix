@@ -98,18 +98,25 @@ Track your skips.
 Given a phrase, this extension will make a playlist containing a series of songs
 which make up that phrase.
 
-### fixEnhance
-
-A patch to the "enhance playlist" option which spotify themselves has already
-fixed, but could be useful in older versions.
-
 ### wikify
 
 Show an artist's wikipedia entry.
 
+### writeify
+
+Take notes on songs.
+
+### formatColors
+
+Convert colors defined in root to color.ini format.
+
 ### featureShuffle
 
 Create a playlist based off another playlist's audio features.
+
+### oldSidebar
+
+Go back to the old sidebar.
 
 ### songStats
 
