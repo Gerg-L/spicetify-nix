@@ -26,9 +26,6 @@ A distinct top bar, quick-to-edit CSS variables, and color schemes from Windows 
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Matte/screenshots/queue.png)
 ### nightlight
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Nightlight/screenshots/nightlight.png)
-### glaze
-Simple theme which gives spotify a simpler design and a single highlight color.
-![preview](https://github.com/CharlieS1103/Glaze-theme/blob/main/screenshots/base.png)
 ### onepunch
 Gruvbox.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Onepunch/screenshots/dark_home.png)
