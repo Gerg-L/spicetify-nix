@@ -78,7 +78,7 @@ Dark theme created by Rocketseat. [Source](https://github.com/getomni/spicetify)
 ![preview](https://github.com/getomni/spicetify/blob/main/screenshot.png)
 ### bloom
 Another Spicetify theme inspired by Microsoft's Fluent Design System. [Source](https://github.com/nimsandu/spicetify-bloom)
-![preview](https://raw.githubusercontent.com/nimsandu/spicetify-bloom/main/Dark-1.png)
+![preview](https://github.com/nimsandu/spicetify-bloom/blob/main/images/dark.png)
 ### orchis
 Simple dark green/grey theme. [Source](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2)
 ![preview](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2/blob/main/screenshot.png)
