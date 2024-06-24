@@ -174,23 +174,11 @@ in
       ];
     };
 
-    # light colorscheme is broken, think that's the theme's fault
     bloom = {
       name = "Bloom";
-      src = sources.bloomSrc;
-
+      src = "${sources.bloomSrc}/src";
       overwriteAssets = true;
       sidebarConfig = false;
-      patches = {
-        "xpui.js_find_8008" = ",(\\w+=)32,";
-        "xpui.js_repl_8008" = ",\${1}56,";
-      };
-      requiredExtensions = [
-        {
-          src = sources.bloomSrc;
-          name = "bloom.js";
-        }
-      ];
     };
 
     orchis = {

@@ -25,10 +25,10 @@ spotify.overrideAttrs (old: {
 
       mkdir -p {Themes,Extensions,CustomApps}
 
-      cp -r ${theme.src} Themes
+      cp -r ${theme.src} Themes/${theme.name}
       chmod -R a+wr Themes
 
-      ${lib.optionalString (theme ? additionalCss) ''
+      ${lib.optionalString ((theme ? additionalCss) && theme.additionalCss != "") ''
         cat ${
           writeText "spicetify-additional-CSS" ("\n" + theme.additionalCss)
         } >> Themes/${theme.name}/user.css
