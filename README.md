@@ -5,7 +5,7 @@ which forked from [pietdevries94](https://github.com/pietdevries94/spicetify-nix
 deleted and re-made repo for discoverability as github does not like to show forks in the search
 
 
-Modifies Spotify using [spicetify-cli](https://github.com/spicetify/spicetify-cli).
+Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
 
 [spicetify-themes](https://github.com/spicetify/spicetify-themes) are
 included and available.
