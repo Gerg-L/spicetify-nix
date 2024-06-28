@@ -34,7 +34,7 @@ Add this flake as an input
     inputs.spicetify-nix.homeManagerModules.default
   ];
 ```
-(Ensure you have spotify allowed as [unfree](https://wiki.nixos.org/wiki/Unfree_Software))
+(Ensure you have spotify allowed as [unfree](https://wiki.nixos.org/wiki/Unfree_software))
 
 ### Minimal Configuration
 
