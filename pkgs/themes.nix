@@ -2,10 +2,8 @@
   sources,
   extensions,
   pkgs,
+  lib,
 }:
-let
-  inherit (pkgs) lib;
-in
 (lib.genAttrs
   [
     "blossom"

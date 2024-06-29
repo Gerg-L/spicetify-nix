@@ -1,7 +1,6 @@
-{ sources, pkgs }:
+{ sources, lib }:
 
 let
-  inherit (pkgs) lib;
   # EXTENSIONS ----------------------------------------------------------------
   savePlaylists = {
     src = "${sources.dakshExtensions}/Extensions";

@@ -1,9 +1,10 @@
 { pkgs, self }:
 let
-  spicePkgs = self.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  inherit (pkgs) lib;
+  spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
 in
 {
-  sources = pkgs.callPackages "${self}/npins/sources.nix" { inherit self; };
+  sources = lib.mapAttrs (_: pkgs.npins.mkSource) (lib.importJSON "${self}/pkgs/sources.json").pins;
   spicetify = pkgs.callPackage "${self}/pkgs/spicetify.nix" { };
 
   /*
@@ -14,11 +15,11 @@ in
   */
   extensions = import "${self}/pkgs/extensions.nix" {
     inherit (spicePkgs) sources;
-    inherit pkgs;
+    inherit lib;
   };
   themes = import "${self}/pkgs/themes.nix" {
     inherit (spicePkgs) sources extensions;
-    inherit pkgs;
+    inherit pkgs lib;
   };
   apps = import "${self}/pkgs/apps.nix" { inherit (spicePkgs) sources; };
 }
