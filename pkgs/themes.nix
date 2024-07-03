@@ -67,6 +67,7 @@
       additionalCss = ''
         .Root {
           padding-top: 0px;
+          font-family: "JetBrainsMono Nerd Font";
         }
       '';
     };
