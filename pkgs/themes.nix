@@ -65,9 +65,12 @@
       overwriteAssets = true;
 
       additionalCss = ''
+        * {
+          font-family: "JetBrainsMono Nerd Font";
+        }
+
         .Root {
           padding-top: 0px;
-          font-family: "JetBrainsMono Nerd Font";
         }
       '';
     };
