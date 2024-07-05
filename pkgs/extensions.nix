@@ -150,13 +150,46 @@ let
     name = "adblock.js";
   };
 
+  copyLyrics = {
+    src = "${sources.aimarekinSrc}/_dist";
+    name = "copy-lyrics.js";
+  };
+  playingSource = {
+    src = "${sources.aimarekinSrc}/_dist";
+    name = "playing-source.js";
+  };
+  randomBadToTheBoneRiff = {
+    src = "${sources.aimarekinSrc}/_dist";
+    name = "random-bad-to-the-bone-riff.js";
+  };
+  sectionMarker = {
+    src = "${sources.aimarekinSrc}/_dist";
+    name = "section-marker.js";
+  };
+  skipAfterTimestamp = {
+    src = "${sources.aimarekinSrc}/_dist";
+    name = "skip-after-timestamp.js";
+  };
+
+  beautifulLyrics = {
+    src = "${sources.beautifulLyricsSrc}/Builds/Release";
+    name = "beautiful-lyrics.mjs";
+  };
+
+  addToQueueTop = {
+    src = "${sources.addToTopSrc}/addToQueueTop";
+    name = "addToQueueTop.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
         ".js"
+        ".mjs"
         "+"
       ]
       [
+        ""
         ""
         ""
       ];
@@ -227,6 +260,7 @@ in
       playNext
       volumePercentage
       oldSidebar
+      addToQueueTop
     ]
 
   )
@@ -240,3 +274,9 @@ in
 // (mkExtAlias "playlistIcons.js" playlistIcons)
 // (mkExtAlias "powerBar.js" powerBar)
 // (mkExtAlias "groupSession.js" groupSession)
+// (mkExtAlias "copyLyrics.js" copyLyrics)
+// (mkExtAlias "playingSource.js" playingSource)
+// (mkExtAlias "randomBadToTheBoneRiff.js" randomBadToTheBoneRiff)
+// (mkExtAlias "sectionMarker.js" sectionMarker)
+// (mkExtAlias "skipAfterTimestamp.js" skipAfterTimestamp)
+// (mkExtAlias "beautifulLyrics.js" beautifulLyrics)

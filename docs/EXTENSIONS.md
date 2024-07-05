@@ -180,3 +180,31 @@ Add track to the _top_ of the queue.
 
 Adds a percentage number next to the volume adjustment slider, and allows for
 more fine control of volume.
+
+### copyLyrics
+
+Copy the lyrics of your song directly from the "Show Lyrics" view. Click and drag your mouse accross the lyrics, then release to copy them into your clipboard.
+
+### playingSource
+
+See the context of where you're playing from, and jump to it.
+
+### randomBadToTheBoneRiff
+
+Hell yeah brother... Randomly plays the Bad to the Bone riff 💀
+
+### sectionMarker
+
+See a song's highlighted sections straight from your playbar.
+
+### skipAfterTimestamp
+
+Automatically skip tracks after they reach a timestamp.
+
+### beautifulLyrics
+
+Beautiful Lyrics provides Lyrics to EVERYONE for FREE. Beautiful Lyrics supports Karaoke, Line, and Statically synced lyrics with additional features like Background Vocals and Side Vocals.
+
+### addToQueueTop
+
+Adds the ability to add a track | playlist to the top of your Queue, instantly playing it after the currently playing track ends.
