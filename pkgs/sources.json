@@ -1,5 +1,29 @@
 {
   "pins": {
+    "addToTopSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Socketlike",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "1532dc050044a8beb7d9af0a550dff37ddebb1fc",
+      "url": "https://github.com/Socketlike/spicetify-extensions/archive/1532dc050044a8beb7d9af0a550dff37ddebb1fc.tar.gz",
+      "hash": "01mvakwccfyf2as3bn9igys3fdvy5fd7h4vn4r4mc6f4hblpyvsy"
+    },
+    "aimarekinSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Aimarekin",
+        "repo": "Aimarekins-Spicetify-Extensions"
+      },
+      "branch": "main",
+      "revision": "b242f9e8f31fe9d8c9dc799338d5b0b0efe471c8",
+      "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/b242f9e8f31fe9d8c9dc799338d5b0b0efe471c8.tar.gz",
+      "hash": "0ima3dgf87wi4fxk402dxzx1v1p422gcybba14fh69k99aizjhly"
+    },
     "autoVolumeSrc": {
       "type": "Git",
       "repository": {
@@ -11,6 +35,18 @@
       "revision": "d7f7962724b567a8409ef2898602f2c57abddf5a",
       "url": "https://github.com/amanharwara/spicetify-autoVolume/archive/d7f7962724b567a8409ef2898602f2c57abddf5a.tar.gz",
       "hash": "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass"
+    },
+    "beautifulLyricsSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "surfbryce",
+        "repo": "beautiful-lyrics"
+      },
+      "branch": "main",
+      "revision": "3f4cfdc05c8217d37f041cc09f30376c2af27612",
+      "url": "https://github.com/surfbryce/beautiful-lyrics/archive/3f4cfdc05c8217d37f041cc09f30376c2af27612.tar.gz",
+      "hash": "17hqgcfj5h43r1bv4zdrd38n39hrm3yj6mipdiqw9dzz89476k9b"
     },
     "betterGenresSrc": {
       "type": "Git",
