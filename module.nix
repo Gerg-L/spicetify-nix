@@ -204,6 +204,10 @@ in
       type = lib.types.attrsOf lib.types.str;
       default = { };
     };
+    snippets = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+    };
 
     spotifyLaunchFlags = lib.mkOption {
       type = lib.types.str;
@@ -287,7 +291,10 @@ in
             spicetify-cli = cfg.spicetifyPackage;
             extensions = allExtensions;
             apps = cfg.enabledCustomApps;
-            inherit (cfg) theme customColorScheme;
+            theme = cfg.theme // {
+              additionalCss = cfg.theme.additionalCss or "" + "\n" + (lib.concatLines cfg.snippets);
+            };
+            inherit (cfg) customColorScheme;
             # compose the configuration as well as options required by extensions and
             # cfg.cfg.xpui into one set
             config-xpui = xpui;

@@ -22,4 +22,15 @@ in
     inherit pkgs lib;
   };
   apps = import "${self}/pkgs/apps.nix" { inherit (spicePkgs) sources; };
+  snippets = lib.pipe ./snippets.json [
+    lib.importJSON
+    (map (x: {
+      name = lib.pipe x.preview [
+        (lib.removePrefix "resources/assets/snippets/")
+        (x: builtins.substring 0 ((builtins.stringLength x) - 4) x)
+      ];
+      value = x.code;
+    }))
+    builtins.listToAttrs
+  ];
 }

@@ -39,6 +39,8 @@ jobs:
           if [ -z "$MESSAGE" ]; then
             exit 0
           fi
+
+          curl https://raw.githubusercontent.com/spicetify/marketplace/master/resources/snippets.json > pkgs/snippets.json
           
           git add -A
 
