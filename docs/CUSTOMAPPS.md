@@ -1,5 +1,28 @@
 # Custom Apps
 
+## Using unpackaged customApps
+```nix
+programs.spicetify.enabledCustomApps= [
+  ({
+      # The source of the customApp
+      # make sure you're using the correct branch
+      # It could also be a sub-directory of the repo
+      src = pkgs.fetchFromGitHub {
+        owner = "";
+        repo = "";
+        rev = "";
+        hash = "";
+      };
+      # The actual file name of the customApp usually ends with .js
+      name = "";
+  })
+];
+```
+
+Almost all customApp PR's will be merged quickly
+view the git history of /pkgs/apps.nix for PR examples
+
+
 ## Official Apps
 
 ### newReleases

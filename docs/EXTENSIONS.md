@@ -1,4 +1,27 @@
 # Extensions
+## Using unpackaged extensions
+```nix
+programs.spicetify.enabledExtensions = [
+  ({
+      # The source of the extension
+      # make sure you're using the correct branch
+      # It could also be a sub-directory of the repo
+      src = pkgs.fetchFromGitHub {
+        owner = "";
+        repo = "";
+        rev = "";
+        hash = "";
+      };
+      # The actual file name of the extension usually ends with .js
+      name = "";
+  })
+];
+```
+
+Almost all extension PR's will be merged quickly
+view the git history of /pkgs/extensions.nix for PR examples
+
+
 ## Official Extensions
 
 

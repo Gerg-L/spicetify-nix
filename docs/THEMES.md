@@ -1,5 +1,36 @@
 # Themes
-These are pre-packaged and somewhat tested themes. Provided you don't use a broken version of spicetify, you should be able to at least *use* spotify with these themes installed. Some of them won't necessarily look good due to mismatched and out of date versions (see the warning in the README).
+## Using unpackaged themes
+```nix
+programs.spicetify.theme = {
+  # Name of the theme (duh)
+  name = "";
+  # The source of the theme
+  # make sure you're using the correct branch
+  # It could also be a sub-directory of the repo
+  src = pkgs.fetchFromGitHub {
+    owner = "";
+    repo = "";
+    rev = "";
+    hash = "";
+  };
+  
+  # Additional theme options all set to defaults
+  # the docs of the theme should say which of these 
+  # if any you have to change
+  injectCss = true;
+  injectThemeJs = true;
+  replaceColors = true;
+  sidebarConfig = true;
+  homeConfig = true;
+  overwriteAssets = false;
+  additonalCss = "";
+}
+```
+
+Almost all theme PR's will be merged quickly
+view the git history of /pkgs/themes.nix for PR examples
+
+
 
 ## Official Themes
 All of these themes can be found [here.](https://github.com/spicetify/spicetify-themes)
