@@ -176,9 +176,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "2ecc5150c4f26d609b69ee6293d6bfc200989cc4",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/2ecc5150c4f26d609b69ee6293d6bfc200989cc4.tar.gz",
-      "hash": "0achb0567nm04gvf3cxx0j1qlsfzqh3jqip5fm31f0dbjhsmp4iy"
+      "revision": "0e6d7ddf94584024234ffa982de1791f655a0851",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/0e6d7ddf94584024234ffa982de1791f655a0851.tar.gz",
+      "hash": "1v2g1cy6jzcq63iagm3xs7p42ggfmv477gzccmff90ag5jhbid9d"
     },
     "historySrc": {
       "type": "Git",
