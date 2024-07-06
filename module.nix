@@ -292,7 +292,7 @@ in
             extensions = allExtensions;
             apps = cfg.enabledCustomApps;
             theme = cfg.theme // {
-              additionalCss = cfg.theme.additionalCss or "" + "\n" + (lib.concatLines cfg.snippets);
+              additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.snippets);
             };
             inherit (cfg) customColorScheme;
             # compose the configuration as well as options required by extensions and
