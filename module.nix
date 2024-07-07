@@ -204,7 +204,7 @@ in
       type = lib.types.attrsOf lib.types.str;
       default = { };
     };
-    snippets = lib.mkOption {
+    enabledSnippets = lib.mkOption {
       type = lib.types.listOf lib.types.str;
       default = [ ];
     };
@@ -292,7 +292,7 @@ in
             extensions = allExtensions;
             apps = cfg.enabledCustomApps;
             theme = cfg.theme // {
-              additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.snippets);
+              additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.enabledSnippets);
             };
             inherit (cfg) customColorScheme;
             # compose the configuration as well as options required by extensions and
