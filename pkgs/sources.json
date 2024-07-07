@@ -92,9 +92,9 @@
         "repo": "Spicetify"
       },
       "branch": "main",
-      "revision": "d877e70dd97ec11d50f6a64f9c7c0b8e511cfbe1",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/d877e70dd97ec11d50f6a64f9c7c0b8e511cfbe1.tar.gz",
-      "hash": "17fc06icq6ixkfk1rqy5wbvnmj0vjnafm34qcrf0axg1jgz933qs"
+      "revision": "3ba3ec5e01e53096e7bc8d1bbb9d4c0809f01417",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/3ba3ec5e01e53096e7bc8d1bbb9d4c0809f01417.tar.gz",
+      "hash": "184vihmlx8cnbmzxd793p9hbxsj9mkaxha1vnxnsvgzdcny166bq"
     },
     "customAppsExtensionsSrc": {
       "type": "Git",
@@ -176,9 +176,9 @@
         "repo": "spicetify-hide-podcasts"
       },
       "branch": "main",
-      "revision": "0e6d7ddf94584024234ffa982de1791f655a0851",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/0e6d7ddf94584024234ffa982de1791f655a0851.tar.gz",
-      "hash": "1v2g1cy6jzcq63iagm3xs7p42ggfmv477gzccmff90ag5jhbid9d"
+      "revision": "30b164971c3d49ac456040269a2263e843ad1f7d",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/30b164971c3d49ac456040269a2263e843ad1f7d.tar.gz",
+      "hash": "120r08zr70ylsxjsxy0g7zw5cjyvrzs2l2khfvxkxhqhq4l43j1p"
     },
     "historySrc": {
       "type": "Git",
@@ -368,9 +368,9 @@
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "revision": "9168bc5d6c3b816ba404d91161fd577b3bf43e4a",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/9168bc5d6c3b816ba404d91161fd577b3bf43e4a.tar.gz",
-      "hash": "1n2n26704f4vylcx2gfcvxwgl4qxzah417g7lssp3ddibh6ydy4h"
+      "revision": "4c692375d2fc0909b7b068466cedd24ec59408cb",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/4c692375d2fc0909b7b068466cedd24ec59408cb.tar.gz",
+      "hash": "01a67laarqd6dsa4g357kcm7b5n6x339w40rarij1yfb2llfavgz"
     },
     "spotifyCanvasSrc": {
       "type": "Git",
