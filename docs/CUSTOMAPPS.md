@@ -50,3 +50,6 @@ NCS-style visualizer for Spicetify [Source](https://github.com/Konsl/spicetify-n
 
 ### historyInSidebar 
 Adds a shortcut for the "Recently Played" screen to the sidebar. [Source](https://github.com/Bergbok/Spicetify-Creations)
+
+### betterLibrary 
+Bring back the centered library. [Source](https://github.com/Sowgro/betterLibrary)
