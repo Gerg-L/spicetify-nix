@@ -34,4 +34,8 @@
     src = sources.historySidebarSrc;
     name = "History";
   };
+  betterLibrary = {
+    src = "${sources.betterLibrary}/CustomApps/betterLibrary";
+    name = "betterLibrary";
+  };
 }
