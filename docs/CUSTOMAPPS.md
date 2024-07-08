@@ -47,3 +47,6 @@ Heardle.app for spicetify. [Source](https://github.com/theRealPadster/name-that-
 
 ### ncsVisualizer
 NCS-style visualizer for Spicetify [Source](https://github.com/Konsl/spicetify-ncs-visualizer)
+
+### historyInSidebar 
+Adds a shortcut for the "Recently Played" screen to the sidebar. [Source](https://github.com/Bergbok/Spicetify-Creations)
