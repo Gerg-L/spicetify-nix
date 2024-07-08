@@ -180,6 +180,18 @@
       "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/30b164971c3d49ac456040269a2263e843ad1f7d.tar.gz",
       "hash": "120r08zr70ylsxjsxy0g7zw5cjyvrzs2l2khfvxkxhqhq4l43j1p"
     },
+    "historySidebarSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Bergbok",
+        "repo": "Spicetify-Creations"
+      },
+      "branch": "dist/history-in-sidebar",
+      "revision": "ad17a7484a0f845ca77dfb6a77b12a9258ef084f",
+      "url": "https://github.com/Bergbok/Spicetify-Creations/archive/ad17a7484a0f845ca77dfb6a77b12a9258ef084f.tar.gz",
+      "hash": "15w3x17p3348q1shm0z8yjfckbq15ay3wcasrpjikxnnpp3v6qpm"
+    },
     "historySrc": {
       "type": "Git",
       "repository": {
