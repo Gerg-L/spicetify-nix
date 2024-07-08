@@ -35,7 +35,7 @@
     name = "History";
   };
   betterLibrary = {
-    src = "${sources.betterLibrary}/CustomApps/betterLibrary";
+    src = "${sources.betterLibrarySrc}/CustomApps/betterLibrary";
     name = "betterLibrary";
   };
 }
