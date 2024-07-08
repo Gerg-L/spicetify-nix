@@ -30,4 +30,8 @@
     src = "${sources.officialSrc}/CustomApps/lyrics-plus";
     name = "lyrics-plus";
   };
+  historyInSidebar = {
+    src = sources.historySidebarSrc;
+    name = "History";
+  };
 }
