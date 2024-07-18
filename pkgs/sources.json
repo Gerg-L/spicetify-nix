@@ -131,9 +131,9 @@
         "repo": "Spicetify-stuff"
       },
       "branch": "master",
-      "revision": "f78c04e13fbbcae2db654dd69c314aa9101a7340",
-      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/f78c04e13fbbcae2db654dd69c314aa9101a7340.tar.gz",
-      "hash": "0fgpw3rbaa7475rkmdir270f75vlbcjb6ncr6kdd0lvbrq0kgdiv"
+      "revision": "9569dff5d7b39a89bca7684f1bc8b1e7cb3c0490",
+      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/9569dff5d7b39a89bca7684f1bc8b1e7cb3c0490.tar.gz",
+      "hash": "1x7l54mmg3j5wd0hhikbpp8w7mhivlk5lfjg36ij43fq32cgjsbw"
     },
     "defaultDynamicSrc": {
       "type": "Git",
@@ -143,9 +143,9 @@
         "repo": "spicetify-dynamic-theme"
       },
       "branch": "main",
-      "revision": "33420415072628a7f1f9e8860b16027ee3c334c9",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/33420415072628a7f1f9e8860b16027ee3c334c9.tar.gz",
-      "hash": "1splkpnpwxpknchkqmqskgxsnd7inyfw998zhhgvcn0bv4889x6x"
+      "revision": "609fd3e0f61af2b76869b68842c6aabc47a03fbe",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/609fd3e0f61af2b76869b68842c6aabc47a03fbe.tar.gz",
+      "hash": "0q3i5yvmrg2l9l7ys1qzq4b5qj0qxyxb4mr545948bfr58qhqs87"
     },
     "draculaSrc": {
       "type": "Git",
