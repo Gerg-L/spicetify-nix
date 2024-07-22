@@ -111,6 +111,18 @@
       "url": "https://github.com/Comfy-Themes/Spicetify/archive/aa86078a691096a36870b8486af18468704b9f88.tar.gz",
       "hash": "0x9618x0wd4p5qpbhww90s6lyi9biivgb5n26fa9ybb2bl3yh9in"
     },
+    "copyToClipboardSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "pnthach95",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "1a709a3dba99ba4c582111f5576fd2bb2482c36a",
+      "url": "https://github.com/pnthach95/spicetify-extensions/archive/1a709a3dba99ba4c582111f5576fd2bb2482c36a.tar.gz",
+      "hash": "1v3srs0xi98x6x415wgrb6csj2h6hdm0p14r31kqmhkdlmxxqplh"
+    },
     "customAppsExtensionsSrc": {
       "type": "Git",
       "repository": {

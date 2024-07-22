@@ -46,8 +46,8 @@ let
   };
 
   copyToClipboard = {
-    src = "${sources.customAppsExtensionsSrc}/v2/copy-to-clipboard";
-    name = "copytoclipboard2.js";
+    src = "${sources.copyToClipboardSrc}/dist";
+    name = "copytoclipboard.js";
   };
   showQueueDuration = {
     src = "${sources.customAppsExtensionsSrc}/v2/show-queue-duration";
