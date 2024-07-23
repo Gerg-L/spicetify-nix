@@ -299,9 +299,9 @@
         "repo": "spicetify-ncs-visualizer"
       },
       "branch": "dist",
-      "revision": "afc1f5c8d73cbb68c46df86ac4cbb4e0e1313750",
-      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/afc1f5c8d73cbb68c46df86ac4cbb4e0e1313750.tar.gz",
-      "hash": "0xzrgqr792ynxryf5zlmm6mvlglcpsfzvhbdnhdzgl7jshxkv8py"
+      "revision": "e7ed70f3e5455f2c151a30ea925a07c4b9a95213",
+      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/e7ed70f3e5455f2c151a30ea925a07c4b9a95213.tar.gz",
+      "hash": "1wav1difjq3i50y2329k9jcd7wdvlpv5fs7kydlzggblcp0ccqi2"
     },
     "nordSrc": {
       "type": "Git",
