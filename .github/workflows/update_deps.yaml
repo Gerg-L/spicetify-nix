@@ -11,7 +11,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4.1.7
       - name: install nix
-        uses: DeterminateSystems/nix-installer-action@v12
+        uses: DeterminateSystems/nix-installer-action@v13
       - name: setup git
         run: | 
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
