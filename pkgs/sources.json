@@ -287,9 +287,9 @@
         "repo": "name-that-tune"
       },
       "branch": "dist",
-      "revision": "9ddfdb7f01c085156cb32925f975704d0921996e",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/9ddfdb7f01c085156cb32925f975704d0921996e.tar.gz",
-      "hash": "19zlvhck7yfs955wrqbc44a5fldkapdylhvrgafspqz4lj8fa1ly"
+      "revision": "f33f55793d5fba2d7bdf16e9f22e4e1d8a04b2cd",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/f33f55793d5fba2d7bdf16e9f22e4e1d8a04b2cd.tar.gz",
+      "hash": "1hrbli56h1dmccdi7b5kxicslh40qz7wyjg1w5niq7vxsjdzsrf2"
     },
     "ncsVisualizerSrc": {
       "type": "Git",
