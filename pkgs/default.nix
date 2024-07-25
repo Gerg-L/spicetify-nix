@@ -10,6 +10,10 @@ in
   sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
   spicetify = pkgs.callPackage "${self}/pkgs/spicetify.nix" { };
 
+  spicetifyBuilder = pkgs.callPackage "${self}/pkgs/spicetifyBuilder.nix" {
+    inherit (spicePkgs) spicetify;
+  };
+
   /*
     Don't want to callPackage these because
     override and overrideDerivation cause issues with the module options

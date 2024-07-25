@@ -39,6 +39,8 @@ jobs:
             exit 0
           fi
 
+          nix run nixpkgs#nix-update -- -F legacyPackages.$(nix eval --raw --impure --expr 'builtins.currentSystem').spicetify
+
           pushd pkgs
 
           nix run .#fetcher

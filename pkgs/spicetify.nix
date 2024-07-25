@@ -1,85 +1,41 @@
 {
   lib,
-  stdenv,
-  spotify,
-  spicetify-cli,
-  writeText,
+  buildGoModule,
+  fetchFromGitHub,
+}:
+let
+  version = "2.37.7";
+in
+buildGoModule {
+  pname = "spicetify";
+  inherit version;
 
-  # These are throw's for callPackage to be able to get to the override call
-  theme ? throw "",
-  config-xpui ? { },
-  customColorScheme ? { },
-  cssMap ? "${spicetify-cli.src}/css-map.json",
-  extensions ? [ ],
-  apps ? [ ],
-  extraCommands ? "",
-}@args:
+  src = fetchFromGitHub {
+    owner = "spicetify";
+    repo = "cli";
+    rev = "v${version}";
+    hash = "sha256-Sfh2dvqCsV5rl6SmfqV6icJrTcsJy89RibCIRrf2p0k=";
+  };
 
-spotify.overrideAttrs (old: {
-  name = "spicetify-${theme.name}";
+  vendorHash = "sha256-kv+bMyVOJTztn8mNNTK/kp4nvc5m1I5M041s3nPpob8=";
 
-  postInstall =
-    (old.postInstall or "")
-    + ''
-      export SPICETIFY_CONFIG=$PWD
+  ldflags = [
+    "-s -w"
+    "-X 'main.version=Dev'"
+  ];
 
-      mkdir -p {Themes,Extensions,CustomApps}
+  CGO_ENABLED = "0";
 
-      cp -r ${theme.src} Themes/${theme.name}
-      chmod -R a+wr Themes
+  postInstall = ''
+    mv $out/bin/cli $out/bin/spicetify
+    ln -s $src/jsHelper $out/bin/jsHelper
+    ln -s $src/css-map.json $out/bin/css-map.json
+  '';
 
-      ${lib.optionalString ((theme ? additionalCss) && theme.additionalCss != "") ''
-        cat ${
-          writeText "spicetify-additional-CSS" ("\n" + theme.additionalCss)
-        } >> Themes/${theme.name}/user.css
-      ''}
-
-      # extra commands that the theme might need
-      ${theme.extraCommands or ""}
-
-      # copy extensions into Extensions folder
-      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src}/${item.name} Extensions") extensions}
-
-      # copy custom apps into CustomApps folder
-      ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src} CustomApps/${item.name}") apps}
-
-      # add a custom color scheme if necessary
-      ${lib.optionalString (customColorScheme != { }) ''
-        cat ${
-          writeText "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
-        } > Themes/${theme.name}/color.ini
-      ''}
-
-
-      cp ${lib.getExe spicetify-cli} spicetify 
-      ln -s ${lib.getExe' spicetify-cli "jsHelper"} jsHelper
-      ln -s ${cssMap} css-map.json
-
-      touch prefs
-
-      # replace the spotify path with the current derivation's path
-      sed "s|__SPOTIFY__|${
-        if stdenv.isLinux then
-          "$out/share/spotify"
-        else if stdenv.isDarwin then
-          "$out/Applications/Spotify.app/Contents/Resources"
-        else
-          throw ""
-      }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" ${
-        writeText "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
-      } > config-xpui.ini
-
-
-      ${extraCommands}
-
-      ./spicetify --no-restart backup apply
-    '';
-
-  passthru =
-    # For debugging purposes
-    (old.passthru or { })
-    // builtins.removeAttrs args [
-      "lib"
-      "stdenv"
-    ];
-})
+  meta = {
+    description = "Command-line tool to customize Spotify client";
+    homepage = "https://github.com/spicetify/cli";
+    license = lib.licenses.gpl3Plus;
+    mainProgram = "spicetify";
+  };
+}
