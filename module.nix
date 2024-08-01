@@ -13,6 +13,7 @@ let
   spicePkgs = self.legacyPackages.${pkgs.stdenv.hostPlatform.system};
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
+      freeformType = lib.types.attrs;
       options = {
         src = lib.mkOption {
           type = lib.types.pathInStore;
@@ -48,6 +49,7 @@ in
       inherit (spicePkgs.themes) default;
 
       type = lib.types.submodule {
+        freeformType = lib.types.attrs;
         options = {
           name = lib.mkOption {
             type = lib.types.str;
@@ -171,6 +173,7 @@ in
     enabledCustomApps = lib.mkOption {
       type = lib.types.listOf (
         lib.types.submodule {
+          freeformType = lib.types.attrs;
           options = {
             src = lib.mkOption {
               type = lib.types.pathInStore;

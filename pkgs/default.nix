@@ -4,7 +4,7 @@ let
   spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
 in
 {
-  sources = lib.mapAttrs (_: pkgs.npins.mkSource) (lib.importJSON "${self}/pkgs/sources.json").pins;
+  sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
   spicetify = pkgs.callPackage "${self}/pkgs/spicetify.nix" { };
 
   /*
