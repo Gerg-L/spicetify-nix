@@ -1,7 +1,5 @@
 { sources, lib }:
-
 let
-  # EXTENSIONS ----------------------------------------------------------------
   savePlaylists = {
     src = "${sources.dakshExtensions}/Extensions";
     name = "savePlaylists.js";
@@ -129,23 +127,13 @@ let
     src = sources.powerBarSrc;
     name = "power-bar.js";
   };
-  # TODO: add user.css additions as part of extensions, for snippets
-  # powerBar can by styled with the following CSS:
-  # #power-bar-container {
-  #   --power-bar-background-color: #333333;
-  #   --power-bar-main-text-color: #ffffff;
-  #   --power-bar-subtext-color: #b3b3b3;
-  #   --power-bar-active-background-color: #1db954;
-  #   --power-bar-active-text-color: #121212;
-  #   --power-bar-border-color: #000000;
-  # }
 
   groupSession = {
     src = "${sources.groupSessionSrc}/src";
     name = "group-session.js";
   };
 
-  charliesAdblock = {
+  adblockify = {
     src = "${sources.rxriSrc}/adblock";
     name = "adblock.js";
   };
@@ -201,7 +189,10 @@ let
     }
     // lib.optionalAttrs (alias != ext.name) { ${sanitizeName alias} = ext; };
 in
-(lib.listToAttrs (
+{
+  inherit adblockify;
+}
+// (lib.listToAttrs (
   map
     (x: {
       name = sanitizeName x;
@@ -253,7 +244,7 @@ in
       betterGenres
       lastfm
       hidePodcasts
-      charliesAdblock # adblock.js
+      adblockify
       savePlaylists
       autoSkip
       fullScreen
@@ -265,6 +256,7 @@ in
 
   )
 # aliases for weirdly named extension files
+// (mkExtAlias "adblock" adblockify)
 // (mkExtAlias "history.js" history)
 // (mkExtAlias "volumeProfiles.js" volumeProfiles)
 // (mkExtAlias "copyToClipboard.js" copyToClipboard)
