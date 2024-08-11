@@ -407,9 +407,9 @@
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "revision": "46ffcbecbb0487bca101d08f628f29b637470be4",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/46ffcbecbb0487bca101d08f628f29b637470be4.tar.gz",
-      "hash": "0v8dsp50abb5m42ssvpchhvs0r16rgfqjh0rw4j70rw9a3gx023c"
+      "revision": "e715116439c3b10418f2e07f885d62ab1a6f43c4",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/e715116439c3b10418f2e07f885d62ab1a6f43c4.tar.gz",
+      "hash": "1nxiyilr6x45hmcncblw69bw78mdj2ccn6bam09pgavias77dljj"
     },
     "spotifyCanvasSrc": {
       "type": "Git",
