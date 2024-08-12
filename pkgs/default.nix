@@ -25,10 +25,7 @@ in
   snippets = lib.pipe ./snippets.json [
     lib.importJSON
     (map (x: {
-      name = lib.pipe x.preview [
-        (lib.removePrefix "resources/assets/snippets/")
-        (x: builtins.substring 0 ((builtins.stringLength x) - 4) x)
-      ];
+      name = with lib; pipe x.preview [(splitString ".") init concatStrings toLower baseNameOf];
       value = x.code;
     }))
     builtins.listToAttrs
