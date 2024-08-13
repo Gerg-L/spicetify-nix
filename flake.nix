@@ -56,7 +56,13 @@
 
         formatter.${system} = pkgs.nixfmt-rfc-style;
 
-        devShells.${system}.default = pkgs.mkShell { packages = [ pkgs.npins ]; };
+        devShells.${system} = {
+          default = pkgs.mkShell { packages = [ pkgs.npins ]; };
+          fetcher = pkgs.mkShell {
+            packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
+            inputsFrom = [ self.legacyPackages.${system}.fetcher ];
+          };
+        };
       }
     );
 }

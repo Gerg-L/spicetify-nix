@@ -2,8 +2,11 @@
 let
   inherit (pkgs) lib;
   spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
+  json = lib.importJSON "${self}/pkgs/generated.json";
 in
 {
+  inherit (json) snippets;
+  fetcher = pkgs.callPackage ./fetcher { inherit self; };
   sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
   spicetify = pkgs.callPackage "${self}/pkgs/spicetify.nix" { };
 
@@ -22,15 +25,4 @@ in
     inherit pkgs lib;
   };
   apps = import "${self}/pkgs/apps.nix" { inherit (spicePkgs) sources; };
-  snippets = lib.pipe ./snippets.json [
-    lib.importJSON
-    (map (x: {
-      name = lib.pipe x.preview [
-        (lib.removePrefix "resources/assets/snippets/")
-        (x: builtins.substring 0 ((builtins.stringLength x) - 4) x)
-      ];
-      value = x.code;
-    }))
-    builtins.listToAttrs
-  ];
 }
