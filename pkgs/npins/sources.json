@@ -20,9 +20,9 @@
         "repo": "Aimarekins-Spicetify-Extensions"
       },
       "branch": "main",
-      "revision": "b242f9e8f31fe9d8c9dc799338d5b0b0efe471c8",
-      "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/b242f9e8f31fe9d8c9dc799338d5b0b0efe471c8.tar.gz",
-      "hash": "0ima3dgf87wi4fxk402dxzx1v1p422gcybba14fh69k99aizjhly"
+      "revision": "fd9feb894d004215e2baeb301f85a3f14a443865",
+      "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/fd9feb894d004215e2baeb301f85a3f14a443865.tar.gz",
+      "hash": "1k7fwxm2x2pnpx67bfv62kjm5q3zln879zh7lpqnwpz1235xh4yd"
     },
     "autoVolumeSrc": {
       "type": "Git",
@@ -323,9 +323,9 @@
         "repo": "cli"
       },
       "branch": "main",
-      "revision": "e3c48325c21c3cf0cf485ad3cc558a02e973b1c1",
-      "url": "https://github.com/spicetify/cli/archive/e3c48325c21c3cf0cf485ad3cc558a02e973b1c1.tar.gz",
-      "hash": "0mqcmcs6ddngpys4a1fmm3jrm4rhv60addshq24d4nlwzilhz5cp"
+      "revision": "b63a9c767b8674265d4c0bfa3fd6ec2abb13adb0",
+      "url": "https://github.com/spicetify/cli/archive/b63a9c767b8674265d4c0bfa3fd6ec2abb13adb0.tar.gz",
+      "hash": "03jmmb06g264940pxnlfr9ifskkl5vagw9m1d0f1dnx9xdnwazb1"
     },
     "officialThemes": {
       "type": "Git",
