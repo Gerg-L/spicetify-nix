@@ -178,6 +178,18 @@
       overwriteAssets = true;
       sidebarConfig = false;
     };
+    # originally based on bloom
+    lucid = {
+      name = "Lucid";
+      src = "${sources.lucidSrc}/src";
+      overwriteAssets = true;
+      requiredExtensions = [
+        {
+          src = "${sources.lucidSrc}/src";
+          name = "theme.js";
+        }
+      ];
+    };
 
     orchis = {
       name = "DarkGreen";
