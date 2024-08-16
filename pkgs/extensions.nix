@@ -170,7 +170,7 @@ let
   };
 
   oneko = {
-    src = "${sources.onekoSrc}";
+    src = sources.onekoSrc
     name = "oneko.js";
   };
 
