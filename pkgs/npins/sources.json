@@ -458,6 +458,18 @@
       "revision": "a224969550b3831c4fb084bcc8c675f3a77735d1",
       "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/a224969550b3831c4fb084bcc8c675f3a77735d1.tar.gz",
       "hash": "04lss42fd4gkvhncpwmxpj93xx6y8md8m888xn1pcpas6pl2agax"
+    },
+    "onekoSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kyrie25",
+        "repo": "spicetify-oneko"
+      },
+      "branch": "master",
+      "revision": "589a8cc3a3939b8c9fc4f2bd087ed433e9af5002",
+      "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
+      "hash": "95eb2dadfe2c4b019b06acbed09eeee48a14eb134a1e1df920a671b7fa61a4d6"
     }
   },
   "version": 3

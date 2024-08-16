@@ -231,3 +231,7 @@ Beautiful Lyrics provides Lyrics to EVERYONE for FREE. Beautiful Lyrics supports
 ### addToQueueTop
 
 Adds the ability to add a track | playlist to the top of your Queue, instantly playing it after the currently playing track ends.
+
+### oneko
+
+cat follow mouse (real). A fork of oneko.js modified for Spicetify.

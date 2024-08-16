@@ -169,6 +169,11 @@ let
     name = "addToQueueTop.js";
   };
 
+  oneko = {
+    src = sources.onekoSrc
+    name = "oneko.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -252,6 +257,7 @@ in
       volumePercentage
       oldSidebar
       addToQueueTop
+      oneko
     ]
 
   )
@@ -272,3 +278,4 @@ in
 // (mkExtAlias "sectionMarker.js" sectionMarker)
 // (mkExtAlias "skipAfterTimestamp.js" skipAfterTimestamp)
 // (mkExtAlias "beautifulLyrics.js" beautifulLyrics)
+// (mkExtAlias "oneko.js" oneko)
