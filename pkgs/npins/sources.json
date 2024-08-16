@@ -323,9 +323,9 @@
         "repo": "cli"
       },
       "branch": "main",
-      "revision": "24630891ffbd47d87aab3cba7ea74f322af31e4c",
-      "url": "https://github.com/spicetify/cli/archive/24630891ffbd47d87aab3cba7ea74f322af31e4c.tar.gz",
-      "hash": "18zp7i8s1mpw8w7ma638pjskzx1bmvm3dqrkgj2cgq811nfrkyi8"
+      "revision": "ece3590bfb3f4b6684c766665dc47bd6c10734e5",
+      "url": "https://github.com/spicetify/cli/archive/ece3590bfb3f4b6684c766665dc47bd6c10734e5.tar.gz",
+      "hash": "0lflm7byba31hy7gvx88krpjpfq44ra1vdksfzwlaa09gbwpnw70"
     },
     "officialThemes": {
       "type": "Git",
@@ -407,9 +407,9 @@
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "revision": "9ae759120449e3f2431175f7f44ce162da112c92",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/9ae759120449e3f2431175f7f44ce162da112c92.tar.gz",
-      "hash": "0081q8kj8dq3jwmlcx9hf65xiivz30kyvjwk9ba0kkn7szyqm4cz"
+      "revision": "7f97c7645f579f91d87cb9a66c496d552d5ba4e8",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/7f97c7645f579f91d87cb9a66c496d552d5ba4e8.tar.gz",
+      "hash": "1bcp7pxab8nwx3xmsiyzvrn3c417837gh22nyq0mrwfd5c0vay97"
     },
     "spotifyCanvasSrc": {
       "type": "Git",
