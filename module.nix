@@ -115,10 +115,6 @@ in
             type = lib.types.bool;
             default = true;
           };
-          sidebarConfig = lib.mkOption {
-            type = lib.types.bool;
-            default = true;
-          };
           homeConfig = lib.mkOption {
             type = lib.types.bool;
             default = true;
@@ -245,8 +241,8 @@ in
                 AdditionalOptions = {
                   extensions = lib.concatMapStringsSep "|" (item: item.name) allExtensions;
                   custom_apps = lib.concatMapStringsSep "|" (item: item.name) cfg.enabledCustomApps;
-
-                  sidebar_config = cfg.theme.sidebarConfig;
+                  # must be disabled on newer spotify
+                  sidebar_config = false;
 
                   home_config = cfg.theme.homeConfig;
 

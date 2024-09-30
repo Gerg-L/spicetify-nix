@@ -20,7 +20,6 @@ programs.spicetify.theme = {
   injectCss = true;
   injectThemeJs = true;
   replaceColors = true;
-  sidebarConfig = true;
   homeConfig = true;
   overwriteAssets = false;
   additonalCss = "";
