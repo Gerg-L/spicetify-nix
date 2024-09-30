@@ -8,7 +8,7 @@ in
   inherit (json) snippets;
   fetcher = pkgs.callPackage ./fetcher { inherit self; };
   sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
-  spicetify = pkgs.callPackage "${self}/pkgs/spicetify.nix" { };
+  spicetifyBuilder = pkgs.callPackage "${self}/pkgs/spicetifyBuilder.nix" { };
 
   /*
     Don't want to callPackage these because

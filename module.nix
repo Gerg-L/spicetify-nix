@@ -285,7 +285,7 @@ in
             else
               xpui_;
 
-          pre = spicePkgs.spicetify.override {
+          pre = spicePkgs.spicetifyBuilder {
             spotify = cfg.spotifyPackage;
             spicetify-cli = cfg.spicetifyPackage;
             extensions = allExtensions;
@@ -293,7 +293,7 @@ in
             theme = cfg.theme // {
               additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.enabledSnippets);
             };
-            inherit (cfg) customColorScheme;
+            inherit (cfg) customColorScheme extraCommands;
             # compose the configuration as well as options required by extensions and
             # cfg.cfg.xpui into one set
             config-xpui = xpui;
