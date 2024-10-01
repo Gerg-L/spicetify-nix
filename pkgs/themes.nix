@@ -223,6 +223,21 @@
       '';
     };
 
+    hazy = {
+      name = "Hazy";
+      src = sources.hazySrc;
+      appendName = false;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = false;
+      requiredExtensions = [
+        {
+          name = "hazy.js";
+          src = "${sources.hazySrc}";
+        }
+      ];
+    };
+
     # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
     # about getting a custom build of chromium or something. I am NOT doing that
     # ... but maybe one day if someone asks
