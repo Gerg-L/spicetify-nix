@@ -226,10 +226,6 @@
     hazy = {
       name = "Hazy";
       src = sources.hazySrc;
-      appendName = false;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = false;
       requiredExtensions = [
         {
           name = "hazy.js";
