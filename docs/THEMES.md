@@ -115,4 +115,7 @@ A minimal and dynamic Bloom-inspired theme for Spicetify. [Source](https://githu
 ### orchis
 Simple dark green/grey theme. [Source](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2)
 ![preview](https://github.com/canbeardig/Spicetify-Orchis-Colours-v2/blob/main/screenshot.png)
+### hazy
+A translucent spicetify theme. [Source](https://github.com/Astromations/Hazy)
+![preview](https://github.com/Astromations/Hazy/blob/main/hazy_home.png)
 
