@@ -195,6 +195,18 @@
       "url": "https://github.com/timll/spotify-group-session/archive/bc93e673d7efaa0294eca69321de33dc1dc8bdc3.tar.gz",
       "hash": "0s4psn6ckx91ggizig8l6l3pf77b2ncbsgh16j7b518a9klib38r"
     },
+    "hazySrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Astromations",
+        "repo": "Hazy"
+      },
+      "branch": "main",
+      "revision": "2fe1599e18cd0bfac02f8a846772574f5059715b",
+      "url": "https://github.com/Astromations/Hazy/archive/2fe1599e18cd0bfac02f8a846772574f5059715b.tar.gz",
+      "hash": "075fz5d2104zaavvbsv0yn81p2nixki271dfkgacp61di1a421rq"
+    },
     "hidePodcastsSrc": {
       "type": "Git",
       "repository": {
@@ -363,6 +375,18 @@
       "url": "https://github.com/getomni/spicetify/archive/253ae45d2cac2dc3d92a43193ea8f6d9e7e1d3aa.tar.gz",
       "hash": "0zvngrwikdx5whcf29yqgzxiwaqxr2bmsy5j0c1ffz3s9zikx0p4"
     },
+    "onekoSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kyrie25",
+        "repo": "spicetify-oneko"
+      },
+      "branch": "master",
+      "revision": "589a8cc3a3939b8c9fc4f2bd087ed433e9af5002",
+      "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
+      "hash": "95eb2dadfe2c4b019b06acbed09eeee48a14eb134a1e1df920a671b7fa61a4d6"
+    },
     "orchisSrc": {
       "type": "Git",
       "repository": {
@@ -470,18 +494,6 @@
       "revision": "a224969550b3831c4fb084bcc8c675f3a77735d1",
       "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/a224969550b3831c4fb084bcc8c675f3a77735d1.tar.gz",
       "hash": "04lss42fd4gkvhncpwmxpj93xx6y8md8m888xn1pcpas6pl2agax"
-    },
-    "onekoSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "kyrie25",
-        "repo": "spicetify-oneko"
-      },
-      "branch": "master",
-      "revision": "589a8cc3a3939b8c9fc4f2bd087ed433e9af5002",
-      "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
-      "hash": "95eb2dadfe2c4b019b06acbed09eeee48a14eb134a1e1df920a671b7fa61a4d6"
     }
   },
   "version": 3
