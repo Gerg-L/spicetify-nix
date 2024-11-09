@@ -1,4 +1,8 @@
-{ pkgs, self }:
+{
+  pkgs,
+  pinned-nixpkgs,
+  self,
+}:
 let
   inherit (pkgs) lib;
   spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
@@ -8,7 +12,7 @@ in
   inherit (json) snippets;
   fetcher = pkgs.callPackage ./fetcher { inherit self; };
   sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
-  spicetifyBuilder = pkgs.callPackage "${self}/pkgs/spicetifyBuilder.nix" { };
+  spicetifyBuilder = pkgs.callPackage "${self}/pkgs/spicetifyBuilder.nix" { inherit pinned-nixpkgs; };
 
   /*
     Don't want to callPackage these because

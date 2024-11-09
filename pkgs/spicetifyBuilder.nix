@@ -2,10 +2,16 @@
   lib,
   stdenv,
   writeText,
+  pinned-nixpkgs,
 }:
+let
+  pinnedPkgs = import pinned-nixpkgs {
+    inherit (stdenv) system;
+    config.allowUnfree = true;
+  };
+in
 lib.makeOverridable (
   {
-    spotify,
     spicetify-cli,
     theme,
     config-xpui,
@@ -15,7 +21,7 @@ lib.makeOverridable (
     extraCommands,
   }:
 
-  spotify.overrideAttrs (old: {
+  pinnedPkgs.spotify.overrideAttrs (old: {
     name = "spicetify-${theme.name}";
 
     postInstall =

@@ -131,7 +131,9 @@ in
       };
     };
 
-    spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
+    spotifyPackage = (lib.mkPackageOption pkgs "spotify" { }) // {
+      readOnly = true;
+    };
 
     spotifywmPackage = lib.mkPackageOption pkgs "spotifywm" { };
 
@@ -286,7 +288,6 @@ in
               xpui_;
 
           pre = spicePkgs.spicetifyBuilder {
-            spotify = cfg.spotifyPackage;
             spicetify-cli = cfg.spicetifyPackage;
             extensions = allExtensions;
             apps = cfg.enabledCustomApps;
@@ -303,11 +304,6 @@ in
         assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
           Spotifywm does not support darwin
         '';
-        assert lib.assertMsg (cfg.spotifyPackage.pname != "spotifywm") ''
-          Do not set spotifyPackage to pkgs.spotifywm
-          instead enable windowManagerPatch and set spotifywmPackage
-        '';
-
         if cfg.windowManagerPatch then
           (cfg.spotifywmPackage.override { spotify = pre; }).overrideAttrs (old: {
             passthru = (old.passthru or { }) // pre.passthru;

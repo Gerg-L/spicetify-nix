@@ -6,17 +6,28 @@
       repo = "nixpkgs";
       ref = "nixos-unstable";
     };
-
     flake-compat = {
       type = "github";
       owner = "edolstra";
       repo = "flake-compat";
       flake = false;
     };
+    # Don't follows this
+    pinned-nixpkgs = {
+      type = "github";
+      owner = "NixOS";
+      repo = "nixpkgs";
+      ref = "409f723e01cafc995b9d1f9adcb821c2c8f82491";
+    };
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    {
+      self,
+      nixpkgs,
+      pinned-nixpkgs,
+      ...
+    }:
     let
       inherit (nixpkgs) lib;
       withSystem =
@@ -52,7 +63,7 @@
           default = self.nixosModules.spicetify;
         };
 
-        legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
+        legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs pinned-nixpkgs self; };
 
         formatter.${system} = pkgs.nixfmt-rfc-style;
 
