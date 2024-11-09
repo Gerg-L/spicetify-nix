@@ -12,6 +12,7 @@
     "matte"
     "nightlight"
     "onepunch"
+    "sharkBlue"
     "sleek"
     "starryNight"
     "ziro"
