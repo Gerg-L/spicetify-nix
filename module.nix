@@ -10,7 +10,7 @@
 }:
 let
   cfg = config.programs.spicetify;
-  spicePkgs = self.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+  spicePkgs = pkgs.callPackage ./pkgs { inherit pkgs self; };
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrs;
