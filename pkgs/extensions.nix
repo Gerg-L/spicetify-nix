@@ -174,6 +174,11 @@ let
     name = "oneko.js";
   };
 
+  starRatings = {
+    src = sources.starRatingsSrc;
+    name = "starRatings.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -258,6 +263,7 @@ in
       oldSidebar
       addToQueueTop
       oneko
+      starRatings
     ]
 
   )
@@ -279,3 +285,4 @@ in
 // (mkExtAlias "skipAfterTimestamp.js" skipAfterTimestamp)
 // (mkExtAlias "beautifulLyrics.js" beautifulLyrics)
 // (mkExtAlias "oneko.js" oneko)
+// (mkExtAlias "starRatings.js" starRatings)
