@@ -1,5 +1,7 @@
 # Extensions
+
 ## Using unpackaged extensions
+
 ```nix
 programs.spicetify.enabledExtensions = [
   ({
@@ -21,10 +23,7 @@ programs.spicetify.enabledExtensions = [
 Almost all extension PR's will be merged quickly
 view the git history of /pkgs/extensions.nix for PR examples
 
-
 ## Official Extensions
-
-
 
 ### autoSkipExplicit
 
@@ -235,3 +234,7 @@ Adds the ability to add a track | playlist to the top of your Queue, instantly p
 ### oneko
 
 cat follow mouse (real). A fork of oneko.js modified for Spicetify.
+
+### starRatings
+
+Rate your music out of 5 stars

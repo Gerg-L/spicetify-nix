@@ -387,6 +387,18 @@
       "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
       "hash": "95eb2dadfe2c4b019b06acbed09eeee48a14eb134a1e1df920a671b7fa61a4d6"
     },
+    "starRatingsSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "brimell",
+        "repo": "spicetify-star-ratings"
+      },
+      "branch": "main",
+      "revision": "79eea09607b56d37cfb815f4226856b1bf6dcebe",
+      "url": "https://github.com/brimell/spicetify-star-ratings/archive/79eea09607b56d37cfb815f4226856b1bf6dcebe.tar.gz",
+      "hash": "1ifc84zawi3j66ssarfz5linfmywl89q8l6ibzw6zyli8i7jxc2n"
+    },
     "orchisSrc": {
       "type": "Git",
       "repository": {
