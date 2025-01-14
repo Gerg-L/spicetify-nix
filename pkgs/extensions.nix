@@ -179,6 +179,16 @@ let
     name = "star-ratings.js";
   };
 
+  queueTime = {
+    src = "${sources.theblockbusterSrc}/QueueTime";
+    name = "QueueTime.js";
+  };
+
+  simpleBeautifulLyrics = {
+    src = "${sources.kamilooSrc}/extensions/simple-beautiful-lyrics/dist";
+    name = "simple-beautiful-lyrics.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -264,6 +274,8 @@ in
       addToQueueTop
       oneko
       starRatings
+      queueTime
+      simpleBeautifulLyrics
     ]
 
   )
@@ -286,3 +298,5 @@ in
 // (mkExtAlias "beautifulLyrics.js" beautifulLyrics)
 // (mkExtAlias "oneko.js" oneko)
 // (mkExtAlias "starRatings.js" starRatings)
+// (mkExtAlias "queueTime.js" queueTime)
+// (mkExtAlias "simpleBeautifulLyrics.js" simpleBeautifulLyrics)
