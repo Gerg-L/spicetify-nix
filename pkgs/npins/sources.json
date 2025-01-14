@@ -506,6 +506,30 @@
       "revision": "a224969550b3831c4fb084bcc8c675f3a77735d1",
       "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/a224969550b3831c4fb084bcc8c675f3a77735d1.tar.gz",
       "hash": "04lss42fd4gkvhncpwmxpj93xx6y8md8m888xn1pcpas6pl2agax"
+    },
+    "theblockbusterSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Theblockbuster1",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "a0e3ded84ac09fb54bc332360af334692bcb6326",
+      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/a0e3ded84ac09fb54bc332360af334692bcb6326.tar.gz",
+      "hash": "01vcv4kkvz7sbd617dcfcn57dmsd6vw3af96iv35p6n3mr76n68h"
+    },
+    "kamilooSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Kamiloo13",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "080fc616fbe33ddf32851faa71a6ae40c96b8006",
+      "url": "https://github.com/Kamiloo13/spicetify-extensions/archive/080fc616fbe33ddf32851faa71a6ae40c96b8006.tar.gz",
+      "hash": "1gcqj6z5vmn9mlk4571ya66h7ikr186vc8bav730wzhwp0dha0ai"
     }
   },
   "version": 3

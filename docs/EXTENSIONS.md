@@ -238,3 +238,11 @@ cat follow mouse (real). A fork of oneko.js modified for Spicetify.
 ### starRatings
 
 Rate your music out of 5 stars
+
+### queueTime
+
+Simply displays the time remaining in the current queue.
+
+### simpleBeautifulLyrics
+
+Enhance your full-screen song lyrics experience with this simple theme for Spotify lyrics page.
