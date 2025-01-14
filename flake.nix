@@ -52,6 +52,14 @@
           default = self.nixosModules.spicetify;
         };
 
+        darwinModules = {
+          spicetify = import "${self}/module.nix" {
+            inherit self;
+            isNixOSModule = true;
+          };
+          default = self.darwinModules.spicetify;
+        };
+
         legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
 
         formatter.${system} = pkgs.nixfmt-rfc-style;
