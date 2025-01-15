@@ -90,7 +90,7 @@
       requiredExtensions = [
         #"fullAppDisplay.js"
         {
-          name = "turntable.js";
+          name = "theme.js";
           src = "${sources.officialThemes}/Turntable";
         }
       ];
