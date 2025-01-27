@@ -6,7 +6,11 @@
       repo = "nixpkgs";
       ref = "nixos-unstable";
     };
-
+    systems = {
+      type = "github";
+      owner = "nix-systems";
+      repo = "default";
+    };
     flake-compat = {
       type = "github";
       owner = "edolstra";
@@ -16,61 +20,62 @@
   };
 
   outputs =
-    { self, nixpkgs, ... }:
+    {
+      self,
+      nixpkgs,
+      systems,
+      ...
+    }:
     let
-      inherit (nixpkgs) lib;
-      withSystem =
-        f:
-        lib.fold lib.recursiveUpdate { } (
-          map f [
-            "aarch64-darwin"
-            "aarch64-linux"
-            "x86_64-darwin"
-            "x86_64-linux"
-          ]
-        );
+      eachSystem = nixpkgs.lib.genAttrs (import systems);
     in
-    withSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        homeManagerModules = {
-          spicetify = import "${self}/module.nix" {
-            inherit self;
-            isNixOSModule = false;
-          };
-          default = self.homeManagerModules.spicetify;
+    {
+      homeManagerModules = {
+        spicetify = import "${self}/module.nix" {
+          inherit self;
+          isNixOSModule = false;
         };
+        default = self.homeManagerModules.spicetify;
+      };
 
-        nixosModules = {
-          spicetify = import "${self}/module.nix" {
-            inherit self;
-            isNixOSModule = true;
-          };
-          default = self.nixosModules.spicetify;
+      nixosModules = {
+        spicetify = import "${self}/module.nix" {
+          inherit self;
+          isNixOSModule = true;
         };
+        default = self.nixosModules.spicetify;
+      };
 
-        darwinModules = {
-          spicetify = import "${self}/module.nix" {
-            inherit self;
-            isNixOSModule = true;
-          };
-          default = self.darwinModules.spicetify;
+      darwinModules = {
+        spicetify = import "${self}/module.nix" {
+          inherit self;
+          isNixOSModule = true;
         };
+        default = self.darwinModules.spicetify;
+      };
 
-        legacyPackages.${system} = import "${self}/pkgs" { inherit pkgs self; };
+      legacyPackages = eachSystem (
+        system:
+        import "${self}/pkgs" {
+          inherit self;
+          pkgs = nixpkgs.legacyPackages.${system};
+        }
+      );
 
-        formatter.${system} = pkgs.nixfmt-rfc-style;
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
 
-        devShells.${system} = {
+      devShells = eachSystem (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
           default = pkgs.mkShellNoCC { packages = [ pkgs.npins ]; };
           fetcher = pkgs.mkShell {
             packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
             inputsFrom = [ self.legacyPackages.${system}.fetcher ];
           };
-        };
-      }
-    );
+        }
+      );
+    };
 }
