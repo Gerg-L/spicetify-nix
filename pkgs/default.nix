@@ -7,7 +7,7 @@ in
 {
   inherit (json) snippets;
   fetcher = pkgs.callPackage ./fetcher { };
-  sources = pkgs.callPackages ./sources.nix { };
+  sources = pkgs.callPackages ./npins/sources.nix { };
   spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { };
 
   /*
