@@ -2,13 +2,13 @@
 let
   inherit (pkgs) lib;
   spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
-  json = lib.importJSON "${self}/pkgs/generated.json";
+  json = lib.importJSON ./generated.json;
 in
 {
   inherit (json) snippets;
-  fetcher = pkgs.callPackage ./fetcher { inherit self; };
-  sources = pkgs.callPackages "${self}/pkgs/npins/sources.nix" { };
-  spicetifyBuilder = pkgs.callPackage "${self}/pkgs/spicetifyBuilder.nix" { };
+  fetcher = pkgs.callPackage ./fetcher { };
+  sources = pkgs.callPackages ./sources.nix { };
+  spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { };
 
   /*
     Don't want to callPackage these because
@@ -16,13 +16,13 @@ in
     plus why would you want to override the pre-existing packages
     when they're so simple to make
   */
-  extensions = import "${self}/pkgs/extensions.nix" {
+  extensions = import ./extensions.nix {
     inherit (spicePkgs) sources;
     inherit lib;
   };
-  themes = import "${self}/pkgs/themes.nix" {
+  themes = import ./themes.nix {
     inherit (spicePkgs) sources extensions;
     inherit pkgs lib;
   };
-  apps = import "${self}/pkgs/apps.nix" { inherit (spicePkgs) sources; };
+  apps = import ./apps.nix { inherit (spicePkgs) sources; };
 }

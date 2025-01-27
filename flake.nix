@@ -31,7 +31,7 @@
     in
     {
       homeManagerModules = {
-        spicetify = import "${self}/module.nix" {
+        spicetify = import ./module.nix {
           inherit self;
           isNixOSModule = false;
         };
@@ -39,7 +39,7 @@
       };
 
       nixosModules = {
-        spicetify = import "${self}/module.nix" {
+        spicetify = import ./module.nix {
           inherit self;
           isNixOSModule = true;
         };
@@ -47,7 +47,7 @@
       };
 
       darwinModules = {
-        spicetify = import "${self}/module.nix" {
+        spicetify = import ./module.nix {
           inherit self;
           isNixOSModule = true;
         };
@@ -56,7 +56,7 @@
 
       legacyPackages = eachSystem (
         system:
-        import "${self}/pkgs" {
+        import ./pkgs {
           inherit self;
           pkgs = nixpkgs.legacyPackages.${system};
         }

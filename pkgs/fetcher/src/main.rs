@@ -511,6 +511,7 @@ async fn main() {
         snippets_output.insert(sanitize_name(&name), i.code);
     }
 
+
     //let extensions = extensions(&crab, &vector.repos);
     //let apps = apps(&crab, &vector.repos);
     //let themes = themes(&crab, &vector.repos);
