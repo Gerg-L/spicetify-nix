@@ -32,7 +32,7 @@ in
 
     dontInstall = lib.mkEnableOption "outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it.";
 
-    __interal_spotify = lib.mkOption {
+    __internal_spotify = lib.mkOption {
       type = lib.types.package;
       readOnly = true;
       internal = true;
@@ -315,6 +315,6 @@ in
           pre;
     in
     lib.mkIf cfg.enable {
-      programs.spicetify.__interal_spotify = spiced-spotify;
+      programs.spicetify.__internal_spotify = spiced-spotify;
     };
 }

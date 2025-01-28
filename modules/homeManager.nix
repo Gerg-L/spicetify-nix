@@ -25,11 +25,11 @@ in
             instead enable windowManagerPatch and set spotifywmPackage
           '';
           if cfg.windowManagerPatch then
-            (cfg.spotifywmPackage.override { spotify = cfg.__interal_spotify; }).overrideAttrs (old: {
-              passthru = (old.passthru or { }) // cfg.__interal_spotify.passthru;
+            (cfg.spotifywmPackage.override { spotify = cfg.__internal_spotify; }).overrideAttrs (old: {
+              passthru = (old.passthru or { }) // cfg.__internal_spotify.passthru;
             })
           else
-            cfg.__interal_spotify;
+            cfg.__internal_spotify;
         createdPackages = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
       };
     })

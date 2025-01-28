@@ -10,7 +10,7 @@ in
   config = lib.mkMerge [
     (lib.mkIf cfg.enable {
       programs.spicetify = {
-        spicedSpotify = cfg.__interal_spotify;
+        spicedSpotify = cfg.__internal_spotify;
         createdPackages = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
       };
     })
