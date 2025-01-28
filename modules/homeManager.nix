@@ -35,7 +35,7 @@ in
     })
 
     (lib.mkIf (!cfg.dontInstall) {
-      environment.systemPackages = cfg.createdPackages;
+      home.packages = cfg.createdPackages;
     })
   ];
 }
