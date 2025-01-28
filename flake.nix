@@ -27,33 +27,10 @@
       ...
     }:
     let
-      eachSystem = nixpkgs.lib.genAttrs (import systems);
+      inherit (nixpkgs) lib;
+      eachSystem = lib.genAttrs (import systems);
     in
     {
-      homeManagerModules = {
-        spicetify = import ./module.nix {
-          inherit self;
-          isNixOSModule = false;
-        };
-        default = self.homeManagerModules.spicetify;
-      };
-
-      nixosModules = {
-        spicetify = import ./module.nix {
-          inherit self;
-          isNixOSModule = true;
-        };
-        default = self.nixosModules.spicetify;
-      };
-
-      darwinModules = {
-        spicetify = import ./module.nix {
-          inherit self;
-          isNixOSModule = true;
-        };
-        default = self.darwinModules.spicetify;
-      };
-
       legacyPackages = eachSystem (
         system:
         import ./pkgs {
@@ -77,5 +54,24 @@
           };
         }
       );
-    };
+    }
+    // builtins.listToAttrs (
+      map
+        (x: {
+          name = "${x}Modules";
+          value = {
+            default = self."${x}Modules".spicetify;
+            spicetify.imports = [
+              (lib.modules.importApply ./modules/common.nix self)
+              ./modules/${x}.nix
+            ];
+          };
+        })
+        [
+          "nixos"
+          "homeManager"
+          "darwin"
+        ]
+    );
+
 }

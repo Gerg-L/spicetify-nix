@@ -1,7 +1,4 @@
-{
-  self,
-  isNixOSModule ? false,
-}:
+self:
 {
   lib,
   pkgs,
@@ -10,7 +7,7 @@
 }:
 let
   cfg = config.programs.spicetify;
-  spicePkgs = pkgs.callPackage ./pkgs { inherit pkgs self; };
+  spicePkgs = pkgs.callPackage ../pkgs { inherit pkgs self; };
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrs;
@@ -34,6 +31,12 @@ in
     enable = lib.mkEnableOption "Spicetify a modified Spotify.";
 
     dontInstall = lib.mkEnableOption "outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it.";
+
+    __interal_spotify = lib.mkOption {
+      type = lib.types.package;
+      readOnly = true;
+      internal = true;
+    };
 
     spicedSpotify = lib.mkOption {
       type = lib.types.package;
@@ -133,11 +136,7 @@ in
 
     spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
 
-    spotifywmPackage = lib.mkPackageOption pkgs "spotifywm" { };
-
     spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" { };
-
-    windowManagerPatch = lib.mkEnableOption "preloading the spotifywm patch";
 
     extraCommands = lib.mkOption {
       type = lib.types.lines;
@@ -315,22 +314,7 @@ in
         else
           pre;
     in
-    lib.mkIf cfg.enable (
-      lib.mkMerge [
-        {
-          programs.spicetify = {
-            spicedSpotify = spiced-spotify;
-            createdPackages = [ spiced-spotify ] ++ cfg.theme.extraPkgs;
-          };
-        }
-        (lib.mkIf (!cfg.dontInstall) (
-          if isNixOSModule then
-            { environment.systemPackages = cfg.createdPackages; }
-          else
-            { home.packages = cfg.createdPackages; }
-        ))
-      ]
-    );
-
-  _file = ./module.nix;
+    lib.mkIf cfg.enable {
+      programs.spicetify.__interal_spotify = spiced-spotify;
+    };
 }
