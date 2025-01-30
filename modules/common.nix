@@ -45,6 +45,10 @@ in
 
     createdPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
+      default = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
+      defaultText = lib.literalExpression ''
+        [ config.programs.spicetify.spicedSpotify ] ++ config.programs.spicetify.theme.extraPkgs
+      '';
       readOnly = true;
     };
 

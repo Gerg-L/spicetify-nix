@@ -26,7 +26,6 @@ in
           })
         else
           cfg.__internal_spotify;
-      createdPackages = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
     };
 
     environment.systemPackages = lib.mkIf (!cfg.dontInstall) cfg.createdPackages;
