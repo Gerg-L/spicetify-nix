@@ -40,11 +40,15 @@ in
 
     spicedSpotify = lib.mkOption {
       type = lib.types.package;
+      description = "The final spotify package after spicing.";
       readOnly = true;
     };
 
     createdPackages = lib.mkOption {
       type = lib.types.listOf lib.types.package;
+      description = ''
+        A list of all generated packages containing the spiced spotify and extra packages from the current theme.
+      '';
       default = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
       defaultText = lib.literalExpression ''
         [ config.programs.spicetify.spicedSpotify ] ++ config.programs.spicetify.theme.extraPkgs
@@ -153,6 +157,7 @@ in
       default = [ ];
       description = ''
         A list of extensions.
+        See https://spicetify.app/docs/advanced-usage/extensions/.
       '';
       example = ''
         [
@@ -170,6 +175,10 @@ in
       '';
     };
     enabledCustomApps = lib.mkOption {
+      description = ''
+        Custom apps to add to the spice.
+        See https://spicetify.app/docs/development/custom-apps.
+      '';
       type = lib.types.listOf (
         lib.types.submodule {
           freeformType = lib.types.attrsOf lib.types.anything;
@@ -200,25 +209,36 @@ in
 
     colorScheme = lib.mkOption {
       type = lib.types.str;
+      description = ''
+        Spicetify color scheme to use, given a specific {option}`programs.spicetify.theme`.
+        If using {option}`programs.spicetify.customColorScheme`, leave this as default (`"custom"`).
+      '';
       default = if cfg.customColorScheme == { } then "" else "custom";
     };
     customColorScheme = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
+      description = ''
+        Custom scheme used to generate a corresponding `color.ini`.
+        See https://spicetify.app/docs/development/themes.
+      '';
       default = { };
     };
     enabledSnippets = lib.mkOption {
       type = lib.types.listOf lib.types.str;
+      description = ''
+        Snippets to add to the spice.
+        See https://github.com/spicetify/marketplace/blob/main/resources/snippets.json.
+      '';
       default = [ ];
     };
 
     spotifyLaunchFlags = lib.mkOption {
       type = lib.types.str;
+      description = "Launch flags to pass to spotify.";
       default = "";
     };
-    alwaysEnableDevTools = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-    };
+
+    alwaysEnableDevTools = lib.mkEnableOption "chromium dev tools";
 
     updateXpuiPredicate = lib.mkOption {
       type = lib.types.either (lib.types.attrsOf lib.types.str) (
@@ -230,7 +250,6 @@ in
 
   config =
     let
-
       # take the list of extensions and turn strings into actual extensions
       allExtensions = cfg.enabledExtensions ++ cfg.theme.requiredExtensions;
 
