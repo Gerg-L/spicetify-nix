@@ -1,0 +1,827 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>Appendix A. Spicetify-nix Options</title>
+
+
+ <meta name="generator" content="nixos-render-docs" />
+ <link rel="home" href="index.xhtml" title="spicetify-nix manual" />
+ <link rel="up" href="index.xhtml" title="spicetify-nix manual" /><link rel="prev" href="index.xhtml" title="spicetify-nix manual" />
+ </head>
+ <body>
+  <div class="navheader">
+   <table width="100%" summary="Navigation header">
+    <tr>
+    <th colspan="3" align="center">Appendix A. Spicetify-nix Options</th>
+    </tr>
+    <tr>
+    <td width="20%" align="left"><a accesskey="p" href="index.xhtml">Prev</a>&nbsp;</td>
+    <th width="60%" align="center">&nbsp;</th>
+    <td width="20%" align="right">&nbsp;</td>
+    </tr>
+   </table>
+   <hr />
+  </div><div class="appendix"> <div class="titlepage">  <div>   <div>    <h1 id="ch-options" class="title" >Appendix A. Spicetify-nix Options   </h1>  </div> </div></div><p>Below are the options provided by spicetify-nix provided in no particular order.</p><div class="variablelist">
+<a id="spicetify-nix-options"></a>
+ <dl class="variablelist">
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enable"></a><a class="term" href="options.html#opt-programs.spicetify.enable"><code class="option">programs.spicetify.enable</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable Spicetify a modified Spotify…</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enabledCustomApps"></a><a class="term" href="options.html#opt-programs.spicetify.enabledCustomApps"><code class="option">programs.spicetify.enabledCustomApps</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom apps to add to the spice.
+See https://spicetify.app/docs/development/custom-apps.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (attribute set of anything)</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enabledCustomApps._.name"></a><a class="term" href="options.html#opt-programs.spicetify.enabledCustomApps._.name"><code class="option">programs.spicetify.enabledCustomApps.*.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Name of the app. No spaces or special characters</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;localFiles&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enabledCustomApps._.src"></a><a class="term" href="options.html#opt-programs.spicetify.enabledCustomApps._.src"><code class="option">programs.spicetify.enabledCustomApps.*.src</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to the folder containing the app code.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+path in the Nix store</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  pkgs.fetchFromGitHub {
+    owner = &quot;hroland&quot;;
+    repo = &quot;spicetify-show-local-files&quot;;
+    rev = &quot;1bfd2fc80385b21ed6dd207b00a371065e53042e&quot;;
+    hash = &quot;sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU=&quot;;
+  }
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enabledExtensions"></a><a class="term" href="options.html#opt-programs.spicetify.enabledExtensions"><code class="option">programs.spicetify.enabledExtensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>A list of extensions.
+See https://spicetify.app/docs/advanced-usage/extensions/.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (path in the Nix store or (attribute set of anything))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  [
+    {
+      src = (pkgs.fetchFromGitHub {
+        owner = &quot;Taeko-ar&quot;;
+        repo = &quot;spicetify-last-fm&quot;;
+        rev = &quot;d2f1d3c1e286d789ddfa002f162405782d822c55&quot;;
+        hash = &quot;sha256-/C4Y3zuSAEwhMXCRG2/4b5oWfGz/ij6wu0B+CpuJKXs=&quot;;
+      }) + /src;
+  
+      name = &quot;lastfm.js&quot;;
+    }
+  ]
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.enabledSnippets"></a><a class="term" href="options.html#opt-programs.spicetify.enabledSnippets"><code class="option">programs.spicetify.enabledSnippets</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Snippets to add to the spice.
+See https://github.com/spicetify/marketplace/blob/main/resources/snippets.json.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.alwaysEnableDevTools"></a><a class="term" href="options.html#opt-programs.spicetify.alwaysEnableDevTools"><code class="option">programs.spicetify.alwaysEnableDevTools</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable chromium dev tools.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.colorScheme"></a><a class="term" href="options.html#opt-programs.spicetify.colorScheme"><code class="option">programs.spicetify.colorScheme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Spicetify color scheme to use, given a specific <code class="option">programs.spicetify.theme</code>.
+If using <code class="option">programs.spicetify.customColorScheme</code>, leave this as default (<code class="literal">&quot;custom&quot;</code>).</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.createdPackages"></a><a class="term" href="options.html#opt-programs.spicetify.createdPackages"><code class="option">programs.spicetify.createdPackages</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>A list of all generated packages containing the spiced spotify and extra packages from the current theme.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package <span class="emphasis"><em>(read only)</em></span></p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">[ config.programs.spicetify.spicedSpotify ] ++ config.programs.spicetify.theme.extraPkgs
+
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.customColorScheme"></a><a class="term" href="options.html#opt-programs.spicetify.customColorScheme"><code class="option">programs.spicetify.customColorScheme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Custom scheme used to generate a corresponding <code class="literal">color.ini</code>.
+See https://spicetify.app/docs/development/themes.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.dontInstall"></a><a class="term" href="options.html#opt-programs.spicetify.dontInstall"><code class="option">programs.spicetify.dontInstall</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it…</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.extraCommands"></a><a class="term" href="options.html#opt-programs.spicetify.extraCommands"><code class="option">programs.spicetify.extraCommands</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra commands to be run during the setup of spicetify.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.spicedSpotify"></a><a class="term" href="options.html#opt-programs.spicetify.spicedSpotify"><code class="option">programs.spicetify.spicedSpotify</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The final spotify package after spicing.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package <span class="emphasis"><em>(read only)</em></span></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.spicetifyPackage"></a><a class="term" href="options.html#opt-programs.spicetify.spicetifyPackage"><code class="option">programs.spicetify.spicetifyPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The spicetify-cli package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.spicetify-cli</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.spotifyLaunchFlags"></a><a class="term" href="options.html#opt-programs.spicetify.spotifyLaunchFlags"><code class="option">programs.spicetify.spotifyLaunchFlags</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Launch flags to pass to spotify.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.spotifyPackage"></a><a class="term" href="options.html#opt-programs.spicetify.spotifyPackage"><code class="option">programs.spicetify.spotifyPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The spotify package to use.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.spotify</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme"></a><a class="term" href="options.html#opt-programs.spicetify.theme"><code class="option">programs.spicetify.theme</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of anything</p>
+
+<p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{
+  name = &quot;Default&quot;;
+  src = &quot;/nix/store/d69v8wssvlbmv9qdgny0nc4qrqfw4hz2-source/Default&quot;;
+}
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.additionalCss"></a><a class="term" href="options.html#opt-programs.spicetify.theme.additionalCss"><code class="option">programs.spicetify.theme.additionalCss</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.extraCommands"></a><a class="term" href="options.html#opt-programs.spicetify.theme.extraCommands"><code class="option">programs.spicetify.theme.extraCommands</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>A bash script to run from the spicetify config directory if this theme is installed.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+strings concatenated with “\n”</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">&quot;&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.extraPkgs"></a><a class="term" href="options.html#opt-programs.spicetify.theme.extraPkgs"><code class="option">programs.spicetify.theme.extraPkgs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Extra required packges for the theme to function (usually a font)</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.homeConfig"></a><a class="term" href="options.html#opt-programs.spicetify.theme.homeConfig"><code class="option">programs.spicetify.theme.homeConfig</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.injectCss"></a><a class="term" href="options.html#opt-programs.spicetify.theme.injectCss"><code class="option">programs.spicetify.theme.injectCss</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.injectThemeJs"></a><a class="term" href="options.html#opt-programs.spicetify.theme.injectThemeJs"><code class="option">programs.spicetify.theme.injectThemeJs</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.name"></a><a class="term" href="options.html#opt-programs.spicetify.theme.name"><code class="option">programs.spicetify.theme.name</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The name of the theme as it will be copied into the spicetify themes directory.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+string</p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">&quot;Dribbblish&quot;</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.overwriteAssets"></a><a class="term" href="options.html#opt-programs.spicetify.theme.overwriteAssets"><code class="option">programs.spicetify.theme.overwriteAssets</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.patches"></a><a class="term" href="options.html#opt-programs.spicetify.theme.patches"><code class="option">programs.spicetify.theme.patches</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>INI entries to add in the [Patch] section of config-xpui.ini</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  {
+    &quot;xpui.js_find_8008&quot; = &quot;,(\\w+=)32&quot;;
+    &quot;xpui.js_repl_8008&quot; = &quot;,$\{1}56&quot;;
+  };
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.replaceColors"></a><a class="term" href="options.html#opt-programs.spicetify.theme.replaceColors"><code class="option">programs.spicetify.theme.replaceColors</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.requiredExtensions"></a><a class="term" href="options.html#opt-programs.spicetify.theme.requiredExtensions"><code class="option">programs.spicetify.theme.requiredExtensions</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+list of (path in the Nix store or (attribute set of anything))</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">[ ]</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.theme.src"></a><a class="term" href="options.html#opt-programs.spicetify.theme.src"><code class="option">programs.spicetify.theme.src</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Path to folder containing the theme.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+path in the Nix store</p>
+
+<p><span class="emphasis"><em>Example:</em></span></p><pre><code class="programlisting">&#x27;&#x27;
+  fetchFromGitHub {
+    owner = &quot;spicetify&quot;;
+    repo = &quot;spicetify-themes&quot;;
+    rev = &quot;02badb180c902f986a4ea4e4033e69fe8eec6a55&quot;;
+    hash = &quot;sha256-KD9VfHtlN0BIHC4inlooxw5XC4xlHNC5evASRqP7pUA=&quot;;
+  }
+  Or a relative path 
+  
+  ./myTheme
+&#x27;&#x27;
+</code></pre>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.updateXpuiPredicate"></a><a class="term" href="options.html#opt-programs.spicetify.updateXpuiPredicate"><code class="option">programs.spicetify.updateXpuiPredicate</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>This option has no description.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+(attribute set of string) or function that evaluates to a(n) attribute set of string</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">{ }</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+ </dl>
+</div>
+</div>  <div class="navfooter">
+   <hr />
+   <table width="100%" summary="Navigation footer">
+    <tr>
+    <td width="40%" align="left"><a accesskey="p" href="index.xhtml">Prev</a>&nbsp;</td>
+    <td width="20%" align="center">&nbsp;</td>
+    <td width="40%" align="right">&nbsp;</td>
+    </tr>
+    <tr>
+     <td width="40%" align="left" valign="top">spicetify-nix manual&nbsp;</td>
+     <td width="20%" align="center"><a accesskey="h" href="index.xhtml">Home</a></td>
+     <td width="40%" align="right" valign="top">&nbsp;</td>
+    </tr>
+   </table>
+  </div>
+ </body>
+</html>
