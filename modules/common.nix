@@ -231,90 +231,71 @@ in
       allExtensions = cfg.enabledExtensions ++ cfg.theme.requiredExtensions;
 
       # custom spotify package with spicetify integrated in
-      spiced-spotify =
+      xpui =
         let
-          xpui =
-            let
-              xpui_ = {
+          xpui_ = {
 
-                AdditionalOptions = {
-                  extensions = lib.concatMapStringsSep "|" (item: item.name) allExtensions;
-                  custom_apps = lib.concatMapStringsSep "|" (item: item.name) cfg.enabledCustomApps;
-                  # must be disabled on newer spotify
-                  sidebar_config = false;
+            AdditionalOptions = {
+              extensions = lib.concatMapStringsSep "|" (item: item.name) allExtensions;
+              custom_apps = lib.concatMapStringsSep "|" (item: item.name) cfg.enabledCustomApps;
+              # must be disabled on newer spotify
+              sidebar_config = false;
 
-                  home_config = cfg.theme.homeConfig;
+              home_config = cfg.theme.homeConfig;
 
-                  experimental_features = lib.any (item: (item.experimentalFeatures or false)) allExtensions;
-                };
-
-                Setting = {
-                  spotify_path = "__SPOTIFY__";
-                  prefs_path = "__PREFS__";
-                  inject_theme_js = cfg.theme.injectThemeJs;
-                  replace_colors = cfg.theme.replaceColors;
-                  check_spicetify_update = false;
-                  current_theme = cfg.theme.name;
-                  color_scheme = cfg.colorScheme;
-                  inject_css = cfg.theme.injectCss;
-                  overwrite_assets = cfg.theme.overwriteAssets;
-                  spotify_launch_flags = cfg.spotifyLaunchFlags;
-                  always_enable_devtools = cfg.alwaysEnableDevTools;
-                };
-
-                Patch = cfg.theme.patches or { };
-
-                Preprocesses = {
-                  disable_ui_logging = true;
-                  remove_rtl_rule = true;
-                  expose_apis = true;
-                  disable_sentry = true;
-                };
-
-                Backup = {
-                  inherit (cfg.spotifyPackage) version;
-                  "with" = cfg.spicetifyPackage.version;
-                };
-              };
-            in
-            if (lib.isFunction cfg.updateXpuiPredicate) then
-              cfg.updateXpuiPredicate xpui_
-            else if (lib.isAttrs cfg.updateXpuiPredicate && cfg.updateXpuiPredicate != { }) then
-              cfg.updateXpuiPredicate
-            else
-              xpui_;
-
-          pre = spicePkgs.spicetifyBuilder {
-            spotify = cfg.spotifyPackage;
-            spicetify-cli = cfg.spicetifyPackage;
-            extensions = allExtensions;
-            apps = cfg.enabledCustomApps;
-            theme = cfg.theme // {
-              additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.enabledSnippets);
+              experimental_features = lib.any (item: (item.experimentalFeatures or false)) allExtensions;
             };
-            inherit (cfg) customColorScheme extraCommands;
-            # compose the configuration as well as options required by extensions and
-            # cfg.cfg.xpui into one set
-            config-xpui = xpui;
+
+            Setting = {
+              spotify_path = "__SPOTIFY__";
+              prefs_path = "__PREFS__";
+              inject_theme_js = cfg.theme.injectThemeJs;
+              replace_colors = cfg.theme.replaceColors;
+              check_spicetify_update = false;
+              current_theme = cfg.theme.name;
+              color_scheme = cfg.colorScheme;
+              inject_css = cfg.theme.injectCss;
+              overwrite_assets = cfg.theme.overwriteAssets;
+              spotify_launch_flags = cfg.spotifyLaunchFlags;
+              always_enable_devtools = cfg.alwaysEnableDevTools;
+            };
+
+            Patch = cfg.theme.patches or { };
+
+            Preprocesses = {
+              disable_ui_logging = true;
+              remove_rtl_rule = true;
+              expose_apis = true;
+              disable_sentry = true;
+            };
+
+            Backup = {
+              inherit (cfg.spotifyPackage) version;
+              "with" = cfg.spicetifyPackage.version;
+            };
           };
         in
-
-        assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
-          Spotifywm does not support darwin
-        '';
-        assert lib.assertMsg (cfg.spotifyPackage.pname != "spotifywm") ''
-          Do not set spotifyPackage to pkgs.spotifywm
-          instead enable windowManagerPatch and set spotifywmPackage
-        '';
-
-        if cfg.windowManagerPatch then
-          (cfg.spotifywmPackage.override { spotify = pre; }).overrideAttrs (old: {
-            passthru = (old.passthru or { }) // pre.passthru;
-          })
+        if (lib.isFunction cfg.updateXpuiPredicate) then
+          cfg.updateXpuiPredicate xpui_
+        else if (lib.isAttrs cfg.updateXpuiPredicate && cfg.updateXpuiPredicate != { }) then
+          cfg.updateXpuiPredicate
         else
-          pre;
+          xpui_;
+
     in
     lib.mkIf cfg.enable {
-      programs.spicetify.__internal_spotify = spiced-spotify;
+      programs.spicetify.__internal_spotify = spicePkgs.spicetifyBuilder {
+        spotify = cfg.spotifyPackage;
+        spicetify-cli = cfg.spicetifyPackage;
+        extensions = allExtensions;
+        apps = cfg.enabledCustomApps;
+        theme = cfg.theme // {
+          additionalCss = lib.concatLines ([ (cfg.theme.additionalCss or "") ] ++ cfg.enabledSnippets);
+        };
+        inherit (cfg) customColorScheme extraCommands;
+        # compose the configuration as well as options required by extensions and
+        # cfg.cfg.xpui into one set
+        config-xpui = xpui;
+      };
     };
 }
