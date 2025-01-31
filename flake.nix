@@ -25,7 +25,7 @@
       nixpkgs,
       systems,
       ...
-    }:
+    }@inputs:
     let
       inherit (nixpkgs) lib;
       eachSystem = lib.genAttrs (import systems);
@@ -34,7 +34,7 @@
       legacyPackages = eachSystem (
         system:
         import ./pkgs {
-          inherit self;
+          inherit inputs;
           pkgs = nixpkgs.legacyPackages.${system};
         }
       );
@@ -62,7 +62,7 @@
           value = {
             default = self."${x}Modules".spicetify;
             spicetify.imports = [
-              (lib.modules.importApply ./modules/common.nix self)
+              (lib.modules.importApply ./modules/common.nix inputs)
               ./modules/${x}.nix
             ];
           };

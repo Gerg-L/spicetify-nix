@@ -1,7 +1,7 @@
-{ pkgs, self }:
+{ pkgs, inputs }:
 let
   inherit (pkgs) lib;
-  spicePkgs = self.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = inputs.self.legacyPackages.${pkgs.stdenv.system};
   json = lib.importJSON ./generated.json;
 in
 {
@@ -25,4 +25,6 @@ in
     inherit pkgs lib;
   };
   apps = import ./apps.nix { inherit (spicePkgs) sources; };
+
+  docs = pkgs.callPackage ../docs { inherit inputs; };
 }

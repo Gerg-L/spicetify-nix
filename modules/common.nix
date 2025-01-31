@@ -1,4 +1,4 @@
-self:
+inputs:
 {
   lib,
   pkgs,
@@ -7,7 +7,7 @@ self:
 }:
 let
   cfg = config.programs.spicetify;
-  spicePkgs = pkgs.callPackage ../pkgs { inherit pkgs self; };
+  spicePkgs = pkgs.callPackage ../pkgs { inherit pkgs inputs; };
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrsOf lib.types.anything;
