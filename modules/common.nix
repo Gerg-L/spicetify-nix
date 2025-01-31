@@ -238,6 +238,15 @@ in
       default = "";
     };
 
+    experimentalFeatures = lib.mkOption {
+      type = lib.types.nullOr lib.types.bool;
+      default = null;
+      example = true;
+      description = ''
+        Whether to enable experimental features.
+      '';
+    };
+
     alwaysEnableDevTools = lib.mkEnableOption "chromium dev tools";
 
     updateXpuiPredicate = lib.mkOption {
@@ -266,7 +275,11 @@ in
 
               home_config = cfg.theme.homeConfig;
 
-              experimental_features = lib.any (item: (item.experimentalFeatures or false)) allExtensions;
+              experimental_features =
+                if cfg.experimentalFeatures != null then
+                  cfg.experimentalFeatures
+                else
+                  lib.any (item: (item.experimentalFeatures or false)) allExtensions;
             };
 
             Setting = {
