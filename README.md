@@ -7,43 +7,53 @@ deleted and re-made repo for discoverability as github does not like to show for
 
 Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
 
-[spicetify-themes](https://github.com/spicetify/spicetify-themes) are
-included and available.
-
 ## Usage
 
 Add this flake as an input
 ```nix
-#flake.nix
-{
-  inputs = {
-    spicetify-nix = {
-      url = "github:Gerg-L/spicetify-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+```
+
+or `import` the base of this repo using [flake-compat](https://github.com/edolstra/flake-compat)
+
+Then use one of the modules or `spicetify-nix.lib.mkSpicetify`
+
+
+### Wrapper function
+The wrapper takes two arguments `pkgs` and then an attribute set of config options
+
+```nix
+let
+  spicetify = spicetify-nix.lib.mkSpicetify pkgs {
+    #config options
+  };
+in {
 ...
 ```
-(Make sure you're passing inputs to your [modules](https://blog.nobbz.dev/posts/2022-12-12-getting-inputs-to-modules-in-a-flake))
+then add it to `environment.systemPackages` or `users.users.<name>.packages` or anywhere you can add a package
 
-## Import the module
+### Modules
+Import `{nixosModules,darwinModules,homeManagerModules}.spicetify` into your respective config
+
+and use the `programs.spicetify` options
+
 ```nix
-  imports = [
-    # For NixOS
-    inputs.spicetify-nix.nixosModules.default
-    # For home-manager
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
+programs.spicetify = {
+  enable = true;
+  #config options
 ```
-(Ensure you have spotify allowed as [unfree](https://wiki.nixos.org/wiki/Unfree_software))
 
-### Minimal Configuration
+and it'll install the wrapped spotify to `environment.systemPackages` or `home.packages`
+
+to not install by default use `programs.spicetify.dontInstall = true;` module instead and add `config.programs.spicetify.spicedSpotify` where you want
+
+### Example Configuration
 
 ```nix
-programs.spicetify =
    let
-     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
    in
-   {
+   programs.spicetify = {
      enable = true;
      enabledExtensions = with spicePkgs.extensions; [
        adblock
@@ -54,6 +64,11 @@ programs.spicetify =
      colorScheme = "mocha";
    }
 ```
+
+## Config Options
+
+See the generated docs:
+<https://gerg-l.github.io/spicetify-nix/options.html>
 
 ## Themes, Extensions, and CustomApps
 
