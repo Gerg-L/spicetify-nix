@@ -21,41 +21,41 @@ lib.makeOverridable (
     postInstall =
       old.postInstall or ""
       + ''
-        export SPICETIFY_CONFIG=$PWD
+        export SPICETIFY_CONFIG="$PWD"
 
         mkdir -p {Themes,Extensions,CustomApps}
 
-        cp -r ${theme.src} Themes/${theme.name}
-        chmod -R a+wr Themes
+        cp -r '${theme.src}' 'Themes/${theme.name}'
+        chmod -R a+wr 'Themes'
 
         ${lib.optionalString ((theme ? additionalCss) && theme.additionalCss != "") ''
-          cat ${
+          cat '${
             writeText "spicetify-additional-CSS" ("\n" + theme.additionalCss)
-          } >> Themes/${theme.name}/user.css
+          }' >> 'Themes/${theme.name}/user.css'
         ''}
 
-        # extra commands that the theme might need
+        # extra commands that ths theme might need
         ${theme.extraCommands or ""}
 
         # copy extensions into Extensions folder
-        ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src}/${item.name} Extensions") extensions}
+        ${lib.concatMapStringsSep "\n" (item: "cp -ru '${item.src}/${item.name}' 'Extensions'") extensions}
 
         # copy custom apps into CustomApps folder
-        ${lib.concatMapStringsSep "\n" (item: "cp -ru ${item.src} CustomApps/${item.name}") apps}
+        ${lib.concatMapStringsSep "\n" (item: "cp -ru '${item.src}' 'CustomApps/${item.name}'") apps}
 
         # add a custom color scheme if necessary
         ${lib.optionalString (customColorScheme != { }) ''
-          cat ${
+          cat '${
             writeText "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
-          } > Themes/${theme.name}/color.ini
+          }' > 'Themes/${theme.name}/color.ini'
         ''}
 
 
-        cp ${lib.getExe spicetify-cli} spicetify
-        ln -s ${lib.getExe' spicetify-cli "jsHelper"} jsHelper
-        ln -s ${spicetify-cli.src}/css-map.json css-map.json
+        cp '${lib.getExe spicetify-cli}' 'spicetify'
+        ln -s '${lib.getExe' spicetify-cli "jsHelper"}' 'jsHelper'
+        ln -s '${spicetify-cli.src}/css-map.json' 'css-map.json'
 
-        touch prefs
+        touch 'prefs'
 
         # replace the spotify path with the current derivation's path
         sed "s|__SPOTIFY__|${
@@ -65,13 +65,14 @@ lib.makeOverridable (
             "$out/Applications/Spotify.app/Contents/Resources"
           else
             throw ""
-        }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" ${
+        }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" '${
           writeText "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
-        } > config-xpui.ini
+        }' > 'config-xpui.ini'
 
 
         ${extraCommands}
 
         ./spicetify --no-restart backup apply      '';
   })
+
 )
