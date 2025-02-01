@@ -255,11 +255,13 @@ in
 
     alwaysEnableDevTools = lib.mkEnableOption "chromium dev tools";
 
-    updateXpuiPredicate = lib.mkOption {
+    # If you have to use this you should probably make a PR instead
+    updateXpui = lib.mkOption {
       type = lib.types.either (lib.types.attrsOf lib.types.str) (
         lib.types.functionTo (lib.types.attrsOf lib.types.str)
       );
       default = { };
+      internal = true;
     };
   };
 
@@ -268,11 +270,9 @@ in
       # take the list of extensions and turn strings into actual extensions
       allExtensions = cfg.enabledExtensions ++ cfg.theme.requiredExtensions;
 
-      # custom spotify package with spicetify integrated in
       xpui =
         let
           xpui_ = {
-
             AdditionalOptions = {
               extensions = lib.concatMapStringsSep "|" (item: item.name) allExtensions;
               custom_apps = lib.concatMapStringsSep "|" (item: item.name) cfg.enabledCustomApps;
@@ -317,10 +317,10 @@ in
             };
           };
         in
-        if (lib.isFunction cfg.updateXpuiPredicate) then
-          cfg.updateXpuiPredicate xpui_
-        else if (lib.isAttrs cfg.updateXpuiPredicate && cfg.updateXpuiPredicate != { }) then
-          cfg.updateXpuiPredicate
+        if (lib.isFunction cfg.updateXpui) then
+          cfg.updateXpui xpui_
+        else if (lib.isAttrs cfg.updateXpui && cfg.updateXpui != { }) then
+          cfg.updateXpui
         else
           xpui_;
 
