@@ -334,6 +334,33 @@ boolean</p>
 </dd>
 <dt>
  <span class="term">
+ <a id="opt-programs.spicetify.experimentalFeatures"></a><a class="term" href="options.html#opt-programs.spicetify.experimentalFeatures"><code class="option">programs.spicetify.experimentalFeatures</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable experimental features.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+null or boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">null</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
+&lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
  <a id="opt-programs.spicetify.extraCommands"></a><a class="term" href="options.html#opt-programs.spicetify.extraCommands"><code class="option">programs.spicetify.extraCommands</code>
   </a>
  </span>
@@ -367,30 +394,6 @@ strings concatenated with “\n”</p>
 
 <p><span class="emphasis"><em>Type:</em></span>
 package <span class="emphasis"><em>(read only)</em></span></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
-&lt;spicetify-nix/modules/common.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
- <a id="opt-programs.spicetify.spicetifyPackage"></a><a class="term" href="options.html#opt-programs.spicetify.spicetifyPackage"><code class="option">programs.spicetify.spicetifyPackage</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>The spicetify-cli package to use.</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-package</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">pkgs.spicetify-cli</code></p>
 
 <p><span class="emphasis"><em>Declared by:</em></span></p>
 <table border="0" summary="Simple list" class="simplelist">
@@ -445,6 +448,30 @@ package</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
 &lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.spotifywmPackage"></a><a class="term" href="options.html#opt-programs.spicetify.spotifywmPackage"><code class="option">programs.spicetify.spotifywmPackage</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>The spotifywm package to use. Note: this is only available on linux</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+package</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">pkgs.spotifywm</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/docs.nix" target="_top">
+&lt;spicetify-nix/modules/docs.nix&gt;
 </a></code>
 </td></tr>
 </table>
@@ -802,6 +829,34 @@ path in the Nix store</p>
 <tr><td>
 <code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
 &lt;spicetify-nix/modules/common.nix&gt;
+</a></code>
+</td></tr>
+</table>
+</dd>
+<dt>
+ <span class="term">
+ <a id="opt-programs.spicetify.windowManagerPatch"></a><a class="term" href="options.html#opt-programs.spicetify.windowManagerPatch"><code class="option">programs.spicetify.windowManagerPatch</code>
+  </a>
+ </span>
+</dt>
+<dd>
+<p>Whether to enable preloading the spotifywm patch.</p><p>Note: this is only available on linux
+.</p>
+
+<p><span class="emphasis"><em>Type:</em></span>
+boolean</p>
+
+<p><span class="emphasis"><em>Default:</em></span>
+<code class="literal">false</code></p>
+
+<p><span class="emphasis"><em>Example:</em></span>
+<code class="literal">true</code></p>
+
+<p><span class="emphasis"><em>Declared by:</em></span></p>
+<table border="0" summary="Simple list" class="simplelist">
+<tr><td>
+<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/docs.nix" target="_top">
+&lt;spicetify-nix/modules/docs.nix&gt;
 </a></code>
 </td></tr>
 </table>
