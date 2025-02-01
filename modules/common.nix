@@ -7,7 +7,9 @@ inputs:
 }:
 let
   cfg = config.programs.spicetify;
-  spicePkgs = pkgs.callPackage ../pkgs { inherit pkgs inputs; };
+  spicePkgs = import ../pkgs {
+    inherit inputs pkgs;
+  };
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrsOf lib.types.anything;
