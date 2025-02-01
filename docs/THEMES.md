@@ -62,7 +62,7 @@ Gruvbox.
 ### sleek
 Flat design, with dark blues for the background and single highlight colors in each scheme.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Sleek/bladerunner.png)
-### staryNight
+### starryNight
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/StarryNight/images/base.png)
 Simple theme with a pure CSS Shooting Star Animation Effect
 ### turntable
