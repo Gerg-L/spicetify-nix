@@ -31,6 +31,22 @@
       eachSystem = lib.genAttrs (import systems);
     in
     {
+      lib.mkSpicetify =
+        pkgs: config:
+        let
+          inherit (nixpkgs) lib;
+        in
+        (lib.evalModules {
+          specialArgs = {
+            inherit pkgs;
+          };
+          modules = [
+            ./modules/standalone.nix
+            (lib.modules.importApply ./modules/common.nix inputs)
+            { programs.spicetify = config; }
+          ];
+        }).config.programs.spicetify.spicedSpotify;
+
       legacyPackages = eachSystem (
         system:
         import ./pkgs {
