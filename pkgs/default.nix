@@ -3,12 +3,15 @@ let
   inherit (pkgs) lib;
   spicePkgs = inputs.self.legacyPackages.${pkgs.stdenv.system};
   json = lib.importJSON ./generated.json;
+  spicetify-cli = pkgs.callPackage ./spicetify-cli.nix { };
 in
 {
   inherit (json) snippets;
+  inherit spicetify-cli;
+
   fetcher = pkgs.callPackage ./fetcher { };
   sources = pkgs.callPackages ./npins/sources.nix { };
-  spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { };
+  spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { inherit spicetify-cli; };
 
   /*
     Don't want to callPackage these because

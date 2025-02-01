@@ -2,11 +2,11 @@
   lib,
   stdenv,
   writeText,
+  spicetify-cli,
 }:
 lib.makeOverridable (
   {
     spotify,
-    spicetify-cli,
     theme,
     config-xpui,
     customColorScheme,
@@ -50,11 +50,6 @@ lib.makeOverridable (
           }' > 'Themes/${theme.name}/color.ini'
         ''}
 
-
-        cp '${lib.getExe spicetify-cli}' 'spicetify'
-        ln -s '${lib.getExe' spicetify-cli "jsHelper"}' 'jsHelper'
-        ln -s '${spicetify-cli.src}/css-map.json' 'css-map.json'
-
         touch 'prefs'
 
         # replace the spotify path with the current derivation's path
@@ -72,7 +67,7 @@ lib.makeOverridable (
 
         ${extraCommands}
 
-        ./spicetify --no-restart backup apply      '';
+        ${lib.getExe spicetify-cli} --no-restart backup apply      '';
   })
 
 )

@@ -27,6 +27,12 @@ let
   );
 in
 {
+  imports = [
+    (lib.mkRemovedOptionModule [ "programs" "spicetify" "spicetifyPackage" ] ''
+      nixpkgs' spicetify-cli is no longer being used
+    '')
+  ];
+
   options.programs.spicetify = {
     enable = lib.mkEnableOption "Spicetify a modified Spotify.";
 
@@ -143,8 +149,6 @@ in
     };
 
     spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
-
-    spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" { };
 
     extraCommands = lib.mkOption {
       type = lib.types.lines;
@@ -307,7 +311,7 @@ in
 
             Backup = {
               inherit (cfg.spotifyPackage) version;
-              "with" = cfg.spicetifyPackage.version;
+              "with" = "Dev";
             };
           };
         in
@@ -322,7 +326,6 @@ in
     lib.mkIf cfg.enable {
       programs.spicetify.__internal_spotify = spicePkgs.spicetifyBuilder {
         spotify = cfg.spotifyPackage;
-        spicetify-cli = cfg.spicetifyPackage;
         extensions = allExtensions;
         apps = cfg.enabledCustomApps;
         theme = cfg.theme // {

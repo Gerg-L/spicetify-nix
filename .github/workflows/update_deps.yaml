@@ -39,6 +39,8 @@ jobs:
             exit 0
           fi
 
+          nix run nixpkgs#nix-update -- -F legacyPackages.x86_64-linux.spicetify-cli
+
           pushd pkgs
 
           nix run .#fetcher
