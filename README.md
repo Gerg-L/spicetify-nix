@@ -7,6 +7,10 @@ deleted and re-made repo for discoverability as github does not like to show for
 
 Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
 
+### Try it out
+
+`nix run github:Gerg-L/spicetify-nix#test`
+
 ## Usage
 
 Add this flake as an input
@@ -56,7 +60,7 @@ to not install by default use `programs.spicetify.dontInstall = true;` module in
    programs.spicetify = {
      enable = true;
      enabledExtensions = with spicePkgs.extensions; [
-       adblock
+       adblockify
        hidePodcasts
        shuffle # shuffle+ (special characters are sanitized out of extension names)
      ];

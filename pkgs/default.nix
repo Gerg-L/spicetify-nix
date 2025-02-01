@@ -1,9 +1,13 @@
 { pkgs, inputs }:
 let
-  inherit (pkgs) lib;
+  inherit (inputs.nixpkgs) lib;
   spicePkgs = inputs.self.legacyPackages.${pkgs.stdenv.system};
   json = lib.importJSON ./generated.json;
   spicetify-cli = pkgs.callPackage ./spicetify-cli.nix { };
+  unfreePkgs = import inputs.nixpkgs {
+    inherit (pkgs.stdenv) system;
+    config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
+  };
 in
 {
   inherit (json) snippets;
@@ -30,4 +34,16 @@ in
   apps = import ./apps.nix { inherit (spicePkgs) sources; };
 
   docs = pkgs.callPackage ../docs { inherit inputs; };
+
+  test = inputs.self.lib.mkSpicetify unfreePkgs {
+    enabledExtensions = builtins.attrValues {
+      inherit (spicePkgs.extensions)
+        adblockify
+        hidePodcasts
+        shuffle
+        ;
+    };
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
+  };
 }
