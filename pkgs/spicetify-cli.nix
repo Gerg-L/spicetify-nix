@@ -24,8 +24,6 @@ buildGoModule {
     "-X 'main.version=Dev'"
   ];
 
-  env.CGO_ENABLED = "0";
-
   postInstall = ''
     mv $out/bin/cli $out/bin/spicetify
     ln -s $src/jsHelper $out/bin/jsHelper
