@@ -22,6 +22,8 @@ lib.makeOverridable (
       old.postInstall or ""
       + ''
         export SPICETIFY_CONFIG="$PWD"
+        export SPICETIFY_STATE="$PWD/state"
+        mkdir -p "SPICETIFY_STATE"
 
         mkdir -p {Themes,Extensions,CustomApps}
 
