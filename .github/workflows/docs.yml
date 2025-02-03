@@ -41,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.7
       - uses: DeterminateSystems/nix-installer-action@v14
-      - uses: DeterminateSystems/magic-nix-cache-action@v8
+      - uses: DeterminateSystems/magic-nix-cache-action@v9
       - run: |
           nix build .#docs
           cp -r result public
