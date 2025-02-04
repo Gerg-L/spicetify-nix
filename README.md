@@ -49,7 +49,10 @@ programs.spicetify = {
 
 and it'll install the wrapped spotify to `environment.systemPackages` or `home.packages`
 
-to not install by default use `programs.spicetify.dontInstall = true;` module instead and add `config.programs.spicetify.spicedSpotify` where you want
+To not install by default use `programs.spicetify.dontInstall = true;
+ 
+Use: `config.programs.spicetify.spicedSpotify`
+instead of `pkgs.spotify` to reference the spiced Spotify package
 
 ### Example Configuration
 
