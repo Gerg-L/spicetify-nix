@@ -1,5 +1,5 @@
 {
-  inputs,
+  version,
   pkgs,
   lib,
   stdenvNoCC,
@@ -7,8 +7,6 @@
   nixosOptionsDoc,
 }:
 let
-  revision = inputs.self.rev or inputs.self.dirtyRev or "dirty";
-
   evaluatedOptions =
     let
       scrubDerivations =
@@ -36,7 +34,7 @@ let
             args.pkgs = lib.mkForce (scrubDerivations "pkgs" pkgs);
           };
         }
-        (lib.modules.importApply ../modules/common.nix inputs)
+        ../modules/common.nix
         ../modules/docs.nix
       ];
     }).options;
@@ -84,7 +82,7 @@ stdenvNoCC.mkDerivation {
     substituteInPlace ./manual.md \
       --subst-var-by \
         VERSION \
-        ${revision}
+        ${version}
 
     substituteInPlace ./options.md \
       --subst-var-by \
@@ -92,8 +90,8 @@ stdenvNoCC.mkDerivation {
         ${fixedOptions.optionsJSON}/share/doc/nixos/options.json
 
     nixos-render-docs manual html \
-      --manpage-urls ${inputs.nixpkgs}/doc/manpage-urls.json \
-      --revision ${revision} \
+      --manpage-urls ${pkgs.path}/doc/manpage-urls.json \
+      --revision ${version} \
       --toc-depth 2 \
       --section-toc-depth 1 \
       manual.md \

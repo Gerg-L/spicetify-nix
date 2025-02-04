@@ -1,4 +1,3 @@
-inputs:
 {
   lib,
   pkgs,
@@ -8,7 +7,7 @@ inputs:
 let
   cfg = config.programs.spicetify;
   spicePkgs = import ../pkgs {
-    inherit inputs pkgs;
+    inherit pkgs;
   };
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {

@@ -1,21 +1,20 @@
-{ pkgs, inputs }:
-let
-  inherit (inputs.nixpkgs) lib;
-  spicePkgs = inputs.self.legacyPackages.${pkgs.stdenv.system};
-  json = lib.importJSON ./generated.json;
-  spicetify-cli = pkgs.callPackage ./spicetify-cli.nix { };
-  unfreePkgs = import inputs.nixpkgs {
-    inherit (pkgs.stdenv) system;
-    config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
-  };
-in
 {
+  pkgs ? import <nixpkgs> { },
+  unfreePkgs ? pkgs,
+  docsVersion ? "impure",
+}:
+let
+  inherit (pkgs) lib;
+  json = lib.importJSON ./generated.json;
+in
+lib.fix (self: {
   inherit (json) snippets;
-  inherit spicetify-cli;
+
+  spicetify-cli = pkgs.callPackage ./spicetify-cli.nix { };
 
   fetcher = pkgs.callPackage ./fetcher { };
   sources = pkgs.callPackages ./npins/sources.nix { };
-  spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { inherit spicetify-cli; };
+  spicetifyBuilder = pkgs.callPackage ./spicetifyBuilder.nix { inherit (self) spicetify-cli; };
 
   /*
     Don't want to callPackage these because
@@ -24,26 +23,30 @@ in
     when they're so simple to make
   */
   extensions = import ./extensions.nix {
-    inherit (spicePkgs) sources;
+    inherit (self) sources;
     inherit lib;
   };
   themes = import ./themes.nix {
-    inherit (spicePkgs) sources extensions;
+    inherit (self) sources extensions;
     inherit pkgs lib;
   };
-  apps = import ./apps.nix { inherit (spicePkgs) sources; };
+  apps = import ./apps.nix { inherit (self) sources; };
 
-  docs = pkgs.callPackage ../docs { inherit inputs; };
+  docs = pkgs.callPackage ../docs { version = docsVersion; };
 
-  test = inputs.self.lib.mkSpicetify unfreePkgs {
-    enabledExtensions = builtins.attrValues {
-      inherit (spicePkgs.extensions)
-        adblockify
-        hidePodcasts
-        shuffle
-        ;
+  test =
+    let
+      spiceLib = import ../lib lib;
+    in
+    spiceLib.mkSpicetify unfreePkgs {
+      enabledExtensions = builtins.attrValues {
+        inherit (self.extensions)
+          adblockify
+          hidePodcasts
+          shuffle
+          ;
+      };
+      theme = self.themes.catppuccin;
+      colorScheme = "mocha";
     };
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
-  };
-}
+})

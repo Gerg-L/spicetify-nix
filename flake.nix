@@ -11,12 +11,6 @@
       owner = "nix-systems";
       repo = "default";
     };
-    flake-compat = {
-      type = "github";
-      owner = "edolstra";
-      repo = "flake-compat";
-      flake = false;
-    };
   };
 
   outputs =
@@ -25,33 +19,24 @@
       nixpkgs,
       systems,
       ...
-    }@inputs:
+    }:
     let
       inherit (nixpkgs) lib;
       eachSystem = lib.genAttrs (import systems);
     in
     {
-      lib.mkSpicetify =
-        pkgs: config:
-        let
-          inherit (nixpkgs) lib;
-        in
-        (lib.evalModules {
-          specialArgs = {
-            inherit pkgs;
-          };
-          modules = [
-            ./modules/standalone.nix
-            (lib.modules.importApply ./modules/common.nix inputs)
-            { programs.spicetify = config; }
-          ];
-        }).config.programs.spicetify.spicedSpotify;
+      lib = import ./lib lib;
 
       legacyPackages = eachSystem (
         system:
         import ./pkgs {
-          inherit inputs;
+
           pkgs = nixpkgs.legacyPackages.${system};
+          unfreePkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
+          };
+          docsVersion = self.rev or self.dirtyRev or "dirty";
         }
       );
 
@@ -71,23 +56,6 @@
         }
       );
     }
-    // builtins.listToAttrs (
-      map
-        (x: {
-          name = "${x}Modules";
-          value = {
-            default = self."${x}Modules".spicetify;
-            spicetify.imports = [
-              (lib.modules.importApply ./modules/common.nix inputs)
-              ./modules/${x}.nix
-            ];
-          };
-        })
-        [
-          "nixos"
-          "homeManager"
-          "darwin"
-        ]
-    );
+    // import ./modules lib;
 
 }
