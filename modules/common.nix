@@ -325,7 +325,7 @@ in
           xpui_;
 
     in
-    lib.mkIf cfg.enable {
+    {
       programs.spicetify.__internal_spotify = spicePkgs.spicetifyBuilder {
         spotify = cfg.spotifyPackage;
         extensions = allExtensions;

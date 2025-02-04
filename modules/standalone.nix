@@ -17,7 +17,6 @@ in
 
   config = {
     programs.spicetify = {
-      enable = lib.mkForce true;
       spicedSpotify =
         assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
           Spotifywm does not support darwin
