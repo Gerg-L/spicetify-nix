@@ -18,7 +18,9 @@ Add this flake as an input
 spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 ```
 
-or `import` the base of this repo using [flake-compat](https://github.com/edolstra/flake-compat)
+or `import` the base of this repo with a `fetchTarball` passing `pkgs`
+
+like `import (builtins.fetchTarball { ... } ) {inherit pkgs;}`
 
 Then use one of the modules or `spicetify-nix.lib.mkSpicetify`
 
@@ -58,6 +60,10 @@ instead of `pkgs.spotify` to reference the spiced Spotify package
 
 ```nix
    let
+     # For Flakeless:
+     # spicePkgs = spicetify-nix.packages;
+
+     # With flakes:
      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
    in
    programs.spicetify = {
