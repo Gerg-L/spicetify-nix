@@ -22,39 +22,32 @@
     }:
     let
       inherit (nixpkgs) lib;
-      eachSystem = lib.genAttrs (import systems);
+      eachSystem = f: lib.genAttrs (import systems) (s: f nixpkgs.legacyPackages.${s});
     in
     {
       lib = import ./lib lib;
 
       legacyPackages = eachSystem (
-        system:
+        pkgs:
         import ./pkgs {
-
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
           unfreePkgs = import nixpkgs {
-            inherit system;
+            inherit (pkgs.stdenv) system;
             config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
           };
           docsVersion = self.rev or self.dirtyRev or "dirty";
         }
       );
 
-      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = eachSystem (pkgs: pkgs.nixfmt-rfc-style);
 
-      devShells = eachSystem (
-        system:
-        let
-          pkgs = nixpkgs.legacyPackages.${system};
-        in
-        {
-          default = pkgs.mkShellNoCC { packages = [ pkgs.npins ]; };
-          fetcher = pkgs.mkShell {
-            packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
-            inputsFrom = [ self.legacyPackages.${system}.fetcher ];
-          };
-        }
-      );
+      devShells = eachSystem (pkgs: {
+        default = pkgs.mkShellNoCC { packages = [ pkgs.npins ]; };
+        fetcher = pkgs.mkShell {
+          packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
+          inputsFrom = [ self.legacyPackages.${pkgs.stdenv.system}.fetcher ];
+        };
+      });
     }
     // import ./modules lib;
 
