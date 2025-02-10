@@ -1,22 +1,22 @@
-lib:
-lib.fix (
-  self:
-  builtins.listToAttrs (
-    map
-      (x: {
-        name = "${x}Modules";
-        value = {
-          default = self."${x}Modules".spicetify;
-          spicetify.imports = [
+builtins.listToAttrs (
+  map
+    (x: {
+      name = "${x}Modules";
+      value =
+        let
+          imports = [
             ./common.nix
             ./${x}.nix
           ];
+        in
+        {
+          default = { inherit imports; };
+          spicetify = { inherit imports; };
         };
-      })
-      [
-        "nixos"
-        "homeManager"
-        "darwin"
-      ]
-  )
+    })
+    [
+      "nixos"
+      "homeManager"
+      "darwin"
+    ]
 )
