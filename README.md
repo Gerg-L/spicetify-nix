@@ -39,7 +39,15 @@ in {
 then add it to `environment.systemPackages` or `users.users.<name>.packages` or anywhere you can add a package
 
 ### Modules
-Import `{nixosModules,darwinModules,homeManagerModules}.spicetify` into your respective config
+Import `spicetify-nix.{nixosModules,darwinModules,homeManagerModules}.spicetify` into your respective config
+
+Use `nixosModules` for NixOS, `darwinModules` if using nix-darwin on MacOS, and `homeManagerModules` if spicetify-nix is installed via Home Manager
+```nix
+imports = [
+  # Example for NixOS
+  spicetify-nix.nixosModules.spicetify 
+];
+```
 
 and use the `programs.spicetify` options
 
