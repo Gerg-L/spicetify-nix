@@ -13,7 +13,7 @@ in
     spotifywmPackage = lib.mkPackageOption pkgs "spotifywm" { };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = {
     programs.spicetify = {
       spicedSpotify =
         assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
@@ -31,6 +31,6 @@ in
           cfg.__internal_spotify;
     };
 
-    home.packages = lib.mkIf (!cfg.dontInstall) cfg.createdPackages;
+    home.packages = lib.mkIf cfg.enable cfg.createdPackages;
   };
 }

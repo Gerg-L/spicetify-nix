@@ -7,11 +7,11 @@ let
   cfg = config.programs.spicetify;
 in
 {
-  config = lib.mkIf cfg.enable {
+  config = {
     programs.spicetify = {
       spicedSpotify = cfg.__internal_spotify;
     };
 
-    environment.systemPackages = lib.mkIf (!cfg.dontInstall) cfg.createdPackages;
+    environment.systemPackages = lib.mkIf cfg.enable cfg.createdPackages;
   };
 }

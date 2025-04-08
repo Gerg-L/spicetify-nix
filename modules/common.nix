@@ -32,12 +32,13 @@ in
     (lib.mkRemovedOptionModule [ "programs" "spicetify" "spicetifyPackage" ] ''
       nixpkgs' spicetify-cli is no longer being used
     '')
+    (lib.mkRemovedOptionModule [ "programs" "spicetify" "dontInstall" ] ''
+      set 'programs.spicetify.enable = false;' instead.
+    '')
   ];
 
   options.programs.spicetify = {
     enable = lib.mkEnableOption "Spicetify a modified Spotify.";
-
-    dontInstall = lib.mkEnableOption "outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it.";
 
     __internal_spotify = lib.mkOption {
       type = lib.types.package;
