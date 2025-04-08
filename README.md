@@ -1,9 +1,10 @@
 # Spicetify-Nix
 
 Originally forked from [the-argus](https://github.com/the-argus/spicetify-nix)
-which forked from [pietdevries94](https://github.com/pietdevries94/spicetify-nix)
-deleted and re-made repo for discoverability as github does not like to show forks in the search
-
+which forked from
+[pietdevries94](https://github.com/pietdevries94/spicetify-nix) deleted and
+re-made repo for discoverability as github does not like to show forks in the
+search
 
 Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
 
@@ -14,6 +15,7 @@ Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
 ## Usage
 
 Add this flake as an input
+
 ```nix
 spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 ```
@@ -24,9 +26,10 @@ like `import (builtins.fetchTarball { ... } ) {inherit pkgs;}`
 
 Then use one of the modules or `spicetify-nix.lib.mkSpicetify`
 
-
 ### Wrapper function
-The wrapper takes two arguments `pkgs` and then an attribute set of config options
+
+The wrapper takes two arguments `pkgs` and then an attribute set of config
+options
 
 ```nix
 let
@@ -36,12 +39,22 @@ let
 in {
 ...
 ```
-then add it to `environment.systemPackages` or `users.users.<name>.packages` or anywhere you can add a package
+
+then add it to `environment.systemPackages` or `users.users.<name>.packages` or
+anywhere you can add a package
 
 ### Modules
-Import `spicetify-nix.{nixosModules,darwinModules,homeManagerModules}.spicetify` into your respective config
 
-Use `nixosModules` for NixOS, `darwinModules` if using nix-darwin on MacOS, and `homeManagerModules` if spicetify-nix is installed via Home Manager
+Import `spicetify-nix.<module>.spicetify` into your config
+
+Where `<module>` is:
+
+`nixosModules` for NixOS,
+
+`darwinModules` for nix-darwin
+
+`homeManagerModules`for home-manager
+
 ```nix
 imports = [
   # Example for NixOS
@@ -57,12 +70,14 @@ programs.spicetify = {
   #config options
 ```
 
-and it'll install the wrapped spotify to `environment.systemPackages` or `home.packages`
+and it'll install the wrapped spotify to `environment.systemPackages` or
+`home.packages`
 
-To not install by default use `programs.spicetify.dontInstall = true;`
- 
-Use: `config.programs.spicetify.spicedSpotify`
-instead of `pkgs.spotify` to reference the spiced Spotify package
+Alternatively set `programs.spicetify.enable = false;` and add
+`config.programs.spicetify.spicedSpotify` where you want manually
+
+> [!IMPORTANT]
+> Don't install `pkgs.spotify anywhere The module installs spotify for you!
 
 ### Example Configuration
 
@@ -88,10 +103,10 @@ instead of `pkgs.spotify` to reference the spiced Spotify package
 
 ## Config Options
 
-See the generated docs:
-<https://gerg-l.github.io/spicetify-nix/options.html>
+See the generated docs: <https://gerg-l.github.io/spicetify-nix/options.html>
 
 ## Themes, Extensions, and CustomApps
 
-Are found in [THEMES.md](./docs/THEMES.md), [EXTENSIONS.md](./docs/EXTENSIONS.md), and
+Are found in [THEMES.md](./docs/THEMES.md),
+[EXTENSIONS.md](./docs/EXTENSIONS.md), and
 [CUSTOMAPPS.md](./docs/CUSTOMAPPS.md), respectively.
