@@ -25,12 +25,12 @@
       eachSystem = f: lib.genAttrs (import systems) (s: f nixpkgs.legacyPackages.${s});
     in
     {
-      lib = import ./lib lib;
+      lib = import ./lib { inherit lib self; };
 
       legacyPackages = eachSystem (
         pkgs:
         import ./pkgs {
-          inherit pkgs;
+          inherit pkgs self;
           unfreePkgs = import nixpkgs {
             inherit (pkgs.stdenv) system;
             config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
@@ -49,6 +49,6 @@
         };
       });
     }
-    // import ./modules;
+    // import ./modules self;
 
 }

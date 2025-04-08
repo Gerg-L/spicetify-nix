@@ -1,3 +1,4 @@
+self:
 builtins.listToAttrs (
   map
     (x: {
@@ -5,7 +6,7 @@ builtins.listToAttrs (
       value =
         let
           imports = [
-            ./common.nix
+            (import ./common.nix self)
             ./${x}.nix
           ];
         in

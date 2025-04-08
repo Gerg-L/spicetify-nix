@@ -110,4 +110,3 @@ builtins.mapAttrs
     assert lib.assertMsg (json.version == 5) "Npins version mismatch!";
     json.pins
   )
-

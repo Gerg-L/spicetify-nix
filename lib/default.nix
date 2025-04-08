@@ -1,4 +1,5 @@
-lib: {
+{ self, lib }:
+{
   mkSpicetify =
     pkgs: config:
     (lib.evalModules {
@@ -7,7 +8,7 @@ lib: {
       };
       modules = [
         ../modules/standalone.nix
-        ../modules/common.nix
+        (import ../modules/common.nix self)
         { programs.spicetify = config; }
       ];
     }).config.programs.spicetify.spicedSpotify;

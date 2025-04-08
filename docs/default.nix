@@ -1,4 +1,5 @@
 {
+  self,
   version,
   pkgs,
   lib,
@@ -34,7 +35,7 @@ let
             args.pkgs = lib.mkForce (scrubDerivations "pkgs" pkgs);
           };
         }
-        ../modules/common.nix
+        (import ../modules/common.nix self)
         ../modules/docs.nix
       ];
     }).options;

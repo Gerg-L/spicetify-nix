@@ -1,3 +1,4 @@
+self:
 {
   lib,
   pkgs,
@@ -6,9 +7,9 @@
 }:
 let
   cfg = config.programs.spicetify;
-  spicePkgs = import ../pkgs {
-    inherit pkgs;
-  };
+
+  spicePkgs = self.packages or self.legacyPackages.${pkgs.stdenv.system};
+
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
       freeformType = lib.types.attrsOf lib.types.anything;
@@ -339,4 +340,5 @@ in
         config-xpui = xpui;
       };
     };
+  _file = ./common.nix;
 }
