@@ -307,33 +307,6 @@ attribute set of string</p>
 </dd>
 <dt>
  <span class="term">
- <a id="opt-programs.spicetify.dontInstall"></a><a class="term" href="options.html#opt-programs.spicetify.dontInstall"><code class="option">programs.spicetify.dontInstall</code>
-  </a>
- </span>
-</dt>
-<dd>
-<p>Whether to enable outputting spiced spotify to config.programs.spicetify.spicedSpotify, but not installing it…</p>
-
-<p><span class="emphasis"><em>Type:</em></span>
-boolean</p>
-
-<p><span class="emphasis"><em>Default:</em></span>
-<code class="literal">false</code></p>
-
-<p><span class="emphasis"><em>Example:</em></span>
-<code class="literal">true</code></p>
-
-<p><span class="emphasis"><em>Declared by:</em></span></p>
-<table border="0" summary="Simple list" class="simplelist">
-<tr><td>
-<code class="filename"><a class="filename"  href="https://github.com/Gerg-L/spicetify-nix/blob/master/modules/common.nix" target="_top">
-&lt;spicetify-nix/modules/common.nix&gt;
-</a></code>
-</td></tr>
-</table>
-</dd>
-<dt>
- <span class="term">
  <a id="opt-programs.spicetify.experimentalFeatures"></a><a class="term" href="options.html#opt-programs.spicetify.experimentalFeatures"><code class="option">programs.spicetify.experimentalFeatures</code>
   </a>
  </span>
@@ -490,6 +463,8 @@ attribute set of anything</p>
 
 <p><span class="emphasis"><em>Default:</em></span></p><pre><code class="programlisting">{
   name = &quot;Default&quot;;
+  override = &lt;function, args: {extensions, lib, pkgs, sources}&gt;;
+  overrideDerivation = &lt;function&gt;;
   src = &quot;/nix/store/z2911yczr12snqkafzhc9ccsmj1glhki-source/Default&quot;;
 }
 </code></pre>
