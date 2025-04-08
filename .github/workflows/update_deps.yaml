@@ -9,11 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: DeterminateSystems/nix-installer-action@v16
+      - uses: cachix/install-nix-action@v31
       - name: setup git
         run: | 
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+      - uses: cachix/cachix-action@v14
+        with:
+          name: spicetify-nix
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - name: update
         run: |
           MESSAGE=""
@@ -27,23 +31,35 @@ jobs:
             git reset --soft HEAD^
           fi
 
-          if NPINS=$(nix run nixpkgs#npins -- -d ./pkgs/npins update -f | grep -E '[^\(no changes\)]*url.*'); then
+          NPINS=$(nix run nixpkgs#npins -- -d ./pkgs/npins update -f | grep -E '[^\(no changes\)]*url.*')
+
+          if [ -n "$(git status --porcelain=v1 2>/dev/null)" ]; then
             MESSAGE="$MESSAGE
 
           npins url updates:
           $NPINS"
           fi
 
+          nix run nixpkgs#nix-update -- -F legacyPackages.x86_64-linux.spicetify-cli --commit
+
+          if git rev-parse -q HEAD^; then
+
+            # Check if spicetify-cli compiles
+            nix run .#spicetify-cli -- -v
+
+            MESSAGE="$MESSAGE
+
+            $(git -P log --pretty=format:"%s%n%b" -1)"
+
+            git reset --soft HEAD^
+          fi
+
           if [ -z "$MESSAGE" ]; then
             exit 0
           fi
 
-          nix run nixpkgs#nix-update -- -F legacyPackages.x86_64-linux.spicetify-cli
-
           pushd pkgs
-
           nix run .#fetcher
-
           popd
           
           git add -A
