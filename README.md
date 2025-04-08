@@ -77,7 +77,7 @@ Alternatively set `programs.spicetify.enable = false;` and add
 `config.programs.spicetify.spicedSpotify` where you want manually
 
 > [!IMPORTANT]
-> Don't install `pkgs.spotify anywhere The module installs spotify for you!
+> Don't install `pkgs.spotify` anywhere The module installs spotify for you!
 
 ### Example Configuration
 
