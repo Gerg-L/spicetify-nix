@@ -44,7 +44,7 @@ jobs:
 
           if git rev-parse -q HEAD^; then
 
-            # Check if spicetify-cli compiles
+            # Check if spicetify-cli compiles and runs
             nix run .#spicetify-cli -- -v
 
             MESSAGE="$MESSAGE
@@ -61,6 +61,9 @@ jobs:
           pushd pkgs
           nix run .#fetcher
           popd
+          
+          # Check if a small config builds
+          nix build .#test
           
           git add -A
 
