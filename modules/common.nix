@@ -30,9 +30,6 @@ let
 in
 {
   imports = [
-    (lib.mkRemovedOptionModule [ "programs" "spicetify" "spicetifyPackage" ] ''
-      nixpkgs' spicetify-cli is no longer being used
-    '')
     (lib.mkRemovedOptionModule [ "programs" "spicetify" "dontInstall" ] ''
       set 'programs.spicetify.enable = false;' instead.
     '')
@@ -161,6 +158,8 @@ in
     };
 
     spotifyPackage = lib.mkPackageOption pkgs "spotify" { };
+
+    spicetifyPackage = lib.mkPackageOption pkgs "spicetify-cli" { };
 
     extraCommands = lib.mkOption {
       type = lib.types.lines;
@@ -338,6 +337,7 @@ in
     {
       programs.spicetify.__internal_spotify = spicePkgs.spicetifyBuilder {
         spotify = cfg.spotifyPackage;
+        spicetify-cli = cfg.spicetifyPackage;
         extensions = allExtensions;
         apps = cfg.enabledCustomApps;
         theme = cfg.theme // {

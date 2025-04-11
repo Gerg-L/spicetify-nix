@@ -2,12 +2,12 @@
   lib,
   stdenv,
   writeText,
-  spicetify-cli,
   crudini,
 }:
 lib.makeOverridable (
   {
     spotify,
+    spicetify-cli,
     theme,
     config-xpui,
     customColorScheme,

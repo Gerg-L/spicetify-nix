@@ -16,8 +16,6 @@ lib.fix (
   {
     inherit (json) snippets;
 
-    spicetify-cli = callPackage ./spicetify-cli.nix { };
-
     fetcher = callPackage ./fetcher { };
     sources = callPackages ./npins/sources.nix { };
     spicetifyBuilder = callPackage ./spicetifyBuilder.nix { };
