@@ -3,6 +3,7 @@
   stdenv,
   writeText,
   spicetify-cli,
+  crudini,
 }:
 lib.makeOverridable (
   {
@@ -17,6 +18,7 @@ lib.makeOverridable (
 
   spotify.overrideAttrs (old: {
     name = "spicetify-${theme.name}";
+    nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [ crudini ];
 
     postInstall =
       old.postInstall or ""
@@ -36,7 +38,7 @@ lib.makeOverridable (
           }' >> 'Themes/${theme.name}/user.css'
         ''}
 
-        # extra commands that ths theme might need
+        # extra commands that this theme might need
         ${theme.extraCommands or ""}
 
         # copy extensions into Extensions folder
@@ -52,6 +54,14 @@ lib.makeOverridable (
           }' > 'Themes/${theme.name}/color.ini'
         ''}
 
+        # verify that the color_scheme exists
+        if ! crudini --get 'Themes/${theme.name}/color.ini' '${config-xpui.Setting.color_scheme}' &>/dev/null; then
+          echo "colorScheme set to non-existent value: '${config-xpui.Setting.color_scheme}'"
+          echo "Valid values:"
+          crudini --get 'Themes/${theme.name}/color.ini'
+          exit 1
+        fi
+
         touch 'prefs'
 
         # replace the spotify path with the current derivation's path
@@ -65,7 +75,6 @@ lib.makeOverridable (
         }|g; s|__PREFS__|$SPICETIFY_CONFIG/prefs|g" '${
           writeText "spicetify-confi-xpui" (lib.generators.toINI { } config-xpui)
         }' > 'config-xpui.ini'
-
 
         ${extraCommands}
 
