@@ -1,0 +1,1 @@
+import{_ as a,c as i,o as s,ag as t}from"./chunks/framework.DPDPlp3K.js";const d=JSON.parse('{"title":"Themes","description":"","frontmatter":{},"headers":[],"relativePath":"themes.md","filePath":"themes.md"}'),r={name:"themes.md"};function h(n,e,l,o,p,c){return s(),i("div",null,e[0]||(e[0]=[t("",59)]))}const k=a(r,[["render",h]]);export{d as __pageData,k as default};
