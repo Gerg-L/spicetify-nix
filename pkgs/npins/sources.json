@@ -285,9 +285,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "f97236d7cdcef4478ebb57a1332258bda0aaab27",
-      "url": "https://github.com/Kamiloo13/spicetify-extensions/archive/f97236d7cdcef4478ebb57a1332258bda0aaab27.tar.gz",
-      "hash": "0q7d4nb5vijyczqa3jab9qr7495zsfbl9f1knnb1kcpk352r5rrn"
+      "revision": "b4e3e252b244a50b9ba381b0d94fd20d2908fa08",
+      "url": "https://github.com/Kamiloo13/spicetify-extensions/archive/b4e3e252b244a50b9ba381b0d94fd20d2908fa08.tar.gz",
+      "hash": "0nky150chdlh5r7396g2b05s4skcnjfsaa9dfyh1vxflmjgjnb8h"
     },
     "lastfmSrc": {
       "type": "Git",
@@ -389,9 +389,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "bbfd86528f5072606c6ea548ef213ef471d3b736",
-      "url": "https://github.com/spicetify/cli/archive/bbfd86528f5072606c6ea548ef213ef471d3b736.tar.gz",
-      "hash": "0d2xah6761m8iiqkkf4dxsi48n1j9w3nh9l7dgkrvvjkpf4pwvjj"
+      "revision": "d1a5485033d2c455a3d48c0e5847d73b91233e8c",
+      "url": "https://github.com/spicetify/cli/archive/d1a5485033d2c455a3d48c0e5847d73b91233e8c.tar.gz",
+      "hash": "1rwisa3aajpi9n9rl1qjclwlg9z6cnhirrdvk9a5v5nvd3vci58z"
     },
     "officialThemes": {
       "type": "Git",
