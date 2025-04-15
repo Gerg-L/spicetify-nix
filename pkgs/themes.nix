@@ -1,6 +1,5 @@
 {
   sources,
-  extensions,
   pkgs,
   lib,
 }:
@@ -33,6 +32,8 @@
 //
 
   {
+    spotifyNoPremium = throw  "spotifyNoPremium is no longer being maintained as of 11/2024"; # added 04/2025
+
     burntSienna = {
       name = "BurntSienna";
       src = "${sources.officialThemes}/BurntSienna";
@@ -94,16 +95,6 @@
           src = "${sources.officialThemes}/Turntable";
         }
       ];
-    };
-
-    spotifyNoPremium = {
-      name = "SpotifyNoPremium";
-      src = sources.spotifyNoPremiumSrc;
-
-      requiredExtensions = [ extensions.adblock ];
-      injectCss = false;
-      replaceColors = false;
-
     };
 
     fluent = {
@@ -231,25 +222,6 @@
         {
           name = "hazy.js";
           src = "${sources.hazySrc}";
-        }
-      ];
-    };
-
-    # theres a thing at https://github.com/itsmeow/Spicetify-Canvas
-    # about getting a custom build of chromium or something. I am NOT doing that
-    # ... but maybe one day if someone asks
-    # TODO: add the ability to append this user.css to any other user.css
-    # for installation in any theme
-    spotifyCanvas = {
-      name = "SpotifyCanvas";
-      src = "${sources.spotifyCanvasSrc}/Themes/canvas";
-
-      replaceColors = false;
-
-      requiredExtensions = [
-        {
-          src = "${sources.spotifyCanvasSrc}/Extensions";
-          name = "getCanvas.js";
         }
       ];
     };

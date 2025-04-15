@@ -1,17 +1,3 @@
-# Spicetify-Nix
-
-Originally forked from [the-argus](https://github.com/the-argus/spicetify-nix)
-which forked from
-[pietdevries94](https://github.com/pietdevries94/spicetify-nix) deleted and
-re-made repo for discoverability as github does not like to show forks in the
-search
-
-Modifies Spotify using [spicetify-cli](https://github.com/spicetify/cli).
-
-### Try it out
-
-`nix run github:Gerg-L/spicetify-nix#test`
-
 ## Usage
 
 Add this flake as an input
@@ -100,13 +86,3 @@ Alternatively set `programs.spicetify.enable = false;` and add
      colorScheme = "mocha";
    }
 ```
-
-## Config Options
-
-See the generated docs: <https://gerg-l.github.io/spicetify-nix/options.html>
-
-## Themes, Extensions, and CustomApps
-
-Are found in [THEMES.md](./docs/THEMES.md),
-[EXTENSIONS.md](./docs/EXTENSIONS.md), and
-[CUSTOMAPPS.md](./docs/CUSTOMAPPS.md), respectively.

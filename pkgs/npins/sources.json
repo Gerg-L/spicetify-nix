@@ -497,32 +497,6 @@
       "url": "https://github.com/rxri/spicetify-extensions/archive/d1bc50363939723d80ccef51f1b14b0893cf1c14.tar.gz",
       "hash": "0msp95jal0y1rmqj9m7m5c48hq5fqwhkddwj188k5q4v0jkb7l13"
     },
-    "spotifyCanvasSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "itsmeow",
-        "repo": "Spicetify-Canvas"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "d3fd4a3ef31726bc9b9f5192bc7f4e6bc2f98e6c",
-      "url": "https://github.com/itsmeow/Spicetify-Canvas/archive/d3fd4a3ef31726bc9b9f5192bc7f4e6bc2f98e6c.tar.gz",
-      "hash": "0kx6ab4bdq6h4n9wr7jxjw1zlxncacqzj361gr4kiylmimk72622"
-    },
-    "spotifyNoPremiumSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Daksh777",
-        "repo": "SpotifyNoPremium"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "6b145fb84e16cdaea8f06aef4d1cfc0d6f5898e5",
-      "url": "https://github.com/Daksh777/SpotifyNoPremium/archive/6b145fb84e16cdaea8f06aef4d1cfc0d6f5898e5.tar.gz",
-      "hash": "0q4wak7n3kir96b9s65axgrrqrkpm095bc5100r4i78jin3h2cm6"
-    },
     "starRatingsSrc": {
       "type": "Git",
       "repository": {

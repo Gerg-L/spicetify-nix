@@ -1,7 +1,6 @@
 {
   pkgs ? import <nixpkgs> { },
   unfreePkgs ? pkgs,
-  docsVersion ? "impure",
   ...
 }@attrs:
 let
@@ -34,11 +33,6 @@ lib.fix (
     themes = callPackages ./themes.nix { };
 
     apps = callPackages ./apps.nix { };
-
-    docs = callPackage ../docs {
-      version = docsVersion;
-      inherit (attrs) self;
-    };
 
     test =
       let

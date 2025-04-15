@@ -1,0 +1,13 @@
+{
+  "name": "docs",
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build --base=/spicetify-nix/",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "easy-nix-documentation": "^1.3.0",
+    "vitepress": "^1.6.3"
+  }
+}

@@ -35,7 +35,6 @@
             inherit (pkgs.stdenv) system;
             config.allowUnfreePredicate = pkg: (lib.getName pkg == "spotify");
           };
-          docsVersion = self.rev or self.dirtyRev or "dirty";
         }
       );
 

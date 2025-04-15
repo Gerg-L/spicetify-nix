@@ -60,12 +60,13 @@ in
       '';
       default = [ cfg.spicedSpotify ] ++ cfg.theme.extraPkgs;
       defaultText = lib.literalExpression ''
-        [ config.programs.spicetify.spicedSpotify ] ++ config.programs.spicetify.theme.extraPkgs
+        [ spicedSpotify ] ++ theme.extraPkgs
       '';
       readOnly = true;
     };
 
     theme = lib.mkOption {
+      description = "";
       inherit (spicePkgs.themes) default;
 
       type = lib.types.submodule {
@@ -94,6 +95,7 @@ in
             '';
           };
           requiredExtensions = lib.mkOption {
+            description = "";
             type = lib.types.listOf extensionType;
             default = [ ];
           };
@@ -124,26 +126,33 @@ in
 
           # some config values that can be specified per-theme
           injectCss = lib.mkOption {
+            description = "";
             type = lib.types.bool;
             default = true;
           };
           injectThemeJs = lib.mkOption {
+
+            description = "";
             type = lib.types.bool;
             default = true;
           };
           replaceColors = lib.mkOption {
+            description = "";
             type = lib.types.bool;
             default = true;
           };
           homeConfig = lib.mkOption {
+            description = "";
             type = lib.types.bool;
             default = true;
           };
           overwriteAssets = lib.mkOption {
+            description = "";
             type = lib.types.bool;
             default = false;
           };
           additionalCss = lib.mkOption {
+            description = "";
             type = lib.types.lines;
             default = "";
           };
@@ -193,7 +202,7 @@ in
             src = lib.mkOption {
               type = lib.types.pathInStore;
               description = "Path to the folder containing the app code.";
-              example = ''
+              example = lib.literalExpression ''
                 pkgs.fetchFromGitHub {
                   owner = "hroland";
                   repo = "spicetify-show-local-files";
@@ -217,8 +226,8 @@ in
     colorScheme = lib.mkOption {
       type = lib.types.str;
       description = ''
-        Spicetify color scheme to use, given a specific {option}`programs.spicetify.theme`.
-        If using {option}`programs.spicetify.customColorScheme`, leave this as default (`"custom"`).
+        Spicetify color scheme to use, given a specific `programs.spicetify.theme`.
+        If using `programs.spicetify.customColorScheme`, leave this as default `"custom"`.
       '';
       default = if cfg.customColorScheme == { } then "" else "custom";
     };
