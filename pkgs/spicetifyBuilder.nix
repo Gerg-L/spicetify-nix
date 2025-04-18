@@ -78,7 +78,8 @@ lib.makeOverridable (
 
         ${extraCommands}
 
-        ${lib.getExe spicetify-cli} --no-restart backup apply      '';
+        ${lib.getExe spicetify-cli} --no-restart backup apply
+      '';
   })
 
 )

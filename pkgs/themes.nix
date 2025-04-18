@@ -32,7 +32,7 @@
 //
 
   {
-    spotifyNoPremium = throw  "spotifyNoPremium is no longer being maintained as of 11/2024"; # added 04/2025
+    spotifyNoPremium = throw "spotifyNoPremium is no longer being maintained as of 11/2024"; # added 04/2025
 
     burntSienna = {
       name = "BurntSienna";
