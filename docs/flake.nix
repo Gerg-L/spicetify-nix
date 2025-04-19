@@ -37,11 +37,8 @@
               (lib.evalModules {
                 specialArgs = { inherit pkgs; };
                 modules = [
-                  ../modules/docs.nix
-                  (import ../modules/common.nix spicetify-nix)
-                  {
-                    _module.check = false;
-                  }
+                  (import ../modules/options.nix spicetify-nix)
+                  ../modules/wmOpts.nix
                 ];
               })
             )

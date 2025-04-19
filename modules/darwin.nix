@@ -3,15 +3,12 @@
   config,
   ...
 }:
-let
-  cfg = config.programs.spicetify;
-in
 {
-  config = {
-    programs.spicetify = {
-      spicedSpotify = cfg.__internal_spotify;
+  programs.spicetify =
+    { config, ... }:
+    {
+      spicedSpotify = config.__internal_spotify;
     };
 
-    environment.systemPackages = lib.mkIf cfg.enable cfg.createdPackages;
-  };
+  environment.systemPackages = lib.mkIf config.programs.spicetify.enable config.programs.spicetify.createdPackages;
 }

@@ -4,7 +4,7 @@
   ...
 }:
 {
-  options.programs.spicetify = {
+  options = {
     windowManagerPatch = lib.mkEnableOption ''
       preloading the spotifywm patch.
 

@@ -4,33 +4,25 @@
   pkgs,
   ...
 }:
-let
-  cfg = config.programs.spicetify;
-in
 {
-  options.programs.spicetify = {
-    windowManagerPatch = lib.mkEnableOption "preloading the spotifywm patch";
-    spotifywmPackage = lib.mkPackageOption pkgs "spotifywm" { };
-  };
-
-  config = {
-    programs.spicetify = {
+  programs.spicetify =
+    { config, ... }:
+    {
+      imports = [ ./wmOpts.nix ];
       spicedSpotify =
-        assert lib.assertMsg (!(pkgs.stdenv.isDarwin && cfg.windowManagerPatch)) ''
+        assert lib.assertMsg (!(pkgs.stdenv.isDarwin && config.windowManagerPatch)) ''
           Spotifywm does not support darwin
         '';
-        assert lib.assertMsg (cfg.spotifyPackage.pname != "spotifywm") ''
+        assert lib.assertMsg (config.spotifyPackage.pname != "spotifywm") ''
           Do not set spotifyPackage to pkgs.spotifywm
           instead enable windowManagerPatch and set spotifywmPackage
         '';
-        if cfg.windowManagerPatch then
-          (cfg.spotifywmPackage.override { spotify = cfg.__internal_spotify; }).overrideAttrs (old: {
-            passthru = (old.passthru or { }) // cfg.__internal_spotify.passthru;
+        if config.windowManagerPatch then
+          (config.spotifywmPackage.override { spotify = config.__internal_spotify; }).overrideAttrs (old: {
+            passthru = (old.passthru or { }) // config.__internal_spotify.passthru;
           })
         else
-          cfg.__internal_spotify;
+          config.__internal_spotify;
     };
-
-    home.packages = lib.mkIf cfg.enable cfg.createdPackages;
-  };
+  home.packages = lib.mkIf config.programs.spicetify.enable config.programs.spicetify.createdPackages;
 }

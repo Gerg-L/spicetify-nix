@@ -1,16 +1,25 @@
 { self, lib }:
 {
   mkSpicetify =
-    pkgs: config:
-    (lib.evalModules {
-      specialArgs = {
-        inherit pkgs;
+    pkgs: module:
+    let
+      evaled = lib.evalModules {
+        specialArgs = {
+          inherit pkgs;
+        };
+        modules = [
+          ../modules/standalone.nix
+          (import ../modules/options.nix self)
+          module
+        ];
       };
-      modules = [
-        ../modules/standalone.nix
-        (import ../modules/common.nix self)
-        { programs.spicetify = config; }
-      ];
-    }).config.programs.spicetify.spicedSpotify;
+      failedAssertions = map (x: x.message) (builtins.filter (x: !x.assertion) evaled.config.assertions);
+      baseSystemAssertWarn =
+        if failedAssertions != [ ] then
+          throw "\nFailed assertions:\n${lib.concatMapStrings (x: "- ${x}") failedAssertions}"
+        else
+          lib.showWarnings evaled.config.warnings;
+    in
+    baseSystemAssertWarn evaled.config.spicedSpotify;
 
 }
