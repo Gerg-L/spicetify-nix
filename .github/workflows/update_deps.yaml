@@ -40,20 +40,6 @@ jobs:
           $NPINS"
           fi
 
-          nix run nixpkgs#nix-update -- -F legacyPackages.x86_64-linux.spicetify-cli --commit
-
-          if git rev-parse -q HEAD^; then
-
-            # Check if spicetify-cli compiles and runs
-            nix run .#spicetify-cli -- -v
-
-            MESSAGE="$MESSAGE
-
-            $(git -P log --pretty=format:"%s%n%b" -1)"
-
-            git reset --soft HEAD^
-          fi
-
           if [ -z "$MESSAGE" ]; then
             exit 0
           fi
