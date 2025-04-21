@@ -1,41 +1,74 @@
 { sources }:
+
 {
+  spicetifyHistory = {
+    src = "${sources.bc9123}";
+    name = "spicetifyHistory";
+  };
+
+  historyInSidebar = {
+    src = "${sources.Bergbok-apps_1}";
+    name = "History";
+  };
+  playlistTags = {
+    src = "${sources.Bergbok-apps_2}";
+    name = "playlistTags";
+  };
+
+  enhancifyInstall = {
+    src = "${sources.ECE49595-Team-6}";
+    name = "enhancifyInstall";
+  };
+
+  library = {
+    src = "${sources.harbassan-apps}";
+    name = "library";
+  };
+  statistics = {
+    src = "${sources.harbassan-apps}";
+    name = "stats";
+  };
+
+  combinedPlaylists = {
+    src = "${sources.jeroentvb-apps}/combined-playlists";
+    name = "combinedPlaylists";
+  };
+
   ncsVisualizer = {
+    src = "${sources.Konsl-apps}";
     name = "ncs-visualizer";
-    src = sources.ncsVisualizerSrc;
   };
 
-  localFiles = {
-    name = "localFiles";
-    src = sources.localFilesSrc;
-  };
-  marketplace = {
-    name = "marketplace";
-    src = sources.marketplaceSrc;
-  };
-  nameThatTune = {
-    name = "nameThatTune";
-    src = sources.nameThatTuneSrc;
+  studyBanger = {
+    src = "${sources.ossd-s24}/dist";
+    name = "studyBanger";
   };
 
+  betterLibrary = {
+    src = "${sources.Sowgro}/CustomApps/betterLibrary";
+    name = "betterLibrary";
+  };
+
+  lyricsPlus = {
+    src = "${sources.Spicetify-cli}/CustomApps/lyrics-plus";
+    name = "lyrics-plus";
+  };
   newReleases = {
-    src = "${sources.officialSrc}/CustomApps/new-releases";
+    src = "${sources.Spicetify-cli}/CustomApps/new-releases";
     name = "new-releases";
   };
   reddit = {
-    src = "${sources.officialSrc}/CustomApps/reddit";
+    src = "${sources.Spicetify-cli}/CustomApps/reddit";
     name = "reddit";
   };
-  lyricsPlus = {
-    src = "${sources.officialSrc}/CustomApps/lyrics-plus";
-    name = "lyrics-plus";
+
+  marketplace = {
+    src = "${sources.Spicetify-marketplace}";
+    name = "marketplace";
   };
-  historyInSidebar = {
-    src = sources.historySidebarSrc;
-    name = "History";
-  };
-  betterLibrary = {
-    src = "${sources.betterLibrarySrc}/CustomApps/betterLibrary";
-    name = "betterLibrary";
+
+  nameThatTune = {
+    src = "${sources.theRealPadster-apps}";
+    name = "nameThatTune";
   };
 }

@@ -1,243 +1,18 @@
 {
   "pins": {
-    "addToTopSrc": {
+    "bc9123-apps": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "Socketlike",
-        "repo": "spicetify-extensions"
+        "owner": "bc9123",
+        "repo": "spicetify-history"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "1532dc050044a8beb7d9af0a550dff37ddebb1fc",
-      "url": "https://github.com/Socketlike/spicetify-extensions/archive/1532dc050044a8beb7d9af0a550dff37ddebb1fc.tar.gz",
-      "hash": "01mvakwccfyf2as3bn9igys3fdvy5fd7h4vn4r4mc6f4hblpyvsy"
+      "revision": "fe31a1554bcc2cc938cf9ac3d2712a1611dbdadc",
+      "url": "https://github.com/bc9123/spicetify-history/archive/fe31a1554bcc2cc938cf9ac3d2712a1611dbdadc.tar.gz",
+      "hash": "04j15gbfc6cf2xi26jmd46wqs0i8gk3hfmfah1q19wq1hvb2hmxg"
     },
-    "aimarekinSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Aimarekin",
-        "repo": "Aimarekins-Spicetify-Extensions"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "82dbbaec37540e82dcd11d897646c0fdb068c3e8",
-      "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/82dbbaec37540e82dcd11d897646c0fdb068c3e8.tar.gz",
-      "hash": "010wkxc3mwfkkakhb3jf51lkxvhdxk6rpabj2q45ng9761j23idj"
-    },
-    "autoVolumeSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "amanharwara",
-        "repo": "spicetify-autoVolume"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "d7f7962724b567a8409ef2898602f2c57abddf5a",
-      "url": "https://github.com/amanharwara/spicetify-autoVolume/archive/d7f7962724b567a8409ef2898602f2c57abddf5a.tar.gz",
-      "hash": "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass"
-    },
-    "beautifulLyricsSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "surfbryce",
-        "repo": "beautiful-lyrics"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "f6937b73f96597e9dda978de42f00c910cad087d",
-      "url": "https://github.com/surfbryce/beautiful-lyrics/archive/f6937b73f96597e9dda978de42f00c910cad087d.tar.gz",
-      "hash": "1yz75zqscrqpbrs7z1phdkpwqvnq6mdxcihvf334vphz8gdkdlm9"
-    },
-    "betterGenresSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Vexcited",
-        "repo": "better-spotify-genres"
-      },
-      "branch": "build",
-      "submodules": false,
-      "revision": "3cf6e63450261b53f814efc74f7f7af9c749d699",
-      "url": "https://github.com/Vexcited/better-spotify-genres/archive/3cf6e63450261b53f814efc74f7f7af9c749d699.tar.gz",
-      "hash": "0qw4iy72yfxk1cmqhxad7807fbc8c9a7xgkq1lrd4wk5mmw9vz68"
-    },
-    "betterLibrarySrc": {
-      "type": "GitRelease",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Sowgro",
-        "repo": "betterLibrary"
-      },
-      "pre_releases": false,
-      "version_upper_bound": null,
-      "release_prefix": null,
-      "submodules": false,
-      "version": "3.0",
-      "revision": "c8438030837ce904cf8dc5308cfae15dc793aebd",
-      "url": "https://api.github.com/repos/Sowgro/betterLibrary/tarball/3.0",
-      "hash": "0s9xvjpdrj21llrxfzr2vb2mxv3h02ay01ri2xdmzj7ny8v625zk"
-    },
-    "bloomSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "nimsandu",
-        "repo": "spicetify-bloom"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "809c042ca8f88540604fbd6aca35f42bddfcaf27",
-      "url": "https://github.com/nimsandu/spicetify-bloom/archive/809c042ca8f88540604fbd6aca35f42bddfcaf27.tar.gz",
-      "hash": "1rsdrj2r8r2fzixvvn6c3ls7d7plzh29n7vig2ds60lb72jq483p"
-    },
-    "catppuccinSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "catppuccin",
-        "repo": "spicetify"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "4294a61f54a044768c6e9db20e83c5b74da71091",
-      "url": "https://github.com/catppuccin/spicetify/archive/4294a61f54a044768c6e9db20e83c5b74da71091.tar.gz",
-      "hash": "0wh98li6brlhgcfwa8g9s9ia2mvza36fzsl6l1ddz3x3h2x1lyrq"
-    },
-    "comfySrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Comfy-Themes",
-        "repo": "Spicetify"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "2c22f3649a82e599be0e7eb506a0f83459caf9e8",
-      "url": "https://github.com/Comfy-Themes/Spicetify/archive/2c22f3649a82e599be0e7eb506a0f83459caf9e8.tar.gz",
-      "hash": "1f0raq621fs58wrvfqfbvrc91vi5czvdqm6pdw3w5a9ddawm0a1b"
-    },
-    "copyToClipboardSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "pnthach95",
-        "repo": "spicetify-extensions"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "6749c9b18405df73e3b0100e221f5e29e7def234",
-      "url": "https://github.com/pnthach95/spicetify-extensions/archive/6749c9b18405df73e3b0100e221f5e29e7def234.tar.gz",
-      "hash": "16g4h3cc31r7p2b04hcz0v34ai9q5qra4hxil9csplr2vqwv6sp6"
-    },
-    "customAppsExtensionsSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "3raxton",
-        "repo": "spicetify-custom-apps-and-extensions"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "bb12c53dc11413e980ce3e40fbcec6f23b752003",
-      "url": "https://github.com/3raxton/spicetify-custom-apps-and-extensions/archive/bb12c53dc11413e980ce3e40fbcec6f23b752003.tar.gz",
-      "hash": "1s45ivfk9h78q10pprj6q3q5vl6r2lfyxinm9q2vyah6n3k4cigf"
-    },
-    "dakshExtensions": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "daksh2k",
-        "repo": "Spicetify-stuff"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "e9f2dbe020f612b3cb7746620ad702e4f4a3c24f",
-      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/e9f2dbe020f612b3cb7746620ad702e4f4a3c24f.tar.gz",
-      "hash": "0nmsrjrrsm6dskwgdr0g5gfnfi37ha550p77z4z32yrdfif2rxnk"
-    },
-    "defaultDynamicSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "JulienMaille",
-        "repo": "spicetify-dynamic-theme"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "a49a029bed4d58cadd1dddb586ff06a200c0233e",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/a49a029bed4d58cadd1dddb586ff06a200c0233e.tar.gz",
-      "hash": "0hw9wq2z8mi6fria1gpcr138k3df773vxqz3wxk8k3nw97xxr1hd"
-    },
-    "draculaSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Darkempire78",
-        "repo": "Dracula-Spicetify"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "97bf149e7afbe408509862591a57f1d8e2dfc5d7",
-      "url": "https://github.com/Darkempire78/Dracula-Spicetify/archive/97bf149e7afbe408509862591a57f1d8e2dfc5d7.tar.gz",
-      "hash": "0l7la5hmhzfzf0n6lk3zxc4bc9f2h2dcwx02r6yqnrnkkkzh0b91"
-    },
-    "fluentSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "williamckha",
-        "repo": "spicetify-fluent"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "64b946af1ee4a5ed761d2f065c45b710e06bc123",
-      "url": "https://github.com/williamckha/spicetify-fluent/archive/64b946af1ee4a5ed761d2f065c45b710e06bc123.tar.gz",
-      "hash": "08ccjs14nvf8cdd1s8f3wln108hh2w4k5bm85yrgzlx8i76ira9k"
-    },
-    "groupSessionSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "timll",
-        "repo": "spotify-group-session"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "e6a2ce35589b9404e539c5778fa1c2efa53eefe6",
-      "url": "https://github.com/timll/spotify-group-session/archive/e6a2ce35589b9404e539c5778fa1c2efa53eefe6.tar.gz",
-      "hash": "096g5zg1lz7k4gsjplgk3j4k931y4mlzk1z74485j62mbsb2sczq"
-    },
-    "hazySrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Astromations",
-        "repo": "Hazy"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "413748dd7048857f5b4a1c013e945c10818e1169",
-      "url": "https://github.com/Astromations/Hazy/archive/413748dd7048857f5b4a1c013e945c10818e1169.tar.gz",
-      "hash": "1zcs0qd1css51m0gabj4dx836mqy104k9542jgilg30651pfmr3p"
-    },
-    "hidePodcastsSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "theRealPadster",
-        "repo": "spicetify-hide-podcasts"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "b935963574bd2bf126912fa478408bd7a26bd431",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/b935963574bd2bf126912fa478408bd7a26bd431.tar.gz",
-      "hash": "13q3znivg5k0cg4zql1k9lsnf0qnk7yylgfz9glf78bi2bvqzhz4"
-    },
-    "historySidebarSrc": {
+    "Bergbok-apps_1": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -245,103 +20,119 @@
         "repo": "Spicetify-Creations"
       },
       "branch": "dist/history-in-sidebar",
-      "submodules": false,
       "revision": "621965fb5f8d142313eb11d95897e891907c5803",
       "url": "https://github.com/Bergbok/Spicetify-Creations/archive/621965fb5f8d142313eb11d95897e891907c5803.tar.gz",
       "hash": "0rim51pxzrphs9yiq9jjmmc4c3pig8fprmgap82d8kvg1hx859fi"
     },
-    "historySrc": {
+    "Bergbok-apps_2": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "einzigartigerName",
-        "repo": "spicetify-history"
+        "owner": "Bergbok",
+        "repo": "Spicetify-Creations"
+      },
+      "branch": "dist/playlist-tags",
+      "revision": "299128c77efcfd29666d2593d7760d5a99ef6341",
+      "url": "https://github.com/Bergbok/Spicetify-Creations/archive/299128c77efcfd29666d2593d7760d5a99ef6341.tar.gz",
+      "hash": "11fq502vphn0kcv7v6w75nfadqi1w519dqy26pwhg9s1gpjaalqg"
+    },
+    "ECE49595-Team-6": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ECE49595-Team-6",
+        "repo": "EnhancifyInstall"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "577e34f364127f18d917d2fe2e8c8f2a1af9f6ae",
-      "url": "https://github.com/einzigartigerName/spicetify-history/archive/577e34f364127f18d917d2fe2e8c8f2a1af9f6ae.tar.gz",
-      "hash": "0fv5fb6k9zc446a1lznhmd68m47sil5pqabv4dmrqk6cvfhba49r"
+      "revision": "5d40a98a378a778b6be5f8b68eb60a6884ba43b0",
+      "url": "https://github.com/ECE49595-Team-6/EnhancifyInstall/archive/5d40a98a378a778b6be5f8b68eb60a6884ba43b0.tar.gz",
+      "hash": "0w1bbmdbla785qhng88aif22hkjscmia5dgfzbfvpvyvpwm9wr03"
     },
-    "huhExtensionsSrc": {
+    "harbassan-apps": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "huhridge",
-        "repo": "huh-spicetify-extensions"
+        "owner": "harbassan",
+        "repo": "spicetify-apps"
+      },
+      "branch": "dist",
+      "revision": "0a82d88e5517f21595c641c60015671dacb1d7fe",
+      "url": "https://github.com/harbassan/spicetify-apps/archive/0a82d88e5517f21595c641c60015671dacb1d7fe.tar.gz",
+      "hash": "18pw27rldv6pzgp25k4sbbqg0s5ykr0sgsylaxg00y3spwn4d8i6"
+    },
+    "jeroentvb-apps": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jeroentvb",
+        "repo": "spicetify-combined-playlists"
+      },
+      "branch": "dist",
+      "revision": "44c8d54619601a731fb2b6692cb8c5ed2289b50d",
+      "url": "https://github.com/jeroentvb/spicetify-combined-playlists/archive/44c8d54619601a731fb2b6692cb8c5ed2289b50d.tar.gz",
+      "hash": "0lmkk53vls0rk6195vfc6dhsa9206iayr06g0d87qvv4grvnb5vv"
+    },
+    "Konsl-apps": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Konsl",
+        "repo": "spicetify-visualizer"
+      },
+      "branch": "dist",
+      "revision": "ff3a0914c92ecfc02b7c0279ad832630c66e869f",
+      "url": "https://github.com/Konsl/spicetify-visualizer/archive/ff3a0914c92ecfc02b7c0279ad832630c66e869f.tar.gz",
+      "hash": "0isw5ml2xfr0l3pj3j3rizb716sslrcx16z542629v1gmhb5dk8y"
+    },
+    "ossd-s24": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ossd-s24",
+        "repo": "spicetify-study-banger-app"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "d58201e27716df86ace457a82dce980175c2d65d",
-      "url": "https://github.com/huhridge/huh-spicetify-extensions/archive/d58201e27716df86ace457a82dce980175c2d65d.tar.gz",
-      "hash": "1ppyam5idfvlz96yh78qcgzjyjfjhmhg7ms7mkya2cxcc7p454k4"
+      "revision": "11034e6bc08fd55c188dfef518f15e61c1e1dece",
+      "url": "https://github.com/ossd-s24/spicetify-study-banger-app/archive/11034e6bc08fd55c188dfef518f15e61c1e1dece.tar.gz",
+      "hash": "19yq1gx7mdn5vp848p5bkn6nz8s73ghqk8j43nwx7zmmxgwfgmsh"
     },
-    "kamilooSrc": {
+    "Sowgro": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "Kamiloo13",
-        "repo": "spicetify-extensions"
+        "owner": "Sowgro",
+        "repo": "betterLibrary"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "b4e3e252b244a50b9ba381b0d94fd20d2908fa08",
-      "url": "https://github.com/Kamiloo13/spicetify-extensions/archive/b4e3e252b244a50b9ba381b0d94fd20d2908fa08.tar.gz",
-      "hash": "0nky150chdlh5r7396g2b05s4skcnjfsaa9dfyh1vxflmjgjnb8h"
+      "revision": "c8438030837ce904cf8dc5308cfae15dc793aebd",
+      "url": "https://github.com/Sowgro/betterLibrary/archive/c8438030837ce904cf8dc5308cfae15dc793aebd.tar.gz",
+      "hash": "0s9xvjpdrj21llrxfzr2vb2mxv3h02ay01ri2xdmzj7ny8v625zk"
     },
-    "lastfmSrc": {
+    "Spicetify-cli": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "LucasBares",
-        "repo": "spicetify-last-fm"
+        "owner": "Spicetify",
+        "repo": "cli"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "d2f1d3c1e286d789ddfa002f162405782d822c55",
-      "url": "https://github.com/LucasBares/spicetify-last-fm/archive/d2f1d3c1e286d789ddfa002f162405782d822c55.tar.gz",
-      "hash": "0yr9i6dhlzj0pfq3x2pzdiy1d6kgz1pip4bh64hlq04j7ggihbpw"
+      "revision": "465f6e36d02d3b142a871856b3ab7236fa31c263",
+      "url": "https://github.com/Spicetify/cli/archive/465f6e36d02d3b142a871856b3ab7236fa31c263.tar.gz",
+      "hash": "1hds4h441qps1m5ak97hypxsihk3jw5n31gq79gmz0lmf9a8gp5d"
     },
-    "localFilesSrc": {
+    "Spicetify-marketplace": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "hroland",
-        "repo": "spicetify-show-local-files"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "1bfd2fc80385b21ed6dd207b00a371065e53042e",
-      "url": "https://github.com/hroland/spicetify-show-local-files/archive/1bfd2fc80385b21ed6dd207b00a371065e53042e.tar.gz",
-      "hash": "01gy16b69glqcalz1wm8kr5wsh94i419qx4nfmsavm4rcvcr3qlx"
-    },
-    "lucidSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "sanoojes",
-        "repo": "Spicetify-Lucid"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "bf6b1589374dd8c31acbd8749a59e7c935157656",
-      "url": "https://github.com/sanoojes/Spicetify-Lucid/archive/bf6b1589374dd8c31acbd8749a59e7c935157656.tar.gz",
-      "hash": "0lkp6rgi4yf1v2lhr6p720p0wiq9b51pk1j99gb2aqb9i1r9l9jh"
-    },
-    "marketplaceSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "spicetify",
+        "owner": "Spicetify",
         "repo": "spicetify-marketplace"
       },
       "branch": "dist",
-      "submodules": false,
-      "revision": "e0859578696830ece82d550990d3821431edb72a",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/e0859578696830ece82d550990d3821431edb72a.tar.gz",
-      "hash": "1zv4ch47f3ry2n43j5hb0pmhnc27h7pl2p8j8xadz9z1qbc1fy9s"
+      "revision": "e431eaaf789bac9e59d439e3ee68b09a580eb444",
+      "url": "https://github.com/Spicetify/spicetify-marketplace/archive/e431eaaf789bac9e59d439e3ee68b09a580eb444.tar.gz",
+      "hash": "18p3spslqbyn0w968rih4h2s82df6wvqs2fxxbwl18wy3vqnwgql"
     },
-    "nameThatTuneSrc": {
+    "theRealPadster-apps": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -349,155 +140,299 @@
         "repo": "name-that-tune"
       },
       "branch": "dist",
-      "submodules": false,
       "revision": "858b98baa97e486a8589b26164c9eb1aa3605282",
       "url": "https://github.com/theRealPadster/name-that-tune/archive/858b98baa97e486a8589b26164c9eb1aa3605282.tar.gz",
       "hash": "11k3bkk6r7i5pvx50zi07c68yjhpc4c4qxpy7sccy60rzblm25vw"
     },
-    "ncsVisualizerSrc": {
+    "39digits": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "Konsl",
-        "repo": "spicetify-ncs-visualizer"
-      },
-      "branch": "dist",
-      "submodules": false,
-      "revision": "ff3a0914c92ecfc02b7c0279ad832630c66e869f",
-      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/ff3a0914c92ecfc02b7c0279ad832630c66e869f.tar.gz",
-      "hash": "0isw5ml2xfr0l3pj3j3rizb716sslrcx16z542629v1gmhb5dk8y"
-    },
-    "nordSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Tetrax-10",
-        "repo": "Nord-Spotify"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "2dbfc7d63db5844e80faa22aeb48f16bdcc52a40",
-      "url": "https://github.com/Tetrax-10/Nord-Spotify/archive/2dbfc7d63db5844e80faa22aeb48f16bdcc52a40.tar.gz",
-      "hash": "1v280c5r9rg84cf3634gmhzbwkhfi3sdb3abiym292g3y4299grs"
-    },
-    "officialSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "spicetify",
-        "repo": "cli"
+        "owner": "39digits",
+        "repo": "spicetify-never-autoplay"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "0a9a7ff37379d572ef1082d4d94eb221c4ba7ba2",
-      "url": "https://github.com/spicetify/cli/archive/0a9a7ff37379d572ef1082d4d94eb221c4ba7ba2.tar.gz",
-      "hash": "1jgjlvqb1flxbj4ijgl9wl9mzxy48mv76i33nxa17xxx19ppxb4a"
+      "revision": "cffd70c34642789e4240fe361716fb3530770e07",
+      "url": "https://github.com/39digits/spicetify-never-autoplay/archive/cffd70c34642789e4240fe361716fb3530770e07.tar.gz",
+      "hash": "1gfidsk7grmjx7mlb7as9k3ryyc741v0h95xzcvla1qskq0ak5hr"
     },
-    "officialThemes": {
+    "41pha1": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "spicetify",
-        "repo": "spicetify-themes"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "a9ce22b3d3df303d994974b746c839c7d0907101",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/a9ce22b3d3df303d994974b746c839c7d0907101.tar.gz",
-      "hash": "1xrywilk9rfbvlqn4038vfkfc7hf6hkykhicwf2cjdv43q46n0hx"
-    },
-    "omniSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "getomni",
-        "repo": "spicetify"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "253ae45d2cac2dc3d92a43193ea8f6d9e7e1d3aa",
-      "url": "https://github.com/getomni/spicetify/archive/253ae45d2cac2dc3d92a43193ea8f6d9e7e1d3aa.tar.gz",
-      "hash": "0zvngrwikdx5whcf29yqgzxiwaqxr2bmsy5j0c1ffz3s9zikx0p4"
-    },
-    "onekoSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "kyrie25",
-        "repo": "spicetify-oneko"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "589a8cc3a3939b8c9fc4f2bd087ed433e9af5002",
-      "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
-      "hash": "1mm4c7xbfwd643wis7ja2gmi92p4xsgd1gmc0sdh2jrczsnjvswm"
-    },
-    "orchisSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "canbeardig",
-        "repo": "Spicetify-Orchis-Colours-v2"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "5bf3fcf0696514dcf3e95f4ae3fd00261ccc5dcc",
-      "url": "https://github.com/canbeardig/Spicetify-Orchis-Colours-v2/archive/5bf3fcf0696514dcf3e95f4ae3fd00261ccc5dcc.tar.gz",
-      "hash": "1fzmxgjb3l6qn6a7zc621pqhh5m5xzjj1wqplk4rwnrrb1d3digm"
-    },
-    "playlistIconsSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "jeroentvb",
-        "repo": "spicetify-playlist-icons"
-      },
-      "branch": "dist",
-      "submodules": false,
-      "revision": "7378f0a823eabf1b1a5f9b6237002dcd4631a27a",
-      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/7378f0a823eabf1b1a5f9b6237002dcd4631a27a.tar.gz",
-      "hash": "0h6249z1rxw8q2yrazh2592lbzhpqcicx83vl30dh48z5acpq68h"
-    },
-    "powerBarSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "jeroentvb",
-        "repo": "spicetify-power-bar"
-      },
-      "branch": "dist",
-      "submodules": false,
-      "revision": "648e33489abe106488db6fa791cd6bc6a3169035",
-      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/648e33489abe106488db6fa791cd6bc6a3169035.tar.gz",
-      "hash": "155ljbbapqj2q2zr0a8axp34q3sjs7mrr4ywcpah2k02wkq89ij4"
-    },
-    "retroBlurSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Motschen",
-        "repo": "Retroblur"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "123b932561e098adde6fe3d6d8c98f2c51332c13",
-      "url": "https://github.com/Motschen/Retroblur/archive/123b932561e098adde6fe3d6d8c98f2c51332c13.tar.gz",
-      "hash": "0qz7vi3vz72skrsv6xnj7xypl8i350m431kpj6hzlwzqga1a9d5b"
-    },
-    "rxriSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "rxri",
+        "owner": "41pha1",
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "submodules": false,
-      "revision": "d1bc50363939723d80ccef51f1b14b0893cf1c14",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/d1bc50363939723d80ccef51f1b14b0893cf1c14.tar.gz",
-      "hash": "0msp95jal0y1rmqj9m7m5c48hq5fqwhkddwj188k5q4v0jkb7l13"
+      "revision": "5015b9122a9c39274bdc7507e1de4fec0cc20f95",
+      "url": "https://github.com/41pha1/spicetify-extensions/archive/5015b9122a9c39274bdc7507e1de4fec0cc20f95.tar.gz",
+      "hash": "1rnlbq6xfkv79rvpcb7z4fhc7wc1i2azf6rp5pj9x9qainrhhj96"
     },
-    "starRatingsSrc": {
+    "adufr": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "adufr",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "4af311ecf572cd112f3b954c1d1446eebbda0180",
+      "url": "https://github.com/adufr/spicetify-extensions/archive/4af311ecf572cd112f3b954c1d1446eebbda0180.tar.gz",
+      "hash": "071myxgrjwnwf9dz6zikmrnydnpwg7jswhgl0jvhadf8zf2v08b1"
+    },
+    "adventuretc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "adventuretc",
+        "repo": "Spicetify-HideImages-Extension"
+      },
+      "branch": "main",
+      "revision": "e32e58d1260fe541863f987ed5ce7c89fea34480",
+      "url": "https://github.com/adventuretc/Spicetify-HideImages-Extension/archive/e32e58d1260fe541863f987ed5ce7c89fea34480.tar.gz",
+      "hash": "0lf9llr24xzkg4lv5mqxsqqqz9cvk70mrhmxy54nk6idihlnv23p"
+    },
+    "afonsojramos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "afonsojramos",
+        "repo": "spotify-details-extractor"
+      },
+      "branch": "main",
+      "revision": "fde99f8e6c6b57551e8242c3e4a34f54c150001e",
+      "url": "https://github.com/afonsojramos/spotify-details-extractor/archive/fde99f8e6c6b57551e8242c3e4a34f54c150001e.tar.gz",
+      "hash": "0j6icdn7y4mzyihrrx06clnfw9kp9syibv0yh7kr4ygs3l75yidy"
+    },
+    "Afterlifepro": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Afterlifepro",
+        "repo": "lilplayer"
+      },
+      "branch": "main",
+      "revision": "91da974e79200cc2c8368a0f84c3a0d38070bf88",
+      "url": "https://github.com/Afterlifepro/lilplayer/archive/91da974e79200cc2c8368a0f84c3a0d38070bf88.tar.gz",
+      "hash": "1ix91lgj9zj1n0wmbv6gsk5mm6y6v4byqxacw2bzmkaa2ng4jzxn"
+    },
+    "Aimarekin": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Aimarekin",
+        "repo": "Aimarekins-Spicetify-Extensions"
+      },
+      "branch": "main",
+      "revision": "82dbbaec37540e82dcd11d897646c0fdb068c3e8",
+      "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/82dbbaec37540e82dcd11d897646c0fdb068c3e8.tar.gz",
+      "hash": "010wkxc3mwfkkakhb3jf51lkxvhdxk6rpabj2q45ng9761j23idj"
+    },
+    "Akasiek": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Akasiek",
+        "repo": "spicetify-lucky-lp"
+      },
+      "branch": "main",
+      "revision": "c3eed245b34bd3c80004acc1b61f5615aaaa3d5c",
+      "url": "https://github.com/Akasiek/spicetify-lucky-lp/archive/c3eed245b34bd3c80004acc1b61f5615aaaa3d5c.tar.gz",
+      "hash": "006j8qpazrgs17k2q7a84kz1hxcik5skhsvglgqyc0c922n68jv5"
+    },
+    "AkselVdev": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "AkselVdev",
+        "repo": "AkselV-Spicetify"
+      },
+      "branch": "main",
+      "revision": "fdafd16eed678bff56015f99306cb09b9948f1a6",
+      "url": "https://github.com/AkselVdev/AkselV-Spicetify/archive/fdafd16eed678bff56015f99306cb09b9948f1a6.tar.gz",
+      "hash": "14vhckgpl3h9fr3xq98hda6w3casixvs56r1jrk8m476bjvy0jif"
+    },
+    "aloverso": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "aloverso",
+        "repo": "spotify-friendlikes"
+      },
+      "branch": "main",
+      "revision": "e628837851e6c6a1e1e83c9dfd6bea509bd85d30",
+      "url": "https://github.com/aloverso/spotify-friendlikes/archive/e628837851e6c6a1e1e83c9dfd6bea509bd85d30.tar.gz",
+      "hash": "14v7pj9kxghas6hkk0ijdf4i3fa44i9yj137y9bnmczj9i6hcf7w"
+    },
+    "Alpacinator": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Alpacinator",
+        "repo": "Collapsing-Library"
+      },
+      "branch": "main",
+      "revision": "a0ba8654829c98862fc632109b2e95061f711e66",
+      "url": "https://github.com/Alpacinator/Collapsing-Library/archive/a0ba8654829c98862fc632109b2e95061f711e66.tar.gz",
+      "hash": "0zgf7fm42alvvmd96wpzgydghx4a6y33cryx3n8m0xc32x8cjy96"
+    },
+    "amanharwara": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "amanharwara",
+        "repo": "spicetify-autoVolume"
+      },
+      "branch": "master",
+      "revision": "d7f7962724b567a8409ef2898602f2c57abddf5a",
+      "url": "https://github.com/amanharwara/spicetify-autoVolume/archive/d7f7962724b567a8409ef2898602f2c57abddf5a.tar.gz",
+      "hash": "1pnya2j336f847h3vgiprdys4pl0i61ivbii1wyb7yx3wscq7ass"
+    },
+    "andrsdt": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "andrsdt",
+        "repo": "spicetify-show-queue-duration"
+      },
+      "branch": "main",
+      "revision": "5559c50559826f8a1cd3bb45abb8e6022f88fe4c",
+      "url": "https://github.com/andrsdt/spicetify-show-queue-duration/archive/5559c50559826f8a1cd3bb45abb8e6022f88fe4c.tar.gz",
+      "hash": "1x09kh22nwz3f8kd0iyw4kfjsy071w8xh1pm4v93j53lczqxb896"
+    },
+    "api-haus": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "api-haus",
+        "repo": "spicetify-antisocial"
+      },
+      "branch": "main",
+      "revision": "839b87737df5e0af6a61df16e27358a564754355",
+      "url": "https://github.com/api-haus/spicetify-antisocial/archive/839b87737df5e0af6a61df16e27358a564754355.tar.gz",
+      "hash": "10n6s6kqnr0c238mncxficfdsz13x26ylvrv777q35gsc3czrws6"
+    },
+    "ashercs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ashercs",
+        "repo": "SpicetifyAOTYScores"
+      },
+      "branch": "main",
+      "revision": "a5f480a6eb7fe5a375254ff87fe09277cb0f2d1e",
+      "url": "https://github.com/ashercs/SpicetifyAOTYScores/archive/a5f480a6eb7fe5a375254ff87fe09277cb0f2d1e.tar.gz",
+      "hash": "0yjxjzqfkwqvwm0rivxvwg077285ybz78kqkzqf9qzgwqabnsjhf"
+    },
+    "Aspecky": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Aspecky",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "c7f1f5060dfb4ab9cef00c07ef305b2ae3938f9e",
+      "url": "https://github.com/Aspecky/spicetify-extensions/archive/c7f1f5060dfb4ab9cef00c07ef305b2ae3938f9e.tar.gz",
+      "hash": "16q6skihxlp70vhzrrmsv9y5hr328p74fankijdhjqpdqzaahlwd"
+    },
+    "Aztup": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Aztup",
+        "repo": "EnhancePlus"
+      },
+      "branch": "master",
+      "revision": "7edf22b8cf45d07384b7d05ffda6c9dc1b7c20e0",
+      "url": "https://github.com/Aztup/EnhancePlus/archive/7edf22b8cf45d07384b7d05ffda6c9dc1b7c20e0.tar.gz",
+      "hash": "1x87gfp9z41bqrfc7dgfc0qnz1b5q2z6wfizb1kcnzs3nybd9m9b"
+    },
+    "bc9123-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "bc9123",
+        "repo": "spicetify-convenient-repeat-extension"
+      },
+      "branch": "main",
+      "revision": "8101a4dc5e039b5cb06b23ba4065e78783faf8b9",
+      "url": "https://github.com/bc9123/spicetify-convenient-repeat-extension/archive/8101a4dc5e039b5cb06b23ba4065e78783faf8b9.tar.gz",
+      "hash": "1z4dn3ssgckx0c3hpf54rab8apspyc44saqrksnqv5fp4pbi3hgb"
+    },
+    "BenWithJamInn": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "BenWithJamInn",
+        "repo": "spotify-track-trim"
+      },
+      "branch": "main",
+      "revision": "ed6f0fbf2ab8a7b5589df34f9ef8d019b0162e61",
+      "url": "https://github.com/BenWithJamInn/spotify-track-trim/archive/ed6f0fbf2ab8a7b5589df34f9ef8d019b0162e61.tar.gz",
+      "hash": "1bmzza9f8kz6dq9fyx8bgamy02mjbfn9wd6ly5yal01p54wahvla"
+    },
+    "Bergbok-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Bergbok",
+        "repo": "Spicetify-Creations"
+      },
+      "branch": "dist/auto-skip-tracks-by-duration",
+      "revision": "3406563d01f894397bdbea96de0100ad4730b1b4",
+      "url": "https://github.com/Bergbok/Spicetify-Creations/archive/3406563d01f894397bdbea96de0100ad4730b1b4.tar.gz",
+      "hash": "1z405bh2c69i845sb626acypr9hw8lcrk5acijc2sprilwi6a2n3"
+    },
+    "BitesizedLion": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "BitesizedLion",
+        "repo": "AnonymizedRadios"
+      },
+      "branch": "master",
+      "revision": "1741f9ba19fe5e20183b3e65210ed6dec3bac17d",
+      "url": "https://github.com/BitesizedLion/AnonymizedRadios/archive/1741f9ba19fe5e20183b3e65210ed6dec3bac17d.tar.gz",
+      "hash": "1gjnfnmjqc43hkpms73m24mx5mvy7n2n6ydizidd70qck7zanfg7"
+    },
+    "BlafKing": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "BlafKing",
+        "repo": "spicetify-cat-jam-synced"
+      },
+      "branch": "main",
+      "revision": "e7bfd49fcc13457bbc98e696294cf5cf43eb6c31",
+      "url": "https://github.com/BlafKing/spicetify-cat-jam-synced/archive/e7bfd49fcc13457bbc98e696294cf5cf43eb6c31.tar.gz",
+      "hash": "1zs68lblwv4hfig5z380m4pcdd62ka6z81a1fqszv6g05zk1l9m7"
+    },
+    "bleizix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "bleizix",
+        "repo": "part-selector"
+      },
+      "branch": "main",
+      "revision": "de5ec949d3b75be9ebba99803e52ee7f68241fba",
+      "url": "https://github.com/bleizix/part-selector/archive/de5ec949d3b75be9ebba99803e52ee7f68241fba.tar.gz",
+      "hash": "0v4avypnvd8cyd25g2kv0ap2ml2lyl1cj02lynhayrqbh3r7lqca"
+    },
+    "bojanraic": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "bojanraic",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "09d1a57d4978cf65073c9be2e39b3fe1823ed1c1",
+      "url": "https://github.com/bojanraic/spicetify-extensions/archive/09d1a57d4978cf65073c9be2e39b3fe1823ed1c1.tar.gz",
+      "hash": "00x4ygwhz7r9dybv6wg6xkwibgsy2bk7r0il0rmk36wdrd8fnvdq"
+    },
+    "brimell": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -505,38 +440,995 @@
         "repo": "spicetify-star-ratings"
       },
       "branch": "main",
-      "submodules": false,
       "revision": "79eea09607b56d37cfb815f4226856b1bf6dcebe",
       "url": "https://github.com/brimell/spicetify-star-ratings/archive/79eea09607b56d37cfb815f4226856b1bf6dcebe.tar.gz",
       "hash": "1ifc84zawi3j66ssarfz5linfmywl89q8l6ibzw6zyli8i7jxc2n"
     },
-    "startPageSrc": {
+    "cAttte": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "cAttte",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "7652326e65abbbe853800d018f2d4885b71088ca",
+      "url": "https://github.com/cAttte/spicetify-extensions/archive/7652326e65abbbe853800d018f2d4885b71088ca.tar.gz",
+      "hash": "10fzgi13g30h2phm83alwljxd17z2bw6ql7hii85v3dni7jsklcw"
+    },
+    "ch4xm": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ch4xm",
+        "repo": "spicetify-song-views"
+      },
+      "branch": "main",
+      "revision": "afc3e1863625ac14d3a68588ea8bedd594ca4b7f",
+      "url": "https://github.com/ch4xm/spicetify-song-views/archive/afc3e1863625ac14d3a68588ea8bedd594ca4b7f.tar.gz",
+      "hash": "1c9jpa53czkky1l099anh4cdqgj4hjydqrr3n6g4mjyxv2kwqn7w"
+    },
+    "daksh2k": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "daksh2k",
+        "repo": "Spicetify-stuff"
+      },
+      "branch": "master",
+      "revision": "e9f2dbe020f612b3cb7746620ad702e4f4a3c24f",
+      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/e9f2dbe020f612b3cb7746620ad702e4f4a3c24f.tar.gz",
+      "hash": "0nmsrjrrsm6dskwgdr0g5gfnfi37ha550p77z4z32yrdfif2rxnk"
+    },
+    "darkthemer": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "darkthemer",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "905e82e9c2b88a93dcad59dde7f51d5e2ee77c30",
+      "url": "https://github.com/darkthemer/spicetify-extensions/archive/905e82e9c2b88a93dcad59dde7f51d5e2ee77c30.tar.gz",
+      "hash": "1r8krcr4d4rl2cndvayblzip91lbbfmmgyi0azninbjkqsxp7zaw"
+    },
+    "DarkWolfie-YouTube": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "DarkWolfie-YouTube",
+        "repo": "requestplus"
+      },
+      "branch": "main",
+      "revision": "f8212955c906661c6f4fa8d92ec70c1f7508d84f",
+      "url": "https://github.com/DarkWolfie-YouTube/requestplus/archive/f8212955c906661c6f4fa8d92ec70c1f7508d84f.tar.gz",
+      "hash": "0maxyqrnrsx53drqj8nz9ja2zaz9mvj9m19yyvjh8lma7hd2kn59"
+    },
+    "Dotsgo_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Dotsgo",
+        "repo": "spicetify-randomish-playlist-maker"
+      },
+      "branch": "main",
+      "revision": "96107a7ab442025e36c305c97aa04ac18e1ccbc0",
+      "url": "https://github.com/Dotsgo/spicetify-randomish-playlist-maker/archive/96107a7ab442025e36c305c97aa04ac18e1ccbc0.tar.gz",
+      "hash": "17fbvskd8yffmkcn5synpkwf790j9agchfq70rb695xmn35qipb9"
+    },
+    "Dotsgo_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Dotsgo",
+        "repo": "spicetify-playlist-from-recently-played-tracks"
+      },
+      "branch": "main",
+      "revision": "2661846c17fb10fb862e3166be29ef821564112f",
+      "url": "https://github.com/Dotsgo/spicetify-playlist-from-recently-played-tracks/archive/2661846c17fb10fb862e3166be29ef821564112f.tar.gz",
+      "hash": "1i8zmrr4ppn3qr6hj7gcbs70yqvmvkq16pfnajm6marddzqrhi5g"
+    },
+    "Dotsgo_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Dotsgo",
+        "repo": "spicetify-remove-recently-played-tracks"
+      },
+      "branch": "main",
+      "revision": "0c3d4811e94797b68643898e54a268172a955b2a",
+      "url": "https://github.com/Dotsgo/spicetify-remove-recently-played-tracks/archive/0c3d4811e94797b68643898e54a268172a955b2a.tar.gz",
+      "hash": "0dz382c6hq65vl467svwaw14di32qq2lh3gcq5b4lgjmkxkdm6bk"
+    },
+    "duffey": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "duffey",
+        "repo": "spicetify-furigana-lyrics"
+      },
+      "branch": "master",
+      "revision": "14a15706a84467b43af114d3a1a4177428bc8900",
+      "url": "https://github.com/duffey/spicetify-furigana-lyrics/archive/14a15706a84467b43af114d3a1a4177428bc8900.tar.gz",
+      "hash": "1ry7c0yrsi30zwkpvsq0x7q21nmcx67qaal5qxsj4wsarg1awg84"
+    },
+    "dupitydumb": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "dupitydumb",
+        "repo": "CustomLyrics-Spotify"
+      },
+      "branch": "main",
+      "revision": "04475b44ecdb2554119d923e1dc906e6c13f6ab0",
+      "url": "https://github.com/dupitydumb/CustomLyrics-Spotify/archive/04475b44ecdb2554119d923e1dc906e6c13f6ab0.tar.gz",
+      "hash": "18gm91r6c60pkczkvkaw5anx2y04v0521130sx8lxp69cfcdrwvv"
+    },
+    "Eeu2005": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Eeu2005",
+        "repo": "Playbar-Dynamic"
+      },
+      "branch": "main",
+      "revision": "d6086d6f4a4e276d4bf69e45b218176342dbd5e9",
+      "url": "https://github.com/Eeu2005/Playbar-Dynamic/archive/d6086d6f4a4e276d4bf69e45b218176342dbd5e9.tar.gz",
+      "hash": "0y97z13ll5wl5a6z62h9w9l8rv895cqwvzlkdbd4ql4sax7wfcxw"
+    },
+    "fl3xm3ist3r": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "fl3xm3ist3r",
+        "repo": "spicetifyExtensions"
+      },
+      "branch": "master",
+      "revision": "1ca067c543938a88d831a308c8a5afa86efbd2c1",
+      "url": "https://github.com/fl3xm3ist3r/spicetifyExtensions/archive/1ca067c543938a88d831a308c8a5afa86efbd2c1.tar.gz",
+      "hash": "1amlfz7b9zscd11yanapsbyh3khfphy1vz0jj9h4rajb94f3zlc6"
+    },
+    "FlafyDev_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "FlafyDev",
+        "repo": "spotify-css-editor"
+      },
+      "branch": "main",
+      "revision": "0e1bbc72f3bdf81cfcdecd28e735e0989ac56b96",
+      "url": "https://github.com/FlafyDev/spotify-css-editor/archive/0e1bbc72f3bdf81cfcdecd28e735e0989ac56b96.tar.gz",
+      "hash": "1dcssgk6vrcyym5xibn7kwb5sgkdy50dw6waci14a8vrpqgclwxq"
+    },
+    "FlafyDev_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "FlafyDev",
+        "repo": "spotify-listen-together"
+      },
+      "branch": "main",
+      "revision": "7e657d1be5001da4439b560c0775039812e4abba",
+      "url": "https://github.com/FlafyDev/spotify-listen-together/archive/7e657d1be5001da4439b560c0775039812e4abba.tar.gz",
+      "hash": "0s5pdpwgf764hzk0vs1xb2zy5i32mvvragx5051766qywn4jha65"
+    },
+    "GentlyTech": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "GentlyTech",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "master",
+      "revision": "c3638366aa7497a1b4390f8bc0314813c2e69ad4",
+      "url": "https://github.com/GentlyTech/spicetify-extensions/archive/c3638366aa7497a1b4390f8bc0314813c2e69ad4.tar.gz",
+      "hash": "0zfdqwfyic61qsinj914m0r9ih6npvn425n8cfg2p4ccm6qxspw6"
+    },
+    "GiorgosAthanasopoulos": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "GiorgosAthanasopoulos",
+        "repo": "Skip-or-Play-Liked-Songs"
+      },
+      "branch": "master",
+      "revision": "aa6d6e8271990d617f2e58b329c0cd0aaff51d31",
+      "url": "https://github.com/GiorgosAthanasopoulos/Skip-or-Play-Liked-Songs/archive/aa6d6e8271990d617f2e58b329c0cd0aaff51d31.tar.gz",
+      "hash": "1vvfrf6j0xlishfqws1gnn7s4bija2hw1dd245gf097c32yr0gjl"
+    },
+    "gray-matter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "gray-matter",
+        "repo": "spicetify-hot-cues"
+      },
+      "branch": "main",
+      "revision": "a82a4d7694ab7cc742969babeb7a10f4b3ffaa13",
+      "url": "https://github.com/gray-matter/spicetify-hot-cues/archive/a82a4d7694ab7cc742969babeb7a10f4b3ffaa13.tar.gz",
+      "hash": "15f9hh1jspyzfp10zvapbgnkrpmagrs2fmv3p9pk69k8mhgziwkf"
+    },
+    "HackedApp": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "HackedApp",
+        "repo": "spicetify-vinyl-overlay"
+      },
+      "branch": "main",
+      "revision": "2a4ee76cb64645603724f4d446cb12a4932794b4",
+      "url": "https://github.com/HackedApp/spicetify-vinyl-overlay/archive/2a4ee76cb64645603724f4d446cb12a4932794b4.tar.gz",
+      "hash": "1cbsnmvhkbkb16av9zzj1l8rg7p1ixa07fljjm2km6884bhyiqxv"
+    },
+    "hideki0403": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hideki0403",
+        "repo": "spicetify-share-on-twitter"
+      },
+      "branch": "master",
+      "revision": "7ccb465143f2205d6b0e51969327fd4f8c842ee0",
+      "url": "https://github.com/hideki0403/spicetify-share-on-twitter/archive/7ccb465143f2205d6b0e51969327fd4f8c842ee0.tar.gz",
+      "hash": "01bvq7is2wv6mi0rl92g7ri8ws614lc0j1lavciwf7ads2fa92k7"
+    },
+    "hoeci": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "hoeci",
+        "repo": "sort-play"
+      },
+      "branch": "main",
+      "revision": "56c8310b53b416083fdc6214e90d0da3ea420954",
+      "url": "https://github.com/hoeci/sort-play/archive/56c8310b53b416083fdc6214e90d0da3ea420954.tar.gz",
+      "hash": "0iivggg35phgc5bkyj8skpv06apra4x3i0aa2kr5d91j8m5zw30j"
+    },
+    "huhridge": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "huhridge",
+        "repo": "huh-spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "d58201e27716df86ace457a82dce980175c2d65d",
+      "url": "https://github.com/huhridge/huh-spicetify-extensions/archive/d58201e27716df86ace457a82dce980175c2d65d.tar.gz",
+      "hash": "1ppyam5idfvlz96yh78qcgzjyjfjhmhg7ms7mkya2cxcc7p454k4"
+    },
+    "iHelops": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "iHelops",
+        "repo": "smooth-scrolling"
+      },
+      "branch": "main",
+      "revision": "10b1aebdbfbb9c7cc04c8b33e074f653437a0dd0",
+      "url": "https://github.com/iHelops/smooth-scrolling/archive/10b1aebdbfbb9c7cc04c8b33e074f653437a0dd0.tar.gz",
+      "hash": "0kp77vv1lv10nc7g9wddms0r0gbf36pd24x99s1h6jj4m8pjcl9a"
+    },
+    "Isbo2000": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Isbo2000",
+        "repo": "spicetify-collapse-sidebar"
+      },
+      "branch": "main",
+      "revision": "02dc5cb71c18d6af2b03d1f040868f27728913d0",
+      "url": "https://github.com/Isbo2000/spicetify-collapse-sidebar/archive/02dc5cb71c18d6af2b03d1f040868f27728913d0.tar.gz",
+      "hash": "0lvvj5989gnirmnlgwcsr50h048yx7a6c3ljnpi4cc5bpbl7kvhr"
+    },
+    "jeroentvb-extensions_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jeroentvb",
+        "repo": "spicetify-playlist-icons"
+      },
+      "branch": "main",
+      "revision": "a0cdaac6d9f4982538920825b7c3693c87e9bbdf",
+      "url": "https://github.com/jeroentvb/spicetify-playlist-icons/archive/a0cdaac6d9f4982538920825b7c3693c87e9bbdf.tar.gz",
+      "hash": "1n2zp7kwvfkjwcfpivzxxgxk4xrsy6ryy7mc9pgfkz3d9i64hbk3"
+    },
+    "jeroentvb-extensions_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jeroentvb",
+        "repo": "spicetify-power-bar"
+      },
+      "branch": "main",
+      "revision": "2eb4af897e52c17baf05f4d60bf4a8bb5bf3d370",
+      "url": "https://github.com/jeroentvb/spicetify-power-bar/archive/2eb4af897e52c17baf05f4d60bf4a8bb5bf3d370.tar.gz",
+      "hash": "1s5n86kqyx47ka2a9w6akfzxbj35xj34dr1y8xwxxqyp8kagxw30"
+    },
+    "jeroentvb-extensions_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jeroentvb",
+        "repo": "spicetify-genre"
+      },
+      "branch": "master",
+      "revision": "9cd089e46b95fde0f0d85ef738f21cde831a9d8e",
+      "url": "https://github.com/jeroentvb/spicetify-genre/archive/9cd089e46b95fde0f0d85ef738f21cde831a9d8e.tar.gz",
+      "hash": "0w6gif7i9kij5adqx2vwhhvhvrgd45lwvblpzr5czn8lq1w5y77p"
+    },
+    "jeroentvb-extensions_4": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "jeroentvb",
+        "repo": "spicetify-volume-percentage"
+      },
+      "branch": "main",
+      "revision": "8ed5065e4db31e7391aacbb2409f3cdcce6de6ba",
+      "url": "https://github.com/jeroentvb/spicetify-volume-percentage/archive/8ed5065e4db31e7391aacbb2409f3cdcce6de6ba.tar.gz",
+      "hash": "1p6wmyn49z14qiijvk4w99dzispc5v8vpjhq1f6hq64kzdyxlr7n"
+    },
+    "Kamiloo13": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Kamiloo13",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "f97236d7cdcef4478ebb57a1332258bda0aaab27",
+      "url": "https://github.com/Kamiloo13/spicetify-extensions/archive/f97236d7cdcef4478ebb57a1332258bda0aaab27.tar.gz",
+      "hash": "0q7d4nb5vijyczqa3jab9qr7495zsfbl9f1knnb1kcpk352r5rrn"
+    },
+    "kevin-256": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kevin-256",
+        "repo": "Spicetify-color-over-Web-Socket"
+      },
+      "branch": "main",
+      "revision": "f7133920602dff0aab62b6480e938ec726c70a41",
+      "url": "https://github.com/kevin-256/Spicetify-color-over-Web-Socket/archive/f7133920602dff0aab62b6480e938ec726c70a41.tar.gz",
+      "hash": "1zdanmj6nfsy05ysbblfs8rsw8gjnhmyi06176386x5c2inaspx5"
+    },
+    "Konsl-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Konsl",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "636c6bdf82e80e762e1828c47dd9cbed2ced4263",
+      "url": "https://github.com/Konsl/spicetify-extensions/archive/636c6bdf82e80e762e1828c47dd9cbed2ced4263.tar.gz",
+      "hash": "14znvdrsp8210ai0vd8gxg3l498v5m305z6bnmym4g0gcmlq5rmy"
+    },
+    "kyrie25_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kyrie25",
+        "repo": "Spicetify-Cache-Cleaner"
+      },
+      "branch": "main",
+      "revision": "8d0ec54581920629734acc5e4449d34d6afce7fb",
+      "url": "https://github.com/kyrie25/Spicetify-Cache-Cleaner/archive/8d0ec54581920629734acc5e4449d34d6afce7fb.tar.gz",
+      "hash": "028aw3qc61vayvpxllsbg0qmcklzb8fqs39bdn81v92qiidmpq2n"
+    },
+    "kyrie25_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kyrie25",
+        "repo": "spicetify-oneko"
+      },
+      "branch": "main",
+      "revision": "589a8cc3a3939b8c9fc4f2bd087ed433e9af5002",
+      "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
+      "hash": "1mm4c7xbfwd643wis7ja2gmi92p4xsgd1gmc0sdh2jrczsnjvswm"
+    },
+    "kyrie25_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kyrie25",
+        "repo": "spicetify-utilities"
+      },
+      "branch": "main",
+      "revision": "af53aabc63b8d197b952f4ecb0e4252ee79eca26",
+      "url": "https://github.com/kyrie25/spicetify-utilities/archive/af53aabc63b8d197b952f4ecb0e4252ee79eca26.tar.gz",
+      "hash": "0krnw491bwh4dgj9fvbg33627slxmlipm09qg59ylj1yh2d2p5rd"
+    },
+    "L3-N0X": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "L3-N0X",
+        "repo": "spicetify-dj-info"
+      },
+      "branch": "main",
+      "revision": "b55c9b8c8b00100b42e562829c77d012191f0c07",
+      "url": "https://github.com/L3-N0X/spicetify-dj-info/archive/b55c9b8c8b00100b42e562829c77d012191f0c07.tar.gz",
+      "hash": "1lb1hh8w90q16ki181r5mf126fdyzxbh6crxnk3bhdy1v2fl87bi"
+    },
+    "lightningik": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "lightningik",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "5e0bf19e21d8ea14a48b05adcd36a476e236e638",
+      "url": "https://github.com/lightningik/spicetify-extensions/archive/5e0bf19e21d8ea14a48b05adcd36a476e236e638.tar.gz",
+      "hash": "1s0xf4gyvp3g8il0gzh6dgm9y9ln2zxqzw6lfnvhy7gg77ck5pzq"
+    },
+    "LucasOe": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "LucasOe",
+        "repo": "spicetify-genres"
+      },
+      "branch": "main",
+      "revision": "38db860f7997edc2ee1c40445938e6c824e92c1c",
+      "url": "https://github.com/LucasOe/spicetify-genres/archive/38db860f7997edc2ee1c40445938e6c824e92c1c.tar.gz",
+      "hash": "1aldikf3mgl7svy560s5xngk3pcnvmh36argmj3436smnkbqaz49"
+    },
+    "Marcell-Puskas": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Marcell-Puskas",
+        "repo": "Spicetify-Toggle-Autoplay"
+      },
+      "branch": "main",
+      "revision": "fd5dc0b712092e7d03c8166f948cf5570b2a0170",
+      "url": "https://github.com/Marcell-Puskas/Spicetify-Toggle-Autoplay/archive/fd5dc0b712092e7d03c8166f948cf5570b2a0170.tar.gz",
+      "hash": "0g5znfjwwsyi66afbivsd4107z3czn733lgky3k1mx5g9xs2mcqk"
+    },
+    "Maskowh": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Maskowh",
+        "repo": "spicetify-old-like-button-extension"
+      },
+      "branch": "main",
+      "revision": "af409119cfc222540aa4467d8024c4c7b6977eef",
+      "url": "https://github.com/Maskowh/spicetify-old-like-button-extension/archive/af409119cfc222540aa4467d8024c4c7b6977eef.tar.gz",
+      "hash": "1z0hzz1gikn0qgfjkyaaazjigpny5zgn6c4wgfjgnqgk653hfg7n"
+    },
+    "mchubby": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mchubby",
+        "repo": "spicetify-copy-track-titles"
+      },
+      "branch": "main",
+      "revision": "9380eafa83fba89707ac9aea9707eb755833fcc5",
+      "url": "https://github.com/mchubby/spicetify-copy-track-titles/archive/9380eafa83fba89707ac9aea9707eb755833fcc5.tar.gz",
+      "hash": "0ccgy0a2jqqapdld6makxqxgyh52qfyyg8jwp5992622r0lfcn8w"
+    },
+    "Midra429": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Midra429",
+        "repo": "spicetify-share-on-misskey"
+      },
+      "branch": "main",
+      "revision": "3227ca58a7c6a7ca106808b61c6bad6b523e327b",
+      "url": "https://github.com/Midra429/spicetify-share-on-misskey/archive/3227ca58a7c6a7ca106808b61c6bad6b523e327b.tar.gz",
+      "hash": "1qic0f6i9xgc8scyc9gif5hpyif07qmdwkinmp4qlij33wzj6gs1"
+    },
+    "MLGRussianXP": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "MLGRussianXP",
+        "repo": "spicetify-best-moment"
+      },
+      "branch": "main",
+      "revision": "3fef2f55cd4cc16503165136a532ba717bee89b5",
+      "url": "https://github.com/MLGRussianXP/spicetify-best-moment/archive/3fef2f55cd4cc16503165136a532ba717bee89b5.tar.gz",
+      "hash": "0c8lwx0k34wy3xhw2x5bqxi7ap7cwz7k6q2snxx0y9pvws2sv7ry"
+    },
+    "MrPandir": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "MrPandir",
+        "repo": "twitch-spotifi"
+      },
+      "branch": "main",
+      "revision": "45275758bd6621fdde6a5ba668729b1690533c8b",
+      "url": "https://github.com/MrPandir/twitch-spotifi/archive/45275758bd6621fdde6a5ba668729b1690533c8b.tar.gz",
+      "hash": "1x023sfmlkarrs5v8317wkbs8qywdqqrcnnlw9qhvcwahrd2hvpk"
+    },
+    "muckelba": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "muckelba",
+        "repo": "dynamic-lights-homeassistant"
+      },
+      "branch": "main",
+      "revision": "ae796e93083dab2b69cf2d804e70058438be6a44",
+      "url": "https://github.com/muckelba/dynamic-lights-homeassistant/archive/ae796e93083dab2b69cf2d804e70058438be6a44.tar.gz",
+      "hash": "1m4glx2jxk6svg8lwi5f60vrbnir2ha6xkvby04c6y1crgjl20b6"
+    },
+    "mwaterman29": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "mwaterman29",
+        "repo": "spicetify-weighted-playlists"
+      },
+      "branch": "main",
+      "revision": "6a9b09b380633046bd395cf8231711bf9a10f1e6",
+      "url": "https://github.com/mwaterman29/spicetify-weighted-playlists/archive/6a9b09b380633046bd395cf8231711bf9a10f1e6.tar.gz",
+      "hash": "1sqqsnyvmb5dhynwmfbz98h92a7avfv9xynr50a9pqj98hkbbznc"
+    },
+    "myanlll": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "myanlll",
+        "repo": "Friendify-ListenWithYourFriends"
+      },
+      "branch": "main",
+      "revision": "1e0202dfca22d54538693f36170f6779d004e50b",
+      "url": "https://github.com/myanlll/Friendify-ListenWithYourFriends/archive/1e0202dfca22d54538693f36170f6779d004e50b.tar.gz",
+      "hash": "008hlr3xc9zwds14c97bs3z279wbiiagdq0y8ab4kh770bzqbq0r"
+    },
+    "NickColley": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "NickColley",
+        "repo": "spicetify-rewind"
+      },
+      "branch": "main",
+      "revision": "7e689a0b1ae1520add7da7e6dd75886e591bad61",
+      "url": "https://github.com/NickColley/spicetify-rewind/archive/7e689a0b1ae1520add7da7e6dd75886e591bad61.tar.gz",
+      "hash": "134anhfbsvdz2ij9a0m4hbpnxdsh4xd05ywsa7xhz1g9jd2vlm7y"
+    },
+    "NigelMarshal": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "NigelMarshal",
+        "repo": "spicetify-dancing-raccoon"
+      },
+      "branch": "main",
+      "revision": "ac04d6d1c8952c4f5223460abdc3ae1e2968ba08",
+      "url": "https://github.com/NigelMarshal/spicetify-dancing-raccoon/archive/ac04d6d1c8952c4f5223460abdc3ae1e2968ba08.tar.gz",
+      "hash": "0c0054c1snwnwljnmnnzdjdr8857ghczxaj16wfbqwnfqlnxcyrc"
+    },
+    "notPlancha": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "notPlancha",
+        "repo": "volume-profiles-v2"
+      },
+      "branch": "main",
+      "revision": "490c20f1b12672a9eddc6aedd09ad161f14a4a97",
+      "url": "https://github.com/notPlancha/volume-profiles-v2/archive/490c20f1b12672a9eddc6aedd09ad161f14a4a97.tar.gz",
+      "hash": "1akk4kwajpzd87fpcxhja90in37nww8g23c8g4jgliqgf8xbzcc1"
+    },
+    "Nuzair46": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Nuzair46",
+        "repo": "spicetify-raccoon-wheel"
+      },
+      "branch": "main",
+      "revision": "c0af71e4fadaac6b14d1774acb0d785f5b60fc1a",
+      "url": "https://github.com/Nuzair46/spicetify-raccoon-wheel/archive/c0af71e4fadaac6b14d1774acb0d785f5b60fc1a.tar.gz",
+      "hash": "154psxmw0gm7asq68vgmiwac3jhiwvjdipmav5dpwcvlsm6rymig"
+    },
+    "obvRedwolf": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "obvRedwolf",
+        "repo": "govee-dynamic-lights"
+      },
+      "branch": "main",
+      "revision": "0db65da9b09ccc55702060648ba2391a3f4619b9",
+      "url": "https://github.com/obvRedwolf/govee-dynamic-lights/archive/0db65da9b09ccc55702060648ba2391a3f4619b9.tar.gz",
+      "hash": "1zpb1mnxijzvbyby5bc6z22b4zcpqq2md5s2ar4rb2jq9mbwa2fk"
+    },
+    "Oein": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Oein",
+        "repo": "beautifulfullscreen"
+      },
+      "branch": "main",
+      "revision": "039cdfbb95c1dce840c5b845966a15a3b378509e",
+      "url": "https://github.com/Oein/beautifulfullscreen/archive/039cdfbb95c1dce840c5b845966a15a3b378509e.tar.gz",
+      "hash": "1s6dyn6yi7m0x0iq6lf0b0yw20834jzgiv1q8rd7rbkavkgqy30g"
+    },
+    "ohitstom": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ohitstom",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "cd00aa6e76da4f82f9a013f1363b2a45f92b0a0b",
+      "url": "https://github.com/ohitstom/spicetify-extensions/archive/cd00aa6e76da4f82f9a013f1363b2a45f92b0a0b.tar.gz",
+      "hash": "04042s2qpwcx3mjz3fx4yhh95czgdhq508pgznavyz5nz835d7qb"
+    },
+    "okanten": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "okanten",
+        "repo": "playlistproxy-spicetify"
+      },
+      "branch": "main",
+      "revision": "2b46a4ee869a2fcea32a086afe574180d5de705a",
+      "url": "https://github.com/okanten/playlistproxy-spicetify/archive/2b46a4ee869a2fcea32a086afe574180d5de705a.tar.gz",
+      "hash": "0k7wjww6lkmrk5131qh3xkm0cdxidjivyz2wilaxkz8bw02f11qr"
+    },
+    "Om-Thorat": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Om-Thorat",
+        "repo": "Spicetify-extension"
+      },
+      "branch": "main",
+      "revision": "381be3b46fe8b508374c6c020e3392c34d5c6530",
+      "url": "https://github.com/Om-Thorat/Spicetify-extension/archive/381be3b46fe8b508374c6c020e3392c34d5c6530.tar.gz",
+      "hash": "1gfl0adzvfcda596qz2rxrykvarak50s6nqay4gi3yb82690jsg4"
+    },
+    "Pithaya": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Pithaya",
+        "repo": "spicetify-apps"
+      },
+      "branch": "main",
+      "revision": "f47f22d1f00dc5d9f6afbe902019907266ca42b0",
+      "url": "https://github.com/Pithaya/spicetify-apps/archive/f47f22d1f00dc5d9f6afbe902019907266ca42b0.tar.gz",
+      "hash": "1qsq0yffx18daywal24jiw9zyx44ra3ilybjh9yk6jsjlcgiqk34"
+    },
+    "Pl4neta": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Pl4neta",
+        "repo": "allOfArtist"
+      },
+      "branch": "main",
+      "revision": "8368a584956ea15e008574fab609fd2efa7d9f44",
+      "url": "https://github.com/Pl4neta/allOfArtist/archive/8368a584956ea15e008574fab609fd2efa7d9f44.tar.gz",
+      "hash": "07nnbiiv65zixyhaxj03dlc82ghglnhrrvsqi8sd3c6n6cqbd3mp"
+    },
+    "Plueres": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Plueres",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "17b7e4119dd953964316cd9aa97400e7bd11241b",
+      "url": "https://github.com/Plueres/spicetify-extensions/archive/17b7e4119dd953964316cd9aa97400e7bd11241b.tar.gz",
+      "hash": "0sniz3sr9h2g8b0n5q5ybd5k2zvljdynmg41i0as4vh0qfnrfqpw"
+    },
+    "pnthach95": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "pnthach95",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "6749c9b18405df73e3b0100e221f5e29e7def234",
+      "url": "https://github.com/pnthach95/spicetify-extensions/archive/6749c9b18405df73e3b0100e221f5e29e7def234.tar.gz",
+      "hash": "16g4h3cc31r7p2b04hcz0v34ai9q5qra4hxil9csplr2vqwv6sp6"
+    },
+    "podpah": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "podpah",
+        "repo": "Spicetify-Extensions"
+      },
+      "branch": "main",
+      "revision": "a3f838de7e7f4ae67914e41bb2e3a313bb413d14",
+      "url": "https://github.com/podpah/Spicetify-Extensions/archive/a3f838de7e7f4ae67914e41bb2e3a313bb413d14.tar.gz",
+      "hash": "08nvml135w71flwiha7s4qb6rhi75dq1781x3xxwvb56lpvqx7nb"
+    },
+    "prochy-exe_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "prochy-exe",
+        "repo": "controlify-plugin"
+      },
+      "branch": "main",
+      "revision": "51d7830e0f5691454c5922e40ae1b19453e1db1c",
+      "url": "https://github.com/prochy-exe/controlify-plugin/archive/51d7830e0f5691454c5922e40ae1b19453e1db1c.tar.gz",
+      "hash": "0j8ad5xm4nm5aj7rk81rhywzsklmg3wyw7mghsbz6098afp23236"
+    },
+    "prochy-exe_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "prochy-exe",
+        "repo": "odesli-spicetify"
+      },
+      "branch": "main",
+      "revision": "d65bb6d0b5e6413b13b5a15990d2e544643e84dc",
+      "url": "https://github.com/prochy-exe/odesli-spicetify/archive/d65bb6d0b5e6413b13b5a15990d2e544643e84dc.tar.gz",
+      "hash": "18q0msj5fl5ir2fm7i54nfraikivvjlbkf9any51d8vmmcmylhpz"
+    },
+    "qixing-jk": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "qixing-jk",
+        "repo": "spicetify-playlist-labels"
+      },
+      "branch": "main",
+      "revision": "68e9cddeab0fbd2a9666989f3183724efcfb7c65",
+      "url": "https://github.com/qixing-jk/spicetify-playlist-labels/archive/68e9cddeab0fbd2a9666989f3183724efcfb7c65.tar.gz",
+      "hash": "0315khnkwakybxl7w0fqhxh2y91l7yfgqhdbckwbss6vzv34465k"
+    },
+    "rastr1sr": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "rastr1sr",
+        "repo": "YoutubeKeybindsSpicetify"
+      },
+      "branch": "main",
+      "revision": "294e4b2e415a27754d9c0a183f3ca860af4fa3ae",
+      "url": "https://github.com/rastr1sr/YoutubeKeybindsSpicetify/archive/294e4b2e415a27754d9c0a183f3ca860af4fa3ae.tar.gz",
+      "hash": "0xswb2ah7gflhlz2g2rwwqr40jb7ajrlqnvvyh5qycd7awxvnd7h"
+    },
+    "Resxt": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
         "owner": "Resxt",
-        "repo": "startup-page"
+        "repo": "Spicetify-Extensions"
       },
       "branch": "main",
-      "submodules": false,
       "revision": "75bd17ba1c9a19730f14529fb18857d7b9c7c12e",
-      "url": "https://github.com/Resxt/startup-page/archive/75bd17ba1c9a19730f14529fb18857d7b9c7c12e.tar.gz",
+      "url": "https://github.com/Resxt/Spicetify-Extensions/archive/75bd17ba1c9a19730f14529fb18857d7b9c7c12e.tar.gz",
       "hash": "00vpznbjv1a4l1k25802nvvsjrcia9j1mlcgz4a8zp8w9nipjf7r"
     },
-    "tetraxSrc": {
+    "Richie-Z": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
-        "owner": "Tetrax-10",
+        "owner": "Richie-Z",
+        "repo": "romajin"
+      },
+      "branch": "main",
+      "revision": "c89c7ab62a275b28ba1e270e78fe3fb81e56586a",
+      "url": "https://github.com/Richie-Z/romajin/archive/c89c7ab62a275b28ba1e270e78fe3fb81e56586a.tar.gz",
+      "hash": "172v0ywn7qr9ai8mp0pdhil8yvdrsnpincb28q7cwg9f64bar2g5"
+    },
+    "Ruxery": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Ruxery",
+        "repo": "spicetify-autoplay"
+      },
+      "branch": "main",
+      "revision": "bf7c16952e5b05c7c3a0bf840b551655dc5f121d",
+      "url": "https://github.com/Ruxery/spicetify-autoplay/archive/bf7c16952e5b05c7c3a0bf840b551655dc5f121d.tar.gz",
+      "hash": "00ygx9r7r2jlqrsl68c0mgal9661vnsd6jbhc696yd3j85c4ny6h"
+    },
+    "rxri": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "rxri",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "d1bc50363939723d80ccef51f1b14b0893cf1c14",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/d1bc50363939723d80ccef51f1b14b0893cf1c14.tar.gz",
+      "hash": "0msp95jal0y1rmqj9m7m5c48hq5fqwhkddwj188k5q4v0jkb7l13"
+    },
+    "Samych02": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Samych02",
+        "repo": "Resume-Playlist"
+      },
+      "branch": "main",
+      "revision": "8fb91156b0be6ecf7a30273ae5bedebf032681bf",
+      "url": "https://github.com/Samych02/Resume-Playlist/archive/8fb91156b0be6ecf7a30273ae5bedebf032681bf.tar.gz",
+      "hash": "1g4sqh1x664arm77rc5i2glrjc5za3fichbrkxqig04bw4hsa2cc"
+    },
+    "sanoojes-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sanoojes",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "a2b6774426cf198165a13f0e5ed6996d0bbb3a0a",
+      "url": "https://github.com/sanoojes/spicetify-extensions/archive/a2b6774426cf198165a13f0e5ed6996d0bbb3a0a.tar.gz",
+      "hash": "1vbahf6h1wvw4hnfl6rzwadalrncn9jsjpx7j5wqqiqn8cqz2gyd"
+    },
+    "SBijpost": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "SBijpost",
+        "repo": "always-play-videos"
+      },
+      "branch": "main",
+      "revision": "b4e0bf2bd57a83381122bf6f40721cb69b296165",
+      "url": "https://github.com/SBijpost/always-play-videos/archive/b4e0bf2bd57a83381122bf6f40721cb69b296165.tar.gz",
+      "hash": "1g79qqzklwk2fpnzwzrdzc19813dich52ishkqbn2k5p4pvk78z9"
+    },
+    "ShadowAya": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "ShadowAya",
+        "repo": "spicetify-ledfx-color-sync"
+      },
+      "branch": "main",
+      "revision": "1a5accf733c0857cc56d8326a59fa89eb5d22696",
+      "url": "https://github.com/ShadowAya/spicetify-ledfx-color-sync/archive/1a5accf733c0857cc56d8326a59fa89eb5d22696.tar.gz",
+      "hash": "0g682q37bnb0l1ccv7rnlz6pzq64yqinng647p5x7i69q59sv8la"
+    },
+    "SIMULATAN": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "SIMULATAN",
         "repo": "Spicetify-Extensions"
       },
-      "branch": "master",
-      "submodules": false,
-      "revision": "a224969550b3831c4fb084bcc8c675f3a77735d1",
-      "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/a224969550b3831c4fb084bcc8c675f3a77735d1.tar.gz",
-      "hash": "04lss42fd4gkvhncpwmxpj93xx6y8md8m888xn1pcpas6pl2agax"
+      "branch": "main",
+      "revision": "66e206ecbe40a6be71d363543a5ead6ecf99b727",
+      "url": "https://github.com/SIMULATAN/Spicetify-Extensions/archive/66e206ecbe40a6be71d363543a5ead6ecf99b727.tar.gz",
+      "hash": "0mlhk4pgy8544k4hdi4m04ngqm8lnm5yxi1j1mq55scv0qlfny1i"
     },
-    "theblockbusterSrc": {
+    "Socketlike": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Socketlike",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "1532dc050044a8beb7d9af0a550dff37ddebb1fc",
+      "url": "https://github.com/Socketlike/spicetify-extensions/archive/1532dc050044a8beb7d9af0a550dff37ddebb1fc.tar.gz",
+      "hash": "01mvakwccfyf2as3bn9igys3fdvy5fd7h4vn4r4mc6f4hblpyvsy"
+    },
+    "Spikerko_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spikerko",
+        "repo": "beautiful-lyrics"
+      },
+      "branch": "main",
+      "revision": "f6937b73f96597e9dda978de42f00c910cad087d",
+      "url": "https://github.com/Spikerko/beautiful-lyrics/archive/f6937b73f96597e9dda978de42f00c910cad087d.tar.gz",
+      "hash": "1yz75zqscrqpbrs7z1phdkpwqvnq6mdxcihvf334vphz8gdkdlm9"
+    },
+    "Spikerko_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spikerko",
+        "repo": "spicy-lyrics"
+      },
+      "branch": "main",
+      "revision": "56bd953fd684705f9584dc7f2657991a59597481",
+      "url": "https://github.com/Spikerko/spicy-lyrics/archive/56bd953fd684705f9584dc7f2657991a59597481.tar.gz",
+      "hash": "1v98d7q7qavkwhnrd7j1jslhczh0q1sdll3cfwlcbjbli4zxzni9"
+    },
+    "Spikerko_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spikerko",
+        "repo": "thepingpongballizer"
+      },
+      "branch": "main",
+      "revision": "5a7159bf5c5696d42325fa4364247e48f2acec46",
+      "url": "https://github.com/Spikerko/thepingpongballizer/archive/5a7159bf5c5696d42325fa4364247e48f2acec46.tar.gz",
+      "hash": "1q70n6ihmm3akcrxw905r26ks0kzpw4xj7jlkj18wrhkrl134a8l"
+    },
+    "SunsetTechuila": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "SunsetTechuila",
+        "repo": "seekonscroll"
+      },
+      "branch": "main",
+      "revision": "32e0b383b35e5956b13e2469ce419cebd8e9be11",
+      "url": "https://github.com/SunsetTechuila/seekonscroll/archive/32e0b383b35e5956b13e2469ce419cebd8e9be11.tar.gz",
+      "hash": "0yvyr1lsxrcfkzmg8svssk66rk5370shkwwrna8myhw2ip2v1rbm"
+    },
+    "surfbryce": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "surfbryce",
+        "repo": "beautiful-lyrics"
+      },
+      "branch": "main",
+      "revision": "f6937b73f96597e9dda978de42f00c910cad087d",
+      "url": "https://github.com/surfbryce/beautiful-lyrics/archive/f6937b73f96597e9dda978de42f00c910cad087d.tar.gz",
+      "hash": "1yz75zqscrqpbrs7z1phdkpwqvnq6mdxcihvf334vphz8gdkdlm9"
+    },
+    "SyndiShanX-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "SyndiShanX",
+        "repo": "Spicetify-Extensions"
+      },
+      "branch": "main",
+      "revision": "2efad6de15d258d5fd4f74c3fcb25ec112ed0704",
+      "url": "https://github.com/SyndiShanX/Spicetify-Extensions/archive/2efad6de15d258d5fd4f74c3fcb25ec112ed0704.tar.gz",
+      "hash": "1zc54d3jn1pafhps26b23fj4mlk6r4795g611zld0s6xd7ina3c6"
+    },
+    "szymonszewcjr": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "szymonszewcjr",
+        "repo": "legacyLook"
+      },
+      "branch": "main",
+      "revision": "3af99824607f97743ddd37361d7f1551bffc6f13",
+      "url": "https://github.com/szymonszewcjr/legacyLook/archive/3af99824607f97743ddd37361d7f1551bffc6f13.tar.gz",
+      "hash": "1gjr860861zq6w89r5h6kwd9blhm8rng47y0fnpxcsx99yl1lvin"
+    },
+    "Taeko-ar": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Taeko-ar",
+        "repo": "spicetify-last-fm"
+      },
+      "branch": "main",
+      "revision": "d2f1d3c1e286d789ddfa002f162405782d822c55",
+      "url": "https://github.com/Taeko-ar/spicetify-last-fm/archive/d2f1d3c1e286d789ddfa002f162405782d822c55.tar.gz",
+      "hash": "0yr9i6dhlzj0pfq3x2pzdiy1d6kgz1pip4bh64hlq04j7ggihbpw"
+    },
+    "TechShivvy": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "TechShivvy",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "4ece6d5e9f16c4eebf956360b0f60e6651d57ac2",
+      "url": "https://github.com/TechShivvy/spicetify-extensions/archive/4ece6d5e9f16c4eebf956360b0f60e6651d57ac2.tar.gz",
+      "hash": "0sbndx0ld1308j0if3gd9p3gdlx19r7wrwpc2zblx6x8j994zzb7"
+    },
+    "Theblockbuster1": {
       "type": "Git",
       "repository": {
         "type": "GitHub",
@@ -544,10 +1436,477 @@
         "repo": "spicetify-extensions"
       },
       "branch": "main",
-      "submodules": false,
       "revision": "9452445b1f7b054ca7afeefcd3cb094cd89950e5",
       "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/9452445b1f7b054ca7afeefcd3cb094cd89950e5.tar.gz",
       "hash": "01cq0rdbkk43i707b088gqjn3g7p2zxsxx8ji8f6npwc6m7jbsv1"
+    },
+    "TheGeeKing": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "TheGeeKing",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "364646df865a68a8db421272db848bf6ddf8112f",
+      "url": "https://github.com/TheGeeKing/spicetify-extensions/archive/364646df865a68a8db421272db848bf6ddf8112f.tar.gz",
+      "hash": "1fzswlvdsm28ra0m0ibi36d7vih4liiccki2md0lmp03carxfld1"
+    },
+    "theRealPadster-extensions": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "theRealPadster",
+        "repo": "spicetify-hide-podcasts"
+      },
+      "branch": "main",
+      "revision": "b935963574bd2bf126912fa478408bd7a26bd431",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/b935963574bd2bf126912fa478408bd7a26bd431.tar.gz",
+      "hash": "13q3znivg5k0cg4zql1k9lsnf0qnk7yylgfz9glf78bi2bvqzhz4"
+    },
+    "thirtysomethings": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "thirtysomethings",
+        "repo": "xcxcovers"
+      },
+      "branch": "main",
+      "revision": "f5a25b888ab505836f1fe23eeea20a3dc08e10a9",
+      "url": "https://github.com/thirtysomethings/xcxcovers/archive/f5a25b888ab505836f1fe23eeea20a3dc08e10a9.tar.gz",
+      "hash": "01hck4vr5l7hs8adghkyamjvzh5cdclazaiczrhpzppfq04qz6py"
+    },
+    "tlozs": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "tlozs",
+        "repo": "spicetify-seekSongKeybinds"
+      },
+      "branch": "main",
+      "revision": "af7369c07dd3b507eee62be3b580677c702ec73b",
+      "url": "https://github.com/tlozs/spicetify-seekSongKeybinds/archive/af7369c07dd3b507eee62be3b580677c702ec73b.tar.gz",
+      "hash": "0vry8hvigisqkz9yjpba30n8dg6vm3iasvcc3qxymizp498a64f2"
+    },
+    "T0RNATO": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "T0RNATO",
+        "repo": "spotify-picture-in-picture"
+      },
+      "branch": "main",
+      "revision": "739baf321f1a18b11f55d2356b7d41ebd2e4ed36",
+      "url": "https://github.com/T0RNATO/spotify-picture-in-picture/archive/739baf321f1a18b11f55d2356b7d41ebd2e4ed36.tar.gz",
+      "hash": "0yssj41xyparc4fcsyngy1byfw02ai20f3bvx89wjq8y0bg6lq17"
+    },
+    "Undead34": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Undead34",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "5720a0604de716194e3aa844b96952dc7190102c",
+      "url": "https://github.com/Undead34/spicetify-extensions/archive/5720a0604de716194e3aa844b96952dc7190102c.tar.gz",
+      "hash": "0h1n65i4a765nbbahvxazxnfvzxx7286z9vlvi5zq6cp4ar6ryja"
+    },
+    "vbalien": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "vbalien",
+        "repo": "spicetify-extension-autoSkipPattern"
+      },
+      "branch": "main",
+      "revision": "91f94bf53cdc9c4d43d4d9b47ea1b43d420e239a",
+      "url": "https://github.com/vbalien/spicetify-extension-autoSkipPattern/archive/91f94bf53cdc9c4d43d4d9b47ea1b43d420e239a.tar.gz",
+      "hash": "05vgq9p7qpwijj3axablx42gkdg3n13m5bhh8wmf8s1mqhprkhi8"
+    },
+    "Vexcited": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Vexcited",
+        "repo": "better-spotify-genres"
+      },
+      "branch": "build",
+      "revision": "3cf6e63450261b53f814efc74f7f7af9c749d699",
+      "url": "https://github.com/Vexcited/better-spotify-genres/archive/3cf6e63450261b53f814efc74f7f7af9c749d699.tar.gz",
+      "hash": "0qw4iy72yfxk1cmqhxad7807fbc8c9a7xgkq1lrd4wk5mmw9vz68"
+    },
+    "WaddlesPlays": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "WaddlesPlays",
+        "repo": "SpicetifyStuff"
+      },
+      "branch": "main",
+      "revision": "688fa3b256ec13faae0a89ca8b42055b4c781b51",
+      "url": "https://github.com/WaddlesPlays/SpicetifyStuff/archive/688fa3b256ec13faae0a89ca8b42055b4c781b51.tar.gz",
+      "hash": "05pmmfizs6f2wnn8if8yg64rz1251gi1cmjiha2l4c28ai9fm1hg"
+    },
+    "x1yl": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "x1yl",
+        "repo": "BetterSpicetifyAOTYScores"
+      },
+      "branch": "main",
+      "revision": "40e8265b9b2a5da8b20ea1d0cf92534669e5dbbc",
+      "url": "https://github.com/x1yl/BetterSpicetifyAOTYScores/archive/40e8265b9b2a5da8b20ea1d0cf92534669e5dbbc.tar.gz",
+      "hash": "1yzgwrm3bwglshl5q34ji0qjk9fnpx9c41jvanhnfr5p2n6qs6ll"
+    },
+    "yodaluca23": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "yodaluca23",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "revision": "007754f0bcb284d39aa03cf0348a9d22df697225",
+      "url": "https://github.com/yodaluca23/spicetify-extensions/archive/007754f0bcb284d39aa03cf0348a9d22df697225.tar.gz",
+      "hash": "1g31c20zm61fffcsbygl7dghm555mdfkwmah6fg6m0lygrndjrwf"
+    },
+    "AroLucy_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "AroLucy",
+        "repo": "Pocket"
+      },
+      "branch": "main",
+      "revision": "a5c3b2a2e781a86404c19a996a1048e782c08450",
+      "url": "https://github.com/AroLucy/Pocket/archive/a5c3b2a2e781a86404c19a996a1048e782c08450.tar.gz",
+      "hash": "0b4npbl6mjc9hszjwjan95m8r659adfcs1g9fb2mnfnajhzk91gd"
+    },
+    "AroLucy_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "AroLucy",
+        "repo": "Spicetify-Sidebar-Controls"
+      },
+      "branch": "main",
+      "revision": "8299a69e7319e0d6ced450458d2b7be5c2462adc",
+      "url": "https://github.com/AroLucy/Spicetify-Sidebar-Controls/archive/8299a69e7319e0d6ced450458d2b7be5c2462adc.tar.gz",
+      "hash": "00v9i6sb2cb6jg1jr0q752jr1f0g844vmx6bfkkz30ahq7gzar2p"
+    },
+    "Astromations": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Astromations",
+        "repo": "Hazy"
+      },
+      "branch": "main",
+      "revision": "413748dd7048857f5b4a1c013e945c10818e1169",
+      "url": "https://github.com/Astromations/Hazy/archive/413748dd7048857f5b4a1c013e945c10818e1169.tar.gz",
+      "hash": "1zcs0qd1css51m0gabj4dx836mqy104k9542jgilg30651pfmr3p"
+    },
+    "bluedrift": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "bluedrift",
+        "repo": "Spicetify-Throwback"
+      },
+      "branch": "master",
+      "revision": "4eade188f2e16f937596f0d5f4532bec707521ee",
+      "url": "https://github.com/bluedrift/Spicetify-Throwback/archive/4eade188f2e16f937596f0d5f4532bec707521ee.tar.gz",
+      "hash": "1irmwql5dmxksffzs9fw0f1xf4fn41f1siz57m0ys2c7yk6g014j"
+    },
+    "canbeardig": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "canbeardig",
+        "repo": "Spicetify-Orchis-Colours-v2"
+      },
+      "branch": "main",
+      "revision": "5bf3fcf0696514dcf3e95f4ae3fd00261ccc5dcc",
+      "url": "https://github.com/canbeardig/Spicetify-Orchis-Colours-v2/archive/5bf3fcf0696514dcf3e95f4ae3fd00261ccc5dcc.tar.gz",
+      "hash": "1fzmxgjb3l6qn6a7zc621pqhh5m5xzjj1wqplk4rwnrrb1d3digm"
+    },
+    "catppuccin": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "spicetify"
+      },
+      "branch": "main",
+      "revision": "4294a61f54a044768c6e9db20e83c5b74da71091",
+      "url": "https://github.com/catppuccin/spicetify/archive/4294a61f54a044768c6e9db20e83c5b74da71091.tar.gz",
+      "hash": "0wh98li6brlhgcfwa8g9s9ia2mvza36fzsl6l1ddz3x3h2x1lyrq"
+    },
+    "Comfy-Themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Comfy-Themes",
+        "repo": "Spicetify"
+      },
+      "branch": "main",
+      "revision": "2c22f3649a82e599be0e7eb506a0f83459caf9e8",
+      "url": "https://github.com/Comfy-Themes/Spicetify/archive/2c22f3649a82e599be0e7eb506a0f83459caf9e8.tar.gz",
+      "hash": "1f0raq621fs58wrvfqfbvrc91vi5czvdqm6pdw3w5a9ddawm0a1b"
+    },
+    "Droidiar": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Droidiar",
+        "repo": "simpleoutline-spicetify"
+      },
+      "branch": "main",
+      "revision": "0d1a08d03d8dc9be4ac0f71a16e4c5ed61f6a295",
+      "url": "https://github.com/Droidiar/simpleoutline-spicetify/archive/0d1a08d03d8dc9be4ac0f71a16e4c5ed61f6a295.tar.gz",
+      "hash": "0w8vlyn0dqpa9hjdamf4a8zwb15fvlf8pyf4z8y12395iyh3pz3b"
+    },
+    "getomni": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "getomni",
+        "repo": "spicetify"
+      },
+      "branch": "main",
+      "revision": "253ae45d2cac2dc3d92a43193ea8f6d9e7e1d3aa",
+      "url": "https://github.com/getomni/spicetify/archive/253ae45d2cac2dc3d92a43193ea8f6d9e7e1d3aa.tar.gz",
+      "hash": "0zvngrwikdx5whcf29yqgzxiwaqxr2bmsy5j0c1ffz3s9zikx0p4"
+    },
+    "harbassan-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "harbassan",
+        "repo": "spicetify-galaxy"
+      },
+      "branch": "main",
+      "revision": "2b2e33c02c5adffd6737e4a93c261e961fad8eca",
+      "url": "https://github.com/harbassan/spicetify-galaxy/archive/2b2e33c02c5adffd6737e4a93c261e961fad8eca.tar.gz",
+      "hash": "13zvlyq5lwa5faananayr1xg1dk7iq4znq122hks7f4gz5qxvski"
+    },
+    "JayTheXXVII": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "JayTheXXVII",
+        "repo": "RevertX2"
+      },
+      "branch": "main",
+      "revision": "d394c5761e62bef30b6132b9324d2856315e0cb1",
+      "url": "https://github.com/JayTheXXVII/RevertX2/archive/d394c5761e62bef30b6132b9324d2856315e0cb1.tar.gz",
+      "hash": "1mxwpc82d4j9xlgbn21qs2hxiw7r7ib3bdim44hm22ip85m847d6"
+    },
+    "JulienMaille_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "JulienMaille",
+        "repo": "spicetify-dynamic-theme"
+      },
+      "branch": "main",
+      "revision": "a49a029bed4d58cadd1dddb586ff06a200c0233e",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/a49a029bed4d58cadd1dddb586ff06a200c0233e.tar.gz",
+      "hash": "0hw9wq2z8mi6fria1gpcr138k3df773vxqz3wxk8k3nw97xxr1hd"
+    },
+    "JulienMaille_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "JulienMaille",
+        "repo": "dribbblish-dynamic-theme"
+      },
+      "branch": "main",
+      "revision": "27f4fd3a263075dd36d617a28cf68011012f53ec",
+      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/27f4fd3a263075dd36d617a28cf68011012f53ec.tar.gz",
+      "hash": "00ldylmkk29b4nkl1lgldczpxblaas63j29pcxys7apzgrm08dip"
+    },
+    "Kennubyte": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Kennubyte",
+        "repo": "pinkers"
+      },
+      "branch": "main",
+      "revision": "2adcb1ba580d2ebe9a48508ab0b866689de44987",
+      "url": "https://github.com/Kennubyte/pinkers/archive/2adcb1ba580d2ebe9a48508ab0b866689de44987.tar.gz",
+      "hash": "0cb4hm24mrwfhzyg8ng5gzp46cmwah81kv5z7p4ql7w6mnkjz73m"
+    },
+    "LimeAndPyro": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "LimeAndPyro",
+        "repo": "Grayscale-Spotify-Theme"
+      },
+      "branch": "main",
+      "revision": "54c001177477b89e411a15fa6caf02e3aed0d8ca",
+      "url": "https://github.com/LimeAndPyro/Grayscale-Spotify-Theme/archive/54c001177477b89e411a15fa6caf02e3aed0d8ca.tar.gz",
+      "hash": "1m1bn4yzzhcsmw0k4wxv58f313lhv8nnslxji00irslbpr0z6spy"
+    },
+    "luximus-hunter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "luximus-hunter",
+        "repo": "accented"
+      },
+      "branch": "master",
+      "revision": "b6c329109c76ca20a9d878cdf8218a32c4653a89",
+      "url": "https://github.com/luximus-hunter/accented/archive/b6c329109c76ca20a9d878cdf8218a32c4653a89.tar.gz",
+      "hash": "1knqchlss82nq3h66f3nvhkazzhpnrm348vfn45bdzks3pggyrj9"
+    },
+    "Motschen": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Motschen",
+        "repo": "Retroblur"
+      },
+      "branch": "fresh",
+      "revision": "685cf3aea4ed1a4d82f687293f0efb5baa1aec06",
+      "url": "https://github.com/Motschen/Retroblur/archive/685cf3aea4ed1a4d82f687293f0efb5baa1aec06.tar.gz",
+      "hash": "1qg46vwbbab81a4zfzjd4av8jc51h5rzivcfy68ll3ri41wsc0v0"
+    },
+    "MrBiscuit921": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "MrBiscuit921",
+        "repo": "spicetify-themes"
+      },
+      "branch": "master",
+      "revision": "ccc1fd15c34b9ffa206d19aa83afadf7235f3296",
+      "url": "https://github.com/MrBiscuit921/spicetify-themes/archive/ccc1fd15c34b9ffa206d19aa83afadf7235f3296.tar.gz",
+      "hash": "0pqwc36xy38qmrbh96qx7amfrd14j80ynx5842nb6pms8ih4pzn1"
+    },
+    "nimsandu": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nimsandu",
+        "repo": "spicetify-bloom"
+      },
+      "branch": "main",
+      "revision": "809c042ca8f88540604fbd6aca35f42bddfcaf27",
+      "url": "https://github.com/nimsandu/spicetify-bloom/archive/809c042ca8f88540604fbd6aca35f42bddfcaf27.tar.gz",
+      "hash": "1rsdrj2r8r2fzixvvn6c3ls7d7plzh29n7vig2ds60lb72jq483p"
+    },
+    "pjaspinski": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "pjaspinski",
+        "repo": "spicetify-themes"
+      },
+      "branch": "master",
+      "revision": "7e9e898124c96f115dc61fb91d0499ae81f56892",
+      "url": "https://github.com/pjaspinski/spicetify-themes/archive/7e9e898124c96f115dc61fb91d0499ae81f56892.tar.gz",
+      "hash": "06xp6vlbd4kj6vafkc3z2a81xpcwmz62cxilahjsj28110s0hxby"
+    },
+    "Rubutter": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Rubutter",
+        "repo": "notRetroblur"
+      },
+      "branch": "main",
+      "revision": "a86f646ba3052c750300dba64901db3f3fd2bfce",
+      "url": "https://github.com/Rubutter/notRetroblur/archive/a86f646ba3052c750300dba64901db3f3fd2bfce.tar.gz",
+      "hash": "1zzd9qkmzq558kqfnc3jbhlgbmhynz6n4gyz3pynr5wcpj1d7894"
+    },
+    "sanoojes-themes_1": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sanoojes",
+        "repo": "Spicetify-colorful"
+      },
+      "branch": "main",
+      "revision": "09396aaa0b0ba1ec93bcc95f5c820ca7914d1d50",
+      "url": "https://github.com/sanoojes/Spicetify-colorful/archive/09396aaa0b0ba1ec93bcc95f5c820ca7914d1d50.tar.gz",
+      "hash": "1rbj1dl5w2zg5yx2qbdp22mjirl2p9ym6a06akmwvdi5dllx6ckz"
+    },
+    "sanoojes-themes_2": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sanoojes",
+        "repo": "Spicetify-Lucid"
+      },
+      "branch": "main",
+      "revision": "bf6b1589374dd8c31acbd8749a59e7c935157656",
+      "url": "https://github.com/sanoojes/Spicetify-Lucid/archive/bf6b1589374dd8c31acbd8749a59e7c935157656.tar.gz",
+      "hash": "0lkp6rgi4yf1v2lhr6p720p0wiq9b51pk1j99gb2aqb9i1r9l9jh"
+    },
+    "sanoojes-themes_3": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "sanoojes",
+        "repo": "Spicetify-ShadeX"
+      },
+      "branch": "main",
+      "revision": "9b8fe4b5e7f1298167b278310111c0757d86d127",
+      "url": "https://github.com/sanoojes/Spicetify-ShadeX/archive/9b8fe4b5e7f1298167b278310111c0757d86d127.tar.gz",
+      "hash": "0q8qcrvjnfw56ir3aq6bcw2f9985faylsids1dpivbn63aysgas6"
+    },
+    "Spicetify-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spicetify",
+        "repo": "spicetify-themes"
+      },
+      "branch": "master",
+      "revision": "a9ce22b3d3df303d994974b746c839c7d0907101",
+      "url": "https://github.com/Spicetify/spicetify-themes/archive/a9ce22b3d3df303d994974b746c839c7d0907101.tar.gz",
+      "hash": "1xrywilk9rfbvlqn4038vfkfc7hf6hkykhicwf2cjdv43q46n0hx"
+    },
+    "SyndiShanX-themes": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "SyndiShanX",
+        "repo": "Spotify-Dark"
+      },
+      "branch": "main",
+      "revision": "b153f4f0f28724b659ebe6da9deae115169762c2",
+      "url": "https://github.com/SyndiShanX/Spotify-Dark/archive/b153f4f0f28724b659ebe6da9deae115169762c2.tar.gz",
+      "hash": "0f5rklscvb0fl92mzbzhczgcjq4yrbw6ajbdd09cs59ackfga1wa"
+    },
+    "thefoodiee": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "thefoodiee",
+        "repo": "blackout"
+      },
+      "branch": "main",
+      "revision": "e913ecc56b2415566d485d951a7c1d2606aa8c1d",
+      "url": "https://github.com/thefoodiee/blackout/archive/e913ecc56b2415566d485d951a7c1d2606aa8c1d.tar.gz",
+      "hash": "1s7ahkjnh8kdi2nr6jk72gmrb5qdqj4nf7f0dlm15k229g7byd94"
+    },
+    "williamckha": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "williamckha",
+        "repo": "spicetify-fluent"
+      },
+      "branch": "master",
+      "revision": "64b946af1ee4a5ed761d2f065c45b710e06bc123",
+      "url": "https://github.com/williamckha/spicetify-fluent/archive/64b946af1ee4a5ed761d2f065c45b710e06bc123.tar.gz",
+      "hash": "08ccjs14nvf8cdd1s8f3wln108hh2w4k5bm85yrgzlx8i76ira9k"
     }
   },
   "version": 5

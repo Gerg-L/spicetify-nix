@@ -34,7 +34,7 @@ builtins.mapAttrs
           repository,
           revision,
           url ? null,
-          submodules,
+          submodules ? false,
           hash,
           ...
         }@attrs:
