@@ -106,7 +106,7 @@
     overwriteAssets = true;
     requiredExtensions = [
       {
-        src = "${sources.harbassan}/Galaxy";
+        src = "${sources.harbassan-themes}/Galaxy";
         name = "theme.js";
       }
     ];
