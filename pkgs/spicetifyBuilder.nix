@@ -5,6 +5,7 @@
   crudini,
   zenity,
   writeShellScript,
+  makeShellWrapper,
 }:
 lib.makeOverridable (
   {
@@ -24,7 +25,8 @@ lib.makeOverridable (
     (
       {
         name = "spicetify-${theme.name}";
-        nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [ crudini ];
+        nativeBuildInputs =
+          old.nativeBuildInputs or [ ] ++ [ crudini ] ++ lib.optional stdenv.isDarwin makeShellWrapper;
 
         postInstall =
           old.postInstall or ""
