@@ -120,7 +120,7 @@ lib.makeOverridable (
           in
           ''
             runHook preFixup
-            wrapProgramShell '$out/lib/Applications/Spotify.app/Contents/MacOS/Spotify' \
+            wrapProgramShell '$out/Applications/Spotify.app/Contents/MacOS/Spotify' \
               --run '${script}'
             runHook postFixup
           '';
