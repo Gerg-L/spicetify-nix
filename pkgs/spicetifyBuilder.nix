@@ -3,6 +3,7 @@
   stdenv,
   writeText,
   crudini,
+  zenity,
 }:
 lib.makeOverridable (
   {
@@ -14,9 +15,10 @@ lib.makeOverridable (
     extensions,
     apps,
     extraCommands,
+    wayland,
   }:
 
-  spotify.overrideAttrs (old: {
+  spotify.overrideAttrs (old: ({
     name = "spicetify-${theme.name}";
     nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [ crudini ];
 
@@ -81,6 +83,25 @@ lib.makeOverridable (
 
         ${lib.getExe spicetify-cli} --no-restart backup apply
       '';
-  })
+    }// lib.optionalAttrs (stdenv.isLinux && wayland != null) 
+    {
 
+    fixupPhase = ''
+          runHook preFixup
+
+          wrapProgramShell $out/share/spotify/spotify \
+            ''${gappsWrapperArgs[@]} \
+            --prefix LD_LIBRARY_PATH : "$librarypath" \
+            --prefix PATH : "${lib.getBin zenity}/bin" \
+            ${
+              if wayland then
+                ''--add-flags '--enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime=true' ''
+              else
+                ''--add-flags '--disable-features=UseOzonePlatform --ozone-platform=x11 --enable-wayland-ime=false' ''
+            }
+
+          runHook postFixup
+        '';
+  })
+  )
 )

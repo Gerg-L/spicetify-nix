@@ -39,12 +39,6 @@ in
   options = {
     enable = lib.mkEnableOption "Spicetify a modified Spotify.";
 
-    __internal_spotify = lib.mkOption {
-      type = lib.types.package;
-      readOnly = true;
-      internal = true;
-    };
-
     spicedSpotify = lib.mkOption {
       type = lib.types.package;
       description = "The final spotify package after spicing.";
@@ -335,20 +329,32 @@ in
           xpui_;
 
     in
+
     {
-      __internal_spotify = spicePkgs.spicetifyBuilder {
-        spotify = config.spotifyPackage;
-        spicetify-cli = config.spicetifyPackage;
-        extensions = allExtensions;
-        apps = config.enabledCustomApps;
-        theme = config.theme // {
-          additionalCss = lib.concatLines ([ (config.theme.additionalCss or "") ] ++ config.enabledSnippets);
-        };
-        inherit (config) customColorScheme extraCommands;
-        # compose the configuration as well as options required by extensions and
-        # config.config.xpui into one set
-        config-xpui = xpui;
-      };
+      spicedSpotify =
+        let
+          spicedSpotify' = spicePkgs.spicetifyBuilder {
+            spotify = config.spotifyPackage;
+            spicetify-cli = config.spicetifyPackage;
+            extensions = allExtensions;
+            apps = config.enabledCustomApps;
+            theme = config.theme // {
+              additionalCss = lib.concatLines ([ (config.theme.additionalCss or "") ] ++ config.enabledSnippets);
+            };
+            inherit (config) customColorScheme extraCommands;
+            # compose the configuration as well as options required by extensions and
+            # config.config.xpui into one set
+            config-xpui = xpui;
+            wayland = if pkgs.stdenv.isLinux then config.wayland else null;
+          };
+        in
+        if pkgs.stdenv.isLinux && config.windowManagerPatch then
+          (config.spotifywmPackage.override { spotify = spicedSpotify'; }).overrideAttrs (old: {
+            passthru = (old.passthru or { }) // spicedSpotify'.passthru;
+          })
+        else
+          spicedSpotify';
+
     };
   _file = ./common.nix;
 }

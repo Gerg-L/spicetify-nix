@@ -11,12 +11,11 @@ self:
       specialArgs = { inherit pkgs; };
       modules = [
         (import ./options.nix self)
-      ];
+      ] ++ lib.optional pkgs.stdenv.isLinux ./linuxOpts.nix;
     };
   };
 
   config = lib.mkIf config.programs.spicetify.enable {
-
     warnings = map (warning: "programs.spicetify: ${warning}") config.programs.spicetify.warnings;
     assertions = map (assertion: {
       inherit (assertion) assertion;

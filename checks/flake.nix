@@ -70,7 +70,7 @@
                 }
                 module
               ];
-            }).config.programs.spicetify.spicedSpotify;
+            }).activationPackage;
           darwin =
             (nix-darwin.lib.darwinSystem {
               modules = [
@@ -90,7 +90,7 @@
                 # also this
                 module
               ];
-            }).config.programs.spicetify.spicedSpotify;
+            }).config.system.build.toplevel;
 
           nixos =
             (nixpkgs.lib.nixosSystem {
@@ -108,7 +108,7 @@
                 }
                 module
               ];
-            }).config.programs.spicetify.spicedSpotify;
+            }).config.system.build.toplevel;
 
         };
     };

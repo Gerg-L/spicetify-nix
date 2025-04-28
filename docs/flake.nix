@@ -38,7 +38,7 @@
                 specialArgs = { inherit pkgs; };
                 modules = [
                   (import ../modules/options.nix spicetify-nix)
-                  ../modules/wmOpts.nix
+                  ../modules/linuxOpts.nix
                 ];
               })
             )
