@@ -4,6 +4,7 @@
   writeText,
   crudini,
   zenity,
+  writeShellScript,
 }:
 lib.makeOverridable (
   {
@@ -87,7 +88,7 @@ lib.makeOverridable (
             ${lib.getExe spicetify-cli} --no-restart backup apply
           '';
       }
-      // lib.optionalAttrs (stdenv.isLinux && wayland != null) {
+      // (lib.optionalAttrs (stdenv.isLinux && wayland != null) {
 
         fixupPhase = ''
           runHook preFixup
@@ -105,7 +106,23 @@ lib.makeOverridable (
 
           runHook postFixup
         '';
-      }
+      })
+      // (lib.optionalAttrs stdenv.isDarwin {
+        fixupPhase =
+          let
+            script = writeShellScript "disable_updates" ''
+              updateDir="$HOME/Library/Application Support/Spotify/PersistentCache/Update"
+              mkdir -p "$updateDir"
+              chflags -R uchg "$updateDir"
+            '';
+          in
+          ''
+            runHook preFixup
+            wrapProgramShell '$out/lib/Applications/Spotify.app/Contents/MacOS/Spotify' \
+              --run '${script}'
+            runHook postFixup
+          '';
+      })
     )
   )
 )
