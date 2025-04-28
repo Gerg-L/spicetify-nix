@@ -13,9 +13,10 @@ self:
         (import ./options.nix self)
       ] ++ lib.optional pkgs.stdenv.isLinux ./linuxOpts.nix;
     };
+    default = { };
   };
 
-  config = lib.mkIf config.programs.spicetify.enable {
+  config = {
     warnings = map (warning: "programs.spicetify: ${warning}") config.programs.spicetify.warnings;
     assertions = map (assertion: {
       inherit (assertion) assertion;

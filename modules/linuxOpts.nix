@@ -35,7 +35,6 @@
     {
       assertion = config.spotifyPackage.pname != "spotifywm";
       message = ''
-
         Do not set spotifyPackage to pkgs.spotifywm
         instead enable windowManagerPatch and set spotifywmPackage
       '';
