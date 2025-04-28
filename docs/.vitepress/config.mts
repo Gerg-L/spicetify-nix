@@ -13,6 +13,8 @@ export default defineConfig({
       { text: 'Themes', link: '/themes' },
       { text: 'Extensions', link: '/extensions' },
       { text: 'Custom Apps', link: '/custom-apps' },
+      { text: 'Snippets', link: '/snippets' },
+
     ],
 
     socialLinks: [

@@ -19,6 +19,9 @@ hero:
     - theme: brand
       text: Custom Apps
       link: /custom-apps
+    - theme: brand
+      text: Snippets
+      link: /snippets
     - theme: alt
       text: GitHub
       link: https://github.com/Gerg-L/spicetify-nix
