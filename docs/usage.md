@@ -6,6 +6,9 @@ Add this flake as an input
 spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 ```
 
+> [!IMPORTANT]
+> For 24.11 use "github:Gerg-L/spicetify-nix/24.11" instead!
+
 or `import` the base of this repo with a `fetchTarball` passing `pkgs`
 
 like `import (builtins.fetchTarball { ... } ) {inherit pkgs;}`
