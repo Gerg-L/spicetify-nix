@@ -93,7 +93,6 @@ lib.makeOverridable (
           '';
       }
       // (lib.optionalAttrs (stdenv.isLinux && wayland != null) {
-
         fixupPhase = ''
           runHook preFixup
 
@@ -122,7 +121,8 @@ lib.makeOverridable (
           in
           ''
             runHook preFixup
-            wrapProgramShell '$out/Applications/Spotify.app/Contents/MacOS/Spotify' \
+            chmod -R a+w $out/Applications/Spotify.app/Contents/MacOS
+            wrapProgramShell $out/Applications/Spotify.app/Contents/MacOS/Spotify \
               --run '${script}'
             runHook postFixup
           '';
