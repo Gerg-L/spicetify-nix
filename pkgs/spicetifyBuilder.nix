@@ -4,8 +4,6 @@
   writeText,
   crudini,
   zenity,
-  writeShellScript,
-  makeShellWrapper,
 }:
 lib.makeOverridable (
   {
@@ -26,8 +24,7 @@ lib.makeOverridable (
     (
       {
         name = "spicetify-${theme.name}";
-        nativeBuildInputs =
-          old.nativeBuildInputs or [ ] ++ [ crudini ] ++ lib.optional stdenv.isDarwin makeShellWrapper;
+        nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [ crudini ];
 
         postInstall =
           old.postInstall or ""
@@ -92,7 +89,7 @@ lib.makeOverridable (
             ${lib.getExe spicetify-cli} --no-restart backup apply
           '';
       }
-      // (lib.optionalAttrs (stdenv.isLinux && wayland != null) {
+      // lib.optionalAttrs (stdenv.isLinux && wayland != null) {
 
         fixupPhase = ''
           runHook preFixup
@@ -110,23 +107,7 @@ lib.makeOverridable (
 
           runHook postFixup
         '';
-      })
-      // (lib.optionalAttrs stdenv.isDarwin {
-        fixupPhase =
-          let
-            script = writeShellScript "disable_updates" ''
-              updateDir="$HOME/Library/Application Support/Spotify/PersistentCache/Update"
-              mkdir -p "$updateDir"
-              chflags -R uchg "$updateDir"
-            '';
-          in
-          ''
-            runHook preFixup
-            wrapProgramShell '$out/Applications/Spotify.app/Contents/MacOS/Spotify' \
-              --run '${script}'
-            runHook postFixup
-          '';
-      })
+      }
     )
   )
 )
