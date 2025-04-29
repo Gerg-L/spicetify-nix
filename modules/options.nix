@@ -341,7 +341,7 @@ in
             theme = config.theme // {
               additionalCss = lib.concatLines ([ (config.theme.additionalCss or "") ] ++ config.enabledSnippets);
             };
-            inherit (config) customColorScheme extraCommands;
+            inherit (config) customColorScheme extraCommands colorScheme;
             # compose the configuration as well as options required by extensions and
             # config.config.xpui into one set
             config-xpui = xpui;

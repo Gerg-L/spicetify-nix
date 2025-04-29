@@ -18,6 +18,7 @@ lib.makeOverridable (
     apps,
     extraCommands,
     wayland,
+    colorScheme,
   }:
 
   spotify.overrideAttrs (
@@ -62,14 +63,15 @@ lib.makeOverridable (
                 writeText "spicetify-colors.ini" (lib.generators.toINI { } { custom = customColorScheme; })
               }'
             ''}
-
-            # verify that the color_scheme exists
-            if ! crudini --get 'Themes/${theme.name}/color.ini' '${config-xpui.Setting.color_scheme}' &>/dev/null; then
-              echo "colorScheme set to non-existent value: '${config-xpui.Setting.color_scheme}'"
-              echo "Valid values:"
-              crudini --get 'Themes/${theme.name}/color.ini'
-              exit 1
-            fi
+            ${lib.optionalString (colorScheme != "") ''
+              # verify that the color_scheme exists
+              if ! crudini --get 'Themes/${theme.name}/color.ini' '${config-xpui.Setting.color_scheme}' &>/dev/null; then
+                echo "colorScheme set to non-existent value: '${config-xpui.Setting.color_scheme}'"
+                echo "Valid values:"
+                crudini --get 'Themes/${theme.name}/color.ini'
+                exit 1
+              fi
+            ''}
 
             touch 'prefs'
 
