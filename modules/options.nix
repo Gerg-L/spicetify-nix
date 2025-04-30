@@ -223,7 +223,7 @@ in
         Spicetify color scheme to use, given a specific `theme`.
         If using `customColorScheme`, leave this as default `"custom"`.
       '';
-      default = lib.optionalString options.customColorScheme.isDefined "custom";
+      default = if config.customColorScheme != { } then "custom" else "";
     };
     customColorScheme = lib.mkOption {
       type = lib.types.attrsOf lib.types.str;
