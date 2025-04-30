@@ -1,1 +1,0 @@
-import{_ as i,c as a,o as n,ag as t}from"./chunks/framework.DfRUy213.js";const c=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"usage.md","filePath":"usage.md"}'),e={name:"usage.md"};function p(l,s,h,k,d,r){return n(),a("div",null,s[0]||(s[0]=[t("",24)]))}const g=i(e,[["render",p]]);export{c as __pageData,g as default};
