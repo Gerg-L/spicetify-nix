@@ -1,4 +1,8 @@
-# Custom Apps
+---
+title: Custom Apps
+---
+
+# {{ $frontmatter.title }}
 
 ## Using unpackaged customApps
 

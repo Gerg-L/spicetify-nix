@@ -1,4 +1,7 @@
-# Themes
+---
+title: Themes
+---
+# {{ $frontmatter.title }}
 
 ## Using unpackaged themes
 

@@ -1,7 +1,6 @@
 ---
-title: Options
+title: Snippets
 ---
-
 # {{ $frontmatter.title }}
 
 Snippets are just strings, so you can put whatever css you want into `enabledSnippets`.

@@ -1,4 +1,7 @@
-# Extensions
+---
+title: Extensions
+---
+# {{ $frontmatter.title }}
 
 ## Using unpackaged extensions
 
