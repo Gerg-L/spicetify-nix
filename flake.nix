@@ -46,6 +46,13 @@
           packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
           inputsFrom = [ self.legacyPackages.${pkgs.stdenv.system}.fetcher ];
         };
+        docs = pkgs.mkShellNoCC {
+          # use npm run dev
+          packages = [
+            pkgs.nodejs
+          ];
+          env.SPICETIFY_OPTIONS_JSON = self.legacyPackages.${pkgs.stdenv.system}.docs.optionsJSON;
+        };
       });
     }
     // import ./modules self;

@@ -1,8 +1,28 @@
 {
+  lib,
   buildNpmPackage,
   importNpmLock,
-  optionsJSON,
+  nixosOptionsDoc,
+  pkgs,
+
+  self,
 }:
+let
+  optionsDoc = nixosOptionsDoc {
+    inherit
+      (
+        (lib.evalModules {
+          specialArgs = { inherit pkgs; };
+          modules = [
+            (import ../modules/options.nix self)
+            ../modules/linuxOpts.nix
+          ];
+        })
+      )
+      options
+      ;
+  };
+in
 buildNpmPackage {
   name = "spicetify-docs";
   src = ./.;
@@ -12,7 +32,7 @@ buildNpmPackage {
   };
 
   inherit (importNpmLock) npmConfigHook;
-  env.SPICETIFY_OPTIONS_JSON = optionsJSON;
+  env.SPICETIFY_OPTIONS_JSON = optionsDoc.optionsJSON;
 
   # VitePress hangs if you don't pipe the output into a file
   buildPhase = ''
@@ -36,4 +56,5 @@ buildNpmPackage {
 
     runHook postInstall
   '';
+  passthru = optionsDoc;
 }

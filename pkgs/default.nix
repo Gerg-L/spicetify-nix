@@ -14,6 +14,7 @@ lib.fix (
     callPackages = lib.callPackagesWith (pkgs // self);
   in
   {
+    docs = callPackage ../docs/package.nix { inherit (attrs) self; };
     inherit (json) snippets;
 
     fetcher = callPackage ./fetcher { };
