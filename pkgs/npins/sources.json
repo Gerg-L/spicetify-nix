@@ -61,9 +61,9 @@
       },
       "branch": "build",
       "submodules": false,
-      "revision": "3cf6e63450261b53f814efc74f7f7af9c749d699",
-      "url": "https://github.com/Vexcited/better-spotify-genres/archive/3cf6e63450261b53f814efc74f7f7af9c749d699.tar.gz",
-      "hash": "0qw4iy72yfxk1cmqhxad7807fbc8c9a7xgkq1lrd4wk5mmw9vz68"
+      "revision": "fde0ae67910d2d8e5ee4f406f07186454e4111b3",
+      "url": "https://github.com/Vexcited/better-spotify-genres/archive/fde0ae67910d2d8e5ee4f406f07186454e4111b3.tar.gz",
+      "hash": "0i27lc358zaqzh6izckr4jgracsdjqdinknksqifmm3v2cx6nxyc"
     },
     "betterLibrarySrc": {
       "type": "GitRelease",
@@ -168,9 +168,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "a49a029bed4d58cadd1dddb586ff06a200c0233e",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/a49a029bed4d58cadd1dddb586ff06a200c0233e.tar.gz",
-      "hash": "0hw9wq2z8mi6fria1gpcr138k3df773vxqz3wxk8k3nw97xxr1hd"
+      "revision": "51b763b9b71b419866a10ab226e89181ee710307",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/51b763b9b71b419866a10ab226e89181ee710307.tar.gz",
+      "hash": "1lfvb2dirn5vymq7ha2h70wzzs2vdakn6rsgssnqcir8x7ykyrj8"
     },
     "draculaSrc": {
       "type": "Git",
@@ -233,9 +233,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b935963574bd2bf126912fa478408bd7a26bd431",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/b935963574bd2bf126912fa478408bd7a26bd431.tar.gz",
-      "hash": "13q3znivg5k0cg4zql1k9lsnf0qnk7yylgfz9glf78bi2bvqzhz4"
+      "revision": "70feae2dfd89333fe45e702aebef3924a0822b6d",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/70feae2dfd89333fe45e702aebef3924a0822b6d.tar.gz",
+      "hash": "0ylbvsl2k5gkfdkhsv8sl0rslnab95d7mws64k1ksggjhlv79c7c"
     },
     "historySidebarSrc": {
       "type": "Git",
@@ -337,9 +337,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "e0859578696830ece82d550990d3821431edb72a",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/e0859578696830ece82d550990d3821431edb72a.tar.gz",
-      "hash": "1zv4ch47f3ry2n43j5hb0pmhnc27h7pl2p8j8xadz9z1qbc1fy9s"
+      "revision": "8f1822c37291024026844e977da5de143036b71a",
+      "url": "https://github.com/spicetify/spicetify-marketplace/archive/8f1822c37291024026844e977da5de143036b71a.tar.gz",
+      "hash": "0wajfi9vlrqzsr92mknmh7w90nn2h8ywnvsa91v9iq0mdyc20vg8"
     },
     "nameThatTuneSrc": {
       "type": "Git",
@@ -350,9 +350,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "858b98baa97e486a8589b26164c9eb1aa3605282",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/858b98baa97e486a8589b26164c9eb1aa3605282.tar.gz",
-      "hash": "11k3bkk6r7i5pvx50zi07c68yjhpc4c4qxpy7sccy60rzblm25vw"
+      "revision": "66779220715879b0ec27685b7792aa46ec37e672",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/66779220715879b0ec27685b7792aa46ec37e672.tar.gz",
+      "hash": "1nxkg72zlplhyjpnxa7m60rdzln3p66f6lngql03fv4lclr92b5h"
     },
     "ncsVisualizerSrc": {
       "type": "Git",
@@ -389,9 +389,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "8860f1b8d8a6a62056456b1f43d1cca71fdd2813",
-      "url": "https://github.com/spicetify/cli/archive/8860f1b8d8a6a62056456b1f43d1cca71fdd2813.tar.gz",
-      "hash": "1d07py6vy3zfwzhpxfv4aw4zky28wgblzkf5xp4rji9mhj5hc5d8"
+      "revision": "6c01db71b62bf71f1c4a36ac3389bd3956230c5f",
+      "url": "https://github.com/spicetify/cli/archive/6c01db71b62bf71f1c4a36ac3389bd3956230c5f.tar.gz",
+      "hash": "0r6fksxi4m2r1s59bkx694hbb92mmyyayqhy5lijika1nl4mcih1"
     },
     "officialThemes": {
       "type": "Git",
