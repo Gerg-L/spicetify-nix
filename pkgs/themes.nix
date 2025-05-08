@@ -71,6 +71,26 @@
       '';
     };
 
+    dribbblishDynamic = {
+      name = "DribbblishDynamic";
+      src = sources.dribbblishDynamicSrc;
+
+      requiredExtensions = [
+        {
+          src = sources.dribbblishDynamicSrc;
+          name = "dribbblish-dynamic.js";
+        }
+        {
+          src = sources.dribbblishDynamicSrc;
+          name = "Vibrant.min.js";
+        }
+      ];
+      patches = {
+        "xpui.js_find_8008" = ",(\\w+=)32,";
+        "xpui.js_repl_8008" = ",\${1}28,";
+      };
+    };
+
     text = {
       name = "text";
       src = "${sources.officialThemes}/text";
