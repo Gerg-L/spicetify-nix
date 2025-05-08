@@ -94,6 +94,18 @@
       "url": "https://github.com/nimsandu/spicetify-bloom/archive/809c042ca8f88540604fbd6aca35f42bddfcaf27.tar.gz",
       "hash": "1rsdrj2r8r2fzixvvn6c3ls7d7plzh29n7vig2ds60lb72jq483p"
     },
+    "dribbblishDynamicSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "JulienMaille",
+        "repo": "dribbblish-dynamic-theme"
+      },
+      "branch": "main",
+      "revision": "588eef21e35840a13c717458eb0dc79a9a627c82",
+      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/588eef21e35840a13c717458eb0dc79a9a627c82.tar.gz",
+      "hash": "oogpp5TkRBreDJtljPLfTq0PaOSPQKUuHg4Geo2JYfI"
+    },
     "catppuccinSrc": {
       "type": "Git",
       "repository": {
