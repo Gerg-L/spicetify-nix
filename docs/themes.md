@@ -64,10 +64,6 @@ Flat design, with lots of thick line borders.
 Modern, rounded, and minimal design, with fading effects and gradients.
 ![preview](https://github.com/spicetify/spicetify-themes/blob/master/Dribbblish/base.png?raw=true)
 
-### dribbblishDynamic
-Modern, rounded, and minimal design, with fading effects and gradients, and dynamic.
-![preview](https://github.com/JulienMaille/dribbblish-dynamic-theme/blob/main/preview.png?raw=true)
-
 ### flow
 
 Monochromatic colorschemes with subtle differences between colors, and soft
@@ -153,6 +149,11 @@ Inspired by the design of Windows 11.
 Same as default spotify, but colors change dynamically with album art.
 [Source](https://github.com/JulienMaille/spicetify-dynamic-theme)
 ![preview](https://github.com/JulienMaille/spicetify-dynamic-theme/blob/main/preview.gif?raw=true)
+
+### dribbblishDynamic
+
+Modern, rounded, and minimal design, with fading effects and gradients, and dynamic. [Source](https://github.com/JulienMaille/dribbblish-dynamic-theme)
+![preview](https://github.com/JulienMaille/dribbblish-dynamic-theme/blob/main/preview.png?raw=true)
 
 ### retroBlur
 
