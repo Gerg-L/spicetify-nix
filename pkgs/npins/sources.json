@@ -102,9 +102,10 @@
         "repo": "dribbblish-dynamic-theme"
       },
       "branch": "main",
+      "submodules": false,
       "revision": "588eef21e35840a13c717458eb0dc79a9a627c82",
       "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/588eef21e35840a13c717458eb0dc79a9a627c82.tar.gz",
-      "hash": "oogpp5TkRBreDJtljPLfTq0PaOSPQKUuHg4Geo2JYfI"
+      "hash": "1wk1i66pl1hf3qpaah4gwil0zbafvzr8qrcv1kg1li74jjkjk252"
     },
     "catppuccinSrc": {
       "type": "Git",
