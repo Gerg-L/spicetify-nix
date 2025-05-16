@@ -26,6 +26,19 @@
       "url": "https://github.com/Aimarekin/Aimarekins-Spicetify-Extensions/archive/82dbbaec37540e82dcd11d897646c0fdb068c3e8.tar.gz",
       "hash": "010wkxc3mwfkkakhb3jf51lkxvhdxk6rpabj2q45ng9761j23idj"
     },
+    "allOfArtistSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Pl4neta",
+        "repo": "allOfArtist"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "985e7ade766c0744c7f45a9c216889ab40a83cab",
+      "url": "https://github.com/Pl4neta/allOfArtist/archive/985e7ade766c0744c7f45a9c216889ab40a83cab.tar.gz",
+      "hash": "03mky6830jvkmzsswpnpkxq5brflqffzaw29jjfkhd8bdz1afq5s"
+    },
     "autoVolumeSrc": {
       "type": "Git",
       "repository": {
@@ -51,6 +64,19 @@
       "revision": "f6937b73f96597e9dda978de42f00c910cad087d",
       "url": "https://github.com/surfbryce/beautiful-lyrics/archive/f6937b73f96597e9dda978de42f00c910cad087d.tar.gz",
       "hash": "1yz75zqscrqpbrs7z1phdkpwqvnq6mdxcihvf334vphz8gdkdlm9"
+    },
+    "bestMomentSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "MLGRussianXP",
+        "repo": "spicetify-best-moment"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "3fef2f55cd4cc16503165136a532ba717bee89b5",
+      "url": "https://github.com/MLGRussianXP/spicetify-best-moment/archive/3fef2f55cd4cc16503165136a532ba717bee89b5.tar.gz",
+      "hash": "0c8lwx0k34wy3xhw2x5bqxi7ap7cwz7k6q2snxx0y9pvws2sv7ry"
     },
     "betterGenresSrc": {
       "type": "Git",
@@ -419,6 +445,19 @@
       "url": "https://github.com/spicetify/spicetify-themes/archive/0893ed8938f1fdc05d34e5c989941358f479ad84.tar.gz",
       "hash": "04ajrxn539ygrkfp4wz0pkjf229058wbrgjd1gwv0arspflp7yb6"
     },
+    "oldLikeSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Maskowh",
+        "repo": "spicetify-old-like-button-extension"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "af409119cfc222540aa4467d8024c4c7b6977eef",
+      "url": "https://github.com/Maskowh/spicetify-old-like-button-extension/archive/af409119cfc222540aa4467d8024c4c7b6977eef.tar.gz",
+      "hash": "1z0hzz1gikn0qgfjkyaaazjigpny5zgn6c4wgfjgnqgk653hfg7n"
+    },
     "omniSrc": {
       "type": "Git",
       "repository": {
@@ -561,6 +600,19 @@
       "revision": "9452445b1f7b054ca7afeefcd3cb094cd89950e5",
       "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/9452445b1f7b054ca7afeefcd3cb094cd89950e5.tar.gz",
       "hash": "01cq0rdbkk43i707b088gqjn3g7p2zxsxx8ji8f6npwc6m7jbsv1"
+    },
+    "waddlePlaysSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "WaddlesPlays",
+        "repo": "SpicetifyStuff"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "688fa3b256ec13faae0a89ca8b42055b4c781b51",
+      "url": "https://github.com/WaddlesPlays/SpicetifyStuff/archive/688fa3b256ec13faae0a89ca8b42055b4c781b51.tar.gz",
+      "hash": "05pmmfizs6f2wnn8if8yg64rz1251gi1cmjiha2l4c28ai9fm1hg"
     }
   },
   "version": 5

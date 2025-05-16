@@ -211,6 +211,22 @@ let
 in
 {
   inherit adblockify;
+  allOfArtist = {
+    src = sources.allOfArtistSrc;
+    name = "allOfArtist.js";
+  };
+  oldLikeButton = {
+    src = sources.oldLikeSrc;
+    name = "oldLikeButton.js";
+  };
+  oldCoverClick = {
+    src = "${sources.waddlePlaysSrc}/oldCoverClick";
+    name = "oldCoverClick.js";
+  };
+  bestMoment = {
+    src = "${sources.bestMomentSrc}/dist";
+    name = "best-moment.js";
+  };
 }
 // (lib.listToAttrs (
   map
