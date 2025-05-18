@@ -7,8 +7,11 @@ on:
 jobs:
   update_deps:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4.2.2
+      - name: checkout
+        uses: actions/checkout@v4.2.2
       - uses: cachix/install-nix-action@v31
       - name: setup git
         run: | 
@@ -18,45 +21,55 @@ jobs:
         with:
           name: spicetify-nix
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-      - name: update
+
+      - id: flake
+        name: flake
         run: |
-          MESSAGE=""
+          MESSAGE="
+          flake input updates:
+          $(nix flake update --no-warn-dirty 2>&1 | { grep -v 'unpacking.*' || true; } | sed '1d')"
 
-          nix flake update --no-warn-dirty --commit-lock-file
-
-          if git rev-parse -q HEAD^; then
-
-            MESSAGE="$(git -P log --pretty=format:"%s%n%b" -1)"
-
-            git reset --soft HEAD^
+          if [ -n "$(git diff-files 2>&1)" ]; then
+            git add -A
+            {
+              echo "message<<EOF"
+              echo "$MESSAGE"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
           fi
 
-          NPINS=$(nix run nixpkgs#npins -- -d ./pkgs/npins update -f | grep -E '[^\(no changes\)]*url.*')
+      - id: npins
+        name: npins
+        run: |
+          MESSAGE="
+          npins updates:
+            $(nix run nixpkgs#npins -- -d ./pkgs/npins update -f 2>&1 | { grep '.*Changes:$\|.*url:.*' || true; })"
 
-          if [ -n "$(git status --porcelain=v1 2>/dev/null)" ]; then
-            MESSAGE="$MESSAGE
-
-          npins url updates:
-          $NPINS"
+          if [ -n "$(git diff-files 2>&1)" ]; then
+            git add -A
+            {
+              echo "message<<EOF"
+              echo "$MESSAGE"
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
           fi
-
-          if [ -z "$MESSAGE" ]; then
-            exit 0
-          fi
-
+      - name: fetcher
+        run: |
           pushd pkgs
           nix run .#fetcher
           popd
-          
+      - name: Commit and push
+        run: |
+          MESSAGE="
+          ${{ steps.flake.outputs.message }}
+          ${{ steps.npins.outputs.message }}
+          "
+          if [[ "$MESSAGE" =~ ^[[:space:]]*$ ]]; then
+            exit 0
+          fi
+
           # Check if a small config builds
           nix build .#test
-          
-          git add -A
 
           git commit -m "CI update $(date -I)" -m "$MESSAGE"
-
-          git push origin HEAD:${{ github.ref_name }}
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          git push origin 'HEAD:${{ github.ref_name }}'
