@@ -116,9 +116,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "809c042ca8f88540604fbd6aca35f42bddfcaf27",
-      "url": "https://github.com/nimsandu/spicetify-bloom/archive/809c042ca8f88540604fbd6aca35f42bddfcaf27.tar.gz",
-      "hash": "1rsdrj2r8r2fzixvvn6c3ls7d7plzh29n7vig2ds60lb72jq483p"
+      "revision": "654cfed682b94613b0029997ffafc1eadccc5bef",
+      "url": "https://github.com/nimsandu/spicetify-bloom/archive/654cfed682b94613b0029997ffafc1eadccc5bef.tar.gz",
+      "hash": "1agk39ghinxi1rdi1skxdjdy8q2iiwkvalnljvqcaizjvzc1z4ps"
     },
     "catppuccinSrc": {
       "type": "Git",
@@ -194,9 +194,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "51b763b9b71b419866a10ab226e89181ee710307",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/51b763b9b71b419866a10ab226e89181ee710307.tar.gz",
-      "hash": "1lfvb2dirn5vymq7ha2h70wzzs2vdakn6rsgssnqcir8x7ykyrj8"
+      "revision": "e764f9c4fd2531088daf766b8e2f84327a61b4e6",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/e764f9c4fd2531088daf766b8e2f84327a61b4e6.tar.gz",
+      "hash": "10bmmp8ajhjsmf7h3ivis74ijq8wflgz7za0ryq9abg61kr2kw5v"
     },
     "draculaSrc": {
       "type": "Git",
@@ -220,9 +220,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "588eef21e35840a13c717458eb0dc79a9a627c82",
-      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/588eef21e35840a13c717458eb0dc79a9a627c82.tar.gz",
-      "hash": "1wk1i66pl1hf3qpaah4gwil0zbafvzr8qrcv1kg1li74jjkjk252"
+      "revision": "8aaff856ce38e7d4a781a061301a5fb40ba9d0ed",
+      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/8aaff856ce38e7d4a781a061301a5fb40ba9d0ed.tar.gz",
+      "hash": "1jlswpdj27r1sz4y5rcqcrv7jh0224kimy19cas9751pfkz7jbz9"
     },
     "fluentSrc": {
       "type": "Git",
@@ -428,9 +428,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "febac2e0747b42df09b501eef81b69ba761f3872",
-      "url": "https://github.com/spicetify/cli/archive/febac2e0747b42df09b501eef81b69ba761f3872.tar.gz",
-      "hash": "1n33ikys3vx03y0994zj3i37yvb7vqlf9f8q9z36jc12mw8nqzzy"
+      "revision": "41ed71842258a77dc4725ea70a397f83021b7f12",
+      "url": "https://github.com/spicetify/cli/archive/41ed71842258a77dc4725ea70a397f83021b7f12.tar.gz",
+      "hash": "02bbd1v4x54g37lq6vlzrnzi4018q7y3g2nr4sq66b6hccibq0zc"
     },
     "officialThemes": {
       "type": "Git",
@@ -597,9 +597,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "9452445b1f7b054ca7afeefcd3cb094cd89950e5",
-      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/9452445b1f7b054ca7afeefcd3cb094cd89950e5.tar.gz",
-      "hash": "01cq0rdbkk43i707b088gqjn3g7p2zxsxx8ji8f6npwc6m7jbsv1"
+      "revision": "18ddd7e9b045fd19ee5210bf4d16e877e3db0607",
+      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/18ddd7e9b045fd19ee5210bf4d16e877e3db0607.tar.gz",
+      "hash": "0c1wf3n9cfm7wkp6zj50csacw0xpk75kacwh8w410913d9zz6j4z"
     },
     "waddlePlaysSrc": {
       "type": "Git",
