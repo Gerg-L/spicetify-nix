@@ -181,9 +181,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "e9f2dbe020f612b3cb7746620ad702e4f4a3c24f",
-      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/e9f2dbe020f612b3cb7746620ad702e4f4a3c24f.tar.gz",
-      "hash": "0nmsrjrrsm6dskwgdr0g5gfnfi37ha550p77z4z32yrdfif2rxnk"
+      "revision": "a49f5cea948aa3ef0c00c2f4df0f42c647fa7196",
+      "url": "https://github.com/daksh2k/Spicetify-stuff/archive/a49f5cea948aa3ef0c00c2f4df0f42c647fa7196.tar.gz",
+      "hash": "1r0hw9526q1w8m3n1pga989d6c8dskika8vzxz1b6b4s1dphvpsn"
     },
     "defaultDynamicSrc": {
       "type": "Git",
@@ -363,9 +363,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "bf6b1589374dd8c31acbd8749a59e7c935157656",
-      "url": "https://github.com/sanoojes/Spicetify-Lucid/archive/bf6b1589374dd8c31acbd8749a59e7c935157656.tar.gz",
-      "hash": "0lkp6rgi4yf1v2lhr6p720p0wiq9b51pk1j99gb2aqb9i1r9l9jh"
+      "revision": "155a9c9cb5c72dfeff3abc88e819cf9183f46cda",
+      "url": "https://github.com/sanoojes/Spicetify-Lucid/archive/155a9c9cb5c72dfeff3abc88e819cf9183f46cda.tar.gz",
+      "hash": "0ph3k8mxqf1p4hy0y0q9xcvwkp4km3g5s96ysvg4x48mi6r5qj9k"
     },
     "marketplaceSrc": {
       "type": "Git",
@@ -428,9 +428,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "41ed71842258a77dc4725ea70a397f83021b7f12",
-      "url": "https://github.com/spicetify/cli/archive/41ed71842258a77dc4725ea70a397f83021b7f12.tar.gz",
-      "hash": "02bbd1v4x54g37lq6vlzrnzi4018q7y3g2nr4sq66b6hccibq0zc"
+      "revision": "0b70a046f97c6792a3a6342b03f1cccd370c597a",
+      "url": "https://github.com/spicetify/cli/archive/0b70a046f97c6792a3a6342b03f1cccd370c597a.tar.gz",
+      "hash": "0y5x76hs2gr7jxg6jz4zlpfxcwcmkay0xwlm98c6zh8v03pc5nsb"
     },
     "officialThemes": {
       "type": "Git",
@@ -584,9 +584,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "a224969550b3831c4fb084bcc8c675f3a77735d1",
-      "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/a224969550b3831c4fb084bcc8c675f3a77735d1.tar.gz",
-      "hash": "04lss42fd4gkvhncpwmxpj93xx6y8md8m888xn1pcpas6pl2agax"
+      "revision": "26c608469889a415534e29d5382b3039aed1d426",
+      "url": "https://github.com/Tetrax-10/Spicetify-Extensions/archive/26c608469889a415534e29d5382b3039aed1d426.tar.gz",
+      "hash": "0f22w9ahi1mby53cq02gx1chphgw5mcgkf129zqrazgvn5nx8y2x"
     },
     "theblockbusterSrc": {
       "type": "Git",
