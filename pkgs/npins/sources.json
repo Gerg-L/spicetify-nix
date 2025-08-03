@@ -259,9 +259,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "3b4660bfa4237cbf70e1ae72679eb83f519818bb",
-      "url": "https://github.com/Astromations/Hazy/archive/3b4660bfa4237cbf70e1ae72679eb83f519818bb.tar.gz",
-      "hash": "0l7ajhxi22lcn1q9h7248jdjrw9yjjqvimqv1014myq7i48723bk"
+      "revision": "8d2ec21460a6aaae2ed746fca9f298fded690c2f",
+      "url": "https://github.com/Astromations/Hazy/archive/8d2ec21460a6aaae2ed746fca9f298fded690c2f.tar.gz",
+      "hash": "13h03ayb8zc479iil01dg61yg0r2i6wv8rqmi3h9i0hnnip0y9c4"
     },
     "hidePodcastsSrc": {
       "type": "Git",
@@ -428,9 +428,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "c84c659d9ef1b94788c1717fffe255926ee563fd",
-      "url": "https://github.com/spicetify/cli/archive/c84c659d9ef1b94788c1717fffe255926ee563fd.tar.gz",
-      "hash": "1iz00pkbyxclnvzspgb9ydnd0hxwyf1r1xjqizfq5f9mp6c8y1r5"
+      "revision": "e76d7b925fd174122d6a43b52439ba76a53753c6",
+      "url": "https://github.com/spicetify/cli/archive/e76d7b925fd174122d6a43b52439ba76a53753c6.tar.gz",
+      "hash": "1hi7zrhwkgcg98amr5xcqfxkz0jix1qbp4q8ggsn56644y7ggdgn"
     },
     "officialThemes": {
       "type": "Git",
@@ -441,9 +441,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "501e7118ccca19139d8331d4b377dc6b66e46421",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/501e7118ccca19139d8331d4b377dc6b66e46421.tar.gz",
-      "hash": "0lsvqjl9prf0a85l14zvi0fwnngl1ipjv3qf8zmfjbcisg4p3b3p"
+      "revision": "e466f84ca3970d57c4e9df3e9966a09047862afb",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/e466f84ca3970d57c4e9df3e9966a09047862afb.tar.gz",
+      "hash": "0nv9133l4d2v5nkaacz1jfc3xb3w7y18k2j081mdbbyyqrn01gns"
     },
     "oldLikeSrc": {
       "type": "Git",
@@ -597,9 +597,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "6965a01055f6f1ae636ac8912e936706afe3812b",
-      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/6965a01055f6f1ae636ac8912e936706afe3812b.tar.gz",
-      "hash": "1ycymnpqm0diffw0naqjskcabf03lvb71l6zvg2ir4vfvypczg8q"
+      "revision": "b156cfcf9ed603e131ac2241bf00d7010e1c53e9",
+      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/b156cfcf9ed603e131ac2241bf00d7010e1c53e9.tar.gz",
+      "hash": "1c8vpapc7sl5pbcsaz6lrxxsm0f73g4bvnzfxbjnrmfiwif0in5l"
     },
     "waddlePlaysSrc": {
       "type": "Git",
