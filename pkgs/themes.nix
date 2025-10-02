@@ -6,7 +6,6 @@
 (lib.genAttrs
   [
     "blossom"
-    "default"
     "flow"
     "matte"
     "nightlight"
@@ -33,6 +32,30 @@
 
   {
     spotifyNoPremium = throw "spotifyNoPremium is no longer being maintained as of 11/2024"; # added 04/2025
+
+    default = {
+      name = "Default";
+      src = pkgs.writeTextDir "color.ini" ''
+        [Base]
+
+        [Ocean]
+        text               = FFFFFF
+        subtext            = F1F1F1
+        main               = 0F111A
+        sidebar            = 0F111A
+        player             = 0F111A
+        card               = 00010A
+        shadow             = 0F111A
+        selected-row       = F1F1F1
+        button             = FF4151
+        button-active      = F1F1F1
+        button-disabled    = 434C5E
+        tab-active         = FF4151
+        notification       = 00010A
+        notification-error = FF4151
+        misc               = 00010A
+      '';
+    };
 
     burntSienna = {
       name = "BurntSienna";
