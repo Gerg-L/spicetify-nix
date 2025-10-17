@@ -275,3 +275,7 @@ Restore the old behaviour of clicking on the album cover in the playback bar
 ### bestMoment
 
 Let you select and listen to a specific segment of the track
+
+### catJamSynced
+
+Lets a cat jam in sync with the beat of your music

@@ -189,6 +189,11 @@ let
     name = "simple-beautiful-lyrics.js";
   };
 
+  catJamSynced = {
+    src = "${sources.catJamSyncedSrc}/marketplace";
+    name = "cat-jam.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -292,6 +297,7 @@ in
       starRatings
       queueTime
       simpleBeautifulLyrics
+      catJamSynced
     ]
 
   )
@@ -316,3 +322,4 @@ in
 // (mkExtAlias "starRatings.js" starRatings)
 // (mkExtAlias "queueTime.js" queueTime)
 // (mkExtAlias "simpleBeautifulLyrics.js" simpleBeautifulLyrics)
+// (mkExtAlias "catJamSynced.js" catJamSynced)

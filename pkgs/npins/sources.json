@@ -120,6 +120,19 @@
       "url": "https://github.com/nimsandu/spicetify-bloom/archive/654cfed682b94613b0029997ffafc1eadccc5bef.tar.gz",
       "hash": "1agk39ghinxi1rdi1skxdjdy8q2iiwkvalnljvqcaizjvzc1z4ps"
     },
+    "catJamSyncedSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "BlafKing",
+        "repo": "spicetify-cat-jam-synced"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "e7bfd49fcc13457bbc98e696294cf5cf43eb6c31",
+      "url": "https://github.com/BlafKing/spicetify-cat-jam-synced/archive/e7bfd49fcc13457bbc98e696294cf5cf43eb6c31.tar.gz",
+      "hash": "1zs68lblwv4hfig5z380m4pcdd62ka6z81a1fqszv6g05zk1l9m7"
+    },
     "catppuccinSrc": {
       "type": "Git",
       "repository": {
