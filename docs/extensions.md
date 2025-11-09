@@ -255,6 +255,14 @@ Rate your music out of 5 stars
 
 Simply displays the time remaining in the current queue.
 
+### coverAmbience
+
+Produces a lovely aesthetic glow from the currently playing album cover.
+
+### sleepTimer
+
+Ported from mobile, automatically pause music after a certain number of minutes or songs.
+
 ### simpleBeautifulLyrics
 
 Enhance your full-screen song lyrics experience with this simple theme for
