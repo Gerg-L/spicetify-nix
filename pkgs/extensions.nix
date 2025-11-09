@@ -192,7 +192,7 @@ let
   sleepTimer = {
     src = "${sources.theblockbusterSrc}/SleepTimer";
     name = "SleepTimer.js";
-  }
+  };
 
   simpleBeautifulLyrics = {
     src = "${sources.kamilooSrc}/extensions/simple-beautiful-lyrics/dist";
