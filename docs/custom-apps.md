@@ -18,7 +18,6 @@ programs.spicetify.enabledCustomApps= [
         rev = "";
         hash = "";
       };
-      # The actual file name of the customApp usually ends with .js
       name = "";
   })
 ];
