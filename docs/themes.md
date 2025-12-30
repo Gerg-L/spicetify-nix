@@ -31,7 +31,7 @@ programs.spicetify.theme = {
 }
 ```
 
-Almost all theme PR's will be merged quickly view the git history of
+Almost all theme PR's will be merged quickly, view the git history of
 /pkgs/themes.nix for PR examples
 
 ## Official Themes

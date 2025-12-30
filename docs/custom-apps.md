@@ -24,7 +24,7 @@ programs.spicetify.enabledCustomApps= [
 ];
 ```
 
-Almost all customApp PR's will be merged quickly view the git history of
+Almost all customApp PR's will be merged quickly, view the git history of
 /pkgs/apps.nix for PR examples
 
 ## Official Apps

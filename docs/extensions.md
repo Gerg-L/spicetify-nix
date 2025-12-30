@@ -23,7 +23,7 @@ programs.spicetify.enabledExtensions = [
 ];
 ```
 
-Almost all extension PR's will be merged quickly view the git history of
+Almost all extension PR's will be merged quickly, view the git history of
 /pkgs/extensions.nix for PR examples
 
 ## Official Extensions
