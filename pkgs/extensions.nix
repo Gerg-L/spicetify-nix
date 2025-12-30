@@ -204,6 +204,11 @@ let
     name = "cat-jam.js";
   };
 
+  aiBandBlocker = {
+    src = "${sources.aiBandBlockerSrc}/dist";
+    name = "ai_band_blocker.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -310,6 +315,7 @@ in
       sleepTimer
       simpleBeautifulLyrics
       catJamSynced
+      aiBandBlocker
     ]
 
   )
@@ -337,3 +343,4 @@ in
 // (mkExtAlias "sleepTimer.js" sleepTimer)
 // (mkExtAlias "simpleBeautifulLyrics.js" simpleBeautifulLyrics)
 // (mkExtAlias "catJamSynced.js" catJamSynced)
+// (mkExtAlias "aiBandBlocker.js" aiBandBlocker)

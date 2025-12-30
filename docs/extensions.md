@@ -287,3 +287,7 @@ Let you select and listen to a specific segment of the track
 ### catJamSynced
 
 Lets a cat jam in sync with the beat of your music
+
+### aiBandBlocker
+
+Automatically skip any known-AI artists

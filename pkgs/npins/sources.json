@@ -133,6 +133,19 @@
       "url": "https://github.com/BlafKing/spicetify-cat-jam-synced/archive/e7bfd49fcc13457bbc98e696294cf5cf43eb6c31.tar.gz",
       "hash": "1zs68lblwv4hfig5z380m4pcdd62ka6z81a1fqszv6g05zk1l9m7"
     },
+    "aiBandBlockerSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Reginald-Gillespie",
+        "repo": "Spotify-AI-Band-Blocker"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "2ad7ca115315b0bf2c79be2343e5cfdffa18598b",
+      "url": "https://github.com/Reginald-Gillespie/Spotify-AI-Band-Blocker/archive/2ad7ca115315b0bf2c79be2343e5cfdffa18598b.tar.gz",
+      "hash": "0jrcv7rl3gjmnkjnvqca7m7g2pdzdsbanr38wapbd6i0mb436dgj"
+    },
     "catppuccinSrc": {
       "type": "Git",
       "repository": {
