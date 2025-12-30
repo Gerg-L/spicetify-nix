@@ -7,7 +7,7 @@ title: Custom Apps
 ## Using unpackaged customApps
 
 ```nix
-programs.spicetify.enabledCustomApps= [
+programs.spicetify.enabledCustomApps = [
   ({
       # The source of the customApp
       # make sure you're using the correct branch
