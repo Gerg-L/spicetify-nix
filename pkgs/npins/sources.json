@@ -13,6 +13,19 @@
       "url": "https://github.com/Socketlike/spicetify-extensions/archive/1532dc050044a8beb7d9af0a550dff37ddebb1fc.tar.gz",
       "hash": "01mvakwccfyf2as3bn9igys3fdvy5fd7h4vn4r4mc6f4hblpyvsy"
     },
+    "aiBandBlockerSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Reginald-Gillespie",
+        "repo": "Spotify-AI-Band-Blocker"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "2ad7ca115315b0bf2c79be2343e5cfdffa18598b",
+      "url": "https://github.com/Reginald-Gillespie/Spotify-AI-Band-Blocker/archive/2ad7ca115315b0bf2c79be2343e5cfdffa18598b.tar.gz",
+      "hash": "0jrcv7rl3gjmnkjnvqca7m7g2pdzdsbanr38wapbd6i0mb436dgj"
+    },
     "aimarekinSrc": {
       "type": "Git",
       "repository": {
@@ -132,19 +145,6 @@
       "revision": "e7bfd49fcc13457bbc98e696294cf5cf43eb6c31",
       "url": "https://github.com/BlafKing/spicetify-cat-jam-synced/archive/e7bfd49fcc13457bbc98e696294cf5cf43eb6c31.tar.gz",
       "hash": "1zs68lblwv4hfig5z380m4pcdd62ka6z81a1fqszv6g05zk1l9m7"
-    },
-    "aiBandBlockerSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Reginald-Gillespie",
-        "repo": "Spotify-AI-Band-Blocker"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "2ad7ca115315b0bf2c79be2343e5cfdffa18598b",
-      "url": "https://github.com/Reginald-Gillespie/Spotify-AI-Band-Blocker/archive/2ad7ca115315b0bf2c79be2343e5cfdffa18598b.tar.gz",
-      "hash": "0jrcv7rl3gjmnkjnvqca7m7g2pdzdsbanr38wapbd6i0mb436dgj"
     },
     "catppuccinSrc": {
       "type": "Git",
@@ -467,9 +467,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "726097a544172523cdae15da8d3c84032aec8c3b",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/726097a544172523cdae15da8d3c84032aec8c3b.tar.gz",
-      "hash": "0zk3q3n9kq6s0xxyxzxliazpj3vkgwqf5bsq9yjzbk90p6cj824r"
+      "revision": "13f20c9ffbb0cb2bd6cda9cd47cb9dc929481d09",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/13f20c9ffbb0cb2bd6cda9cd47cb9dc929481d09.tar.gz",
+      "hash": "14xw299kswcp0jy5aw918pa3xnm75iksiri0bwn1vmw4fnll9qiz"
     },
     "oldLikeSrc": {
       "type": "Git",
