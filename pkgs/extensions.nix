@@ -160,7 +160,7 @@ let
   };
 
   beautifulLyrics = {
-    src = "${sources.beautifulLyricsSrc}/Builds/Release";
+    src = "${sources.beautifulLyricsSrc}/Extension/Builds/Release";
     name = "beautiful-lyrics.mjs";
   };
 
