@@ -41,9 +41,11 @@ jobs:
       - id: npins
         name: npins
         run: |
+          NPINS=$(nix run nixpkgs#npins -- --lock-file ./pkgs/npins/sources.json update -f 2>&1)
+          echo "$NPINS"
           MESSAGE="
           npins updates:
-            $(nix run nixpkgs#npins -- -d ./pkgs/npins update -f 2>&1 | { grep '.*Changes:$\|.*url:.*' || true; })"
+            $(echo "$NPINS" | { grep '.*Changes:$\|.*url:.*' || true; })"
 
           if [ -n "$(git diff-files 2>&1)" ]; then
             git add -A
@@ -57,6 +59,7 @@ jobs:
         run: |
           pushd pkgs
           nix run .#fetcher
+          git add generated.json
           popd
       - name: Commit and push
         run: |

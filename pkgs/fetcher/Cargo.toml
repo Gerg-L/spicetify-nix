@@ -5,11 +5,11 @@ edition = "2021"
 
 [dependencies]
 convert_case = "0.10.0"
-octocrab = "0.49.4"
+octocrab = "0.49.5"
 serde = "1.0.228"
-serde_json = "1.0.148"
+serde_json = "1.0.149"
 serde_with = "3.16.1"
-tokio = {version = "1.48.0", features = ["macros", "rt-multi-thread"]}
+tokio = {version = "1.49.0", features = ["macros", "rt-multi-thread"]}
 
 [lints.clippy]
 pedantic = { level = "warn", priority = -1 }

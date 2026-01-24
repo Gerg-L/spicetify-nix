@@ -6,78 +6,17 @@
 }:
 builtins.mapAttrs
   (
-    name:
-    let
-      getUrl =
-        {
-          url,
-          hash,
-          ...
-        }:
-        fetchurl {
-          inherit url;
-          sha256 = hash;
-        };
-      getZip =
-        {
-          url,
-          hash,
-          ...
-        }:
-        fetchzip {
-          inherit url;
-          sha256 = hash;
-          extension = "tar";
-        };
-      mkGitSource =
-        {
-          repository,
-          revision,
-          url ? null,
-          submodules,
-          hash,
-          ...
-        }@attrs:
-        assert repository ? type;
-        if url != null && !submodules then
-          getZip attrs
-        else
-          assert repository.type == "Git";
-          let
-            url' =
-              if repository.type == "Git" then
-                repository.url
-              else if repository.type == "GitHub" then
-                "https://github.com/${repository.owner}/${repository.repo}.git"
-              else if repository.type == "GitLab" then
-                "${repository.server}/${repository.repo_path}.git"
-              else
-                throw "Unrecognized repository type ${repository.type}";
-
-            name =
-              let
-                matched = builtins.match "^.*/([^/]*)(\\.git)?$" url';
-                short = builtins.substring 0 7 revision;
-                appendShort = if (builtins.match "[a-f0-9]*" revision) != null then "-${short}" else "";
-              in
-              "${if matched == null then "source" else builtins.head matched}${appendShort}";
-          in
-          fetchgit {
-            inherit name;
-            url = url';
-            rev = revision;
-            sha256 = hash;
-            fetchSubmodules = submodules;
-          };
-    in
-    spec:
-    assert spec ? type;
+    name: spec:
     let
       mayOverride =
-        path:
+        name: path:
         let
           envVarName = "NPINS_OVERRIDE_${saneName}";
-          saneName = lib.stringAsChars (c: if (builtins.match "[a-zA-Z0-9]" c) == null then "_" else c) name;
+          saneName = builtins.concatStringsSep "_" (
+            builtins.concatLists (
+              builtins.filter (x: builtins.isList x && x != [ "" ]) (builtins.split "([a-zA-Z0-9]*)" name)
+            )
+          );
           ersatz = builtins.getEnv envVarName;
         in
         if ersatz == "" then
@@ -91,22 +30,71 @@ builtins.mapAttrs
             else
               /. + builtins.getEnv "PWD" + "/${ersatz}"
           );
-      func =
-        {
-          Git = mkGitSource;
-          GitRelease = mkGitSource;
-          PyPi = getUrl;
-          Channel = getZip;
-          Tarball = getUrl;
+
+      path =
+        rec {
+          GitRelease = Git;
+          Channel = Tarball;
+
+          Git =
+            if spec.url != null && !spec.submodules then
+              Tarball
+            else
+              fetchgit (
+                let
+                  repo = spec.repository;
+                  url =
+                    {
+                      Git = repo.url;
+                      GitHub = "https://github.com/${repo.owner}/${repo.repo}.git";
+                      GitLab = "${repo.server}/${repo.repo_path}.git";
+                      Forgejo = "${repo.server}/${repo.owner}/${repo.repo}.git";
+                    }
+                    .${repo.type} or (throw "Unrecognized repository type ${repo.type}");
+                in
+                {
+                  name =
+                    let
+                      matched = builtins.match "^.*/([^/]*)(\\.git)?$" url;
+                      appendShort =
+                        if (builtins.match "[a-f0-9]*" spec.revision) != null then
+                          "-${builtins.substring 0 7 spec.revision}"
+                        else
+                          "";
+                    in
+                    "${if matched == null then "source" else builtins.head matched}${appendShort}";
+                  inherit url;
+
+                  rev = spec.revision;
+                  inherit (spec) hash;
+                  fetchSubmodules = spec.submodules;
+                }
+              );
+
+          PyPi = fetchurl {
+            inherit (spec) url hash;
+          };
+
+          Tarball = fetchzip {
+            inherit (spec) url hash;
+            extension = "tar";
+          };
+
         }
         .${spec.type} or (builtins.throw "Unknown source type ${spec.type}");
+
     in
-    spec // { outPath = mayOverride (func spec); }
+    spec
+    // {
+      outPath = if builtins ? currentSystem then mayOverride name path else path;
+    }
   )
   (
     let
       json = lib.importJSON ./sources.json;
     in
-    assert lib.assertMsg (json.version == 5) "Npins version mismatch!";
+    assert lib.assertMsg (json.version == 7) ''
+      npins version mismatch!
+    '';
     json.pins
   )

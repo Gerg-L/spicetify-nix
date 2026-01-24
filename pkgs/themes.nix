@@ -218,13 +218,6 @@
       ];
     };
 
-    orchis = {
-      name = "DarkGreen";
-      src = "${sources.orchisSrc}/DarkGreen";
-      extraPkgs = [ pkgs.fira ];
-
-    };
-
     dracula = {
       name = "Dracula";
       src = "${sources.draculaSrc}/Dracula";
