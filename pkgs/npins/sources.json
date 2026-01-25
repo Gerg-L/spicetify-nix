@@ -298,9 +298,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5d97321dcf07611525ccd493f401e8a608541aa5",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/5d97321dcf07611525ccd493f401e8a608541aa5.tar.gz",
-      "hash": "sha256-Tnbsv+VL+gigoEgv7M6rmuRczMX7truTdA5OEhoVwkE="
+      "revision": "2f7c539c1c2117705df2636e6dfd57059b3447bc",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/2f7c539c1c2117705df2636e6dfd57059b3447bc.tar.gz",
+      "hash": "sha256-dqhwg0djilGJW2Fl4FREGghIsSoejKPjZGMY7dg4SEs="
     },
     "historySidebarSrc": {
       "type": "Git",
