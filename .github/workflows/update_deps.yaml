@@ -25,6 +25,7 @@ jobs:
       - id: flake
         name: flake
         run: |
+          set -euxo pipefail
           MESSAGE="
           flake input updates:
           $(nix flake update --no-warn-dirty 2>&1 | { grep -v 'unpacking.*' || true; } | sed '1d')"
@@ -41,11 +42,10 @@ jobs:
       - id: npins
         name: npins
         run: |
-          NPINS=$(nix run nixpkgs#npins -- --lock-file ./pkgs/npins/sources.json update -f 2>&1)
-          echo "$NPINS"
+          set -euxo pipefail
           MESSAGE="
           npins updates:
-            $(echo "$NPINS" | { grep '.*Changes:$\|.*url:.*' || true; })"
+          $(nix run nixpkgs#npins -- --lock-file ./pkgs/npins/sources.json update -f 2>&1 | { grep '.*Changes:$\|.*revision:.*' || true; })"
 
           if [ -n "$(git diff-files 2>&1)" ]; then
             git add -A
@@ -57,12 +57,14 @@ jobs:
           fi
       - name: fetcher
         run: |
+          set -euxo pipefail
           pushd pkgs
           nix run .#fetcher
           git add generated.json
           popd
       - name: Commit and push
         run: |
+          set -euxo pipefail
           MESSAGE="
           ${{ steps.flake.outputs.message }}
           ${{ steps.npins.outputs.message }}
