@@ -298,9 +298,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e5f99acc26b78393150aa1583ab5efb9e2d4975a",
-      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/e5f99acc26b78393150aa1583ab5efb9e2d4975a.tar.gz",
-      "hash": "sha256-NJfzA0ydpPkctvx06OPbRME8141F8SxwvuZP3vdNkiI="
+      "revision": "8804aa7a404432014fde7c93740696cb379a15b0",
+      "url": "https://github.com/theRealPadster/spicetify-hide-podcasts/archive/8804aa7a404432014fde7c93740696cb379a15b0.tar.gz",
+      "hash": "sha256-1YUPa4yF2yMKOh8/Qg9QPAEQLPSp9YYtLZxLld4au/4="
     },
     "historySidebarSrc": {
       "type": "Git",
@@ -415,9 +415,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "46357b85c70337f0d99663b1b945dfefb66bbe1c",
-      "url": "https://github.com/theRealPadster/name-that-tune/archive/46357b85c70337f0d99663b1b945dfefb66bbe1c.tar.gz",
-      "hash": "sha256-xMsEtyb3kzChUT4aiXDSem2R6fsm3mAg0cilStrJJUI="
+      "revision": "d7892ee322f1942caccea8376795685f7b7af795",
+      "url": "https://github.com/theRealPadster/name-that-tune/archive/d7892ee322f1942caccea8376795685f7b7af795.tar.gz",
+      "hash": "sha256-IdKvdVnaoN+WkUs/nTaIEp+Syyiqb0GIKUII1/OUoTM="
     },
     "ncsVisualizerSrc": {
       "type": "Git",
@@ -584,9 +584,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "75bd17ba1c9a19730f14529fb18857d7b9c7c12e",
-      "url": "https://github.com/Resxt/startup-page/archive/75bd17ba1c9a19730f14529fb18857d7b9c7c12e.tar.gz",
-      "hash": "sha256-+Th5o00c3Y8U+Y/RGmRSkWWp97YCoCJmoESFLZf9dwM="
+      "revision": "766ca578fd79b7d9e1481083744c81e76101bc39",
+      "url": "https://github.com/Resxt/startup-page/archive/766ca578fd79b7d9e1481083744c81e76101bc39.tar.gz",
+      "hash": "sha256-JFjVbenXnNLl1KgHHBx9GKXnv2FO13DclEaoJ25lj5k="
     },
     "tetraxSrc": {
       "type": "Git",
