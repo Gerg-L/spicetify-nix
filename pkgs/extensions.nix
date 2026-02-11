@@ -208,6 +208,10 @@ let
     src = "${sources.aiBandBlockerSrc}/dist";
     name = "ai_band_blocker.js";
   };
+  sortPlay = {
+    src = sources.sortPlay;
+    name = "sort-play.js";
+  };
 
   sanitizeName =
     lib.replaceStrings
@@ -316,6 +320,7 @@ in
       simpleBeautifulLyrics
       catJamSynced
       aiBandBlocker
+      sortPlay
     ]
 
   )
@@ -344,3 +349,4 @@ in
 // (mkExtAlias "simpleBeautifulLyrics.js" simpleBeautifulLyrics)
 // (mkExtAlias "catJamSynced.js" catJamSynced)
 // (mkExtAlias "aiBandBlocker.js" aiBandBlocker)
+// (mkExtAlias "sort-play.js" sortPlay)
