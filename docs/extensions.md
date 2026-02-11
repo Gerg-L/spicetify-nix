@@ -291,3 +291,7 @@ Lets a cat jam in sync with the beat of your music
 ### aiBandBlocker
 
 Automatically skip any known-AI artists
+
+### sortPlay
+
+Sort playlists, albums, and artist pages by a wide range of metrics

@@ -562,6 +562,20 @@
       "url": "https://github.com/rxri/spicetify-extensions/archive/71bee6c28c59b937acef3cce30b30420540d359d.tar.gz",
       "hash": "sha256-7X0FgBElu27KbieWqXEh/qKRF/DV1aJprZ52+C2roI0="
     },
+    "sortPlaySrc": {
+      "type": "Git",
+      "repository": {
+        "hash": "sha256-jrk+uWmvCVwj8Qvg9enDcYaa8yH/dOYark7UzjWnWmk=",
+        "owner": "hoeci",
+        "repo": "sort-play",
+        "rev": "eed7a38b490f718cfc9d2d7307d8da37e850f4a2"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "eed7a38b490f718cfc9d2d7307d8da37e850f4a2",
+      "url": "https://github.com/hoeci/sort-play/archive/eed7a38b490f718cfc9d2d7307d8da37e850f4a2.tar.gz",
+      "hash": "sha256-jrk+uWmvCVwj8Qvg9enDcYaa8yH/dOYark7UzjWnWmk="
+    },
     "starRatingsSrc": {
       "type": "Git",
       "repository": {
