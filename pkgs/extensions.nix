@@ -209,7 +209,7 @@ let
     name = "ai_band_blocker.js";
   };
   sortPlay = {
-    src = "${sources.sortPlay}";
+    src = sources.sortPlay;
     name = "sort-play.js";
   };
 
