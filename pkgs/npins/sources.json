@@ -220,9 +220,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "848361136846412a0cd1fc5ae853714dd40b400b",
-      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/848361136846412a0cd1fc5ae853714dd40b400b.tar.gz",
-      "hash": "sha256-JWBlHxuP9hsKZ2A9UojrgakhcBUkb59auII6JNX7yaA="
+      "revision": "1db3f57288f47c9a7fa3c508f0389a84dbeb0aa1",
+      "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/1db3f57288f47c9a7fa3c508f0389a84dbeb0aa1.tar.gz",
+      "hash": "sha256-/WFQOKqoCYg+hEow/yST2/74LvvtSo+lhEqV8DUyLSU="
     },
     "draculaSrc": {
       "type": "Git",
@@ -454,9 +454,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5b80ff24f7e7b79f2102211e5de0c426f3789a0d",
-      "url": "https://github.com/spicetify/cli/archive/5b80ff24f7e7b79f2102211e5de0c426f3789a0d.tar.gz",
-      "hash": "sha256-UsbVHrLwl0e5iZidC5SzO+gRswNqG9AeSTGcTiisDhA="
+      "revision": "c06fc8f125fafda05cc046fa394c95b0734d71f6",
+      "url": "https://github.com/spicetify/cli/archive/c06fc8f125fafda05cc046fa394c95b0734d71f6.tar.gz",
+      "hash": "sha256-n05g7b2XziajUxjygLz8QXgor5mPneYeqmAfoiCGhGE="
     },
     "officialThemes": {
       "type": "Git",
@@ -565,16 +565,15 @@
     "sortPlaySrc": {
       "type": "Git",
       "repository": {
-        "hash": "sha256-jrk+uWmvCVwj8Qvg9enDcYaa8yH/dOYark7UzjWnWmk=",
+        "type": "GitHub",
         "owner": "hoeci",
-        "repo": "sort-play",
-        "rev": "eed7a38b490f718cfc9d2d7307d8da37e850f4a2"
+        "repo": "sort-play"
       },
-      "branch": "master",
+      "branch": "main",
       "submodules": false,
-      "revision": "eed7a38b490f718cfc9d2d7307d8da37e850f4a2",
-      "url": "https://github.com/hoeci/sort-play/archive/eed7a38b490f718cfc9d2d7307d8da37e850f4a2.tar.gz",
-      "hash": "sha256-jrk+uWmvCVwj8Qvg9enDcYaa8yH/dOYark7UzjWnWmk="
+      "revision": "11ff9320d2dc2838b6965454882d6c332150916d",
+      "url": "https://github.com/hoeci/sort-play/archive/11ff9320d2dc2838b6965454882d6c332150916d.tar.gz",
+      "hash": "sha256-bwHbRIjWq3egvHDc7Hg2DNVdDv4Ag6l2Uf1rHpqovpM="
     },
     "starRatingsSrc": {
       "type": "Git",
@@ -598,9 +597,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "766ca578fd79b7d9e1481083744c81e76101bc39",
-      "url": "https://github.com/Resxt/startup-page/archive/766ca578fd79b7d9e1481083744c81e76101bc39.tar.gz",
-      "hash": "sha256-JFjVbenXnNLl1KgHHBx9GKXnv2FO13DclEaoJ25lj5k="
+      "revision": "1b72a1eb7633d6b5d7ba1123cfde20a20423497a",
+      "url": "https://github.com/Resxt/startup-page/archive/1b72a1eb7633d6b5d7ba1123cfde20a20423497a.tar.gz",
+      "hash": "sha256-WZurSxRSu3fb0o07ANsV2od3VUBib5Si24d2F9SxMe0="
     },
     "tetraxSrc": {
       "type": "Git",
