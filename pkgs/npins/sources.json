@@ -428,9 +428,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "9c3209e08457035f885166ca4035b569ef2ce72c",
-      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/9c3209e08457035f885166ca4035b569ef2ce72c.tar.gz",
-      "hash": "sha256-OHjU91eBbFYly0ygzvx3qfOcdXt1BTHFYoTmqdVbPQs="
+      "revision": "c57ce2f564629e034727a844a8ca18ee491c4355",
+      "url": "https://github.com/Konsl/spicetify-ncs-visualizer/archive/c57ce2f564629e034727a844a8ca18ee491c4355.tar.gz",
+      "hash": "sha256-VwMwdbTOkIlooLSHYL9fPiHky1y2qrK9BjSuzzYzrBo="
     },
     "nordSrc": {
       "type": "Git",
@@ -454,9 +454,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "c06fc8f125fafda05cc046fa394c95b0734d71f6",
-      "url": "https://github.com/spicetify/cli/archive/c06fc8f125fafda05cc046fa394c95b0734d71f6.tar.gz",
-      "hash": "sha256-n05g7b2XziajUxjygLz8QXgor5mPneYeqmAfoiCGhGE="
+      "revision": "5a6b235743ea0d2a0b235ee451ec3fbab7ba7033",
+      "url": "https://github.com/spicetify/cli/archive/5a6b235743ea0d2a0b235ee451ec3fbab7ba7033.tar.gz",
+      "hash": "sha256-b8mk6yRM958NPU888aryAgoghEHtiVcHFNCp4J0F+qg="
     },
     "officialThemes": {
       "type": "Git",
@@ -558,9 +558,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "71bee6c28c59b937acef3cce30b30420540d359d",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/71bee6c28c59b937acef3cce30b30420540d359d.tar.gz",
-      "hash": "sha256-7X0FgBElu27KbieWqXEh/qKRF/DV1aJprZ52+C2roI0="
+      "revision": "22f4ee7d990ea2e3b0b282b47cac398573b2ed05",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/22f4ee7d990ea2e3b0b282b47cac398573b2ed05.tar.gz",
+      "hash": "sha256-hK56uekVa9ZjljjwMXavyxOvfBMWvGhvfNbhYjX8a80="
     },
     "sortPlaySrc": {
       "type": "Git",
@@ -571,9 +571,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "11ff9320d2dc2838b6965454882d6c332150916d",
-      "url": "https://github.com/hoeci/sort-play/archive/11ff9320d2dc2838b6965454882d6c332150916d.tar.gz",
-      "hash": "sha256-bwHbRIjWq3egvHDc7Hg2DNVdDv4Ag6l2Uf1rHpqovpM="
+      "revision": "a0e2e0e8077487ca19dbc4857f08e70a53cb9a50",
+      "url": "https://github.com/hoeci/sort-play/archive/a0e2e0e8077487ca19dbc4857f08e70a53cb9a50.tar.gz",
+      "hash": "sha256-goLYom/BpKdlGe3dFkOdcc3Q5RqudMoKQsKGu3WI5mY="
     },
     "starRatingsSrc": {
       "type": "Git",
