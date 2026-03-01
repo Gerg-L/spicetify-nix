@@ -454,9 +454,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "5a6b235743ea0d2a0b235ee451ec3fbab7ba7033",
-      "url": "https://github.com/spicetify/cli/archive/5a6b235743ea0d2a0b235ee451ec3fbab7ba7033.tar.gz",
-      "hash": "sha256-b8mk6yRM958NPU888aryAgoghEHtiVcHFNCp4J0F+qg="
+      "revision": "c430e68eef8318d364bef1d38790719ec7244fe5",
+      "url": "https://github.com/spicetify/cli/archive/c430e68eef8318d364bef1d38790719ec7244fe5.tar.gz",
+      "hash": "sha256-iWGwaepnbWBwlXQoINCI8P89BIk4bt+rE80Mwm16B4s="
     },
     "officialThemes": {
       "type": "Git",
@@ -571,9 +571,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "a0e2e0e8077487ca19dbc4857f08e70a53cb9a50",
-      "url": "https://github.com/hoeci/sort-play/archive/a0e2e0e8077487ca19dbc4857f08e70a53cb9a50.tar.gz",
-      "hash": "sha256-goLYom/BpKdlGe3dFkOdcc3Q5RqudMoKQsKGu3WI5mY="
+      "revision": "af541822abe5454b4c6b58679d3ac1ebc8e347d3",
+      "url": "https://github.com/hoeci/sort-play/archive/af541822abe5454b4c6b58679d3ac1ebc8e347d3.tar.gz",
+      "hash": "sha256-oELezGNs48LzUfYZuyMUJ1lZ1mHd+xL9x2siXoLrK8s="
     },
     "starRatingsSrc": {
       "type": "Git",
