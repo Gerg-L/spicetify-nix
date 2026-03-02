@@ -7,7 +7,7 @@ self:
   ...
 }:
 let
-  spicePkgs = self.packages or self.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = self.packages or self.legacyPackages.${pkgs.stdenv.hostPlatform.system};
 
   extensionType = lib.types.either lib.types.pathInStore (
     lib.types.submodule {
@@ -81,7 +81,7 @@ in
                 rev = "02badb180c902f986a4ea4e4033e69fe8eec6a55";
                 hash = "sha256-KD9VfHtlN0BIHC4inlooxw5XC4xlHNC5evASRqP7pUA=";
               }
-              Or a relative path 
+              Or a relative path
 
               ./myTheme
             '';

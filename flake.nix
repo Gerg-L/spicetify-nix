@@ -44,14 +44,14 @@
         default = pkgs.mkShellNoCC { packages = [ pkgs.npins ]; };
         fetcher = pkgs.mkShell {
           packages = builtins.attrValues { inherit (pkgs) rust-analyzer clippy rustfmt; };
-          inputsFrom = [ self.legacyPackages.${pkgs.stdenv.system}.fetcher ];
+          inputsFrom = [ self.legacyPackages.${pkgs.stdenv.hostPlatform.system}.fetcher ];
         };
         docs = pkgs.mkShellNoCC {
           # use npm run dev
           packages = [
             pkgs.nodejs
           ];
-          env.SPICETIFY_OPTIONS_JSON = self.legacyPackages.${pkgs.stdenv.system}.docs.optionsJSON;
+          env.SPICETIFY_OPTIONS_JSON = self.legacyPackages.${pkgs.stdenv.hostPlatform.system}.docs.optionsJSON;
         };
       });
     }

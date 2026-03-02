@@ -51,7 +51,7 @@ Where `<module>` is:
 ```nix
 imports = [
   # Example for NixOS
-  spicetify-nix.nixosModules.spicetify 
+  spicetify-nix.nixosModules.spicetify
 ];
 ```
 
@@ -80,7 +80,7 @@ Alternatively set `programs.spicetify.enable = false;` and add
      # spicePkgs = spicetify-nix.packages;
 
      # With flakes:
-     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
    in
    programs.spicetify = {
      enable = true;
