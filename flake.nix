@@ -33,7 +33,7 @@
         }
       );
 
-      formatter = eachSystem (pkgs: pkgs.nixfmt-rfc-style);
+      formatter = eachSystem (pkgs: pkgs.nixfmt);
 
       devShells = eachSystem (pkgs: {
         default = pkgs.mkShellNoCC { packages = [ pkgs.npins ]; };
