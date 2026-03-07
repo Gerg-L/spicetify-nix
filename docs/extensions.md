@@ -270,11 +270,11 @@ Spotify lyrics page.
 
 ### allOfArtist
 
-Create a playlist with all songs of an artist 
+Create a playlist with all songs of an artist
 
 ### oldLikeButton
 
-Add the Old Like Button in tracklists 
+Add the Old Like Button in tracklists
 
 ### oldCoverClick
 
