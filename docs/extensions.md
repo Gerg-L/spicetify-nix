@@ -270,11 +270,11 @@ Spotify lyrics page.
 
 ### allOfArtist
 
-Create a playlist with all songs of an artist 
+Create a playlist with all songs of an artist
 
 ### oldLikeButton
 
-Add the Old Like Button in tracklists 
+Add the Old Like Button in tracklists
 
 ### oldCoverClick
 
@@ -295,3 +295,21 @@ Automatically skip any known-AI artists
 ### sortPlay
 
 Sort playlists, albums, and artist pages by a wide range of metrics
+
+### availabilityMap
+
+Adds a context menu action to open a map showing all the markets
+where a track is available.
+
+### extendedCopy
+
+Copy the name, ID, URI or data from the web API of the selected
+element(s) to the clipboard.
+
+### madeForYouShortcut
+
+Adds a shortcut to the "Made for you" page to the sidebar.
+
+### romajiConvert
+
+Convert japanese text to romaji, hiragana or katakana.

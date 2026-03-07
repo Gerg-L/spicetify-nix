@@ -510,6 +510,19 @@
       "url": "https://github.com/kyrie25/spicetify-oneko/archive/589a8cc3a3939b8c9fc4f2bd087ed433e9af5002.tar.gz",
       "hash": "sha256-lestrf4sSwGbBqy+0J7u5IoU6xNKHh35IKZxt/phpNY="
     },
+    "pithayaAppsSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Pithaya",
+        "repo": "spicetify-apps"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "1433ef35cf245f343a2ca43649d9bf5df4ad6a46",
+      "url": "https://github.com/Pithaya/spicetify-apps/archive/1433ef35cf245f343a2ca43649d9bf5df4ad6a46.tar.gz",
+      "hash": "sha256-Aj28yydwZEAN1aohW+IWLIkVltN4Ud7tCY0Rtg6hmI0="
+    },
     "playlistIconsSrc": {
       "type": "Git",
       "repository": {

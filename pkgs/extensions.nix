@@ -213,6 +213,23 @@ let
     name = "sort-play.js";
   };
 
+  availabilityMap = {
+    src = "${sources.pithayaAppsSrc}/extensions/availability-map/dist";
+    name = "availability-map.js";
+  };
+  extendedCopy = {
+    src = "${sources.pithayaAppsSrc}/extensions/extended-copy/dist";
+    name = "extended-copy.js";
+  };
+  madeForYouShortcut = {
+    src = "${sources.pithayaAppsSrc}/extensions/made-for-you-shortcut/dist";
+    name = "made-for-you-shortcut.js";
+  };
+  romajiConvert = {
+    src = "${sources.pithayaAppsSrc}/extensions/romaji-convert/dist";
+    name = "romaji-convert.js";
+  };
+
   sanitizeName =
     lib.replaceStrings
       [
@@ -321,6 +338,10 @@ in
       catJamSynced
       aiBandBlocker
       sortPlay
+      availabilityMap
+      extendedCopy
+      madeForYouShortcut
+      romajiConvert
     ]
 
   )
@@ -349,4 +370,8 @@ in
 // (mkExtAlias "simpleBeautifulLyrics.js" simpleBeautifulLyrics)
 // (mkExtAlias "catJamSynced.js" catJamSynced)
 // (mkExtAlias "aiBandBlocker.js" aiBandBlocker)
-// (mkExtAlias "sort-play.js" sortPlay)
+// (mkExtAlias "sortPlay.js" sortPlay)
+// (mkExtAlias "availabilityMap.js" availabilityMap)
+// (mkExtAlias "extendedCopy.js" extendedCopy)
+// (mkExtAlias "madeForYouShortcut.js" madeForYouShortcut)
+// (mkExtAlias "romajiConvert.js" romajiConvert)
