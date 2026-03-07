@@ -208,9 +208,30 @@ let
     src = "${sources.aiBandBlockerSrc}/dist";
     name = "ai_band_blocker.js";
   };
+
   sortPlay = {
     src = sources.sortPlaySrc;
     name = "sort-play.js";
+  };
+
+  availabilityMap = {
+    src = "${sources.pithayaAppsSrc}/extensions/availability-map/dist";
+    name = "availability-map.js";
+  };
+
+  extendedCopy = {
+    src = "${sources.pithayaAppsSrc}/extensions/extended-copy/dist";
+    name = "extended-copy.js";
+  };
+
+  madeForYouShortcut = {
+    src = "${sources.pithayaAppsSrc}/extensions/made-for-you-shortcut/dist";
+    name = "made-for-you-shortcut.js";
+  };
+
+  romajiConvert = {
+    src = "${sources.pithayaAppsSrc}/extensions/romaji-convert/dist";
+    name = "romaji-convert.js";
   };
 
   sanitizeName =
@@ -321,6 +342,10 @@ in
       catJamSynced
       aiBandBlocker
       sortPlay
+      availabilityMap
+      extendedCopy
+      madeForYouShortcut
+      romajiConvert
     ]
 
   )
@@ -350,3 +375,7 @@ in
 // (mkExtAlias "catJamSynced.js" catJamSynced)
 // (mkExtAlias "aiBandBlocker.js" aiBandBlocker)
 // (mkExtAlias "sort-play.js" sortPlay)
+// (mkExtAlias "availability-map.js" availabilityMap)
+// (mkExtAlias "extended-copy.js" extendedCopy)
+// (mkExtAlias "made-for-you-shortcut.js" madeForYouShortcut)
+// (mkExtAlias "romaji-convert.js" romajiConvert)
