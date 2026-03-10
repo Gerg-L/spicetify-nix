@@ -133,6 +133,19 @@
       "url": "https://github.com/nimsandu/spicetify-bloom/archive/654cfed682b94613b0029997ffafc1eadccc5bef.tar.gz",
       "hash": "sha256-+pIf2N/yR8XwltRStSePUWDkm2x96hBbDrHbCF8a86k="
     },
+    "bojanraicSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "bojanraic",
+        "repo": "spicetify-extensions"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "64084cbcd07e3588e4714f7c54c2c9fa6a448678",
+      "url": "https://github.com/bojanraic/spicetify-extensions/archive/64084cbcd07e3588e4714f7c54c2c9fa6a448678.tar.gz",
+      "hash": "sha256-pK2j7RvwSqf+Eu5+UaPwCy24hehOeLn+HcAZQEosZpQ="
+    },
     "catJamSyncedSrc": {
       "type": "Git",
       "repository": {
