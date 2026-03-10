@@ -317,3 +317,31 @@ Convert japanese text to romaji, hiragana or katakana.
 ### spicyLyrics
 
 Spicy Lyrics is a better lyrics experience (compared to Spotify Lyrics) for Spotify. It brings word-by-word lyrics (karaoke style), beautiful animations, and more.
+
+### privateSession
+
+Always start Spotify with Private Session active.
+
+### sideHide
+
+Hides the sidebar (Friends Activity & Now Playing) and associated action buttons.
+
+### ytVideo
+
+Search and watch YouTube videos for Spotify songs without ads, cookies, or tracking.
+
+### sessionStats
+
+Track listening statistics for your current Spotify session.
+
+### focusMode
+
+Creates a distraction-free listening experience with only album art visible.
+
+### sidebarCustomizer
+
+Customize the visibility of right-hand sidebar elements (Friends, Queue, Connect, Now Playing).
+
+### pinnedSidebarPanel
+
+Automatically restores a chosen sidebar panel after a timeout.

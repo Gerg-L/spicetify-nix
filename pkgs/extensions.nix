@@ -233,6 +233,34 @@ let
     src = "${sources.spicyLyricsSrc}/builds";
     name = "spicy-lyrics.mjs";
   };
+  privateSession = {
+    src = "${sources.bojanraicSrc}/private-session/dist";
+    name = "private-session.js";
+  };
+  sideHide = {
+    src = "${sources.bojanraicSrc}/side-hide/dist";
+    name = "side-hide.js";
+  };
+  ytVideo = {
+    src = "${sources.bojanraicSrc}/yt-video/dist";
+    name = "yt-video.js";
+  };
+  sessionStats = {
+    src = "${sources.bojanraicSrc}/sesh-stats/dist";
+    name = "sesh-stats.js";
+  };
+  focusMode = {
+    src = "${sources.bojanraicSrc}/focus-mode/dist";
+    name = "focus-mode.js";
+  };
+  sidebarCustomizer = {
+    src = "${sources.bojanraicSrc}/sidebar-customizer/dist";
+    name = "sidebar-customizer.js";
+  };
+  pinnedSidebarPanel = {
+    src = "${sources.bojanraicSrc}/pinned-sidebar-panel/dist";
+    name = "pinned-sidebar-panel.js";
+  };
 
   sanitizeName =
     lib.replaceStrings
@@ -347,6 +375,13 @@ in
       madeForYouShortcut
       romajiConvert
       spicyLyrics
+      privateSession
+      sideHide
+      ytVideo
+      sessionStats
+      focusMode
+      sidebarCustomizer
+      pinnedSidebarPanel
     ]
 
   )
@@ -381,3 +416,10 @@ in
 // (mkExtAlias "madeForYouShortcut.js" madeForYouShortcut)
 // (mkExtAlias "romajiConvert.js" romajiConvert)
 // (mkExtAlias "spicyLyrics.js" spicyLyrics)
+// (mkExtAlias "privateSession.js" privateSession)
+// (mkExtAlias "sideHide.js" sideHide)
+// (mkExtAlias "ytVideo.js" ytVideo)
+// (mkExtAlias "sessionStats.js" sessionStats)
+// (mkExtAlias "focusMode.js" focusMode)
+// (mkExtAlias "sidebarCustomizer.js" sidebarCustomizer)
+// (mkExtAlias "pinnedSidebarPanel.js" pinnedSidebarPanel)
