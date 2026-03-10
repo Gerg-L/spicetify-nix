@@ -229,6 +229,10 @@ let
     src = "${sources.pithayaAppsSrc}/extensions/romaji-convert/dist";
     name = "romaji-convert.js";
   };
+  spicyLyrics = {
+    src = "${sources.spicyLyricsSrc}/builds";
+    name = "spicy-lyrics.mjs";
+  };
 
   sanitizeName =
     lib.replaceStrings
@@ -342,6 +346,7 @@ in
       extendedCopy
       madeForYouShortcut
       romajiConvert
+      spicyLyrics
     ]
 
   )
@@ -375,3 +380,4 @@ in
 // (mkExtAlias "extendedCopy.js" extendedCopy)
 // (mkExtAlias "madeForYouShortcut.js" madeForYouShortcut)
 // (mkExtAlias "romajiConvert.js" romajiConvert)
+// (mkExtAlias "spicyLyrics.js" spicyLyrics)

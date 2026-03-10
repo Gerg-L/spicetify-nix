@@ -588,6 +588,22 @@
       "url": "https://github.com/hoeci/sort-play/archive/1c1ab133654b642f63359a4daa52ed1d209f419f.tar.gz",
       "hash": "sha256-in0rFiOjEWx0o0ebYcg5h3WQsKXsqsqD0mDrFL7Vb8E="
     },
+    "spicyLyricsSrc": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Spikerko",
+        "repo": "spicy-lyrics"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "5.19.12",
+      "revision": "d221033de0cdc73b6d19a1d42c08a4c1e7859ad6",
+      "url": "https://api.github.com/repos/Spikerko/spicy-lyrics/tarball/refs/tags/5.19.12",
+      "hash": "sha256-htGtfA6PwAyrHS7WMska7UINVerVBukXQ+tLQxxfnlo="
+    },
     "starRatingsSrc": {
       "type": "Git",
       "repository": {

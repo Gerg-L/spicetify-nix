@@ -313,3 +313,7 @@ Adds a shortcut to the "Made for you" page to the sidebar.
 ### romajiConvert
 
 Convert japanese text to romaji, hiragana or katakana.
+
+### spicyLyrics
+
+Spicy Lyrics is a better lyrics experience (compared to Spotify Lyrics) for Spotify. It brings word-by-word lyrics (karaoke style), beautiful animations, and more.
