@@ -298,9 +298,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "dc828617ce6a599298eb1a4e4a7675674abe1f4e",
-      "url": "https://github.com/Astromations/Hazy/archive/dc828617ce6a599298eb1a4e4a7675674abe1f4e.tar.gz",
-      "hash": "sha256-43R18jmKtb4j5PgDgS1TGPUsif0Rw9MASpcUWoEdeBI="
+      "revision": "1e85e31f3d86e17f32eb0bd3864a3951d1bf6fb1",
+      "url": "https://github.com/Astromations/Hazy/archive/1e85e31f3d86e17f32eb0bd3864a3951d1bf6fb1.tar.gz",
+      "hash": "sha256-3nlELMNv9HRLTv6KjeCOYL734LGh1BkISUPHoQ9bQow="
     },
     "hidePodcastsSrc": {
       "type": "Git",
@@ -597,9 +597,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "2d76f7aed7f50b35d99dd954830a20dac4533933",
-      "url": "https://github.com/hoeci/sort-play/archive/2d76f7aed7f50b35d99dd954830a20dac4533933.tar.gz",
-      "hash": "sha256-SSNVrYe/T77Q8/JNYn3yNka1gTkjwKd0s4P74Dt9Mrc="
+      "revision": "20193d8c1f06f979b90fbeeb355710cdab5641f7",
+      "url": "https://github.com/hoeci/sort-play/archive/20193d8c1f06f979b90fbeeb355710cdab5641f7.tar.gz",
+      "hash": "sha256-Cp1gcq29KqN1GdSwq1aH5pfkP7DsSRzxdy9OZWtx300="
     },
     "spicyLyricsSrc": {
       "type": "GitRelease",
@@ -612,10 +612,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "5.19.12",
-      "revision": "d221033de0cdc73b6d19a1d42c08a4c1e7859ad6",
-      "url": "https://api.github.com/repos/Spikerko/spicy-lyrics/tarball/refs/tags/5.19.12",
-      "hash": "sha256-htGtfA6PwAyrHS7WMska7UINVerVBukXQ+tLQxxfnlo="
+      "version": "5.20.0",
+      "revision": "92e8e46ba8d0e22cad407d83ec2546eabab0cece",
+      "url": "https://api.github.com/repos/Spikerko/spicy-lyrics/tarball/refs/tags/5.20.0",
+      "hash": "sha256-YngjQpC9atzX9M8UtPjqfUuD9f/tcDeTdIonqJaZFyc="
     },
     "starRatingsSrc": {
       "type": "Git",
