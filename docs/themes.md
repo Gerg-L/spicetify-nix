@@ -172,12 +172,6 @@ Another Spicetify theme inspired by Microsoft's Fluent Design System.
 [Source](https://github.com/nimsandu/spicetify-bloom)
 ![preview](https://github.com/nimsandu/spicetify-bloom/blob/main/images/dark.png?raw=true)
 
-### lucid
-
-A minimal and dynamic Bloom-inspired theme for Spicetify.
-[Source](https://github.com/sanoojes/Spicetify-Lucid)
-![preview](https://github.com/sanoojes/Spicetify-Lucid/blob/main/assets/images/base.png?raw=true)
-
 ### hazy
 
 A translucent spicetify theme. [Source](https://github.com/Astromations/Hazy)

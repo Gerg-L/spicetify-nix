@@ -393,19 +393,6 @@
       "url": "https://github.com/hroland/spicetify-show-local-files/archive/1bfd2fc80385b21ed6dd207b00a371065e53042e.tar.gz",
       "hash": "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU="
     },
-    "lucidSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "sanoojes",
-        "repo": "Spicetify-Lucid"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "3746c1eb8cdda4d5b680dcc769ad629b467a4520",
-      "url": "https://github.com/sanoojes/Spicetify-Lucid/archive/3746c1eb8cdda4d5b680dcc769ad629b467a4520.tar.gz",
-      "hash": "sha256-ciA3LptZeflCwkUq66E2ZCvxpLH8/XVJyMimjdU9Fk0="
-    },
     "marketplaceSrc": {
       "type": "Git",
       "repository": {
