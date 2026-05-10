@@ -142,9 +142,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "6a2d534a849cae77163abe58099645048fa5a223",
-      "url": "https://github.com/bojanraic/spicetify-extensions/archive/6a2d534a849cae77163abe58099645048fa5a223.tar.gz",
-      "hash": "sha256-s3gWAECbMHKWa3w6oxQpcVKJeWX37lWAxY6Lipc5zOo="
+      "revision": "cb10c39c621a3a6a8a3e1daeb3a3189770270b9e",
+      "url": "https://github.com/bojanraic/spicetify-extensions/archive/cb10c39c621a3a6a8a3e1daeb3a3189770270b9e.tar.gz",
+      "hash": "sha256-MZzxRqG83L0XOeGzm7FcO18rtMZ/btdA3/kFwQ6aqa4="
     },
     "catJamSyncedSrc": {
       "type": "Git",
@@ -402,9 +402,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "08837133a0b24ff8ff4b59384ec13538c9d7dee0",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/08837133a0b24ff8ff4b59384ec13538c9d7dee0.tar.gz",
-      "hash": "sha256-x1Sk6sT/mWZ9HR9e/JTpRovCZ3Oujm4oA3JFuNcstcw="
+      "revision": "5a2099118517620f553ec4943732353cfa9f0f12",
+      "url": "https://github.com/spicetify/spicetify-marketplace/archive/5a2099118517620f553ec4943732353cfa9f0f12.tar.gz",
+      "hash": "sha256-fu1+heevfAl4XMy4N5JBPEGijFSIWmvOoccQF5rhaSA="
     },
     "nameThatTuneSrc": {
       "type": "Git",
