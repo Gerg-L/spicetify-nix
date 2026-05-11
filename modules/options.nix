@@ -260,8 +260,8 @@ in
 
     # If you have to use this you should probably make a PR instead
     updateXpui = lib.mkOption {
-      type = lib.types.either (lib.types.attrsOf lib.types.str) (
-        lib.types.functionTo (lib.types.attrsOf lib.types.str)
+      type = lib.types.either (lib.types.attrsOf lib.types.anything) (
+        lib.types.functionTo (lib.types.attrsOf lib.types.anything)
       );
       default = { };
       internal = true;
