@@ -643,6 +643,19 @@
       "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/b27071aa5929257d60bea9646ef6a163764c40a6.tar.gz",
       "hash": "sha256-QCUnRyshzoZkFbXe6xoQMWdsDbA/XeUHX4+TxrxcDaw="
     },
+    "tokyoNightSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "evening-hs",
+        "repo": "Spotify-Tokyo-Night-Theme"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "d88ca06eaeeb424d19e0d6f7f8e614e4bce962be",
+      "url": "https://github.com/evening-hs/Spotify-Tokyo-Night-Theme/archive/d88ca06eaeeb424d19e0d6f7f8e614e4bce962be.tar.gz",
+      "hash": "sha256-cLj9v8qtHsdV9FfzV2Qf4pWO8AOBXu51U/lUMvdEXAk="
+    },
     "waddlePlaysSrc": {
       "type": "Git",
       "repository": {
