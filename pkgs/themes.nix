@@ -248,4 +248,9 @@
         }
       ];
     };
+
+    tokyoNight = {
+      name = "Tokyo Night";
+      src = sources.tokyoNightSrc;
+    };
   }
