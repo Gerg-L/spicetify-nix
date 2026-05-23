@@ -3,6 +3,9 @@
   "extends": [
     "config:recommended"
   ],
+  "schedule": [
+    "* 0-3 1 * *"
+  ],
   "packageRules": [
     {
       "groupName": "all non-major dependencies",
