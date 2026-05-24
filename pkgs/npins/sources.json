@@ -259,9 +259,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "54cf65d6a6eb94864a5e4ba02513171a119a8453",
-      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/54cf65d6a6eb94864a5e4ba02513171a119a8453.tar.gz",
-      "hash": "sha256-CDm3HPWdtwzZUaxQoIXS5CntWv7rGA5hmYhI64I1fPo="
+      "revision": "69caf130df741b3c40fc767263cdf63b0e3063c1",
+      "url": "https://github.com/JulienMaille/dribbblish-dynamic-theme/archive/69caf130df741b3c40fc767263cdf63b0e3063c1.tar.gz",
+      "hash": "sha256-AW2BKis8jBoEckWtIdG1NTwv9nqo3OeTzYyBhTLmT3U="
     },
     "fluentSrc": {
       "type": "Git",
@@ -467,9 +467,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "d24c51f8f68af24e95a53194e3b263de0cc16f89",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/d24c51f8f68af24e95a53194e3b263de0cc16f89.tar.gz",
-      "hash": "sha256-8U8OGtjhLBvZ0yeMYHVBBMMemN8YkcWVSPLEf9WVoPg="
+      "revision": "26e77f560d9eed3edc0f89c4304520d579631d54",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/26e77f560d9eed3edc0f89c4304520d579631d54.tar.gz",
+      "hash": "sha256-jEBkyzCjcN6eUZ/RLmxRIPlrL1PEvKGOr/9auQOsqPg="
     },
     "oldLikeSrc": {
       "type": "Git",
@@ -600,9 +600,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "483dc851cb8c7fedac7ec8fcbb363a38a5131980",
-      "url": "https://github.com/brimell/spicetify-star-ratings/archive/483dc851cb8c7fedac7ec8fcbb363a38a5131980.tar.gz",
-      "hash": "sha256-UFxJmC5nt4xs9TKdQJWsJr3EXWnwkHCadtju5XPLLGI="
+      "revision": "fc5f78e74cb7db2b13582e18d4fa962a9f122796",
+      "url": "https://github.com/brimell/spicetify-star-ratings/archive/fc5f78e74cb7db2b13582e18d4fa962a9f122796.tar.gz",
+      "hash": "sha256-+CvJAh6tdPJxX45nISbjFBStl25BVRFrzqsdmXmyCUg="
     },
     "startPageSrc": {
       "type": "Git",
