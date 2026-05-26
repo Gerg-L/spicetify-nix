@@ -243,6 +243,10 @@ Background Vocals and Side Vocals.
 Adds the ability to add a track | playlist to the top of your Queue, instantly
 playing it after the currently playing track ends.
 
+### oneko
+
+cat follow mouse (real). A fork of oneko.js modified for Spicetify.
+
 ### starRatings
 
 Rate your music out of 5 stars
