@@ -393,6 +393,19 @@
       "url": "https://github.com/hroland/spicetify-show-local-files/archive/1bfd2fc80385b21ed6dd207b00a371065e53042e.tar.gz",
       "hash": "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU="
     },
+    "lucidSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "sanoojes/spicetify-lucid",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "8b90f887f08098ee32ab58fddff8c8076da35e11",
+      "url": "https://gitlab.com/api/v4/projects/sanoojes%2Fspicetify-lucid/repository/archive.tar.gz?sha=8b90f887f08098ee32ab58fddff8c8076da35e11",
+      "hash": "sha256-NL1jH36wHfVNvSdMGLsMXPsvN8RHZ7zc1rClmeABx8M="
+    },
     "marketplaceSrc": {
       "type": "Git",
       "repository": {
@@ -574,19 +587,6 @@
       "revision": "60554c512739c6f2084879efe9d8a88f1dd16646",
       "url": "https://github.com/rxri/spicetify-extensions/archive/60554c512739c6f2084879efe9d8a88f1dd16646.tar.gz",
       "hash": "sha256-jxrB0ucW0ODLX4FYMhhl9WDFB+Cs0jE/1CbgrLtnJEE="
-    },
-    "lucidSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitLab",
-        "repo_path": "sanoojes/spicetify-lucid",
-        "server": "https://gitlab.com/"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "b219c26a4bc4c9b468cd9bb7f0c1848cdd6179c1",
-      "url": "https://gitlab.com/api/v4/projects/sanoojes%2Fspicetify-lucid/repository/archive.tar.gz?sha=b219c26a4bc4c9b468cd9bb7f0c1848cdd6179c1",
-      "hash": "sha256-4L1HQafMTYpNQTb6I8MhwMxHBj9REQTDeTXsa8phtKY="
     },
     "sortPlaySrc": {
       "type": "Git",
