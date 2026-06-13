@@ -205,6 +205,24 @@
       overwriteAssets = true;
 
     };
+
+    # originally based on bloom
+    lucid =
+      let
+        pkgSrc = pkgs.callPackage ./lucid.nix { inherit sources; };
+      in
+      {
+        name = "Lucid";
+        src = pkgSrc;
+        overwriteAssets = true;
+        requiredExtensions = [
+          {
+            src = pkgSrc;
+            name = "theme.js";
+          }
+        ];
+      };
+
     dracula = {
       name = "Dracula";
       src = "${sources.draculaSrc}/Dracula";
