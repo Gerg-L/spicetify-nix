@@ -584,9 +584,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "e17176087592c752bc843e8eddd8449ae6e6806a",
-      "url": "https://github.com/hoeci/sort-play/archive/e17176087592c752bc843e8eddd8449ae6e6806a.tar.gz",
-      "hash": "sha256-3SqsuCJGgjim3P/YGDBnFHSxBZVfYI1S/QR0dwEzXD4="
+      "revision": "3ea074f1205f8ff28ac5611e218ab8e7442a9bb3",
+      "url": "https://github.com/hoeci/sort-play/archive/3ea074f1205f8ff28ac5611e218ab8e7442a9bb3.tar.gz",
+      "hash": "sha256-5dbh0xrmUiaKggifN8nIJpqMGOcTsjLK1hxgcsxyJUE="
     },
     "spicyLyricsSrc": {
       "type": "GitRelease",
