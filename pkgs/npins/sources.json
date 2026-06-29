@@ -393,6 +393,19 @@
       "url": "https://github.com/hroland/spicetify-show-local-files/archive/1bfd2fc80385b21ed6dd207b00a371065e53042e.tar.gz",
       "hash": "sha256-neKR2WaZ1K10dZZ0nAKJJEHNS56o8vCpYpi+ZJYJ/gU="
     },
+    "lucidSrc": {
+      "type": "Git",
+      "repository": {
+        "type": "GitLab",
+        "repo_path": "sanoojes/spicetify-lucid",
+        "server": "https://gitlab.com/"
+      },
+      "branch": "main",
+      "submodules": false,
+      "revision": "8b90f887f08098ee32ab58fddff8c8076da35e11",
+      "url": "https://gitlab.com/api/v4/projects/sanoojes%2Fspicetify-lucid/repository/archive.tar.gz?sha=8b90f887f08098ee32ab58fddff8c8076da35e11",
+      "hash": "sha256-NL1jH36wHfVNvSdMGLsMXPsvN8RHZ7zc1rClmeABx8M="
+    },
     "marketplaceSrc": {
       "type": "Git",
       "repository": {
