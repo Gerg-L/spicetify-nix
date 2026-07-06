@@ -223,14 +223,6 @@
         ];
       };
 
-    dracula = {
-      name = "Dracula";
-      src = "${sources.draculaSrc}/Dracula";
-
-      injectCss = false;
-
-    };
-
     nord = {
       name = "Nord";
       src = "${sources.nordSrc}/Nord";
