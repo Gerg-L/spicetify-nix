@@ -48,7 +48,7 @@ Shows the song cover, title, and artist in fullscreen.
 ### keyboardShortcut
 
 Vimium-like navigation of spotify. See keyboard shortcuts
-[here.](https://spicetify.app/docs/advanced-usage/extensions#keyboard-shortcut)
+[here.](https://spicetify.app/docs/customization/extensions#keyboard-shortcut)
 
 ### loopyLoop
 

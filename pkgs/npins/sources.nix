@@ -93,7 +93,7 @@ builtins.mapAttrs
     let
       json = lib.importJSON ./sources.json;
     in
-    assert lib.assertMsg (json.version == 7) ''
+    assert lib.assertMsg (json.version == 8) ''
       npins version mismatch!
     '';
     json.pins
