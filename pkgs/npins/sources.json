@@ -237,19 +237,6 @@
       "url": "https://github.com/JulienMaille/spicetify-dynamic-theme/archive/792fc3ae8f2650e5a1744ad73f6f9fc64fabb77c.tar.gz",
       "hash": "sha256-U+zjcXy6lwGVtljlD2aSfOrVJWLKQR39gy86wgEbrMU="
     },
-    "draculaSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Darkempire78",
-        "repo": "Dracula-Spicetify"
-      },
-      "branch": "master",
-      "submodules": false,
-      "revision": "97bf149e7afbe408509862591a57f1d8e2dfc5d7",
-      "url": "https://github.com/Darkempire78/Dracula-Spicetify/archive/97bf149e7afbe408509862591a57f1d8e2dfc5d7.tar.gz",
-      "hash": "sha256-IS0A/5zTZou9yQJ0zpqAwiW2COt/TGoscN99WGFR9FA="
-    },
     "dribbblishDynamicSrc": {
       "type": "Git",
       "repository": {

@@ -205,13 +205,6 @@
       overwriteAssets = true;
 
     };
-    dracula = {
-      name = "Dracula";
-      src = "${sources.draculaSrc}/Dracula";
-
-      injectCss = false;
-
-    };
 
     nord = {
       name = "Nord";

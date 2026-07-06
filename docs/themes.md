@@ -126,12 +126,6 @@ Stay comfy while listening to music. Rounded corners and dark blues. Comes in
 many variations. [Source](https://github.com/Comfy-Themes/Spicetify)
 ![preview](https://github.com/Comfy-Themes/Spicetify/blob/main/images/color-schemes/comfy.png?raw=true)
 
-### dracula
-
-Default spotify with the colors of the popular scheme.
-[Source](https://github.com/Darkempire78/Dracula-Spicetify)
-![preview](https://github.com/Darkempire78/Dracula-Spicetify/blob/master/screenshot.png?raw=true)
-
 ### nord
 
 Default spotify with the colors of the popular scheme.
