@@ -4,6 +4,8 @@
   writeText,
   crudini,
   zenity,
+  nodejs,
+  esbuild,
 }:
 lib.makeOverridable (
   {
@@ -18,6 +20,26 @@ lib.makeOverridable (
     wayland,
     colorScheme,
   }:
+
+  let
+    # Build a fixed version of spicetify-cli that includes the wrapper
+    # Needed for spicetify-cli >= 2.44.0 where wrapper is a build artifact
+    spicetify-cli-fixed = spicetify-cli.overrideAttrs (old: {
+      nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+        nodejs
+        esbuild
+      ];
+      postInstall = (old.postInstall or "") + ''
+        if [ ! -f "$out/share/spicetify/jsHelper/spicetifyWrapper.js" ]; then
+          echo "Building spicetify wrapper..."
+          chmod -R u+w $out/share/spicetify/jsHelper
+          esbuild ${old.src}/src/jsHelper/spicetifyWrapper/index.js \
+            --bundle --minify --target=chrome108 --format=iife \
+            --outfile=$out/share/spicetify/jsHelper/spicetifyWrapper.js
+        fi
+      '';
+    });
+  in
 
   spotify.overrideAttrs (
     old:
@@ -84,7 +106,7 @@ lib.makeOverridable (
 
           ${extraCommands}
 
-          ${lib.getExe spicetify-cli} --no-restart backup apply
+          ${lib.getExe spicetify-cli-fixed} --no-restart backup apply
         '';
       }
       // lib.optionalAttrs (stdenv.isLinux && wayland != null) {
