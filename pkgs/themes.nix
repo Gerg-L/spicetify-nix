@@ -226,7 +226,7 @@
       ];
       extraCommands = ''
         # remove the auto-update functionality
-        echo "\n" >> ./Extensions/theme.js
+        printf '\n' >> ./Extensions/theme.js
         cat ./Themes/Comfy/theme.script.js >> ./Extensions/theme.js
       '';
     };
