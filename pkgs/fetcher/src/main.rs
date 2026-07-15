@@ -1,5 +1,5 @@
-use convert_case::{Case, Casing};
 use futures::StreamExt as _;
+use heck::ToLowerCamelCase;
 use octocrab::{
     Octocrab,
     models::{Repository, repos::Content},
@@ -254,9 +254,10 @@ struct Output {
     snippets: HashMap<String, String>,
 }
 
-fn sanitize_name(name: &str) -> String {
-    name.to_case(Case::Camel)
-        .replace(|c| !char::is_alphanumeric(c), "")
+fn sanitize_name(name: impl AsRef<str>) -> String {
+    name.as_ref()
+        .to_lower_camel_case()
+        .replace(|c: char| !c.is_ascii_alphanumeric(), "")
 }
 
 async fn search_tag(crab: &Octocrab, tag: &str) -> Vec<Repository> {
