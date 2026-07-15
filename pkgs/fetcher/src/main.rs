@@ -1,11 +1,11 @@
 use convert_case::{Case, Casing};
 use futures::StreamExt as _;
 use octocrab::{
-    models::{repos::Content, Repository},
     Octocrab,
+    models::{Repository, repos::Content},
 };
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
-use serde_with::{serde_as, OneOrMany};
+use serde::{Deserialize, Serialize, de::DeserializeOwned};
+use serde_with::{OneOrMany, serde_as};
 use std::{
     collections::{HashMap, HashSet},
     fs::File,
@@ -47,7 +47,7 @@ impl FetchURL {
         let prefetched: Prefetch = serde_json::from_str(&String::from_utf8_lossy(&command_stdout))
             .expect("failed to parse nix store prefetch-file output, how did you make this fail?");
 
-        FetchURL {
+        Self {
             url,
             hash: prefetched.hash,
         }
@@ -63,7 +63,8 @@ impl FetchURL {
 
         let prefetched: Prefetch = serde_json::from_str(&String::from_utf8_lossy(&command_stdout))
             .expect("failed to parse nix store prefetch-file output, how did you make this fail?");
-        FetchURL {
+
+        Self {
             url: url.to_string(),
             hash: prefetched.hash,
         }
@@ -386,8 +387,7 @@ where
         for manifest in tuple.manifests.0 {
             let branch = manifest
                 .branch()
-                .map(ToOwned::to_owned)
-                .unwrap_or_else(|| get_default_branch(&tuple.repo));
+                .map_or_else(|| get_default_branch(&tuple.repo), ToOwned::to_owned);
 
             let Some(rev) = get_rev(crab, &owner, name, &branch).await else {
                 continue;
