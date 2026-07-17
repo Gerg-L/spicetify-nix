@@ -216,6 +216,9 @@
       name = "Comfy";
       src = "${sources.comfySrc}/Comfy";
 
+      # theme.js is registered below as a required extension.
+      injectThemeJs = false;
+
       overwriteAssets = true;
 
       requiredExtensions = [
