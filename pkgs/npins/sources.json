@@ -389,9 +389,9 @@
       },
       "branch": "dist",
       "submodules": false,
-      "revision": "47b1e8ac219e811b46d660647cc7b9d00f34baca",
-      "url": "https://github.com/spicetify/spicetify-marketplace/archive/47b1e8ac219e811b46d660647cc7b9d00f34baca.tar.gz",
-      "hash": "sha256-6bSL/Vo/GPAVDAO6G2fxYdiMVitG3Xxka0oD+HL0wBE="
+      "revision": "3b4a4836e3fac8bac93a5c0490fd9ebc3d76600b",
+      "url": "https://github.com/spicetify/spicetify-marketplace/archive/3b4a4836e3fac8bac93a5c0490fd9ebc3d76600b.tar.gz",
+      "hash": "sha256-tQhN0Wl4S1zqShvFHILbtZSPvDbi4EZYzAQLh3FGVQg="
     },
     "nameThatTuneSrc": {
       "type": "Git",
@@ -441,9 +441,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "7062ff48ab698c9d292477017e801bb9ae91b9c4",
-      "url": "https://github.com/spicetify/cli/archive/7062ff48ab698c9d292477017e801bb9ae91b9c4.tar.gz",
-      "hash": "sha256-YHCu1uhxYgF15WtDwZaZFYHLGLvzXNyeOkXsP0qAXSg="
+      "revision": "5caf1949001465a7cde0bc0d5a36fb1da2f92043",
+      "url": "https://github.com/spicetify/cli/archive/5caf1949001465a7cde0bc0d5a36fb1da2f92043.tar.gz",
+      "hash": "sha256-NAZhYe9llIcq4VcqVeqVs0NAPjMJeZqrNvPe34msi0M="
     },
     "officialThemes": {
       "type": "Git",
@@ -454,9 +454,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "3f55a3702bd6d87799dc97023e0fe2b11d88c704",
-      "url": "https://github.com/spicetify/spicetify-themes/archive/3f55a3702bd6d87799dc97023e0fe2b11d88c704.tar.gz",
-      "hash": "sha256-bAvDskxatmQ5/kEh4Xm3h81QPZZjW4BKx2K7JAgV9aI="
+      "revision": "3dae51f0229323c256b1a1bfd433e89a0fbb72c5",
+      "url": "https://github.com/spicetify/spicetify-themes/archive/3dae51f0229323c256b1a1bfd433e89a0fbb72c5.tar.gz",
+      "hash": "sha256-aR2mCSn7OsxfGdlyXZleBbx+qdnwybmSlKaiOZguXoA="
     },
     "oldLikeSrc": {
       "type": "Git",
@@ -558,9 +558,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "64cb2b8c235b13cf943e4c265c19199f69e5d170",
-      "url": "https://github.com/rxri/spicetify-extensions/archive/64cb2b8c235b13cf943e4c265c19199f69e5d170.tar.gz",
-      "hash": "sha256-gzmKE1wMPIBrtJ2NhkaFlx8Q8wCGjDjALhH8TewVMyQ="
+      "revision": "5da6cf1bb723f9efd0177f5fa4f4673b9e0c0936",
+      "url": "https://github.com/rxri/spicetify-extensions/archive/5da6cf1bb723f9efd0177f5fa4f4673b9e0c0936.tar.gz",
+      "hash": "sha256-8sx98scFd3C/n9KqpHPVf8/F6UX9lB9t23QMenJtZcM="
     },
     "sortPlaySrc": {
       "type": "Git",
@@ -571,9 +571,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "390fd485718a4392f6d0fd00ed0a831f29bc5384",
-      "url": "https://github.com/hoeci/sort-play/archive/390fd485718a4392f6d0fd00ed0a831f29bc5384.tar.gz",
-      "hash": "sha256-2zIx8TBPgE8hFMAREUQCWiIfodhjcSoIB7EK/OeATb0="
+      "revision": "bbd74bb487bf043df1dd5a1719c375403dd337db",
+      "url": "https://github.com/hoeci/sort-play/archive/bbd74bb487bf043df1dd5a1719c375403dd337db.tar.gz",
+      "hash": "sha256-L0yAFsYBs2oPsSPg5KZbCrBrSZoB1lmhEaoPdJZqNHE="
     },
     "spicyLyricsSrc": {
       "type": "GitRelease",
@@ -586,10 +586,10 @@
       "version_upper_bound": null,
       "release_prefix": null,
       "submodules": false,
-      "version": "6.3.12",
-      "revision": "4576d022b39e98291d71c75b0d4d355bcc332ced",
-      "url": "https://api.github.com/repos/Spikerko/spicy-lyrics/tarball/refs/tags/6.3.12",
-      "hash": "sha256-Fusolz6jdD9z6xJZBPlALxLYA3T5sKed3jqkY7FBNP0="
+      "version": "6.3.15",
+      "revision": "2a14863f8c29782f9ab3becff2b1360dfb74a4fb",
+      "url": "https://api.github.com/repos/Spikerko/spicy-lyrics/tarball/refs/tags/6.3.15",
+      "hash": "sha256-U4J4sXY3TmMUcVuC76AIVKuzDlv9cY+2h72ZTWt9eyM="
     },
     "starRatingsSrc": {
       "type": "Git",
@@ -639,9 +639,9 @@
       },
       "branch": "main",
       "submodules": false,
-      "revision": "b27071aa5929257d60bea9646ef6a163764c40a6",
-      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/b27071aa5929257d60bea9646ef6a163764c40a6.tar.gz",
-      "hash": "sha256-QCUnRyshzoZkFbXe6xoQMWdsDbA/XeUHX4+TxrxcDaw="
+      "revision": "5fb8e541c5cb50009c6ee5e4e872ca6127603fc7",
+      "url": "https://github.com/Theblockbuster1/spicetify-extensions/archive/5fb8e541c5cb50009c6ee5e4e872ca6127603fc7.tar.gz",
+      "hash": "sha256-/B84yIop6wdIWPzFADzP1DZayrcg6GEjIlXoL2WKO0w="
     },
     "tokyoNightSrc": {
       "type": "Git",
