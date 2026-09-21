@@ -91,19 +91,6 @@
       "url": "https://github.com/MLGRussianXP/spicetify-best-moment/archive/3fef2f55cd4cc16503165136a532ba717bee89b5.tar.gz",
       "hash": "sha256-Pp+theb7Jg96t1pgM8/n7Fx1YserdMFhH56TMUHnFDE="
     },
-    "betterGenresSrc": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "Vexcited",
-        "repo": "better-spotify-genres"
-      },
-      "branch": "build",
-      "submodules": false,
-      "revision": "2b634d7a0cb159715076758efd48a29105b8ff21",
-      "url": "https://github.com/Vexcited/better-spotify-genres/archive/2b634d7a0cb159715076758efd48a29105b8ff21.tar.gz",
-      "hash": "sha256-3VZTiHhYO7RBZ/u1hZ/fcKO0u/Rg9/iTos8uZ0Ogpag="
-    },
     "betterLibrarySrc": {
       "type": "GitRelease",
       "repository": {
