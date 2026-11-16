@@ -1,6 +1,8 @@
 {
   lib,
   rustPlatform,
+  aws-lc,
+  pkg-config,
 }:
 let
   toml = (lib.importTOML (./Cargo.toml)).package;
@@ -17,6 +19,14 @@ rustPlatform.buildRustPackage {
     ];
   };
   cargoLock.lockFile = ./Cargo.lock;
+  strictDeps = true;
+
+  nativeBuildInputs = [
+    pkg-config
+  ];
+  buildInputs = [
+    aws-lc
+  ];
 
   meta.mainProgram = "fetcher";
 }
